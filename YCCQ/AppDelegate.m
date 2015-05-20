@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AppKeFuLib.h"
+
+#define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // 初始化微客服
+    [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];
     return YES;
 }
 
@@ -26,12 +30,11 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[AppKeFuLib sharedInstance] logout];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
