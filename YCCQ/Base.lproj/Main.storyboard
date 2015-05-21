@@ -18,7 +18,7 @@
                         <sections>
                             <tableViewSection id="eZN-24-Gl9">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BannerCell" rowHeight="189" id="lLg-uH-ge0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BannerCell" rowHeight="189" id="lLg-uH-ge0">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lLg-uH-ge0" id="61O-z7-Xnn">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -73,7 +73,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FunctionCell" rowHeight="238" id="lwd-bl-w7t">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FunctionCell" rowHeight="238" id="lwd-bl-w7t">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lwd-bl-w7t" id="biV-s1-6Sh">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -308,7 +308,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BaoKuanCell" rowHeight="412" id="rJ6-bi-nfe">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BaoKuanCell" rowHeight="412" id="rJ6-bi-nfe">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rJ6-bi-nfe" id="Eds-AN-sp6">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -414,7 +414,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarTypeCell" rowHeight="80" id="Zcq-Gi-yoj">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CarTypeCell" rowHeight="80" id="Zcq-Gi-yoj">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zcq-Gi-yoj" id="Yfs-gE-Jjs">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -576,7 +576,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarBrandCell" rowHeight="212" id="Iym-4U-Zfo">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CarBrandCell" rowHeight="212" id="Iym-4U-Zfo">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Iym-4U-Zfo" id="WIV-p8-O2H">
                                             <autoresizingMask key="autoresizingMask"/>
