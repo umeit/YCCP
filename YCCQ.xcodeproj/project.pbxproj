@@ -54,6 +54,7 @@
 		030A759E1B0B41ED008753C8 /* YCBannerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerService.m; sourceTree = "<group>"; };
 		030A75A01B0B4211008753C8 /* YCCarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarService.h; sourceTree = "<group>"; };
 		030A75A11B0B4211008753C8 /* YCCarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarService.m; sourceTree = "<group>"; };
+		031E1DFA1B0DBEB600FA2F47 /* UtilDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilDefine.h; sourceTree = "<group>"; };
 		03242C391B0C5764006E8B82 /* AppKeFuLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppKeFuLib.h; sourceTree = "<group>"; };
 		03242C3A1B0C5764006E8B82 /* AppKeFuResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppKeFuResources.bundle; sourceTree = "<group>"; };
 		03242C3B1B0C5764006E8B82 /* libAppKeFuLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppKeFuLib.a; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				031E1DFA1B0DBEB600FA2F47 /* UtilDefine.h */,
 				03242C371B0C574B006E8B82 /* Lib */,
 				030A759C1B0B41D2008753C8 /* Service */,
 				030A75981B0B3F69008753C8 /* Entity */,
@@ -284,6 +286,7 @@
 				TargetAttributes = {
 					03952DD21B05CA120055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = ZZAGTE8AU9;
 					};
 					03952DEE1B05CA130055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -463,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: cui feng (ELT565XH6R)";
 				INFOPLIST_FILE = YCCQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -483,6 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YCCQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
