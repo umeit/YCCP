@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void (^BannerBlock) (NSArray *);
+
 @interface YCBannerService : NSObject
 
-+ (id)sharedInstance;
-
 - (NSArray *)bannerImages;
+
+- (void)bannersWithBlock:(BannerBlock)block;
 
 @end

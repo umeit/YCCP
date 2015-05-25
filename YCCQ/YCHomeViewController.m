@@ -11,7 +11,9 @@
 #import "YCBaoKuanCollectionViewCell.h"
 #import "YCCarService.h"
 #import "YCBaoKuanEntity.h"
+#import "YCBannerEntity.h"
 #import "AppKeFuLib.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource>
 
@@ -23,8 +25,9 @@
     [super viewDidLoad];
     
     self.carService = [[YCCarService alloc] init];
+    self.bannerService = [[YCBannerService alloc] init];
     
-    [self initBanner];
+    [self setBanner];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +38,6 @@
 #pragma -mark Action
 
 - (IBAction)talkButtonPress:(id)sender {
-    
     [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
                                       withWorkgroupName:@"usecar"
                                  hideRightBarButtonItem:YES
@@ -52,31 +54,32 @@
                                     withKefuAvatarImage:nil
                                     withUserAvatarImage:nil
                              httpLinkURLClickedCallBack:nil];
-    
 }
-
-
 
 #pragma -mark Private
 
-- (void)initBanner
+- (void)setBanner
 {
-    [[[YCBannerService sharedInstance] bannerImages]
-     enumerateObjectsUsingBlock:^(UIImage *image, NSUInteger idx, BOOL *stop) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:
-                                  CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
-                                             0,
-                                             CGRectGetWidth(self.bannerScrollView.frame),
-                                             CGRectGetHeight(self.bannerScrollView.frame))];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.image = image;
-        [self.bannerScrollView addSubview:imageView];
+    [self.bannerService bannersWithBlock:^(NSArray * banners) {
+        // 往 ScrollView 中添加图片
+        [banners enumerateObjectsUsingBlock:^(YCBannerEntity *banner, NSUInteger idx, BOOL *stop) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:
+                                      CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
+                                                 0,
+                                                 CGRectGetWidth(self.bannerScrollView.frame),
+                                                 CGRectGetHeight(self.bannerScrollView.frame))];
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            [imageView setImageWithURL:banner.imageURL];
+#warning 以后要改成 Button
+            [self.bannerScrollView addSubview:imageView];
+        }];
+        
+        NSInteger imagesCount = [banners count];
+        // 图片的数量
+        self.bannerPageControl.numberOfPages = imagesCount;
+        // ScrollView 的大小
+        self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount, CGRectGetHeight(self.bannerScrollView.frame));
     }];
-    
-    NSInteger imagesCount = [[[YCBannerService sharedInstance] bannerImages] count];
-    self.bannerPageControl.numberOfPages = imagesCount;
-    
-    self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount, CGRectGetHeight(self.bannerScrollView.frame));
 }
 
 
