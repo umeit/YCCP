@@ -75,7 +75,6 @@
 		030A759E1B0B41ED008753C8 /* YCBannerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerService.m; sourceTree = "<group>"; };
 		030A75A01B0B4211008753C8 /* YCCarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarService.h; sourceTree = "<group>"; };
 		030A75A11B0B4211008753C8 /* YCCarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarService.m; sourceTree = "<group>"; };
-		031E1DFA1B0DBEB600FA2F47 /* UtilDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilDefine.h; sourceTree = "<group>"; };
 		03242C391B0C5764006E8B82 /* AppKeFuLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppKeFuLib.h; sourceTree = "<group>"; };
 		03242C3A1B0C5764006E8B82 /* AppKeFuResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppKeFuResources.bundle; sourceTree = "<group>"; };
 		03242C3B1B0C5764006E8B82 /* libAppKeFuLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppKeFuLib.a; sourceTree = "<group>"; };
@@ -143,6 +142,7 @@
 		03EE9F411B130F550051CC57 /* UIViewController+GViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GViewController.m"; sourceTree = "<group>"; };
 		03EE9F431B13129F0051CC57 /* YCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCWebViewController.h; sourceTree = "<group>"; };
 		03EE9F441B13129F0051CC57 /* YCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCWebViewController.m; sourceTree = "<group>"; };
+		03EE9F471B1339A70051CC57 /* UtilDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +256,8 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				03EE9F461B1339A70051CC57 /* Util */,
 				03EE9F371B130AC30051CC57 /* Controller */,
-				031E1DFA1B0DBEB600FA2F47 /* UtilDefine.h */,
 				03242C371B0C574B006E8B82 /* Lib */,
 				030A759C1B0B41D2008753C8 /* Service */,
 				030A75981B0B3F69008753C8 /* Entity */,
@@ -399,6 +399,14 @@
 				03EE9F411B130F550051CC57 /* UIViewController+GViewController.m */,
 			);
 			path = GViewController;
+			sourceTree = "<group>";
+		};
+		03EE9F461B1339A70051CC57 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				03EE9F471B1339A70051CC57 /* UtilDefine.h */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
