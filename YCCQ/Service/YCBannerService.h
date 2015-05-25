@@ -13,8 +13,6 @@ typedef void (^BannerBlock) (NSArray *);
 
 @interface YCBannerService : NSObject
 
-- (NSArray *)bannerImages;
-
 - (void)bannersWithBlock:(BannerBlock)block;
 
 @end

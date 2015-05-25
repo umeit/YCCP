@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) NSString *linkPath;
 
+@property (strong, nonatomic) NSURL *linkURL;
+
 @end

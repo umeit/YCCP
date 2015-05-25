@@ -14,8 +14,13 @@
 #import "YCBannerEntity.h"
 #import "AppKeFuLib.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIButton+AFNetworking.h"
+#import "UIViewController+GViewController.h"
+#import "YCWebViewController.h"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource>
+
+@property (strong, nonatomic) NSArray *banners;
 
 @end
 
@@ -36,7 +41,7 @@
 
 
 #pragma -mark Action
-
+// 进入在线咨询
 - (IBAction)talkButtonPress:(id)sender {
     [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
                                       withWorkgroupName:@"usecar"
@@ -56,6 +61,16 @@
                              httpLinkURLClickedCallBack:nil];
 }
 
+// 进入 banner 所在链接
+- (void)bannerDidTouch:(UIButton *)bannerButton {
+    YCBannerEntity *bannner = self.banners[bannerButton.tag];
+    if (bannner) {
+        YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithName:@"YCWebViewController"];
+        webViewController.url = bannner.linkURL;
+        [self.navigationController pushViewController:webViewController animated:YES];
+    }
+}
+
 #pragma -mark Private
 
 - (void)setBanner
@@ -63,22 +78,26 @@
     [self.bannerService bannersWithBlock:^(NSArray * banners) {
         // 往 ScrollView 中添加图片
         [banners enumerateObjectsUsingBlock:^(YCBannerEntity *banner, NSUInteger idx, BOOL *stop) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:
-                                      CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
-                                                 0,
-                                                 CGRectGetWidth(self.bannerScrollView.frame),
-                                                 CGRectGetHeight(self.bannerScrollView.frame))];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            [imageView setImageWithURL:banner.imageURL];
-#warning 以后要改成 Button
-            [self.bannerScrollView addSubview:imageView];
+            UIButton *button = [[UIButton alloc] initWithFrame:
+                                CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
+                                           0,
+                                           CGRectGetWidth(self.bannerScrollView.frame),
+                                           CGRectGetHeight(self.bannerScrollView.frame))];
+            button.contentMode = UIViewContentModeScaleAspectFill;
+            [button setBackgroundImageForState:UIControlStateNormal withURL:banner.imageURL];
+            [button addTarget:self action:@selector(bannerDidTouch:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = idx;
+            [self.bannerScrollView addSubview:button];
+            
+            // 图片的数量
+            NSInteger imagesCount = [banners count];
+            self.bannerPageControl.numberOfPages = imagesCount;
+            // ScrollView 的大小
+            self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount,
+                                                           CGRectGetHeight(self.bannerScrollView.frame));
         }];
         
-        NSInteger imagesCount = [banners count];
-        // 图片的数量
-        self.bannerPageControl.numberOfPages = imagesCount;
-        // ScrollView 的大小
-        self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount, CGRectGetHeight(self.bannerScrollView.frame));
+        self.banners = banners;
     }];
 }
 

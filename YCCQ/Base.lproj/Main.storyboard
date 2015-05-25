@@ -729,6 +729,23 @@
             </objects>
             <point key="canvasLocation" x="1366.5" y="-273"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="AJq-6w-mbn">
+            <objects>
+                <viewController storyboardIdentifier="YCWebViewController" hidesBottomBarWhenPushed="YES" id="fSe-hM-jyX" customClass="YCWebViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="e3Q-uw-JeS">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </webView>
+                    <connections>
+                        <outlet property="webView" destination="e3Q-uw-JeS" id="Vp5-Mx-Egh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKG-1U-ddo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2052" y="-273"/>
+        </scene>
         <!--主页-->
         <scene sceneID="1Uo-RJ-Dxj">
             <objects>
