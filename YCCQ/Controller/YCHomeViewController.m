@@ -37,11 +37,6 @@
     [self setBaokuan];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
 #pragma -mark Action
 // 进入在线咨询
 - (IBAction)talkButtonPress:(id)sender {
@@ -63,7 +58,7 @@
                              httpLinkURLClickedCallBack:nil];
 }
 
-// 进入 banner 所在链接
+// 进入 banner 所指链接
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
     if (bannner) {

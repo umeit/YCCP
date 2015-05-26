@@ -24,15 +24,24 @@
     
     [self initTableData];
     
-    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"售后头图"] forSize:CGSizeMake(self.tableView.frame.size.width, 300)];
+    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"售后头图"]
+                                                                             forSize:CGSizeMake(self.tableView.frame.size.width, 150)];
     
     [self.tableView setTableHeaderView:headerView];
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [(ParallaxHeaderView *)self.tableView.tableHeaderView refreshBlurViewForNewImage];
+//    CGRect oldBounds = self.tableView.bounds;
+//    self.tableView.bounds = CGRectMake(oldBounds.origin.x,
+//                                       0,
+//                                       oldBounds.size.width,
+//                                       oldBounds.size.height - 64);
 }
 
 #pragma mark - Table view data source
@@ -42,7 +51,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -52,6 +61,17 @@
     [self configureCell:cell with:self.aftermarkets[indexPath.row]];
     
     return cell;
+}
+
+#pragma mark - TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YCAftermarketEntity *aftermarket = self.aftermarkets[indexPath.row];
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",aftermarket.tel];
+    UIWebView * callWebview = [[UIWebView alloc] init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:callWebview];
 }
 
 #pragma mark - ScrollViewDelegate
@@ -123,7 +143,9 @@
                                                                               tel:@"400-400-400"
                                                                             image:@"用车急问"];
     
-    self.aftermarkets = @[aftermarket1, aftermarket1, aftermarket1, aftermarket1, aftermarket1, aftermarket1];
+    self.aftermarkets = @[aftermarket1, aftermarket1, aftermarket1, aftermarket1,
+                          aftermarket1, aftermarket1, aftermarket1, aftermarket1,
+                          aftermarket1, aftermarket1];
 }
 
 @end

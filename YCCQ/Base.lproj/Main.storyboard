@@ -739,21 +739,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AftermarketCell" rowHeight="54" id="kJo-xu-mj0" customClass="YCAfterMarketCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AftermarketCell" rowHeight="54" id="kJo-xu-mj0" customClass="YCAfterMarketCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJo-xu-mj0" id="bxX-Dx-i66">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QCK-CF-fhg">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="342" y="2" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="mo6-GB-DDD"/>
+                                                <constraint firstAttribute="width" constant="50" id="zBO-VX-jEL"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="mo6-GB-DDD"/>
+                                                    <exclude reference="zBO-VX-jEL"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="mo6-GB-DDD"/>
+                                                    <include reference="zBO-VX-jEL"/>
+                                                </mask>
                                             </variation>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-3H-gCa">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="8" y="2" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="AhL-O7-WvJ"/>
+                                                <constraint firstAttribute="width" constant="50" id="VYz-sS-NNW"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="AhL-O7-WvJ"/>
+                                                    <exclude reference="VYz-sS-NNW"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="AhL-O7-WvJ"/>
+                                                    <include reference="VYz-sS-NNW"/>
+                                                </mask>
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thl-A4-1Eo">
@@ -761,16 +787,29 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="66" y="16" width="42" height="21"/>
-                                            </variation>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SxR-3H-gCa" firstAttribute="top" secondItem="bxX-Dx-i66" secondAttribute="topMargin" constant="-8" id="4KM-Eh-gKt"/>
+                                        <constraint firstItem="QCK-CF-fhg" firstAttribute="trailing" secondItem="bxX-Dx-i66" secondAttribute="trailingMargin" id="LXQ-yk-EHN"/>
+                                        <constraint firstItem="thl-A4-1Eo" firstAttribute="leading" secondItem="SxR-3H-gCa" secondAttribute="trailing" constant="8" id="dsr-LV-IJ3"/>
+                                        <constraint firstItem="SxR-3H-gCa" firstAttribute="leading" secondItem="bxX-Dx-i66" secondAttribute="leadingMargin" id="p84-zY-kjL"/>
+                                        <constraint firstItem="QCK-CF-fhg" firstAttribute="top" secondItem="bxX-Dx-i66" secondAttribute="topMargin" constant="-6" id="wdh-Tu-Lhd"/>
+                                        <constraint firstItem="thl-A4-1Eo" firstAttribute="top" secondItem="bxX-Dx-i66" secondAttribute="topMargin" constant="8" id="wlH-vz-rMq"/>
+                                    </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="QCK-CF-fhg"/>
                                             <exclude reference="SxR-3H-gCa"/>
                                             <exclude reference="thl-A4-1Eo"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="4KM-Eh-gKt"/>
+                                            <exclude reference="p84-zY-kjL"/>
+                                            <exclude reference="dsr-LV-IJ3"/>
+                                            <exclude reference="wlH-vz-rMq"/>
+                                            <exclude reference="LXQ-yk-EHN"/>
+                                            <exclude reference="wdh-Tu-Lhd"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -778,6 +817,14 @@
                                             <include reference="QCK-CF-fhg"/>
                                             <include reference="SxR-3H-gCa"/>
                                             <include reference="thl-A4-1Eo"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="4KM-Eh-gKt"/>
+                                            <include reference="p84-zY-kjL"/>
+                                            <include reference="dsr-LV-IJ3"/>
+                                            <include reference="wlH-vz-rMq"/>
+                                            <include reference="LXQ-yk-EHN"/>
+                                            <include reference="wdh-Tu-Lhd"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
