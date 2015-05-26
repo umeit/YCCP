@@ -30,6 +30,11 @@
 		03952DE71B05CA120055D36B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE61B05CA120055D36B /* Images.xcassets */; };
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
 		03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
+		03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E31B1465A9004DD5E3 /* YCAftermarketTableViewController.m */; };
+		03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */; };
+		03EBD2EA1B146FA1004DD5E3 /* YCAfterMarketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E91B146FA1004DD5E3 /* YCAfterMarketCell.m */; };
+		03EBD2EE1B14736F004DD5E3 /* ParallaxHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2ED1B14736F004DD5E3 /* ParallaxHeaderView.m */; };
+		03EBD2F21B147388004DD5E3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2F11B147388004DD5E3 /* UIImage+ImageEffects.m */; };
 		03EE9EFD1B12EFA80051CC57 /* YCBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */; };
 		03EE9F121B12FC260051CC57 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F001B12FC260051CC57 /* AFHTTPRequestOperation.m */; };
 		03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F021B12FC260051CC57 /* AFHTTPRequestOperationManager.m */; };
@@ -99,6 +104,16 @@
 		03952DF51B05CA130055D36B /* YCCQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCCQTests.m; sourceTree = "<group>"; };
 		03EBD2DF1B142705004DD5E3 /* YCYouCheHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCYouCheHTTPClient.h; sourceTree = "<group>"; };
 		03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCYouCheHTTPClient.m; sourceTree = "<group>"; };
+		03EBD2E21B1465A9004DD5E3 /* YCAftermarketTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAftermarketTableViewController.h; sourceTree = "<group>"; };
+		03EBD2E31B1465A9004DD5E3 /* YCAftermarketTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAftermarketTableViewController.m; sourceTree = "<group>"; };
+		03EBD2E51B14680E004DD5E3 /* YCAftermarketEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAftermarketEntity.h; sourceTree = "<group>"; };
+		03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAftermarketEntity.m; sourceTree = "<group>"; };
+		03EBD2E81B146FA1004DD5E3 /* YCAfterMarketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAfterMarketCell.h; sourceTree = "<group>"; };
+		03EBD2E91B146FA1004DD5E3 /* YCAfterMarketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAfterMarketCell.m; sourceTree = "<group>"; };
+		03EBD2EC1B14736F004DD5E3 /* ParallaxHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxHeaderView.h; sourceTree = "<group>"; };
+		03EBD2ED1B14736F004DD5E3 /* ParallaxHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxHeaderView.m; sourceTree = "<group>"; };
+		03EBD2F01B147388004DD5E3 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		03EBD2F11B147388004DD5E3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		03EE9EFB1B12EFA80051CC57 /* YCBannerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBannerEntity.h; sourceTree = "<group>"; };
 		03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerEntity.m; sourceTree = "<group>"; };
 		03EE9EFF1B12FC260051CC57 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -190,6 +205,8 @@
 			children = (
 				030A75951B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.h */,
 				030A75961B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.m */,
+				03EBD2E81B146FA1004DD5E3 /* YCAfterMarketCell.h */,
+				03EBD2E91B146FA1004DD5E3 /* YCAfterMarketCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +218,8 @@
 				030A759A1B0B3F88008753C8 /* YCBaoKuanEntity.m */,
 				03EE9EFB1B12EFA80051CC57 /* YCBannerEntity.h */,
 				03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */,
+				03EBD2E51B14680E004DD5E3 /* YCAftermarketEntity.h */,
+				03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -219,6 +238,7 @@
 		03242C371B0C574B006E8B82 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				03EBD2EB1B14736F004DD5E3 /* ParallaxTableViewHeader */,
 				03EE9F3B1B130F4C0051CC57 /* MBProgressHUD */,
 				03EE9F1C1B12FCF40051CC57 /* Category */,
 				03EE9EFE1B12FC260051CC57 /* AFNetworking */,
@@ -311,6 +331,24 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
+		03EBD2EB1B14736F004DD5E3 /* ParallaxTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				03EBD2EC1B14736F004DD5E3 /* ParallaxHeaderView.h */,
+				03EBD2ED1B14736F004DD5E3 /* ParallaxHeaderView.m */,
+			);
+			path = ParallaxTableViewHeader;
+			sourceTree = "<group>";
+		};
+		03EBD2EF1B147388004DD5E3 /* UIImage+ImageEffects */ = {
+			isa = PBXGroup;
+			children = (
+				03EBD2F01B147388004DD5E3 /* UIImage+ImageEffects.h */,
+				03EBD2F11B147388004DD5E3 /* UIImage+ImageEffects.m */,
+			);
+			path = "UIImage+ImageEffects";
+			sourceTree = "<group>";
+		};
 		03EE9EFE1B12FC260051CC57 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +393,7 @@
 		03EE9F1C1B12FCF40051CC57 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				03EBD2EF1B147388004DD5E3 /* UIImage+ImageEffects */,
 				03EE9F3F1B130F550051CC57 /* GViewController */,
 				03EE9F1D1B12FCF40051CC57 /* UIKit+AFNetworking */,
 			);
@@ -392,6 +431,8 @@
 				03EE9F391B130AE30051CC57 /* YCHomeViewController.m */,
 				03EE9F431B13129F0051CC57 /* YCWebViewController.h */,
 				03EE9F441B13129F0051CC57 /* YCWebViewController.m */,
+				03EBD2E21B1465A9004DD5E3 /* YCAftermarketTableViewController.h */,
+				03EBD2E31B1465A9004DD5E3 /* YCAftermarketTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -527,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03EBD2EA1B146FA1004DD5E3 /* YCAfterMarketCell.m in Sources */,
 				03EE9F1A1B12FC260051CC57 /* AFURLSessionManager.m in Sources */,
 				03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */,
 				03EE9F171B12FC260051CC57 /* AFURLConnectionOperation.m in Sources */,
@@ -537,9 +579,12 @@
 				030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */,
 				03EE9F311B12FCF40051CC57 /* UIAlertView+AFNetworking.m in Sources */,
 				03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */,
+				03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */,
+				03EBD2EE1B14736F004DD5E3 /* ParallaxHeaderView.m in Sources */,
 				03EE9F3E1B130F4C0051CC57 /* MBProgressHUD.m in Sources */,
 				030A759F1B0B41ED008753C8 /* YCBannerService.m in Sources */,
 				03EE9EFD1B12EFA80051CC57 /* YCBannerEntity.m in Sources */,
+				03EBD2F21B147388004DD5E3 /* UIImage+ImageEffects.m in Sources */,
 				03EE9F451B13129F0051CC57 /* YCWebViewController.m in Sources */,
 				03EE9F331B12FCF40051CC57 /* UIImageView+AFNetworking.m in Sources */,
 				03EE9F141B12FC260051CC57 /* AFHTTPSessionManager.m in Sources */,
@@ -549,6 +594,7 @@
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
 				03952DD91B05CA120055D36B /* main.m in Sources */,
 				03EE9F161B12FC260051CC57 /* AFSecurityPolicy.m in Sources */,
+				03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */,
 				030A75A21B0B4211008753C8 /* YCCarService.m in Sources */,
 				03EE9F181B12FC260051CC57 /* AFURLRequestSerialization.m in Sources */,
 				03EE9F151B12FC260051CC57 /* AFNetworkReachabilityManager.m in Sources */,
