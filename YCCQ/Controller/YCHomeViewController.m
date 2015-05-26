@@ -18,9 +18,10 @@
 #import "UIViewController+GViewController.h"
 #import "YCWebViewController.h"
 
-@interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource>
+@interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) NSArray *banners;
+@property (strong, nonatomic) NSArray *baokuans;
 
 @end
 
@@ -33,6 +34,7 @@
     self.bannerService = [[YCBannerService alloc] init];
     
     [self setBanner];
+    [self setBaokuan];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,13 +67,18 @@
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
     if (bannner) {
-        YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithName:@"YCWebViewController"];
-        webViewController.url = bannner.linkURL;
-        [self.navigationController pushViewController:webViewController animated:YES];
+        [self toWebViewWithURL:bannner.linkURL];
     }
 }
 
 #pragma -mark Private
+
+- (void)toWebViewWithURL:(NSURL *)url
+{
+    YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithName:@"YCWebViewController"];
+    webViewController.url = url;
+    [self.navigationController pushViewController:webViewController animated:YES];
+}
 
 - (void)setBanner
 {
@@ -98,6 +105,14 @@
         }];
         
         self.banners = banners;
+    }];
+}
+
+- (void)setBaokuan
+{
+    [self.carService baokuanWithBlock:^(NSArray *baokuans) {
+        self.baokuans = baokuans;
+        [self.baokuanCollectionView reloadData];
     }];
 }
 
@@ -128,17 +143,26 @@
     YCBaoKuanCollectionViewCell *cell = (YCBaoKuanCollectionViewCell *)
     [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     
-    
-    YCBaoKuanEntity *baoKuanEntity = [self.carService baoKuanCarAtIndex:indexPath.row];
+    YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
     [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
     return cell;
 }
 
 - (void)configrueBaoKuanCell:(YCBaoKuanCollectionViewCell *)cell entity:(YCBaoKuanEntity *)entity
 {
-    cell.carImageView.image = [UIImage imageNamed:entity.imageName];
+    [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
     cell.carPriceLabel.text = entity.price;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    YCBaoKuanEntity *baokuan = self.baokuans[indexPath.row];
+    if (baokuan) {
+        [self toWebViewWithURL:baokuan.linkURL];
+    }
 }
 
 #pragma mark - Table view data source

@@ -339,7 +339,7 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车系" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-f6-N0j">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                                             <rect key="frame" x="8" y="114" width="176" height="21"/>
@@ -348,7 +348,7 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncd-05-HeF">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                                             <rect key="frame" x="8" y="135" width="176" height="21"/>
@@ -723,6 +723,7 @@
                     <connections>
                         <outlet property="bannerPageControl" destination="lOL-pL-0t3" id="nd9-sU-uUX"/>
                         <outlet property="bannerScrollView" destination="Xlh-Ck-JaM" id="Pya-6K-Eqf"/>
+                        <outlet property="baokuanCollectionView" destination="v1H-tX-emj" id="HgL-Rt-P5Z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKM-sf-d6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,7 +735,7 @@
             <objects>
                 <viewController storyboardIdentifier="YCWebViewController" hidesBottomBarWhenPushed="YES" id="fSe-hM-jyX" customClass="YCWebViewController" sceneMemberID="viewController">
                     <webView key="view" contentMode="scaleToFill" id="e3Q-uw-JeS">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </webView>

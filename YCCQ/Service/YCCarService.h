@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 @class YCBaoKuanEntity;
 
+typedef void (^BaokuanBlock) (NSArray *baokuans);
+
 @interface YCCarService : NSObject
 
-- (YCBaoKuanEntity *) baoKuanCarAtIndex:(NSInteger)index;
+- (void)baokuanWithBlock:(BaokuanBlock)block;
 
 @end

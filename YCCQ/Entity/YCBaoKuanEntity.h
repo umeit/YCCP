@@ -10,10 +10,14 @@
 
 @interface YCBaoKuanEntity : NSObject
 
-@property (strong, nonatomic) NSString *imageName;
+@property (strong, nonatomic) NSURL *imageURL;
+
+@property (nonatomic) NSInteger carID;
 
 @property (strong, nonatomic) NSString *series;
 
 @property (strong, nonatomic) NSString *price;
+
+@property (strong, nonatomic) NSURL *linkURL;
 
 @end

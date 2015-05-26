@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void (^BannerBlock) (NSArray *);
+typedef void (^BannerBlock) (NSArray *banners);
 
 @interface YCBannerService : NSObject
 

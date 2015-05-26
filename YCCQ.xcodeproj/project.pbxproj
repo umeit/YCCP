@@ -29,6 +29,7 @@
 		03952DE51B05CA120055D36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE31B05CA120055D36B /* Main.storyboard */; };
 		03952DE71B05CA120055D36B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE61B05CA120055D36B /* Images.xcassets */; };
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
+		03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
 		03EE9EFD1B12EFA80051CC57 /* YCBannerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */; };
 		03EE9F121B12FC260051CC57 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F001B12FC260051CC57 /* AFHTTPRequestOperation.m */; };
 		03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F021B12FC260051CC57 /* AFHTTPRequestOperationManager.m */; };
@@ -96,6 +97,8 @@
 		03952DEF1B05CA130055D36B /* YCCQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YCCQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03952DF41B05CA130055D36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03952DF51B05CA130055D36B /* YCCQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCCQTests.m; sourceTree = "<group>"; };
+		03EBD2DF1B142705004DD5E3 /* YCYouCheHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCYouCheHTTPClient.h; sourceTree = "<group>"; };
+		03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCYouCheHTTPClient.m; sourceTree = "<group>"; };
 		03EE9EFB1B12EFA80051CC57 /* YCBannerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBannerEntity.h; sourceTree = "<group>"; };
 		03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerEntity.m; sourceTree = "<group>"; };
 		03EE9EFF1B12FC260051CC57 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				03EBD2DE1B142064004DD5E3 /* Logic */,
 				03EE9F461B1339A70051CC57 /* Util */,
 				03EE9F371B130AC30051CC57 /* Controller */,
 				03242C371B0C574B006E8B82 /* Lib */,
@@ -296,6 +300,15 @@
 				03952DF41B05CA130055D36B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03EBD2DE1B142064004DD5E3 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				03EBD2DF1B142705004DD5E3 /* YCYouCheHTTPClient.h */,
+				03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 		03EE9EFE1B12FC260051CC57 /* AFNetworking */ = {
@@ -530,6 +543,7 @@
 				03EE9F451B13129F0051CC57 /* YCWebViewController.m in Sources */,
 				03EE9F331B12FCF40051CC57 /* UIImageView+AFNetworking.m in Sources */,
 				03EE9F141B12FC260051CC57 /* AFHTTPSessionManager.m in Sources */,
+				03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */,
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
