@@ -9,33 +9,38 @@
 #import "YCCarService.h"
 #import "YCBaoKuanEntity.h"
 #import "YCYouCheHTTPClient.h"
+#import "YCNetUtil.h"
 
 @implementation YCCarService
 
 - (void)baokuanWithBlock:(BaokuanBlock)block
 {
-    /*
     [[YCYouCheHTTPClient httpClient] GET:@"baokuan" parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     
+                                     NSNumber *ret = [responseObject objectForKey:@"ret"];
+                                     if ([ret integerValue] == 1) {
+                                         NSArray *baokuans = [responseObject objectForKey:@"baokuandata"];
+                                         block([self bokuanEntitysWithDicArrar:baokuans]);
+                                     }
                                  }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+
                                  }];
-    */
-    block([self tempData]);
 }
 
-- (NSArray *)tempData
+- (NSArray *)bokuanEntitysWithDicArrar:(NSArray *)baokuanDicArray
 {
-    YCBaoKuanEntity *baokuan1 = [[YCBaoKuanEntity alloc] init];
-    baokuan1.imageURL = [NSURL URLWithString:@"http://file.youche.com/_380_252/0/car/24bab11bb5db2168.jpg"];
-    baokuan1.carID = 9943;
-    baokuan1.price = @"7.99";
-    baokuan1.series = @"嘉年华两厢 11款 1.5L 自动运动型";
-    baokuan1.linkURL = [NSURL URLWithString:@"http://m.youche.com/detail/9943.shtml"];
-    
-    return @[baokuan1, baokuan1, baokuan1, baokuan1, baokuan1, baokuan1];
+    NSMutableArray *baokuans = [NSMutableArray array];
+    for (NSDictionary *baokuanDic in baokuanDicArray) {
+        YCBaoKuanEntity *baokuan = [[YCBaoKuanEntity alloc] init];
+        baokuan.imageURL = [YCNetUtil youcheImageURLWithPath:baokuanDic[@"firstPic"] w:300 h:200];
+        baokuan.carID = [baokuanDic[@"id"] integerValue];
+        baokuan.price = [baokuanDic[@"salePrice"] stringValue];
+        baokuan.series = baokuanDic[@"carName"];
+        baokuan.linkURL = [YCNetUtil youcheCarURLWithCarID:baokuan.carID];
+        [baokuans addObject:baokuan];
+    }
+    return baokuans;
 }
 
 @end
