@@ -14,6 +14,7 @@
 @interface YCAftermarketTableViewController ()
 
 @property (strong, nonatomic) NSArray *aftermarkets;
+@property (strong, nonatomic) UIWebView *callWebView;
 
 @end
 
@@ -29,7 +30,6 @@
     
     [self.tableView setTableHeaderView:headerView];
     
-    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.tableView.contentInset = UIEdgeInsetsMake(0., 0., CGRectGetHeight(self.tabBarController.tabBar.frame), 0);
 }
 
@@ -37,11 +37,8 @@
 {
     [super viewDidAppear:animated];
     [(ParallaxHeaderView *)self.tableView.tableHeaderView refreshBlurViewForNewImage];
-//    CGRect oldBounds = self.tableView.bounds;
-//    self.tableView.bounds = CGRectMake(oldBounds.origin.x,
-//                                       0,
-//                                       oldBounds.size.width,
-//                                       oldBounds.size.height - 64);
+    
+    [self.callWebView removeFromSuperview];
 }
 
 #pragma mark - Table view data source
@@ -67,11 +64,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     YCAftermarketEntity *aftermarket = self.aftermarkets[indexPath.row];
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",aftermarket.tel];
-    UIWebView * callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:callWebview];
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@",aftermarket.tel];
+    self.callWebView = [[UIWebView alloc] init];
+    [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:self.callWebView];
 }
 
 #pragma mark - ScrollViewDelegate

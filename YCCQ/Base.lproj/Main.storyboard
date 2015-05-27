@@ -804,12 +804,12 @@
                                             <exclude reference="thl-A4-1Eo"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="4KM-Eh-gKt"/>
-                                            <exclude reference="p84-zY-kjL"/>
                                             <exclude reference="dsr-LV-IJ3"/>
                                             <exclude reference="wlH-vz-rMq"/>
                                             <exclude reference="LXQ-yk-EHN"/>
                                             <exclude reference="wdh-Tu-Lhd"/>
+                                            <exclude reference="4KM-Eh-gKt"/>
+                                            <exclude reference="p84-zY-kjL"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -819,12 +819,12 @@
                                             <include reference="thl-A4-1Eo"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="4KM-Eh-gKt"/>
-                                            <include reference="p84-zY-kjL"/>
                                             <include reference="dsr-LV-IJ3"/>
                                             <include reference="wlH-vz-rMq"/>
                                             <include reference="LXQ-yk-EHN"/>
                                             <include reference="wdh-Tu-Lhd"/>
+                                            <include reference="4KM-Eh-gKt"/>
+                                            <include reference="p84-zY-kjL"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
