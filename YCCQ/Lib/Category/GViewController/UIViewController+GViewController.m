@@ -142,7 +142,7 @@ NSUInteger DeviceSystemMajorVersion()
     return _deviceSystemMajorVersion;
 }
 
-- (UIViewController *)controllerWithName:(NSString *)name
+- (UIViewController *)controllerWithStoryBoardID:(NSString *)name
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:name];

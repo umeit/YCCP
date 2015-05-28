@@ -13,7 +13,10 @@
 + (instancetype)httpClient
 {
     static NSString *url = @"http://www.youche.com/json/app/";
-    return [[self alloc] initWithBaseURL:[NSURL URLWithString:url]];
+//    YCYouCheHTTPClient *c = [[self alloc] initWithBaseURL:[NSURL URLWithString:url]];
+//    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+//    c.responseSerializer = responseSerializer;
+    return [[self alloc] initWithBaseURL:[NSURL URLWithString:url]];;
 }
 
 @end

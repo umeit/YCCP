@@ -17,6 +17,8 @@
 #import "UIButton+AFNetworking.h"
 #import "UIViewController+GViewController.h"
 #import "YCWebViewController.h"
+#import "YCCarListViewController.h"
+#import "YCCarUtil.h"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -66,11 +68,30 @@
     }
 }
 
-#pragma -mark Private
+- (IBAction)brandButtonPress:(UIButton *)sender
+{
+    [self toCarListViewWithKey:[YCCarUtil brandWithTag:sender.tag]];
+}
+
+- (IBAction)carTypeButtonPress:(UIButton *)sender
+{
+    [self toCarListViewWithKey:[YCCarUtil carTypeWithTag:sender.tag]];
+}
+
+
+#pragma - mark Private
+
+- (void)toCarListViewWithKey:(NSString *)key
+{
+    YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
+    carListViewController.carListURL = [NSURL URLWithString:
+                                        [NSString stringWithFormat:@"http://m.youche.com/%@", key]];
+    [self.navigationController pushViewController:carListViewController animated:YES];
+}
 
 - (void)toWebViewWithURL:(NSURL *)url
 {
-    YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithName:@"YCWebViewController"];
+    YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];
     webViewController.url = url;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
