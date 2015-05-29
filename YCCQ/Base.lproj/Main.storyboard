@@ -782,7 +782,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKM-sf-d6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366.5" y="-273"/>
+            <point key="canvasLocation" x="1401" y="-343.5"/>
         </scene>
         <!--售后-->
         <scene sceneID="t3C-x9-pmk">
@@ -921,7 +921,7 @@
         <!--车辆列表-->
         <scene sceneID="LPI-26-dt3">
             <objects>
-                <viewController storyboardIdentifier="YCCarListViewController" id="3aE-xA-77v" userLabel="车辆列表" customClass="YCCarListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YCCarListViewController" hidesBottomBarWhenPushed="YES" id="3aE-xA-77v" userLabel="车辆列表" customClass="YCCarListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rxZ-IA-lWc"/>
                         <viewControllerLayoutGuide type="bottom" id="6Kg-V1-lMo"/>

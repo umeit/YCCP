@@ -19,7 +19,7 @@
     [self.carListWebView loadRequest:
     [NSURLRequest requestWithURL:self.carListURL]];
     
-    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(64 + 47, 0, 0, 0);
+    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(47, 0, 0, 0);
 }
 
 /*
