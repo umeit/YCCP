@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YCCarListViewController : UIViewController
+@interface YCCarListViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *carListWebView;
 

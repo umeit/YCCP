@@ -7,6 +7,7 @@
 //
 
 #import "YCCarListViewController.h"
+#import "UIViewController+GViewController.h"
 
 @interface YCCarListViewController ()
 
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.carListWebView.delegate = self;
+    
     if (!self.carListURL) {
         self.carListURL = [NSURL URLWithString:@"http://m.youche.com/ershouche/"];
     }
@@ -72,6 +76,23 @@
     }
 }
 
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showLodingView];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideLodingView];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideLodingView];
+}
 
 #pragma mark - Privatre
 
