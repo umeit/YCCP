@@ -98,6 +98,7 @@
 		03242C4A1B0C5842006E8B82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03242C4E1B0C585C006E8B82 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
 		03952DD31B05CA120055D36B /* YCCQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YCCQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03952DD71B05CA120055D36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03952DD81B05CA120055D36B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -278,6 +279,14 @@
 			path = AppKeFuLib;
 			sourceTree = "<group>";
 		};
+		0376B67A1B186CCE005B5FFC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		03952DCA1B05CA120055D36B = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +308,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				0376B67A1B186CCE005B5FFC /* Protocol */,
 				03EBD2DE1B142064004DD5E3 /* Logic */,
 				03EE9F461B1339A70051CC57 /* Util */,
 				03EE9F371B130AC30051CC57 /* Controller */,

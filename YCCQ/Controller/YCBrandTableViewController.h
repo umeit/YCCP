@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YCCarFilterDelegate.h"
 
 @interface YCBrandTableViewController : UITableViewController
+
+@property (weak, nonatomic) id<YCCarFilterDelegate> delegate;
 
 @end

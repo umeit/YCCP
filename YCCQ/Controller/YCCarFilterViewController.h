@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YCCarFilterDelegate.h"
 
 @protocol YCCarFilterViewController <NSObject>
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface YCCarFilterViewController : UITableViewController
+@interface YCCarFilterViewController : UITableViewController <YCCarFilterDelegate>
 
 @property (weak, nonatomic) id<YCCarFilterViewController> delegate;
 

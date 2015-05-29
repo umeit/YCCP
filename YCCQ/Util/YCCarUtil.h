@@ -12,6 +12,8 @@
 
 + (NSString *)brandWithTag:(NSInteger)tag;
 
++ (NSString *)brandWithTagForFilter:(NSInteger)tag;
+
 + (NSString *)carTypeWithTag:(NSInteger)tag;
 
 @end

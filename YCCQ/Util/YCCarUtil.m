@@ -11,6 +11,7 @@
 @implementation YCCarUtil
 
 static NSDictionary *carBrands;
+static NSDictionary *carBrandsForFilter;
 static NSDictionary *carTypes;
 
 + (NSString *)brandWithTag:(NSInteger)tag
@@ -27,6 +28,22 @@ static NSDictionary *carTypes;
     }
 
     return carBrands[[@(tag) stringValue]];
+}
+
++ (NSString *)brandWithTagForFilter:(NSInteger)tag
+{
+    if (!carBrandsForFilter) {
+        carBrandsForFilter = @{@"31": @"mercedes-benz",
+                      @"32": @"bmw",
+                      @"33": @"audi",
+                      @"34": @"volkswagen",
+                      @"35": @"hyundai",
+                      @"36": @"ford",
+                      @"37": @"buick",
+                      @"38": @"toyota"};
+    }
+    
+    return carBrandsForFilter[[@(tag) stringValue]];
 }
 
 + (NSString *)carTypeWithTag:(NSInteger)tag
