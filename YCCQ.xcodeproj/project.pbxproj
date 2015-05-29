@@ -30,6 +30,9 @@
 		03952DE71B05CA120055D36B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE61B05CA120055D36B /* Images.xcassets */; };
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
 		03C64BBB1B15D50D00848FCD /* YCNetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C64BBA1B15D50D00848FCD /* YCNetUtil.m */; };
+		03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */; };
+		03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */; };
+		03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */; };
 		03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B251B1706060021E43E /* YCCarListViewController.m */; };
 		03DB7B291B1709170021E43E /* YCCarUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B281B1709170021E43E /* YCCarUtil.m */; };
 		03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
@@ -107,6 +110,12 @@
 		03952DF51B05CA130055D36B /* YCCQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCCQTests.m; sourceTree = "<group>"; };
 		03C64BB91B15D50D00848FCD /* YCNetUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCNetUtil.h; sourceTree = "<group>"; };
 		03C64BBA1B15D50D00848FCD /* YCNetUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCNetUtil.m; sourceTree = "<group>"; };
+		03C73DC01B184999008FCF0F /* YCCarFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterViewController.h; sourceTree = "<group>"; };
+		03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterViewController.m; sourceTree = "<group>"; };
+		03C73DC31B1857D0008FCF0F /* YCBrandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBrandTableViewController.h; sourceTree = "<group>"; };
+		03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandTableViewController.m; sourceTree = "<group>"; };
+		03C73DC61B185CA8008FCF0F /* YCBrandHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBrandHeadCell.h; sourceTree = "<group>"; };
+		03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandHeadCell.m; sourceTree = "<group>"; };
 		03DB7B241B1706060021E43E /* YCCarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarListViewController.h; sourceTree = "<group>"; };
 		03DB7B251B1706060021E43E /* YCCarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarListViewController.m; sourceTree = "<group>"; };
 		03DB7B271B1709170021E43E /* YCCarUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarUtil.h; sourceTree = "<group>"; };
@@ -216,6 +225,8 @@
 				030A75961B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.m */,
 				03EBD2E81B146FA1004DD5E3 /* YCAfterMarketCell.h */,
 				03EBD2E91B146FA1004DD5E3 /* YCAfterMarketCell.m */,
+				03C73DC61B185CA8008FCF0F /* YCBrandHeadCell.h */,
+				03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +455,10 @@
 				03EBD2E31B1465A9004DD5E3 /* YCAftermarketTableViewController.m */,
 				03DB7B241B1706060021E43E /* YCCarListViewController.h */,
 				03DB7B251B1706060021E43E /* YCCarListViewController.m */,
+				03C73DC01B184999008FCF0F /* YCCarFilterViewController.h */,
+				03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */,
+				03C73DC31B1857D0008FCF0F /* YCBrandTableViewController.h */,
+				03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -587,10 +602,12 @@
 				03EE9F1A1B12FC260051CC57 /* AFURLSessionManager.m in Sources */,
 				03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */,
 				03EE9F171B12FC260051CC57 /* AFURLConnectionOperation.m in Sources */,
+				03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */,
 				03EE9F351B12FCF40051CC57 /* UIRefreshControl+AFNetworking.m in Sources */,
 				03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */,
 				03EE9F321B12FCF40051CC57 /* UIButton+AFNetworking.m in Sources */,
 				03EE9F341B12FCF40051CC57 /* UIProgressView+AFNetworking.m in Sources */,
+				03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */,
 				03EE9F121B12FC260051CC57 /* AFHTTPRequestOperation.m in Sources */,
 				030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */,
 				03EE9F311B12FCF40051CC57 /* UIAlertView+AFNetworking.m in Sources */,
@@ -608,6 +625,7 @@
 				03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */,
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
 				03952DD91B05CA120055D36B /* main.m in Sources */,
 				03EE9F161B12FC260051CC57 /* AFSecurityPolicy.m in Sources */,
