@@ -9,6 +9,7 @@
 #import "YCCarFilterViewController.h"
 
 @interface YCCarFilterViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 
 @end
 
@@ -18,22 +19,28 @@
     [super viewDidLoad];
 }
 
-#pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
-}
+//#pragma mark - Table view data source
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    return 0;
+//}
 
 
 #pragma mark - YCCarFilterDelegate
 
 - (void)selecteConditionFinish:(NSDictionary *)condition
 {
+    if ([condition[@"CK"] isEqualToString:@"Brand"]) {
+        self.filterCondition.brandName = condition[@"CN"];
+        self.filterCondition.brandValue = condition[@"CV"];
+    }
     
+    [self updateCellViews];
 }
 
 /*
@@ -79,6 +86,13 @@
     return YES;
 }
 */
+
+#pragma mark - Private
+
+- (void)updateCellViews
+{
+    self.brandLabel.text = self.filterCondition.brandName;
+}
 
 
 #pragma mark - Navigation

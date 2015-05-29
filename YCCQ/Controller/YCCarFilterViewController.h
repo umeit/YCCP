@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YCCarFilterDelegate.h"
+#import "YCCarFilterConditionEntity.h"
 
 @protocol YCCarFilterViewController <NSObject>
 
@@ -16,6 +17,8 @@
 @end
 
 @interface YCCarFilterViewController : UITableViewController <YCCarFilterDelegate>
+
+@property (strong, nonatomic) YCCarFilterConditionEntity *filterCondition;
 
 @property (weak, nonatomic) id<YCCarFilterViewController> delegate;
 

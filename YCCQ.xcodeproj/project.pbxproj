@@ -24,6 +24,7 @@
 		03242C4B1B0C5842006E8B82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4A1B0C5842006E8B82 /* AVFoundation.framework */; };
 		03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */; };
 		03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4E1B0C585C006E8B82 /* libiconv.dylib */; };
+		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		03952DD91B05CA120055D36B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DD81B05CA120055D36B /* main.m */; };
 		03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DDB1B05CA120055D36B /* AppDelegate.m */; };
 		03952DE51B05CA120055D36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE31B05CA120055D36B /* Main.storyboard */; };
@@ -99,6 +100,8 @@
 		03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03242C4E1B0C585C006E8B82 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
+		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
+		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
 		03952DD31B05CA120055D36B /* YCCQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YCCQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03952DD71B05CA120055D36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03952DD81B05CA120055D36B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				03EE9EFC1B12EFA80051CC57 /* YCBannerEntity.m */,
 				03EBD2E51B14680E004DD5E3 /* YCAftermarketEntity.h */,
 				03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */,
+				0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */,
+				0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EBD2EA1B146FA1004DD5E3 /* YCAfterMarketCell.m in Sources */,
+				0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */,
 				03EE9F1A1B12FC260051CC57 /* AFURLSessionManager.m in Sources */,
 				03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */,
 				03EE9F171B12FC260051CC57 /* AFURLConnectionOperation.m in Sources */,
