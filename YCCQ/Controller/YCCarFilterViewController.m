@@ -7,10 +7,10 @@
 //
 
 #import "YCCarFilterViewController.h"
+#import "YCBrandTableViewController.h"
 
 @interface YCCarFilterViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
-
 @end
 
 @implementation YCCarFilterViewController
@@ -98,12 +98,19 @@
 
 
 #pragma mark - Navigation
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UIViewController *vc = [segue destinationViewController];
     if ([vc respondsToSelector:@selector(setDelegate:)]) {
         [vc performSelector:@selector(setDelegate:) withObject:self];
     }
+    
+    if ([vc isKindOfClass:[YCBrandTableViewController class]]) {
+        YCBrandTableViewController *bvc = (YCBrandTableViewController *)vc;
+        [bvc setUseOnlineData:YES];
+    }
 }
+#pragma clang diagnostic pop
 
 @end

@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "YCCarFilterDelegate.h"
 
+@class YCCarService;
+
 @interface YCBrandTableViewController : UITableViewController
 
 @property (weak, nonatomic) id<YCCarFilterDelegate> delegate;
+
+@property (nonatomic) BOOL useOnlineData;
+
+@property (strong, nonatomic) YCCarService *carService;
 
 @end

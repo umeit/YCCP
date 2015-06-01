@@ -15,7 +15,7 @@
 
 - (void)baokuanWithBlock:(BaokuanBlock)block
 {
-    [[YCYouCheHTTPClient httpClient] GET:@"baokuan" parameters:nil
+    [[YCYouCheHTTPClient httpClient] GET:@"app/baokuan" parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      NSNumber *ret = [responseObject objectForKey:@"ret"];
                                      if ([ret integerValue] == 1) {
@@ -24,7 +24,19 @@
                                      }
                                  }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"Error! %@", error);
+                                 }];
+}
 
+- (void)brandsFromOnSell:(OnSellBrandBlock)block
+{
+    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+                              parameters:@{@"depth": @1}
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                     block(responseObject);
+                                 }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"Error! %@", error);
                                  }];
 }
 

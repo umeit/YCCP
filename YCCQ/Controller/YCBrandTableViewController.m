@@ -8,9 +8,11 @@
 
 #import "YCBrandTableViewController.h"
 #import "YCCarUtil.h"
+#import "YCCarService.h"
+#import "UIViewController+GViewController.h"
 
 @interface YCBrandTableViewController ()
-
+@property (strong, nonatomic) NSArray *brands;
 @end
 
 @implementation YCBrandTableViewController
@@ -18,6 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.carService = [[YCCarService alloc] init];
+    
+    if ([self useOnlineData]) {
+        [self showLodingView];
+        
+        [self.carService brandsFromOnSell:^(NSArray *brands) {
+            [self hideLodingView];
+            
+            self.brands = brands;
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 - (IBAction)brandButtonPress:(UIButton *)button
@@ -32,54 +46,79 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.brands.count + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (section == 0) {
+        return 1;
+    }
+    
+    NSDictionary *brandInfo = self.brands[section - 1];
+    NSArray *brands = [brandInfo objectForKey:@"key2"];
+    return brands.count;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:@"热"];
+    for (NSDictionary *brandInfo in self.brands) {
+        NSString *indexString = [brandInfo objectForKey:@"key1"];
+        if ([indexString isEqualToString:@"0"]) {
+            indexString = @"";
+        }
+        [array addObject:indexString];
+    }
+    return array;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
+
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
+    cell.textLabel.text = self.brands[indexPath.section - 1][@"key2"][indexPath.row][@"title"];
     
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"热门车辆";
+    }
+    if (section == 1) {
+        return @"";
+    }
+    return self.brands[section - 1][@"key1"];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+#pragma mark - Table View Delegate
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 104;
+    }
+    return 44;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return;
+    }
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+}
 
 /*
 #pragma mark - Navigation
