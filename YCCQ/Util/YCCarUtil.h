@@ -16,4 +16,6 @@
 
 + (NSString *)carTypeWithTag:(NSInteger)tag;
 
++ (NSString *)pIDWithBrand:(NSString *)brandName;
+
 @end

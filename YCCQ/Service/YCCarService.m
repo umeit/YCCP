@@ -40,6 +40,30 @@
                                  }];
 }
 
+- (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
+{
+    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+                              parameters:@{@"depth": @2, @"pid": @(pid)}
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                     block(responseObject);
+                                 }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"Error! %@", error);
+                                 }];
+}
+
+- (void)modelsFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
+{
+    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+                              parameters:@{@"depth": @3, @"pid": @(pid)}
+                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                     block(responseObject);
+                                 }
+                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                     NSLog(@"Error! %@", error);
+                                 }];
+}
+
 - (NSArray *)bokuanEntitysWithDicArrar:(NSArray *)baokuanDicArray
 {
     NSMutableArray *baokuans = [NSMutableArray array];

@@ -13,6 +13,7 @@
 static NSDictionary *carBrands;
 static NSDictionary *carBrandsForFilter;
 static NSDictionary *carTypes;
+static NSDictionary *carPID;
 
 + (NSString *)brandWithTag:(NSInteger)tag
 {
@@ -44,6 +45,22 @@ static NSDictionary *carTypes;
     }
     
     return carBrandsForFilter[[@(tag) stringValue]];
+}
+
++ (NSString *)pIDWithBrand:(NSString *)brandName
+{
+    if (!carPID) {
+        carPID = @{@"mercedes-benz": @"107",
+                   @"bmw": @"108",
+                   @"audi": @"100",
+                   @"volkswagen": @"129",
+                   @"hyundai": @"269",
+                   @"ford": @"145",
+                   @"buick": @"117",
+                   @"toyota": @"144"};
+    }
+    
+    return carPID[brandName];
 }
 
 + (NSString *)carTypeWithTag:(NSInteger)tag

@@ -65,64 +65,90 @@
 - (IBAction)brandButtonPress:(UIButton *)button
 {
     NSString *brandVlue = [YCCarUtil brandWithTagForFilter:button.tag];
+    NSString *pid = [YCCarUtil pIDWithBrand:brandVlue];
     [self.delegate selecteConditionFinish:@{@"CK": @"Brand",
                                             @"CN": button.titleLabel.text,
-                                            @"CV": brandVlue}];
+                                            @"CV": brandVlue,
+                                            @"PID": pid}];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.brands.count + 1;
+    if (self.brandType == BrandType) {
+        return self.brands.count + 1;
+    }
+    else {
+        return self.brands.count;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
+    if (self.brandType == BrandType) {
+        if (section == 0) {
+            return 1;
+        }
+        NSDictionary *brandInfo = self.brands[section - 1];
+        NSArray *brands = [brandInfo objectForKey:@"key2"];
+        return brands.count;
     }
-    
-    NSDictionary *brandInfo = self.brands[section - 1];
-    NSArray *brands = [brandInfo objectForKey:@"key2"];
-    return brands.count;
+    else {
+        NSDictionary *brandInfo = self.brands[section];
+        NSArray *brands = [brandInfo objectForKey:@"key2"];
+        return brands.count;
+    }
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    NSMutableArray *array = [NSMutableArray array];
-    [array addObject:@"热"];
-    for (NSDictionary *brandInfo in self.brands) {
-        NSString *indexString = [brandInfo objectForKey:@"key1"];
-        if ([indexString isEqualToString:@"0"]) {
-            indexString = @"";
+    if (self.brandType == BrandType) {
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:@"热"];
+        for (NSDictionary *brandInfo in self.brands) {
+            NSString *indexString = [brandInfo objectForKey:@"key1"];
+            if ([indexString isEqualToString:@"0"]) {
+                indexString = @"";
+            }
+            [array addObject:indexString];
         }
-        [array addObject:indexString];
+        return array;
     }
-    return array;
+    return nil;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
+    if (self.brandType == BrandType) {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
+        }
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
+        cell.textLabel.text = self.brands[indexPath.section - 1][@"key2"][indexPath.row][@"title"];
+        return cell;
     }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.brands[indexPath.section - 1][@"key2"][indexPath.row][@"title"];
-    
-    return cell;
+    else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
+        cell.textLabel.text = self.brands[indexPath.section][@"key2"][indexPath.row][@"title"];
+        return cell;
+    }
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return @"热门车辆";
+    if (self.brandType == BrandType) {
+        if (section == 0) {
+            return @"热门车辆";
+        }
+        if (section == 1) {
+            return @"";
+        }
+        return self.brands[section - 1][@"key1"];
     }
-    if (section == 1) {
-        return @"";
+    else {
+        return self.brands[section][@"key1"];
     }
-    return self.brands[section - 1][@"key1"];
 }
 
 
@@ -130,21 +156,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return 104;
+    if (self.brandType == BrandType) {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return 104;
+        }
     }
     return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        return;
+    if (self.brandType == BrandType) {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return;
+        }
+        
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        }
     }
-    
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        [self.navigationController popViewControllerAnimated:YES];
-        return;
+    else {
+        
     }
 }
 

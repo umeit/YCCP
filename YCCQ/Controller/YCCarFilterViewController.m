@@ -12,6 +12,7 @@
 
 @interface YCCarFilterViewController ()
 @property (strong, nonatomic) NSMutableArray *cellContentList;
+@property (nonatomic) NSInteger pid;
 @end
 
 @implementation YCCarFilterViewController
@@ -36,12 +37,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    NSInteger defaultCount = 2;
-//    if (self.filterCondition.seriesName) defaultCount ++;
-//    if (self.filterCondition.modelName) defaultCount ++;
-//
-//    return defaultCount;
-    
     return self.cellContentList.count;
 }
 
@@ -51,8 +46,7 @@
     
     NSDictionary *dic = self.cellContentList[indexPath.row];
     cell.textLabel.text = dic[@"name"];
-    NSString *detailText = dic[@"value"];
-    cell.detailTextLabel.text = detailText.length ? detailText : @"不限";
+    cell.detailTextLabel.text = dic[@"value"];
     return cell;
 }
 
@@ -69,11 +63,40 @@
             vc.delegate = self;
             vc.brandType = BrandType;
             vc.useOnlineData = YES;
-            
+            vc.pid = self.pid;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-            
+        case 1:
+        {
+            if (self.filterCondition.brandValue) {
+                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+                vc.delegate = self;
+                vc.brandType = SeriesType;
+                vc.useOnlineData = YES;
+                vc.pid = self.pid;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                
+            }
+        }
+            break;
+        case 2:
+        {
+            if (self.filterCondition.brandValue) {
+                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+                vc.delegate = self;
+                vc.brandType = ModelType;
+                vc.useOnlineData = YES;
+                vc.pid = self.pid;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                
+            }
+        }
+            break;
         default:
             break;
     }
@@ -87,6 +110,7 @@
         self.filterCondition.brandName = condition[@"CN"];
         self.filterCondition.brandValue = condition[@"CV"];
     }
+    self.pid = [condition[@"PID"] integerValue];
     [self updateCellViews];
 }
 
@@ -113,22 +137,5 @@
     self.cellContentList = array;
     [self.tableView reloadData];
 }
-
-
-//#pragma mark - Navigation
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wundeclared-selector"
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    UIViewController *vc = [segue destinationViewController];
-//    if ([vc respondsToSelector:@selector(setDelegate:)]) {
-//        [vc performSelector:@selector(setDelegate:) withObject:self];
-//    }
-//    
-//    if ([vc isKindOfClass:[YCBrandTableViewController class]]) {
-//        YCBrandTableViewController *bvc = (YCBrandTableViewController *)vc;
-//        [bvc setUseOnlineData:YES];
-//    }
-//}
-//#pragma clang diagnostic pop
 
 @end
