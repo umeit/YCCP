@@ -25,12 +25,40 @@
     if ([self useOnlineData]) {
         [self showLodingView];
         
-        [self.carService brandsFromOnSell:^(NSArray *brands) {
-            [self hideLodingView];
-            
-            self.brands = brands;
-            [self.tableView reloadData];
-        }];
+        switch (self.brandType) {
+            case BrandType:
+            {
+                [self.carService brandsFromOnSell:^(NSArray *brands) {
+                    [self hideLodingView];
+                    self.brands = brands;
+                    [self.tableView reloadData];
+                }];
+            }
+            break;
+                
+            case SeriesType:
+            {
+                [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
+                    [self hideLodingView];
+                    self.brands = serieses;
+                    [self.tableView reloadData];
+                }];
+            }
+            break;
+                
+            case ModelType:
+            {
+                [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
+                    [self hideLodingView];
+                    self.brands = models;
+                    [self.tableView reloadData];
+                }];
+            }
+            break;
+                 
+            default:
+                break;
+        }
     }
 }
 

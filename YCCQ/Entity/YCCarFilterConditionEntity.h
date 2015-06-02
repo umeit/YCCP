@@ -14,4 +14,16 @@
 
 @property (strong, nonatomic) NSString *brandValue;
 
+@property (strong, nonatomic) NSString *seriesName;
+
+@property (strong, nonatomic) NSString *seriesValue;
+
+@property (strong, nonatomic) NSString *modelName;
+
+@property (strong, nonatomic) NSString *modelValue;
+
+@property (strong, nonatomic) NSString *priceName;
+
+@property (strong, nonatomic) NSString *priceValue;
+
 @end

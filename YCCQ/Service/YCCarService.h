@@ -16,10 +16,17 @@ typedef void (^OnSellBrandBlock) (NSArray *brands);
 
 @interface YCCarService : NSObject
 
-// 获取所有爆款
+// 获取爆款
 - (void)baokuanWithBlock:(BaokuanBlock)block;
 
-// 获取所有在售品牌
+// 获取在售品牌
 - (void)brandsFromOnSell:(OnSellBrandBlock)block;
+
+// 根据品牌 ID 获取在售车系
+- (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block;
+
+// 根据品牌 ID 获取在售车型
+- (void)modelsFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block;
+
 
 @end
