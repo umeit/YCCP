@@ -66,10 +66,10 @@
 {
     NSString *brandVlue = [YCCarUtil brandWithTagForFilter:button.tag];
     NSString *pid = [YCCarUtil pIDWithBrand:brandVlue];
-    [self.delegate selecteConditionFinish:@{@"CK": @"Brand",
-                                            @"CN": button.titleLabel.text,
+    [self.delegate selecteConditionFinish:@{@"CN": button.titleLabel.text,
                                             @"CV": brandVlue,
-                                            @"PID": pid}];
+                                            @"PID": pid}
+                               filterType:BrandType];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -173,26 +173,26 @@
         
         NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
         
-        [self.delegate selecteConditionFinish:@{@"CK" : @"Brand",
-                                                @"CN" : dic[@"title"],
+        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
                                                 @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}];
+                                                @"PID": dic[@"id"]}
+                                   filterType:BrandType];
     }
     else if (self.dataType == SeriesType) {
         NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
         
-        [self.delegate selecteConditionFinish:@{@"CK" : @"Series",
-                                                @"CN" : dic[@"title"],
+        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
                                                 @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}];
+                                                @"PID": dic[@"id"]}
+                                   filterType:SeriesType];
     }
     else {
         NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
         
-        [self.delegate selecteConditionFinish:@{@"CK" : @"Model",
-                                                @"CN" : dic[@"title"],
+        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
                                                 @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}];
+                                                @"PID": dic[@"id"]}
+                                   filterType:ModelType];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -10,11 +10,6 @@
 #import "YCCarFilterDelegate.h"
 #import "YCCarFilterEnum.h"
 
-//typedef NS_ENUM(NSUInteger, FilterDataType) {
-//    PriceType,
-//    CarTypeType,
-//};
-
 @interface YCFilterTableViewController : UITableViewController
 
 @property (weak, nonatomic) id<YCCarFilterDelegate> delegate;

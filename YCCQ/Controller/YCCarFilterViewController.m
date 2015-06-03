@@ -89,6 +89,7 @@
             vc.pid = self.seriesID;
             [self.navigationController pushViewController:vc animated:YES];
         }
+            break;
         case PriceType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
@@ -96,6 +97,7 @@
             vc.dataType = PriceType;
             [self.navigationController pushViewController:vc animated:YES];
         }
+            break;
         case CarTypeType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
@@ -111,30 +113,63 @@
 
 #pragma mark - Car Filter Delegate
 
-- (void)selecteConditionFinish:(NSDictionary *)condition
+- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
 {
-    if ([condition[@"CK"] isEqualToString:@"Brand"]) {
-        self.filterCondition.brandName = condition[@"CN"];
-        self.filterCondition.brandValue = condition[@"CV"];
-        self.brandID = [condition[@"PID"] integerValue];
-        
-        self.filterCondition.seriesName = @"不限";
-        self.filterCondition.seriesValue = nil;
-        self.filterCondition.modelName = @"不限";
-        self.filterCondition.modelValue = nil;
+    switch (filterType) {
+        case BrandType:
+        {
+            self.filterCondition.brandName = condition[@"CN"];
+            self.filterCondition.brandValue = condition[@"CV"];
+            self.brandID = [condition[@"PID"] integerValue];
+            
+            self.filterCondition.seriesName = @"不限";
+            self.filterCondition.seriesValue = nil;
+            self.filterCondition.modelName = @"不限";
+            self.filterCondition.modelValue = nil;
+        }
+            break;
+        case SeriesType:
+        {
+            self.filterCondition.seriesName = condition[@"CN"];
+            self.filterCondition.seriesValue = condition[@"CV"];
+            self.seriesID = [condition[@"PID"] integerValue];
+            
+            self.filterCondition.modelName = @"不限";
+            self.filterCondition.modelValue = nil;
+        }
+            break;
+        case ModelType:
+        {
+            self.filterCondition.modelName = condition[@"CN"];
+            self.filterCondition.modelValue = condition[@"CV"];
+        }
+            break;
+        default:
+            break;
     }
-    else if ([condition[@"CK"] isEqualToString:@"Series"]) {
-        self.filterCondition.seriesName = condition[@"CN"];
-        self.filterCondition.seriesValue = condition[@"CV"];
-        self.seriesID = [condition[@"PID"] integerValue];
-        
-        self.filterCondition.modelName = @"不限";
-        self.filterCondition.modelValue = nil;
-    }
-    else if ([condition[@"CK"] isEqualToString:@"Model"]) {
-        self.filterCondition.modelName = condition[@"CN"];
-        self.filterCondition.modelValue = condition[@"CV"];
-    }
+    
+//    if ([condition[@"CK"] isEqualToString:@"Brand"]) {
+//        self.filterCondition.brandName = condition[@"CN"];
+//        self.filterCondition.brandValue = condition[@"CV"];
+//        self.brandID = [condition[@"PID"] integerValue];
+//        
+//        self.filterCondition.seriesName = @"不限";
+//        self.filterCondition.seriesValue = nil;
+//        self.filterCondition.modelName = @"不限";
+//        self.filterCondition.modelValue = nil;
+//    }
+//    else if ([condition[@"CK"] isEqualToString:@"Series"]) {
+//        self.filterCondition.seriesName = condition[@"CN"];
+//        self.filterCondition.seriesValue = condition[@"CV"];
+//        self.seriesID = [condition[@"PID"] integerValue];
+//        
+//        self.filterCondition.modelName = @"不限";
+//        self.filterCondition.modelValue = nil;
+//    }
+//    else if ([condition[@"CK"] isEqualToString:@"Model"]) {
+//        self.filterCondition.modelName = condition[@"CN"];
+//        self.filterCondition.modelValue = condition[@"CV"];
+//    }
     
     [self updateCellViews];
 }
