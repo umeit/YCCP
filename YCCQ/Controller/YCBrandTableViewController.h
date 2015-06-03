@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "YCCarFilterDelegate.h"
+#import "YCCarFilterEnum.h"
 
-typedef NS_ENUM(NSUInteger, BrandDataType) {
-    BrandType,
-    SeriesType,
-    ModelType,
-};
+//typedef NS_ENUM(NSUInteger, BrandDataType) {
+//    BrandType,
+//    SeriesType,
+//    ModelType,
+//};
 
 @class YCCarService;
 
@@ -23,7 +24,7 @@ typedef NS_ENUM(NSUInteger, BrandDataType) {
 
 @property (nonatomic) BOOL useOnlineData;
 
-@property (nonatomic) BrandDataType brandType;
+@property (nonatomic) CarFilterType dataType;
 
 @property (nonatomic) NSInteger pid;
 

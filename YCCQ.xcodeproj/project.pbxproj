@@ -14,6 +14,7 @@
 		030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759A1B0B3F88008753C8 /* YCBaoKuanEntity.m */; };
 		030A759F1B0B41ED008753C8 /* YCBannerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759E1B0B41ED008753C8 /* YCBannerService.m */; };
 		030A75A21B0B4211008753C8 /* YCCarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A75A11B0B4211008753C8 /* YCCarService.m */; };
+		03109AA91B1EF9F200356FB3 /* YCFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03109AA81B1EF9F200356FB3 /* YCFilterTableViewController.m */; };
 		031AD62F1B199C1C0076B32D /* carbrandlogo.json in Resources */ = {isa = PBXBuildFile; fileRef = 031AD62E1B199C1C0076B32D /* carbrandlogo.json */; };
 		031AD6711B199C320076B32D /* acura.png in Resources */ = {isa = PBXBuildFile; fileRef = 031AD6311B199C320076B32D /* acura.png */; };
 		031AD6721B199C320076B32D /* astonmartin.png in Resources */ = {isa = PBXBuildFile; fileRef = 031AD6321B199C320076B32D /* astonmartin.png */; };
@@ -153,6 +154,9 @@
 		030A759E1B0B41ED008753C8 /* YCBannerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerService.m; sourceTree = "<group>"; };
 		030A75A01B0B4211008753C8 /* YCCarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarService.h; sourceTree = "<group>"; };
 		030A75A11B0B4211008753C8 /* YCCarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarService.m; sourceTree = "<group>"; };
+		03109AA71B1EF9F200356FB3 /* YCFilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterTableViewController.h; sourceTree = "<group>"; };
+		03109AA81B1EF9F200356FB3 /* YCFilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFilterTableViewController.m; sourceTree = "<group>"; };
+		03109AAE1B1F0CAC00356FB3 /* YCCarFilterEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterEnum.h; sourceTree = "<group>"; };
 		031AD62E1B199C1C0076B32D /* carbrandlogo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = carbrandlogo.json; sourceTree = "<group>"; };
 		031AD6311B199C320076B32D /* acura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acura.png; sourceTree = "<group>"; };
 		031AD6321B199C320076B32D /* astonmartin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astonmartin.png; sourceTree = "<group>"; };
@@ -393,6 +397,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		03109AAA1B1F0ACB00356FB3 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				03109AAE1B1F0CAC00356FB3 /* YCCarFilterEnum.h */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		031AD6301B199C320076B32D /* carlogo */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +528,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				03109AAA1B1F0ACB00356FB3 /* Enum */,
 				0376B67A1B186CCE005B5FFC /* Protocol */,
 				03EBD2DE1B142064004DD5E3 /* Logic */,
 				03EE9F461B1339A70051CC57 /* Util */,
@@ -677,6 +690,8 @@
 				03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */,
 				03C73DC31B1857D0008FCF0F /* YCBrandTableViewController.h */,
 				03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */,
+				03109AA71B1EF9F200356FB3 /* YCFilterTableViewController.h */,
+				03109AA81B1EF9F200356FB3 /* YCFilterTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -898,6 +913,7 @@
 				03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */,
 				03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */,
 				03EBD2EE1B14736F004DD5E3 /* ParallaxHeaderView.m in Sources */,
+				03109AA91B1EF9F200356FB3 /* YCFilterTableViewController.m in Sources */,
 				03EE9F3E1B130F4C0051CC57 /* MBProgressHUD.m in Sources */,
 				030A759F1B0B41ED008753C8 /* YCBannerService.m in Sources */,
 				03C64BBB1B15D50D00848FCD /* YCNetUtil.m in Sources */,

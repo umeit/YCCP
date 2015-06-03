@@ -26,4 +26,8 @@
 
 @property (strong, nonatomic) NSString *priceValue;
 
+@property (strong, nonatomic) NSString *carTypeName;
+
+@property (strong, nonatomic) NSString *carTypeValue;
+
 @end

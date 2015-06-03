@@ -11,9 +11,7 @@
 #import "YCCarFilterConditionEntity.h"
 
 @protocol YCCarFilterViewController <NSObject>
-
 - (void)conditionDidFinish;
-
 @end
 
 @interface YCCarFilterViewController : UITableViewController <YCCarFilterDelegate>

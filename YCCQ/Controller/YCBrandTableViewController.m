@@ -25,7 +25,7 @@
     if ([self useOnlineData]) {
         [self showLodingView];
         
-        switch (self.brandType) {
+        switch (self.dataType) {
             case BrandType:
             {
                 [self.carService brandsFromOnSell:^(NSArray *brands) {
@@ -76,7 +76,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         return self.brands.count + 1;
     }
     else {
@@ -85,7 +85,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         if (section == 0) {
             return 1;
         }
@@ -102,7 +102,7 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:@"热"];
         for (NSDictionary *brandInfo in self.brands) {
@@ -120,7 +120,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             return [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
         }
@@ -137,7 +137,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         if (section == 0) {
             return @"热门车辆";
         }
@@ -156,7 +156,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             return 104;
         }
@@ -166,19 +166,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.brandType == BrandType) {
+    if (self.dataType == BrandType) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             return;
         }
         
-        if (indexPath.section == 1 && indexPath.row == 0) {
-            [self.navigationController popViewControllerAnimated:YES];
-            return;
-        }
+        NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
+        
+        [self.delegate selecteConditionFinish:@{@"CK" : @"Brand",
+                                                @"CN" : dic[@"title"],
+                                                @"CV" : dic[@"enname"],
+                                                @"PID": dic[@"id"]}];
+    }
+    else if (self.dataType == SeriesType) {
+        NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+        
+        [self.delegate selecteConditionFinish:@{@"CK" : @"Series",
+                                                @"CN" : dic[@"title"],
+                                                @"CV" : dic[@"enname"],
+                                                @"PID": dic[@"id"]}];
     }
     else {
+        NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
         
+        [self.delegate selecteConditionFinish:@{@"CK" : @"Model",
+                                                @"CN" : dic[@"title"],
+                                                @"CV" : dic[@"enname"],
+                                                @"PID": dic[@"id"]}];
     }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

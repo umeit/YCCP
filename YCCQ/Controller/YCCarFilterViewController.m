@@ -9,10 +9,13 @@
 #import "YCCarFilterViewController.h"
 #import "YCBrandTableViewController.h"
 #import "UIViewController+GViewController.h"
+#import "YCFilterTableViewController.h"
+#import "YCCarFilterEnum.h"
 
 @interface YCCarFilterViewController ()
 @property (strong, nonatomic) NSMutableArray *cellContentList;
-@property (nonatomic) NSInteger pid;
+@property (nonatomic) NSInteger brandID;
+@property (nonatomic) NSInteger seriesID;
 @end
 
 @implementation YCCarFilterViewController
@@ -21,10 +24,10 @@
     [super viewDidLoad];
     
     self.filterCondition = [[YCCarFilterConditionEntity alloc] init];
-    self.filterCondition.brandName = @"不限";
+    self.filterCondition.brandName  = @"不限";
     self.filterCondition.seriesName = @"不限";
-    self.filterCondition.modelName = @"不限";
-    self.filterCondition.priceName = @"不限";
+    self.filterCondition.modelName  = @"不限";
+    self.filterCondition.priceName  = @"不限";
     
     [self updateCellViews];
 }
@@ -55,46 +58,50 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSInteger type = [self.cellContentList[indexPath.row][@"type"] integerValue];
     
-    switch (indexPath.row) {
-        case 0:
+    switch (type) {
+        case BrandType:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
             vc.delegate = self;
-            vc.brandType = BrandType;
+            vc.dataType = BrandType;
             vc.useOnlineData = YES;
-            vc.pid = self.pid;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 1:
+        case SeriesType:
         {
-            if (self.filterCondition.brandValue) {
-                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-                vc.delegate = self;
-                vc.brandType = SeriesType;
-                vc.useOnlineData = YES;
-                vc.pid = self.pid;
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            else {
-                
-            }
+            YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+            vc.delegate = self;
+            vc.dataType = SeriesType;
+            vc.useOnlineData = YES;
+            vc.pid = self.brandID;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
-        case 2:
+        case ModelType:
         {
-            if (self.filterCondition.brandValue) {
-                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-                vc.delegate = self;
-                vc.brandType = ModelType;
-                vc.useOnlineData = YES;
-                vc.pid = self.pid;
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            else {
-                
-            }
+            YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+            vc.delegate = self;
+            vc.dataType = ModelType;
+            vc.useOnlineData = YES;
+            vc.pid = self.seriesID;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        case PriceType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = PriceType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        case CarTypeType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = CarTypeType;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:
@@ -102,15 +109,33 @@
     }
 }
 
-#pragma mark - YCCarFilterDelegate
+#pragma mark - Car Filter Delegate
 
 - (void)selecteConditionFinish:(NSDictionary *)condition
 {
     if ([condition[@"CK"] isEqualToString:@"Brand"]) {
         self.filterCondition.brandName = condition[@"CN"];
         self.filterCondition.brandValue = condition[@"CV"];
+        self.brandID = [condition[@"PID"] integerValue];
+        
+        self.filterCondition.seriesName = @"不限";
+        self.filterCondition.seriesValue = nil;
+        self.filterCondition.modelName = @"不限";
+        self.filterCondition.modelValue = nil;
     }
-    self.pid = [condition[@"PID"] integerValue];
+    else if ([condition[@"CK"] isEqualToString:@"Series"]) {
+        self.filterCondition.seriesName = condition[@"CN"];
+        self.filterCondition.seriesValue = condition[@"CV"];
+        self.seriesID = [condition[@"PID"] integerValue];
+        
+        self.filterCondition.modelName = @"不限";
+        self.filterCondition.modelValue = nil;
+    }
+    else if ([condition[@"CK"] isEqualToString:@"Model"]) {
+        self.filterCondition.modelName = condition[@"CN"];
+        self.filterCondition.modelValue = condition[@"CV"];
+    }
+    
     [self updateCellViews];
 }
 
@@ -125,14 +150,15 @@
     NSString *brand  = self.filterCondition.brandValue;
     NSString *series = self.filterCondition.seriesValue;
     
-    [array addObject:@{@"name": @"品牌", @"value": self.filterCondition.brandName}];
+    [array addObject:@{@"name": @"品牌", @"value": self.filterCondition.brandName, @"type": @(BrandType)}];
     if (brand.length) {
-        [array addObject:@{@"name": @"车系", @"value": self.filterCondition.seriesName}];
+        [array addObject:@{@"name": @"车系", @"value": self.filterCondition.seriesName, @"type": @(SeriesType)}];
         if (series.length) {
-            [array addObject:@{@"name": @"车型", @"value": self.filterCondition.modelName}];
+            [array addObject:@{@"name": @"车型", @"value": self.filterCondition.modelName, @"type": @(ModelType)}];
         }
     }
-    [array addObject:@{@"name": @"价格", @"value": self.filterCondition.priceName}];
+    [array addObject:@{@"name": @"价格", @"value": self.filterCondition.priceName, @"type": @(PriceType)}];
+    [array addObject:@{@"name": @"类型", @"value": self.filterCondition.priceName, @"type": @(CarTypeType)}];
     
     self.cellContentList = array;
     [self.tableView reloadData];
