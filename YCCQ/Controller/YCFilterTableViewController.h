@@ -12,7 +12,7 @@
 
 @interface YCFilterTableViewController : UITableViewController
 
-@property (weak, nonatomic) id<YCCarFilterDelegate> delegate;
+@property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
 
 @property (nonatomic) CarFilterType dataType;
 

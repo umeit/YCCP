@@ -23,7 +23,7 @@
     self.carListWebView.delegate = self;
     
     if (!self.carListURL) {
-        self.carListURL = [NSURL URLWithString:@"http://m.youche.com/ershouche/"];
+        self.carListURL = [self defaultURL];
     }
     
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
@@ -38,9 +38,13 @@
     [super viewDidAppear:animated];
     if (!self.navigationController) {
         CGRect frame = self.carListWebView.frame;
-        self.carListWebView.frame = CGRectMake(0, frame.origin.y + 22, frame.size.width, frame.size.height - 22);
+        self.carListWebView.frame = CGRectMake(0,
+                                               frame.origin.y + 22,
+                                               frame.size.width,
+                                               frame.size.height - 22);
     }
 }
+
 
 #pragma mark - Action
 
@@ -48,13 +52,14 @@
 {
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
 }
+
 - (IBAction)priceButtonPress:(UIButton *)button
 {
     if ([self.orderButtonStatus[@"price"] boolValue]) {
         self.orderButtonStatus[@"price"] = @NO;
         
         [self.carListWebView loadRequest:
-         [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o1"]]];
+        [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o1"]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
         [self.carListWebView loadRequest:
@@ -94,16 +99,32 @@
     [self hideLodingView];
 }
 
+
+#pragma mark - Car Filter Delegate
+
+- (void)conditionDidFinish:(NSString *)urlFuffix
+{
+    self.carListURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix]];
+    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
+}
+
+
 #pragma mark - Privatre
 
-/*
+- (NSURL *)defaultURL
+{
+    return [NSURL URLWithString:@"http://m.youche.com/ershouche/"];
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UIViewController *vc = segue.destinationViewController;
+    if ([vc respondsToSelector:@selector(setDelegate:)]) {
+        [vc performSelector:@selector(setDelegate:) withObject:self];
+    }
 }
-*/
+
 
 @end

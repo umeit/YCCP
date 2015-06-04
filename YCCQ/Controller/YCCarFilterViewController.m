@@ -23,13 +23,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"确定" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
+    button.backgroundColor = [UIColor redColor];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.tableView setTableFooterView:button];
+    
+    [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    
     self.filterCondition = [[YCCarFilterConditionEntity alloc] init];
-    self.filterCondition.brandName  = @"不限";
-    self.filterCondition.seriesName = @"不限";
-    self.filterCondition.modelName  = @"不限";
-    self.filterCondition.priceName  = @"不限";
+    self.filterCondition.brandName   = @"不限";
+    self.filterCondition.seriesName  = @"不限";
+    self.filterCondition.modelName   = @"不限";
+    self.filterCondition.priceName   = @"不限";
+    self.filterCondition.carTypeName = @"不限";
     
     [self updateCellViews];
+}
+
+
+#pragma mark - Action
+
+- (void)okButtonPress:(UIButton *)button {
+    [self.delegate conditionDidFinish:[self urlFuffix]];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -52,6 +70,7 @@
     cell.detailTextLabel.text = dic[@"value"];
     return cell;
 }
+
 
 
 #pragma mark - Table View Delegate
@@ -144,38 +163,73 @@
             self.filterCondition.modelValue = condition[@"CV"];
         }
             break;
+            
+        case PriceType:
+        {
+            self.filterCondition.priceName = condition[@"CN"];
+            self.filterCondition.priceValue = condition[@"CV"];
+        }
+            break;
+        case CarTypeType:
+        {
+            self.filterCondition.carTypeName = condition[@"CN"];
+            self.filterCondition.carTypeValue = condition[@"CV"];
+        }
         default:
             break;
     }
-    
-//    if ([condition[@"CK"] isEqualToString:@"Brand"]) {
-//        self.filterCondition.brandName = condition[@"CN"];
-//        self.filterCondition.brandValue = condition[@"CV"];
-//        self.brandID = [condition[@"PID"] integerValue];
-//        
-//        self.filterCondition.seriesName = @"不限";
-//        self.filterCondition.seriesValue = nil;
-//        self.filterCondition.modelName = @"不限";
-//        self.filterCondition.modelValue = nil;
-//    }
-//    else if ([condition[@"CK"] isEqualToString:@"Series"]) {
-//        self.filterCondition.seriesName = condition[@"CN"];
-//        self.filterCondition.seriesValue = condition[@"CV"];
-//        self.seriesID = [condition[@"PID"] integerValue];
-//        
-//        self.filterCondition.modelName = @"不限";
-//        self.filterCondition.modelValue = nil;
-//    }
-//    else if ([condition[@"CK"] isEqualToString:@"Model"]) {
-//        self.filterCondition.modelName = condition[@"CN"];
-//        self.filterCondition.modelValue = condition[@"CV"];
-//    }
     
     [self updateCellViews];
 }
 
 
 #pragma mark - Private
+
+// 通过 FilterCondition 实体，生成查询 URL 后缀
+- (NSString *)urlFuffix
+{
+    NSMutableString *url = [NSMutableString string];
+    
+    // 选择类型
+    if (self.filterCondition.carTypeValue.length) {
+        [url appendString:self.filterCondition.carTypeValue];
+        // 品牌
+        if (self.filterCondition.brandValue.length) {
+            [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
+        }
+        // 价格
+        if (self.filterCondition.priceValue) {
+            [url appendFormat:@"/%@", self.filterCondition.priceValue];
+        }
+        
+        return url;
+    }
+
+    // 选择品牌
+    if (self.filterCondition.brandValue.length) {
+        [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
+        // 车系
+        if (self.filterCondition.seriesValue.length) {
+            [url appendString:[self.filterCondition.seriesValue isEqualToString:@"all"] ? @"" :self.filterCondition.seriesValue];
+            // 车型
+            if (self.filterCondition.modelValue.length) {
+                [url appendString:[self.filterCondition.modelValue isEqualToString:@"all"] ? @"" :self.filterCondition.modelValue];
+            }
+        }
+        // 价格
+        if (self.filterCondition.priceValue) {
+            [url appendFormat:@"/%@", self.filterCondition.priceValue];
+        }
+        
+        return url;
+    }
+
+    // 没选类型，没选品牌，价格前加 ershouche
+    if (self.filterCondition.priceValue) {
+        [url appendFormat:@"ershouche/%@", self.filterCondition.priceValue];
+    }
+    return url;
+}
 
 // 通过 FilterCondition 实体，更新列表数据源
 - (void)updateCellViews
@@ -193,7 +247,7 @@
         }
     }
     [array addObject:@{@"name": @"价格", @"value": self.filterCondition.priceName, @"type": @(PriceType)}];
-    [array addObject:@{@"name": @"类型", @"value": self.filterCondition.priceName, @"type": @(CarTypeType)}];
+    [array addObject:@{@"name": @"类型", @"value": self.filterCondition.carTypeName, @"type": @(CarTypeType)}];
     
     self.cellContentList = array;
     [self.tableView reloadData];

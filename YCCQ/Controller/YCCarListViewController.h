@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YCCarFilterViewController.h"
 
-@interface YCCarListViewController : UIViewController <UIWebViewDelegate>
+@interface YCCarListViewController : UIViewController <UIWebViewDelegate, YCCarFilterDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *carListWebView;
 

@@ -166,33 +166,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.dataType == BrandType) {
-        if (indexPath.section == 0 && indexPath.row == 0) {
-            return;
+    switch (self.dataType) {
+        case BrandType:
+        {
+            if (indexPath.section == 0 && indexPath.row == 0) {
+                return;
+            }
+            
+            NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
+            
+            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
+                                                    @"CV" : dic[@"enname"],
+                                                    @"PID": dic[@"id"]}
+                                       filterType:BrandType];
         }
-        
-        NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
-        
-        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}
-                                   filterType:BrandType];
-    }
-    else if (self.dataType == SeriesType) {
-        NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
-        
-        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}
-                                   filterType:SeriesType];
-    }
-    else {
-        NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
-        
-        [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                @"CV" : dic[@"enname"],
-                                                @"PID": dic[@"id"]}
-                                   filterType:ModelType];
+            break;
+        case SeriesType:
+        {
+            NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            
+            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
+                                                    @"CV" : dic[@"enname"],
+                                                    @"PID": dic[@"id"]}
+                                       filterType:SeriesType];
+        }
+            break;
+        case ModelType:
+        {
+            NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            
+            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
+                                                    @"CV" : dic[@"enname"],
+                                                    @"PID": dic[@"id"]}
+                                       filterType:ModelType];
+        }
+            break;
+        default:
+            break;
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

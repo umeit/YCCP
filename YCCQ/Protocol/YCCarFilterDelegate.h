@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "YCCarFilterEnum.h"
 
-@protocol YCCarFilterDelegate <NSObject>
+@protocol YCCarFilterConditionDelegate <NSObject>
 
 - (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType;
 
