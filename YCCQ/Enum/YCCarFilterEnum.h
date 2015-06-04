@@ -11,6 +11,11 @@ typedef NS_ENUM(NSInteger, CarFilterType) {
     SeriesType,
     ModelType,
     PriceType,
-    CarTypeType
+    CarTypeType,
+    mileageType,
+    gearboxType,
+    colorType,
+    yearType,
+    ccType
 };
 

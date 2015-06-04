@@ -26,6 +26,21 @@
         case CarTypeType:
             self.dataList = [self carTyppList];
             break;
+        case gearboxType:
+            self.dataList = [self gearboxTyppList];
+            break;
+        case ccType:
+            self.dataList = [self ccTyppList];
+            break;
+        case colorType:
+            self.dataList = [self colorTyppList];
+            break;
+        case yearType:
+            self.dataList = [self yearTyppList];
+            break;
+        case mileageType:
+            self.dataList = [self mileageTyppList];
+            break;
         default:
             break;
     }
@@ -92,6 +107,64 @@
              @{@"name": @"SUV", @"value":@"suv"},
              @{@"name": @"MPV", @"value":@"mpv"},
              @{@"name": @"跑车", @"value":@"paoche"}];
+}
+
+- (NSArray *)ccTyppList
+{
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"1.0L以下", @"value":@"l1"},
+             @{@"name": @"1.1L-1.5L",   @"value":@"l2"},
+             @{@"name": @"1.6L-2.0L",  @"value":@"l3"},
+             @{@"name": @"2.1L-2.5L", @"value":@"l4"},
+             @{@"name": @"2.6L-3.0L", @"value":@"l5"},
+             @{@"name": @"3.1L-4.0L", @"value":@"l6"},
+             @{@"name": @"4.0L以上", @"value":@"l7"}];
+}
+
+- (NSArray *)mileageTyppList
+{
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"1万以内", @"value":@"d1"},
+             @{@"name": @"1-3万",   @"value":@"d2"},
+             @{@"name": @"3-6万",  @"value":@"d3"},
+             @{@"name": @"6-10万", @"value":@"d4"},
+             @{@"name": @"10万以上", @"value":@"d5"}];
+}
+
+- (NSArray *)gearboxTyppList
+{
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"手动", @"value":@"g1"},
+             @{@"name": @"自动",   @"value":@"g2"}];
+}
+
+- (NSArray *)colorTyppList
+{
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"黑色", @"value":@"1"},
+             @{@"name": @"白色",   @"value":@"2"},
+             @{@"name": @"银色",  @"value":@"3"},
+             @{@"name": @"灰色", @"value":@"4"},
+             @{@"name": @"栗色", @"value":@"5"},
+             @{@"name": @"红色", @"value":@"6"},
+             @{@"name": @"蓝色", @"value":@"7"},
+             @{@"name": @"绿色", @"value":@"8"},
+             @{@"name": @"黄色", @"value":@"9"},
+             @{@"name": @"橙色", @"value":@"10"},
+             @{@"name": @"棕色", @"value":@"11"},
+             @{@"name": @"紫色", @"value":@"12"},
+             @{@"name": @"金色", @"value":@"13"}];
+}
+
+- (NSArray *)yearTyppList
+{
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"1年以内", @"value":@"1"},
+             @{@"name": @"2年以内",   @"value":@"2"},
+             @{@"name": @"3年以内",  @"value":@"3"},
+             @{@"name": @"5年以内", @"value":@"7"},
+             @{@"name": @"5年以上", @"value":@"8"},
+             @{@"name": @"准新车", @"value":@"9"}];
 }
 
 

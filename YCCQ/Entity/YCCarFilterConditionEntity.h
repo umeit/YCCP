@@ -30,4 +30,26 @@
 
 @property (strong, nonatomic) NSString *carTypeValue;
 
+@property (strong, nonatomic) NSString *mileageName;
+
+@property (strong, nonatomic) NSString *mileageValue;
+
+@property (strong, nonatomic) NSString *gearboxName;
+
+@property (strong, nonatomic) NSString *gearboxValue;
+
+@property (strong, nonatomic) NSString *colorName;
+
+@property (strong, nonatomic) NSString *colorValue;
+
+@property (strong, nonatomic) NSString *yearName;
+
+@property (strong, nonatomic) NSString *yearValue;
+
+@property (strong, nonatomic) NSString *ccName;
+
+@property (strong, nonatomic) NSString *ccValue;
+
+
+
 @end

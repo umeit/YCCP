@@ -38,6 +38,11 @@
     self.filterCondition.modelName   = @"不限";
     self.filterCondition.priceName   = @"不限";
     self.filterCondition.carTypeName = @"不限";
+    self.filterCondition.yearName    = @"不限";
+    self.filterCondition.ccName      = @"不限";
+    self.filterCondition.mileageName = @"不限";
+    self.filterCondition.gearboxName = @"不限";
+    self.filterCondition.colorName   = @"不限";
     
     [self updateCellViews];
 }
@@ -125,6 +130,46 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case ccType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = ccType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case gearboxType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = gearboxType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case mileageType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = mileageType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case yearType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = yearType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case colorType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = colorType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
         default:
             break;
     }
@@ -175,6 +220,37 @@
             self.filterCondition.carTypeName = condition[@"CN"];
             self.filterCondition.carTypeValue = condition[@"CV"];
         }
+            break;
+        case yearType:
+        {
+            self.filterCondition.yearName = condition[@"CN"];
+            self.filterCondition.yearValue = condition[@"CV"];
+        }
+            break;
+        case colorType:
+        {
+            self.filterCondition.colorName = condition[@"CN"];
+            self.filterCondition.colorValue = condition[@"CV"];
+        }
+            break;
+        case ccType:
+        {
+            self.filterCondition.ccName = condition[@"CN"];
+            self.filterCondition.ccValue = condition[@"CV"];
+        }
+            break;
+        case gearboxType:
+        {
+            self.filterCondition.gearboxName = condition[@"CN"];
+            self.filterCondition.gearboxValue = condition[@"CV"];
+        }
+            break;
+        case mileageType:
+        {
+            self.filterCondition.mileageName = condition[@"CN"];
+            self.filterCondition.mileageValue = condition[@"CV"];
+        }
+            break;
         default:
             break;
     }
@@ -246,8 +322,13 @@
             [array addObject:@{@"name": @"车型", @"value": self.filterCondition.modelName, @"type": @(ModelType)}];
         }
     }
-    [array addObject:@{@"name": @"价格", @"value": self.filterCondition.priceName, @"type": @(PriceType)}];
-    [array addObject:@{@"name": @"类型", @"value": self.filterCondition.carTypeName, @"type": @(CarTypeType)}];
+    [array addObject:@{@"name": @"价格",  @"value": self.filterCondition.priceName, @"type": @(PriceType)}];
+    [array addObject:@{@"name": @"类型",  @"value": self.filterCondition.carTypeName, @"type": @(CarTypeType)}];
+    [array addObject:@{@"name": @"车龄",  @"value": self.filterCondition.yearName, @"type": @(yearType)}];
+    [array addObject:@{@"name": @"里程",  @"value": self.filterCondition.mileageName, @"type": @(mileageType)}];
+    [array addObject:@{@"name": @"变速箱", @"value": self.filterCondition.gearboxName, @"type": @(gearboxType)}];
+    [array addObject:@{@"name": @"排量",  @"value": self.filterCondition.ccName, @"type": @(ccType)}];
+    [array addObject:@{@"name": @"颜色",  @"value": self.filterCondition.colorName, @"type": @(colorType)}];
     
     self.cellContentList = array;
     [self.tableView reloadData];
