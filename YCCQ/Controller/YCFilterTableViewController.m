@@ -141,30 +141,30 @@
 - (NSArray *)colorTyppList
 {
     return @[@{@"name": @"不限",    @"value":@""},
-             @{@"name": @"黑色", @"value":@"1"},
-             @{@"name": @"白色",   @"value":@"2"},
-             @{@"name": @"银色",  @"value":@"3"},
-             @{@"name": @"灰色", @"value":@"4"},
-             @{@"name": @"栗色", @"value":@"5"},
-             @{@"name": @"红色", @"value":@"6"},
-             @{@"name": @"蓝色", @"value":@"7"},
-             @{@"name": @"绿色", @"value":@"8"},
-             @{@"name": @"黄色", @"value":@"9"},
-             @{@"name": @"橙色", @"value":@"10"},
-             @{@"name": @"棕色", @"value":@"11"},
-             @{@"name": @"紫色", @"value":@"12"},
-             @{@"name": @"金色", @"value":@"13"}];
+             @{@"name": @"黑色", @"value":@"c1"},
+             @{@"name": @"白色",   @"value":@"c2"},
+             @{@"name": @"银色",  @"value":@"c3"},
+             @{@"name": @"灰色", @"value":@"c4"},
+             @{@"name": @"栗色", @"value":@"c5"},
+             @{@"name": @"红色", @"value":@"c6"},
+             @{@"name": @"蓝色", @"value":@"c7"},
+             @{@"name": @"绿色", @"value":@"c8"},
+             @{@"name": @"黄色", @"value":@"c9"},
+             @{@"name": @"橙色", @"value":@"c10"},
+             @{@"name": @"棕色", @"value":@"c11"},
+             @{@"name": @"紫色", @"value":@"c12"},
+             @{@"name": @"金色", @"value":@"c13"}];
 }
 
 - (NSArray *)yearTyppList
 {
     return @[@{@"name": @"不限",    @"value":@""},
-             @{@"name": @"1年以内", @"value":@"1"},
-             @{@"name": @"2年以内",   @"value":@"2"},
-             @{@"name": @"3年以内",  @"value":@"3"},
-             @{@"name": @"5年以内", @"value":@"7"},
-             @{@"name": @"5年以上", @"value":@"8"},
-             @{@"name": @"准新车", @"value":@"9"}];
+             @{@"name": @"1年以内", @"value":@"a1"},
+             @{@"name": @"2年以内",   @"value":@"a2"},
+             @{@"name": @"3年以内",  @"value":@"a3"},
+             @{@"name": @"5年以内", @"value":@"a7"},
+             @{@"name": @"5年以上", @"value":@"a8"},
+             @{@"name": @"准新车", @"value":@"a9"}];
 }
 
 

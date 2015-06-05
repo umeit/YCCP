@@ -30,7 +30,7 @@
 
 - (void)brandsFromOnSell:(OnSellBrandBlock)block
 {
-    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+    [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"
                               parameters:@{@"depth": @1}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      block(responseObject);
@@ -42,7 +42,7 @@
 
 - (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
 {
-    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+    [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"
                               parameters:@{@"depth": @2, @"pid": @(pid)}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      block(responseObject);
@@ -54,7 +54,7 @@
 
 - (void)modelsFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
 {
-    [[YCYouCheHTTPClient httpClient] GET:@"select/carmodel"
+    [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"
                               parameters:@{@"depth": @3, @"pid": @(pid)}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      block(responseObject);

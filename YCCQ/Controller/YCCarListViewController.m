@@ -55,29 +55,35 @@
 
 - (IBAction)priceButtonPress:(UIButton *)button
 {
+    NSMutableString *path = [NSMutableString stringWithString:self.carListURL.absoluteString];
+    
     if ([self.orderButtonStatus[@"price"] boolValue]) {
         self.orderButtonStatus[@"price"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o1"]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o1"]]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
+        
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o2"]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o2"]]]];
     }
 }
 
 - (IBAction)mileageButtonPress:(id)sender
 {
+    NSMutableString *path = [NSMutableString stringWithString:self.carListURL.absoluteString];
+    
     if ([self.orderButtonStatus[@"mileage"] boolValue]) {
         self.orderButtonStatus[@"mileage"] = @NO;
         
         [self.carListWebView loadRequest:
-         [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o5"]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o5"]]]];
     } else {
         self.orderButtonStatus[@"mileage"] = @YES;
+        
         [self.carListWebView loadRequest:
-         [NSURLRequest requestWithURL:[self.carListURL URLByAppendingPathComponent:@"o6"]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o6"]]]];
     }
 }
 

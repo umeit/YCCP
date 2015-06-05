@@ -273,16 +273,10 @@
         if (self.filterCondition.brandValue.length) {
             [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
         }
-        // 价格
-        if (self.filterCondition.priceValue) {
-            [url appendFormat:@"/%@", self.filterCondition.priceValue];
-        }
-        
-        return url;
     }
-
-    // 选择品牌
-    if (self.filterCondition.brandValue.length) {
+    // 没选类型
+    // 品牌
+    else if (self.filterCondition.brandValue.length) {
         [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
         // 车系
         if (self.filterCondition.seriesValue.length) {
@@ -292,17 +286,37 @@
                 [url appendString:[self.filterCondition.modelValue isEqualToString:@"all"] ? @"" :self.filterCondition.modelValue];
             }
         }
-        // 价格
-        if (self.filterCondition.priceValue) {
-            [url appendFormat:@"/%@", self.filterCondition.priceValue];
-        }
-        
-        return url;
     }
-
-    // 没选类型，没选品牌，价格前加 ershouche
-    if (self.filterCondition.priceValue) {
-        [url appendFormat:@"ershouche/%@", self.filterCondition.priceValue];
+    // 没选类型，没选品牌
+    else {
+        [url appendString:@"ershouche"];
+    }
+    
+    [url appendString:@"/"];
+    
+    // 价格
+    if (self.filterCondition.priceValue.length) {
+        [url appendString:self.filterCondition.priceValue];
+    }
+    // 颜色
+    if (self.filterCondition.colorValue.length) {
+        [url appendString:self.filterCondition.colorValue];
+    }
+    // 公里
+    if (self.filterCondition.mileageValue.length) {
+        [url appendString:self.filterCondition.mileageValue];
+    }
+    // 排量
+    if (self.filterCondition.ccValue.length) {
+        [url appendString:self.filterCondition.ccValue];
+    }
+    // 变速箱
+    if (self.filterCondition.gearboxValue.length) {
+        [url appendString:self.filterCondition.gearboxValue];
+    }
+    // 车龄
+    if (self.filterCondition.yearValue.length) {
+        [url appendString:self.filterCondition.yearValue];
     }
     return url;
 }
