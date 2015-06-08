@@ -19,6 +19,7 @@
 #import "YCWebViewController.h"
 #import "YCCarListViewController.h"
 #import "YCCarUtil.h"
+#import "UtilDefine.h"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -182,6 +183,28 @@
 }
 
 #pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (iPhone4) {
+        if (indexPath.row == 0) {
+            return 150.f;
+        }
+        if (indexPath.row == 1) {
+            return 240.f;
+        }
+        if (indexPath.row == 2) {
+            return 100.f;
+        }
+        if (indexPath.row == 3) {
+            return 100.f;
+        }
+        if (indexPath.row == 4) {
+            return 100.f;
+        }
+    }
+    return 4.4;
+}
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //    return 1;
