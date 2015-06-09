@@ -63,12 +63,12 @@
         self.orderButtonStatus[@"price"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o1"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o1?t=app"]]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o2"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o2?t=app"]]]];
     }
 }
 
@@ -80,12 +80,12 @@
         self.orderButtonStatus[@"mileage"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o5"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o5?t=app"]]]];
     } else {
         self.orderButtonStatus[@"mileage"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o6"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o6?t=app"]]]];
     }
 }
 
