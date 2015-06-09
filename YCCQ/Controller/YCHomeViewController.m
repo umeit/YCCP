@@ -191,10 +191,10 @@
             return 150.f;
         }
         if (indexPath.row == 1) {
-            return 240.f;
+            return 241.f;
         }
         if (indexPath.row == 2) {
-            return 100.f;
+            return 340.f;
         }
         if (indexPath.row == 3) {
             return 100.f;
