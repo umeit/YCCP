@@ -86,7 +86,8 @@
 {
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
     carListViewController.carListURL = [NSURL URLWithString:
-                                        [NSString stringWithFormat:@"http://m.youche.com/%@", key]];
+                                        [NSString stringWithFormat:@"http://m.youche.com/%@/", key]];
+    carListViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:carListViewController animated:YES];
 }
 

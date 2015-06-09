@@ -252,9 +252,6 @@
                                                 <constraint firstItem="2Jn-kg-oe8" firstAttribute="leading" secondItem="biV-s1-6Sh" secondAttribute="leading" id="CUd-s1-rsi">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
-                                                <constraint firstItem="lGv-7I-UZK" firstAttribute="trailing" secondItem="1mV-gL-FiQ" secondAttribute="leading" id="CYp-sz-w2v">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="19"/>
-                                                </constraint>
                                                 <constraint firstItem="cFH-Dv-fK0" firstAttribute="centerX" secondItem="p6J-16-z6u" secondAttribute="centerX" id="Gxr-o0-fRC"/>
                                                 <constraint firstItem="QH5-NP-2DA" firstAttribute="centerX" secondItem="6sQ-XJ-AO5" secondAttribute="centerX" id="HP8-Wb-Ao2"/>
                                                 <constraint firstItem="FZq-gz-pd6" firstAttribute="height" secondItem="Gzz-dO-aIu" secondAttribute="height" id="I9p-6W-Nib"/>
@@ -268,9 +265,6 @@
                                                 <constraint firstItem="xJK-I9-ip0" firstAttribute="height" secondItem="2Jn-kg-oe8" secondAttribute="height" id="K5K-OO-arL"/>
                                                 <constraint firstItem="1mV-gL-FiQ" firstAttribute="width" secondItem="lGv-7I-UZK" secondAttribute="width" id="OxV-n7-Vzb"/>
                                                 <constraint firstItem="FZq-gz-pd6" firstAttribute="centerX" secondItem="Gzz-dO-aIu" secondAttribute="centerX" id="PKP-C1-ZFf"/>
-                                                <constraint firstItem="xJK-I9-ip0" firstAttribute="trailing" secondItem="lGv-7I-UZK" secondAttribute="leading" id="Qbp-oN-cSX">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
-                                                </constraint>
                                                 <constraint firstItem="qiy-oS-RDB" firstAttribute="top" secondItem="2Jn-kg-oe8" secondAttribute="bottom" constant="1" id="SPn-mE-AHX">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
@@ -330,7 +324,6 @@
                                                     <exclude reference="qbe-Cd-KLa"/>
                                                     <exclude reference="SPn-mE-AHX"/>
                                                     <exclude reference="K5K-OO-arL"/>
-                                                    <exclude reference="Qbp-oN-cSX"/>
                                                     <exclude reference="fPp-cf-EwS"/>
                                                     <exclude reference="gNr-IV-mTj"/>
                                                     <exclude reference="gwN-Y3-BUR"/>
@@ -347,7 +340,6 @@
                                                     <exclude reference="ya7-zV-7Bb"/>
                                                     <exclude reference="3KZ-XT-Yf2"/>
                                                     <exclude reference="BqD-Vh-lMK"/>
-                                                    <exclude reference="CYp-sz-w2v"/>
                                                     <exclude reference="SyD-w1-ADa"/>
                                                     <exclude reference="VK0-8b-bHY"/>
                                                     <exclude reference="cSG-y6-PDN"/>
@@ -397,7 +389,6 @@
                                                     <include reference="qbe-Cd-KLa"/>
                                                     <include reference="SPn-mE-AHX"/>
                                                     <include reference="K5K-OO-arL"/>
-                                                    <exclude reference="Qbp-oN-cSX"/>
                                                     <include reference="fPp-cf-EwS"/>
                                                     <include reference="gNr-IV-mTj"/>
                                                     <include reference="gwN-Y3-BUR"/>
@@ -414,7 +405,6 @@
                                                     <include reference="ya7-zV-7Bb"/>
                                                     <include reference="3KZ-XT-Yf2"/>
                                                     <include reference="BqD-Vh-lMK"/>
-                                                    <exclude reference="CYp-sz-w2v"/>
                                                     <include reference="SyD-w1-ADa"/>
                                                     <include reference="VK0-8b-bHY"/>
                                                     <include reference="cSG-y6-PDN"/>
@@ -1470,7 +1460,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="LWL-io-WNM"/>
-                    <navigationItem key="navigationItem" title="优车诚品" id="Jf9-oC-0rV"/>
+                    <navigationItem key="navigationItem" title="优车诚品" id="Jf9-oC-0rV">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="9LH-Wc-lge"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerPageControl" destination="lOL-pL-0t3" id="nd9-sU-uUX"/>
                         <outlet property="bannerScrollView" destination="Xlh-Ck-JaM" id="Pya-6K-Eqf"/>
@@ -1875,6 +1867,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yz-2E-AMD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.96078431369999995" green="0.16862745100000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="3aE-xA-77v" kind="relationship" relationship="rootViewController" id="81f-Py-6lJ"/>
@@ -1887,7 +1883,7 @@
         <!--车辆列表-->
         <scene sceneID="LPI-26-dt3">
             <objects>
-                <viewController storyboardIdentifier="YCCarListViewController" hidesBottomBarWhenPushed="YES" id="3aE-xA-77v" userLabel="车辆列表" customClass="YCCarListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YCCarListViewController" id="3aE-xA-77v" userLabel="车辆列表" customClass="YCCarListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rxZ-IA-lWc"/>
                         <viewControllerLayoutGuide type="bottom" id="6Kg-V1-lMo"/>
@@ -2048,7 +2044,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title=" 买车" id="R7L-jW-9lI" userLabel="买车"/>
-                    <navigationItem key="navigationItem" id="fa2-bG-dKn"/>
+                    <navigationItem key="navigationItem" title="车辆列表" id="fa2-bG-dKn"/>
                     <connections>
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
                     </connections>
@@ -2162,6 +2158,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3w-pQ-uYI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.96078431372549022" green="0.16862745098039217" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="5EO-Kz-vnM" kind="relationship" relationship="rootViewController" id="d5n-89-odi"/>

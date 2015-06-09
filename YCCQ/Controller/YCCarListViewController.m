@@ -26,6 +26,8 @@
         self.carListURL = [self defaultURL];
     }
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
     
     self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(47, 0, 0, 0);
