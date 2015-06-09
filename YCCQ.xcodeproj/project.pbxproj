@@ -114,6 +114,14 @@
 		03952DE51B05CA120055D36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE31B05CA120055D36B /* Main.storyboard */; };
 		03952DE71B05CA120055D36B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE61B05CA120055D36B /* Images.xcassets */; };
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
+		03B655491B26F91100F28CAC /* baoxiup.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655411B26F91100F28CAC /* baoxiup.png */; };
+		03B6554A1B26F91100F28CAC /* hongdian.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655421B26F91100F28CAC /* hongdian.png */; };
+		03B6554B1B26F91100F28CAC /* jiancep.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655431B26F91100F28CAC /* jiancep.png */; };
+		03B6554C1B26F91100F28CAC /* jiuyuanp.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655441B26F91100F28CAC /* jiuyuanp.png */; };
+		03B6554D1B26F91100F28CAC /* landian.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655451B26F91100F28CAC /* landian.png */; };
+		03B6554E1B26F91100F28CAC /* p.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655461B26F91100F28CAC /* p.png */; };
+		03B6554F1B26F91100F28CAC /* shouhoubanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655471B26F91100F28CAC /* shouhoubanner.png */; };
+		03B655501B26F91100F28CAC /* tousup.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655481B26F91100F28CAC /* tousup.png */; };
 		03C64BBB1B15D50D00848FCD /* YCNetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C64BBA1B15D50D00848FCD /* YCNetUtil.m */; };
 		03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */; };
 		03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */; };
@@ -282,6 +290,14 @@
 		03952DEF1B05CA130055D36B /* YCCQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YCCQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03952DF41B05CA130055D36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03952DF51B05CA130055D36B /* YCCQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCCQTests.m; sourceTree = "<group>"; };
+		03B655411B26F91100F28CAC /* baoxiup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baoxiup.png; sourceTree = "<group>"; };
+		03B655421B26F91100F28CAC /* hongdian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hongdian.png; sourceTree = "<group>"; };
+		03B655431B26F91100F28CAC /* jiancep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiancep.png; sourceTree = "<group>"; };
+		03B655441B26F91100F28CAC /* jiuyuanp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiuyuanp.png; sourceTree = "<group>"; };
+		03B655451B26F91100F28CAC /* landian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landian.png; sourceTree = "<group>"; };
+		03B655461B26F91100F28CAC /* p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p.png; sourceTree = "<group>"; };
+		03B655471B26F91100F28CAC /* shouhoubanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouhoubanner.png; sourceTree = "<group>"; };
+		03B655481B26F91100F28CAC /* tousup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tousup.png; sourceTree = "<group>"; };
 		03C64BB91B15D50D00848FCD /* YCNetUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCNetUtil.h; sourceTree = "<group>"; };
 		03C64BBA1B15D50D00848FCD /* YCNetUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCNetUtil.m; sourceTree = "<group>"; };
 		03C73DC01B184999008FCF0F /* YCCarFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterViewController.h; sourceTree = "<group>"; };
@@ -385,6 +401,7 @@
 		030A758D1B0B270A008753C8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				03B655401B26F91100F28CAC /* shouhou_icons */,
 				038A560A1B26D591002FA96D /* function_icons */,
 				031AD6301B199C320076B32D /* carlogo */,
 				031AD62E1B199C1C0076B32D /* carbrandlogo.json */,
@@ -635,6 +652,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03B655401B26F91100F28CAC /* shouhou_icons */ = {
+			isa = PBXGroup;
+			children = (
+				03B655411B26F91100F28CAC /* baoxiup.png */,
+				03B655421B26F91100F28CAC /* hongdian.png */,
+				03B655431B26F91100F28CAC /* jiancep.png */,
+				03B655441B26F91100F28CAC /* jiuyuanp.png */,
+				03B655451B26F91100F28CAC /* landian.png */,
+				03B655461B26F91100F28CAC /* p.png */,
+				03B655471B26F91100F28CAC /* shouhoubanner.png */,
+				03B655481B26F91100F28CAC /* tousup.png */,
+			);
+			path = shouhou_icons;
+			sourceTree = "<group>";
+		};
 		03EBD2DE1B142064004DD5E3 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,30 +910,37 @@
 				031AD6931B199C320076B32D /* landrover.png in Resources */,
 				031AD6AD1B199C320076B32D /* toyota.png in Resources */,
 				031AD6AB1B199C320076B32D /* subaru.png in Resources */,
+				03B6554B1B26F91100F28CAC /* jiancep.png in Resources */,
 				031AD6A51B199C320076B32D /* Rolls-Royce.png in Resources */,
 				031AD6741B199C320076B32D /* baicmotor.png in Resources */,
+				03B6554D1B26F91100F28CAC /* landian.png in Resources */,
 				038A56291B26D591002FA96D /* xianhao.png in Resources */,
 				031AD6A01B199C320076B32D /* opel.png in Resources */,
 				038A562E1B26D591002FA96D /* yuyue.png in Resources */,
 				031AD6A61B199C320076B32D /* seat.png in Resources */,
 				031AD6711B199C320076B32D /* acura.png in Resources */,
 				031AD6841B199C320076B32D /* gmcchina.png in Resources */,
+				03B6554E1B26F91100F28CAC /* p.png in Resources */,
 				031AD6A41B199C320076B32D /* roewe.png in Resources */,
 				031AD62F1B199C1C0076B32D /* carbrandlogo.json in Resources */,
 				031AD6901B199C320076B32D /* jinbei.png in Resources */,
 				038A562A1B26D591002FA96D /* yanbao.png in Resources */,
+				03B655501B26F91100F28CAC /* tousup.png in Resources */,
 				030A75911B0B270A008753C8 /* Banner1.png in Resources */,
 				031AD6981B199C320076B32D /* maserati.png in Resources */,
+				03B6554A1B26F91100F28CAC /* hongdian.png in Resources */,
 				031AD67F1B199C320076B32D /* fiat.png in Resources */,
 				031AD6AC1B199C320076B32D /* suzuki.png in Resources */,
 				03952DE51B05CA120055D36B /* Main.storyboard in Resources */,
 				031AD67C1B199C320076B32D /* dodge.png in Resources */,
+				03B655491B26F91100F28CAC /* baoxiup.png in Resources */,
 				031AD6AE1B199C320076B32D /* volkswagen.png in Resources */,
 				031AD6801B199C320076B32D /* ford.png in Resources */,
 				031AD68B1B199C320076B32D /* hyundai.png in Resources */,
 				031AD6821B199C320076B32D /* gagc.png in Resources */,
 				038A56241B26D591002FA96D /* shangmen.png in Resources */,
 				031AD6851B199C320076B32D /* greatwallmotor.png in Resources */,
+				03B6554F1B26F91100F28CAC /* shouhoubanner.png in Resources */,
 				031AD69E1B199C320076B32D /* mitsubishi.png in Resources */,
 				038A561D1B26D591002FA96D /* changshi.png in Resources */,
 				031AD6A31B199C320076B32D /* renult.png in Resources */,
@@ -945,6 +984,7 @@
 				030A75931B0B270A008753C8 /* Banner3.png in Resources */,
 				031AD6961B199C320076B32D /* lincoln.png in Resources */,
 				031AD68F1B199C320076B32D /* jeep.png in Resources */,
+				03B6554C1B26F91100F28CAC /* jiuyuanp.png in Resources */,
 				031AD6A81B199C320076B32D /* smart.png in Resources */,
 				031AD6A91B199C320076B32D /* soueastmotor.png in Resources */,
 				031AD6861B199C320076B32D /* haima.png in Resources */,

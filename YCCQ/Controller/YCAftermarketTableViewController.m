@@ -25,7 +25,7 @@
     
     [self initTableData];
     
-    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"售后头图"]
+    ParallaxHeaderView *headerView = [ParallaxHeaderView parallaxHeaderViewWithImage:[UIImage imageNamed:@"shouhoubanner"]
                                                                              forSize:CGSizeMake(self.tableView.frame.size.width, 150)];
     
     [self.tableView setTableHeaderView:headerView];
@@ -48,7 +48,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 13;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -132,18 +132,73 @@
 {
     cell.iconImageView.image = [UIImage imageNamed:entity.imageName];
     cell.nameLabel.text = entity.name;
-    cell.rightIconImageVIew.image = [UIImage imageNamed:entity.imageName];
+    cell.rightIconImageVIew.image = [UIImage imageNamed:@"p"];
 }
 
 - (void)initTableData
 {
-    YCAftermarketEntity *aftermarket1 = [[YCAftermarketEntity alloc] initWithName:@"优车400"
-                                                                              tel:@"400-400-400"
-                                                                            image:@"用车急问"];
+    YCAftermarketEntity *aftermarket1 = [[YCAftermarketEntity alloc] initWithName:@"24小时道路救援"
+                                                                              tel:@"4000-990-888"
+                                                                            image:@"jiuyuanp"];
     
-    self.aftermarkets = @[aftermarket1, aftermarket1, aftermarket1, aftermarket1,
-                          aftermarket1, aftermarket1, aftermarket1, aftermarket1,
-                          aftermarket1, aftermarket1];
+    YCAftermarketEntity *aftermarket2 = [[YCAftermarketEntity alloc] initWithName:@"预约报修"
+                                                                              tel:@"4000-990-888"
+                                                                            image:@"baoxiup"];
+    
+    YCAftermarketEntity *aftermarket3 = [[YCAftermarketEntity alloc] initWithName:@"预约检测"
+                                                                              tel:@"4000-990-888"
+                                                                            image:@"jiancep"];
+    
+    YCAftermarketEntity *aftermarket4 = [[YCAftermarketEntity alloc] initWithName:@"热线投诉"
+                                                                              tel:@"4000-990-888"
+                                                                            image:@"tousup"];
+    
+    YCAftermarketEntity *aftermarket5 = [[YCAftermarketEntity alloc] initWithName:@"平安车险"
+                                                                              tel:@"400-800-0000"
+                                                                            image:@"landian"];
+    
+    YCAftermarketEntity *aftermarket6 = [[YCAftermarketEntity alloc] initWithName:@"太平洋车险"
+                                                                              tel:@"400-659-5500"
+                                                                            image:@"landian"];
+    
+    YCAftermarketEntity *aftermarket7 = [[YCAftermarketEntity alloc] initWithName:@"人保车险"
+                                                                              tel:@"400-123-4567"
+                                                                            image:@"landian"];
+    
+    YCAftermarketEntity *aftermarket8 = [[YCAftermarketEntity alloc] initWithName:@"华泰车险"
+                                                                              tel:@"400-609-5509"
+                                                                            image:@"landian"];
+    
+    YCAftermarketEntity *aftermarket9 = [[YCAftermarketEntity alloc] initWithName:@"太平车险"
+                                                                              tel:@"95589"
+                                                                            image:@"landian"];
+    
+    YCAftermarketEntity *aftermarket10 = [[YCAftermarketEntity alloc] initWithName:@"急救电话 120"
+                                                                              tel:@"120"
+                                                                            image:@"hongdian"];
+    
+    YCAftermarketEntity *aftermarket11 = [[YCAftermarketEntity alloc] initWithName:@"交警电话 122"
+                                                                              tel:@"122"
+                                                                            image:@"hongdian"];
+    
+    YCAftermarketEntity *aftermarket12 = [[YCAftermarketEntity alloc] initWithName:@"火警电话 119"
+                                                                              tel:@"119"
+                                                                            image:@"hongdian"];
+    
+    YCAftermarketEntity *aftermarket13 = [[YCAftermarketEntity alloc] initWithName:@"报警电话 110"
+                                                                              tel:@"110"
+                                                                            image:@"hongdian"];
+    
+//    YCAftermarketEntity *aftermarket14 = [[YCAftermarketEntity alloc] initWithName:@"优车400"
+//                                                                              tel:@"400-400-400"
+//                                                                            image:@"用车急问"];
+//    YCAftermarketEntity *aftermarket15 = [[YCAftermarketEntity alloc] initWithName:@"优车400"
+//                                                                              tel:@"400-400-400"
+//                                                                            image:@"用车急问"];
+    
+    self.aftermarkets = @[aftermarket1, aftermarket2, aftermarket3, aftermarket4,
+                          aftermarket5, aftermarket6, aftermarket7, aftermarket8,
+                          aftermarket9, aftermarket10, aftermarket11, aftermarket12, aftermarket13];
 }
 
 @end
