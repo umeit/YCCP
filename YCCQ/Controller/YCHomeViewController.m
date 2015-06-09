@@ -161,6 +161,17 @@
     [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     
     YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
+    
+    CGPoint origin = cell.frame.origin;
+    CGSize  size   = cell.frame.size;
+    
+    if (indexPath.row == 0 || indexPath.row == 1) {
+        cell.frame = CGRectMake(origin.x, origin.y, 160, size.height);
+    }
+    else if (indexPath.row == 2 || indexPath.row == 3) {
+        cell.frame = CGRectMake(160, origin.y, 160, size.height);
+    }
+    
     [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
     return cell;
 }
