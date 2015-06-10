@@ -46,21 +46,39 @@
             
         case SeriesType:    // 显示车系
         {
-            [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
-                [self hideLodingView];
-                self.brands = serieses;
-                [self.tableView reloadData];
-            }];
+            if (self.useOnlineData) {
+                [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
+                    [self hideLodingView];
+                    self.brands = serieses;
+                    [self.tableView reloadData];
+                }];
+            }
+            else {
+                [self.carService allSeriesesWithPID:self.pid block:^(NSArray *serieses) {
+                    [self hideLodingView];
+                    self.brands = serieses;
+                    [self.tableView reloadData];
+                }];
+            }
         }
         break;
             
         case ModelType:    // 显示车型
         {
-            [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
-                [self hideLodingView];
-                self.brands = models;
-                [self.tableView reloadData];
-            }];
+            if (self.useOnlineData) {
+                [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
+                    [self hideLodingView];
+                    self.brands = models;
+                    [self.tableView reloadData];
+                }];
+            }
+            else {
+                [self.carService allModelsWithPID:self.pid block:^(NSArray *models) {
+                    [self hideLodingView];
+                    self.brands = models;
+                    [self.tableView reloadData];
+                }];
+            }
         }
         break;
              
@@ -182,20 +200,44 @@
             
             NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
             
-            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                    @"CV" : dic[@"enname"],
-                                                    @"PID": dic[@"id"]}
-                                       filterType:BrandType];
+            if (self.continuousMode) {
+                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+                vc.delegate = self;
+                vc.dataType = SeriesType;
+                vc.useOnlineData = NO;
+                vc.continuousMode = YES;
+                vc.pid = [dic[@"id"] integerValue];
+                [self.navigationController pushViewController:vc animated:YES];
+                return;
+            }
+            else {
+                [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
+                                                        @"CV" : dic[@"enname"],
+                                                        @"PID": dic[@"id"]}
+                                           filterType:BrandType];
+            }
         }
             break;
         case SeriesType:
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
             
-            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                    @"CV" : dic[@"enname"],
-                                                    @"PID": dic[@"id"]}
-                                       filterType:SeriesType];
+            if (self.continuousMode) {
+                YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+                vc.delegate = self;
+                vc.dataType = ModelType;
+                vc.useOnlineData = NO;
+                vc.continuousMode = YES;
+                vc.pid = [dic[@"id"] integerValue];
+                [self.navigationController pushViewController:vc animated:YES];
+                return;
+            }
+            else {
+                [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
+                                                        @"CV" : dic[@"enname"],
+                                                        @"PID": dic[@"id"]}
+                                           filterType:SeriesType];
+            }
         }
             break;
         case ModelType:

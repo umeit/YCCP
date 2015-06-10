@@ -10,12 +10,6 @@
 #import "YCCarFilterDelegate.h"
 #import "YCCarFilterEnum.h"
 
-//typedef NS_ENUM(NSUInteger, BrandDataType) {
-//    BrandType,
-//    SeriesType,
-//    ModelType,
-//};
-
 @class YCCarService;
 
 @interface YCBrandTableViewController : UITableViewController
@@ -23,6 +17,8 @@
 @property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
 
 @property (nonatomic) BOOL useOnlineData;
+
+@property (nonatomic) BOOL continuousMode;
 
 @property (nonatomic) CarFilterType dataType;
 

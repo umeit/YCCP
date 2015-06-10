@@ -180,7 +180,7 @@
     NSMutableArray *arr = [NSMutableArray array];
     
     for (NSInteger i = 0; i < 20; i ++) {
-        [arr addObject:@(year-i)];
+        [arr addObject:@{@"name": [@(year-i) stringValue], @"value":@""}];
     }
     
     return arr;

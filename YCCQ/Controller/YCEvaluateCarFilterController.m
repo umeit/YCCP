@@ -60,6 +60,7 @@
             vc.delegate = self;
             vc.dataType = BrandType;
             vc.useOnlineData = NO;
+            vc.continuousMode = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
