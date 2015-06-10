@@ -38,6 +38,9 @@
         case yearType:
             self.dataList = [self yearTyppList];
             break;
+        case yearNumType:
+            self.dataList = [self yearNumTypeList];
+            break;
         case mileageType:
             self.dataList = [self mileageTyppList];
             break;
@@ -167,5 +170,20 @@
              @{@"name": @"准新车", @"value":@"a9"}];
 }
 
+- (NSArray *)yearNumTypeList
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSInteger unitFlags = NSYearCalendarUnit;
+    NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
+    NSInteger year = comps.year;
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < 20; i ++) {
+        [arr addObject:@(year-i)];
+    }
+    
+    return arr;
+}
 
 @end

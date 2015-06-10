@@ -23,14 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setTitle:@"确定" forState:UIControlStateNormal];
-    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
-    button.backgroundColor = [UIColor redColor];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.tableView setTableFooterView:button];
-    
-    [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+    [self setOKButton];
     
     self.filterCondition = [[YCCarFilterConditionEntity alloc] init];
     self.filterCondition.brandName   = @"不限";
@@ -260,6 +253,17 @@
 
 
 #pragma mark - Private
+
+- (void)setOKButton
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"确定" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
+    button.backgroundColor = [UIColor redColor];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.tableView setTableFooterView:button];
+    [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+}
 
 // 通过 FilterCondition 实体，生成查询 URL 后缀
 - (NSString *)urlFuffix

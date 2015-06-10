@@ -40,6 +40,16 @@
                                  }];
 }
 
+- (void)allBrands:(OnSellBrandBlock)block
+{
+    NSString *allbrandPath = [[NSBundle mainBundle] pathForResource:@"allbrand" ofType:@"json"];
+    NSString *content = [NSString stringWithContentsOfFile:allbrandPath encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:allbrandPath];
+    NSData *data = [NSData dataWithContentsOfFile:allbrandPath];
+    NSError *error;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+}
+
 - (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
 {
     [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"

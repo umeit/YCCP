@@ -22,43 +22,50 @@
     
     self.carService = [[YCCarService alloc] init];
     
-    if ([self useOnlineData]) {
-        [self showLodingView];
-        
-        switch (self.dataType) {
-            case BrandType:
-            {
+    [self showLodingView];
+    
+    switch (self.dataType) {
+        case BrandType:   // 显示品牌
+        {
+            if (self.useOnlineData) {
                 [self.carService brandsFromOnSell:^(NSArray *brands) {
                     [self hideLodingView];
                     self.brands = brands;
                     [self.tableView reloadData];
                 }];
             }
-            break;
-                
-            case SeriesType:
-            {
-                [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
+            else {
+                [self.carService allBrands:^(NSArray *brands) {
                     [self hideLodingView];
-                    self.brands = serieses;
+                    self.brands = brands;
                     [self.tableView reloadData];
                 }];
             }
-            break;
-                
-            case ModelType:
-            {
-                [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
-                    [self hideLodingView];
-                    self.brands = models;
-                    [self.tableView reloadData];
-                }];
-            }
-            break;
-                 
-            default:
-                break;
         }
+        break;
+            
+        case SeriesType:    // 显示车系
+        {
+            [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
+                [self hideLodingView];
+                self.brands = serieses;
+                [self.tableView reloadData];
+            }];
+        }
+        break;
+            
+        case ModelType:    // 显示车型
+        {
+            [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
+                [self hideLodingView];
+                self.brands = models;
+                [self.tableView reloadData];
+            }];
+        }
+        break;
+             
+        default:
+            break;
     }
 }
 

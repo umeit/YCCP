@@ -20,6 +20,7 @@
 #import "YCCarListViewController.h"
 #import "YCCarUtil.h"
 #import "UtilDefine.h"
+#import "YCEvaluateCarFilterController.h"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -40,25 +41,23 @@
     [self setBaokuan];
 }
 
-#pragma -mark Action
-// 进入在线咨询
-- (IBAction)talkButtonPress:(id)sender {
-    [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
-                                      withWorkgroupName:@"usecar"
-                                 hideRightBarButtonItem:YES
-                             rightBarButtonItemCallback:nil
-                                 showInputBarSwitchMenu:NO
-                                  withLeftBarButtonItem:nil
-                                          withTitleView:nil
-                                 withRightBarButtonItem:nil
-                                        withProductInfo:nil
-                             withLeftBarButtonItemColor:nil
-                               hidesBottomBarWhenPushed:YES
-                                     showHistoryMessage:YES
-                                           defaultRobot:NO
-                                    withKefuAvatarImage:nil
-                                    withUserAvatarImage:nil
-                             httpLinkURLClickedCallBack:nil];
+#pragma mark - Action
+- (IBAction)functionButtonPress:(UIButton *)button {
+    switch (button.tag) {
+        case 31:
+        {
+            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+        }
+            break;
+        case 36:
+        {
+            [self toEvaluateCar];
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 // 进入 banner 所指链接
@@ -80,7 +79,34 @@
 }
 
 
-#pragma - mark Private
+#pragma mark - Private
+
+- (void)toConsultationViewControllerWithWorkgroup:(NSString *)key
+{
+    [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
+                                      withWorkgroupName:key
+                                 hideRightBarButtonItem:YES
+                             rightBarButtonItemCallback:nil
+                                 showInputBarSwitchMenu:NO
+                                  withLeftBarButtonItem:nil
+                                          withTitleView:nil
+                                 withRightBarButtonItem:nil
+                                        withProductInfo:nil
+                             withLeftBarButtonItemColor:nil
+                               hidesBottomBarWhenPushed:YES
+                                     showHistoryMessage:YES
+                                           defaultRobot:NO
+                                    withKefuAvatarImage:nil
+                                    withUserAvatarImage:nil
+                             httpLinkURLClickedCallBack:nil];
+}
+
+// 加载车辆估价视图
+- (void)toEvaluateCar
+{
+    YCEvaluateCarFilterController *filterViewController = (YCEvaluateCarFilterController *)[self controllerWithStoryBoardID:@"YCEvaluateCarFilterController"];
+    [self.navigationController pushViewController:filterViewController animated:YES];
+}
 
 - (void)toCarListViewWithKey:(NSString *)key
 {

@@ -83,7 +83,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lwd-bl-w7t" id="biV-s1-6Sh">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jn-kg-oe8" userLabel="Button1">
+                                                <button opaque="NO" tag="31" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jn-kg-oe8" userLabel="Button1">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="SGY-El-ig4"/>
@@ -106,10 +106,10 @@
                                                         </mask>
                                                     </variation>
                                                     <connections>
-                                                        <action selector="talkButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="wB1-Ku-rvc"/>
+                                                        <action selector="functionButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="cGo-yr-zON"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mV-gL-FiQ" userLabel="Button4">
+                                                <button opaque="NO" tag="34" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mV-gL-FiQ" userLabel="Button4">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Khj-As-zYu"/>
@@ -131,8 +131,11 @@
                                                             <include reference="kuG-YE-JmN"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="functionButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="pBE-2W-VrU"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJK-I9-ip0" userLabel="Button2">
+                                                <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJK-I9-ip0" userLabel="Button2">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="JuD-uW-jtX"/>
@@ -154,8 +157,11 @@
                                                             <include reference="kPL-9P-4Ko"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="functionButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="ylT-LC-ePR"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGv-7I-UZK" userLabel="Button3">
+                                                <button opaque="NO" tag="33" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGv-7I-UZK" userLabel="Button3">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="Nmw-37-FNd"/>
@@ -180,8 +186,11 @@
                                                             <include reference="o7l-vw-nrz"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="functionButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="tBl-t5-K0t"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-oS-RDB" userLabel="Button5">
+                                                <button opaque="NO" tag="35" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-oS-RDB" userLabel="Button5">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" backgroundImage="weizhang.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -199,11 +208,14 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QH5-NP-2DA" userLabel="Button6">
+                                                <button opaque="NO" tag="36" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QH5-NP-2DA" userLabel="Button6">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" backgroundImage="pinggu.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="functionButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="6Ll-8d-GzO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6J-16-z6u" userLabel="Button7">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -317,40 +329,6 @@
                                                     <exclude reference="cFH-Dv-fK0"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="6kW-EY-Tz0"/>
-                                                    <exclude reference="89w-Zq-ITP"/>
-                                                    <exclude reference="CUd-s1-rsi"/>
-                                                    <exclude reference="dT9-jd-Gt1"/>
-                                                    <exclude reference="qbe-Cd-KLa"/>
-                                                    <exclude reference="SPn-mE-AHX"/>
-                                                    <exclude reference="K5K-OO-arL"/>
-                                                    <exclude reference="fPp-cf-EwS"/>
-                                                    <exclude reference="gNr-IV-mTj"/>
-                                                    <exclude reference="gwN-Y3-BUR"/>
-                                                    <exclude reference="has-2p-0v9"/>
-                                                    <exclude reference="oj3-vQ-Pca"/>
-                                                    <exclude reference="sjH-sh-PHN"/>
-                                                    <exclude reference="HP8-Wb-Ao2"/>
-                                                    <exclude reference="aHs-Qh-ucv"/>
-                                                    <exclude reference="sYO-bj-dqe"/>
-                                                    <exclude reference="xZy-Es-NeQ"/>
-                                                    <exclude reference="JH3-vK-0vt"/>
-                                                    <exclude reference="bNp-Zh-BIf"/>
-                                                    <exclude reference="hci-li-UYG"/>
-                                                    <exclude reference="ya7-zV-7Bb"/>
-                                                    <exclude reference="3KZ-XT-Yf2"/>
-                                                    <exclude reference="BqD-Vh-lMK"/>
-                                                    <exclude reference="SyD-w1-ADa"/>
-                                                    <exclude reference="VK0-8b-bHY"/>
-                                                    <exclude reference="cSG-y6-PDN"/>
-                                                    <exclude reference="gff-WT-3YE"/>
-                                                    <exclude reference="yam-hd-7zM"/>
-                                                    <exclude reference="AKD-qs-g0a"/>
-                                                    <exclude reference="JZr-rG-Sbz"/>
-                                                    <exclude reference="0HT-kJ-f5k"/>
-                                                    <exclude reference="Gxr-o0-fRC"/>
-                                                    <exclude reference="Zxk-U5-Hg1"/>
-                                                    <exclude reference="yHe-7s-MmC"/>
                                                     <exclude reference="1t3-Bx-ih5"/>
                                                     <exclude reference="8FQ-Tg-Oo1"/>
                                                     <exclude reference="OxV-n7-Vzb"/>
@@ -359,11 +337,45 @@
                                                     <exclude reference="kla-56-cgq"/>
                                                     <exclude reference="m3z-9y-qgl"/>
                                                     <exclude reference="sFy-wL-eqD"/>
+                                                    <exclude reference="6kW-EY-Tz0"/>
+                                                    <exclude reference="89w-Zq-ITP"/>
+                                                    <exclude reference="CUd-s1-rsi"/>
+                                                    <exclude reference="dT9-jd-Gt1"/>
+                                                    <exclude reference="qbe-Cd-KLa"/>
+                                                    <exclude reference="AKD-qs-g0a"/>
                                                     <exclude reference="4qT-Dn-qej"/>
                                                     <exclude reference="I9p-6W-Nib"/>
                                                     <exclude reference="IhW-lC-eLT"/>
                                                     <exclude reference="PKP-C1-ZFf"/>
                                                     <exclude reference="4L6-Uu-QU3"/>
+                                                    <exclude reference="JH3-vK-0vt"/>
+                                                    <exclude reference="bNp-Zh-BIf"/>
+                                                    <exclude reference="hci-li-UYG"/>
+                                                    <exclude reference="ya7-zV-7Bb"/>
+                                                    <exclude reference="HP8-Wb-Ao2"/>
+                                                    <exclude reference="aHs-Qh-ucv"/>
+                                                    <exclude reference="sYO-bj-dqe"/>
+                                                    <exclude reference="xZy-Es-NeQ"/>
+                                                    <exclude reference="0HT-kJ-f5k"/>
+                                                    <exclude reference="Gxr-o0-fRC"/>
+                                                    <exclude reference="Zxk-U5-Hg1"/>
+                                                    <exclude reference="yHe-7s-MmC"/>
+                                                    <exclude reference="3KZ-XT-Yf2"/>
+                                                    <exclude reference="BqD-Vh-lMK"/>
+                                                    <exclude reference="SyD-w1-ADa"/>
+                                                    <exclude reference="VK0-8b-bHY"/>
+                                                    <exclude reference="cSG-y6-PDN"/>
+                                                    <exclude reference="gff-WT-3YE"/>
+                                                    <exclude reference="yam-hd-7zM"/>
+                                                    <exclude reference="JZr-rG-Sbz"/>
+                                                    <exclude reference="SPn-mE-AHX"/>
+                                                    <exclude reference="K5K-OO-arL"/>
+                                                    <exclude reference="fPp-cf-EwS"/>
+                                                    <exclude reference="gNr-IV-mTj"/>
+                                                    <exclude reference="gwN-Y3-BUR"/>
+                                                    <exclude reference="has-2p-0v9"/>
+                                                    <exclude reference="oj3-vQ-Pca"/>
+                                                    <exclude reference="sjH-sh-PHN"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -382,40 +394,6 @@
                                                     <include reference="cFH-Dv-fK0"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="6kW-EY-Tz0"/>
-                                                    <include reference="89w-Zq-ITP"/>
-                                                    <include reference="CUd-s1-rsi"/>
-                                                    <include reference="dT9-jd-Gt1"/>
-                                                    <include reference="qbe-Cd-KLa"/>
-                                                    <include reference="SPn-mE-AHX"/>
-                                                    <include reference="K5K-OO-arL"/>
-                                                    <include reference="fPp-cf-EwS"/>
-                                                    <include reference="gNr-IV-mTj"/>
-                                                    <include reference="gwN-Y3-BUR"/>
-                                                    <include reference="has-2p-0v9"/>
-                                                    <include reference="oj3-vQ-Pca"/>
-                                                    <include reference="sjH-sh-PHN"/>
-                                                    <include reference="HP8-Wb-Ao2"/>
-                                                    <include reference="aHs-Qh-ucv"/>
-                                                    <include reference="sYO-bj-dqe"/>
-                                                    <include reference="xZy-Es-NeQ"/>
-                                                    <include reference="JH3-vK-0vt"/>
-                                                    <include reference="bNp-Zh-BIf"/>
-                                                    <include reference="hci-li-UYG"/>
-                                                    <include reference="ya7-zV-7Bb"/>
-                                                    <include reference="3KZ-XT-Yf2"/>
-                                                    <include reference="BqD-Vh-lMK"/>
-                                                    <include reference="SyD-w1-ADa"/>
-                                                    <include reference="VK0-8b-bHY"/>
-                                                    <include reference="cSG-y6-PDN"/>
-                                                    <include reference="gff-WT-3YE"/>
-                                                    <include reference="yam-hd-7zM"/>
-                                                    <include reference="AKD-qs-g0a"/>
-                                                    <include reference="JZr-rG-Sbz"/>
-                                                    <include reference="0HT-kJ-f5k"/>
-                                                    <include reference="Gxr-o0-fRC"/>
-                                                    <include reference="Zxk-U5-Hg1"/>
-                                                    <include reference="yHe-7s-MmC"/>
                                                     <include reference="1t3-Bx-ih5"/>
                                                     <include reference="8FQ-Tg-Oo1"/>
                                                     <include reference="OxV-n7-Vzb"/>
@@ -424,11 +402,45 @@
                                                     <include reference="kla-56-cgq"/>
                                                     <include reference="m3z-9y-qgl"/>
                                                     <include reference="sFy-wL-eqD"/>
+                                                    <include reference="6kW-EY-Tz0"/>
+                                                    <include reference="89w-Zq-ITP"/>
+                                                    <include reference="CUd-s1-rsi"/>
+                                                    <include reference="dT9-jd-Gt1"/>
+                                                    <include reference="qbe-Cd-KLa"/>
+                                                    <include reference="AKD-qs-g0a"/>
                                                     <include reference="4qT-Dn-qej"/>
                                                     <include reference="I9p-6W-Nib"/>
                                                     <include reference="IhW-lC-eLT"/>
                                                     <include reference="PKP-C1-ZFf"/>
                                                     <include reference="4L6-Uu-QU3"/>
+                                                    <include reference="JH3-vK-0vt"/>
+                                                    <include reference="bNp-Zh-BIf"/>
+                                                    <include reference="hci-li-UYG"/>
+                                                    <include reference="ya7-zV-7Bb"/>
+                                                    <include reference="HP8-Wb-Ao2"/>
+                                                    <include reference="aHs-Qh-ucv"/>
+                                                    <include reference="sYO-bj-dqe"/>
+                                                    <include reference="xZy-Es-NeQ"/>
+                                                    <include reference="0HT-kJ-f5k"/>
+                                                    <include reference="Gxr-o0-fRC"/>
+                                                    <include reference="Zxk-U5-Hg1"/>
+                                                    <include reference="yHe-7s-MmC"/>
+                                                    <include reference="3KZ-XT-Yf2"/>
+                                                    <include reference="BqD-Vh-lMK"/>
+                                                    <include reference="SyD-w1-ADa"/>
+                                                    <include reference="VK0-8b-bHY"/>
+                                                    <include reference="cSG-y6-PDN"/>
+                                                    <include reference="gff-WT-3YE"/>
+                                                    <include reference="yam-hd-7zM"/>
+                                                    <include reference="JZr-rG-Sbz"/>
+                                                    <include reference="SPn-mE-AHX"/>
+                                                    <include reference="K5K-OO-arL"/>
+                                                    <include reference="fPp-cf-EwS"/>
+                                                    <include reference="gNr-IV-mTj"/>
+                                                    <include reference="gwN-Y3-BUR"/>
+                                                    <include reference="has-2p-0v9"/>
+                                                    <include reference="oj3-vQ-Pca"/>
+                                                    <include reference="sjH-sh-PHN"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1473,6 +1485,51 @@
             </objects>
             <point key="canvasLocation" x="1464" y="-455.25"/>
         </scene>
+        <!--车辆评估-->
+        <scene sceneID="iDm-hv-OoR">
+            <objects>
+                <tableViewController storyboardIdentifier="YCEvaluateCarFilterController" title="车辆评估" id="eYQ-LS-d9w" customClass="YCEvaluateCarFilterController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tpv-RG-iJy">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="Mdm-hz-aPb" detailTextLabel="LJV-OU-7PO" style="IBUITableViewCellStyleValue1" id="akL-M1-92t">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="akL-M1-92t" id="zWn-a7-bCn">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mdm-hz-aPb">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LJV-OU-7PO">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eYQ-LS-d9w" id="7uo-Kn-buv"/>
+                            <outlet property="delegate" destination="eYQ-LS-d9w" id="wpB-vX-bGp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aG7-5G-4Sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="-657.75"/>
+        </scene>
         <!--售后-->
         <scene sceneID="t3C-x9-pmk">
             <objects>
@@ -1598,7 +1655,7 @@
                             <outlet property="delegate" destination="abj-CY-dCi" id="ZQX-H3-LZr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title=" 售后" id="5jk-ov-eVI" userLabel="售后"/>
+                    <tabBarItem key="tabBarItem" title=" 售后" image="shouhou_bar.png" id="5jk-ov-eVI" userLabel="售后"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyx-7i-cUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1624,7 +1681,7 @@
         <!--筛选-->
         <scene sceneID="P4t-rE-NeZ">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="qT3-qn-yhe" customClass="YCCarFilterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="YCCarFilterViewController" hidesBottomBarWhenPushed="YES" id="qT3-qn-yhe" customClass="YCCarFilterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Srx-Pa-HGn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1877,7 +1934,7 @@
         <scene sceneID="xW8-fN-Gdz">
             <objects>
                 <navigationController id="FVq-DO-AF5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title=" 买车" id="a9P-ao-2Of"/>
+                    <tabBarItem key="tabBarItem" title=" 买车" image="maiche_bar.png" id="a9P-ao-2Of"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yz-2E-AMD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2151,7 +2208,7 @@
         <scene sceneID="CnM-90-S3i">
             <objects>
                 <navigationController id="SJU-qR-6bT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="z59-Iy-MSh"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="wode_bar.png" id="z59-Iy-MSh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cYQ-vZ-Nw6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2172,7 +2229,7 @@
         <scene sceneID="1Uo-RJ-Dxj">
             <objects>
                 <navigationController id="ChD-X5-Bbv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" id="ien-Qe-XOZ"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="home_bar.png" id="ien-Qe-XOZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3w-pQ-uYI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2226,7 +2283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPZ-9T-bdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="27" y="678.75"/>
+            <point key="canvasLocation" x="-414" y="597.75"/>
         </scene>
     </scenes>
     <resources>
@@ -2237,15 +2294,19 @@
         <image name="chexian.png" width="62" height="62"/>
         <image name="daolu.png" width="62" height="62"/>
         <image name="ford.png" width="104" height="104"/>
+        <image name="home_bar.png" width="30" height="30"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance.png" width="62" height="62"/>
+        <image name="maiche_bar.png" width="30" height="30"/>
         <image name="mercedes-benz.png" width="104" height="104"/>
         <image name="pinggu.png" width="62" height="62"/>
         <image name="shangmen.png" width="62" height="62"/>
         <image name="shigu.png" width="62" height="62"/>
+        <image name="shouhou_bar.png" width="30" height="30"/>
         <image name="volkswagen.png" width="104" height="104"/>
         <image name="weixiu.png" width="62" height="62"/>
         <image name="weizhang.png" width="62" height="62"/>
+        <image name="wode_bar.png" width="30" height="30"/>
         <image name="yanbao.png" width="62" height="62"/>
         <image name="yongche.png" width="62" height="62"/>
         <image name="youjia.png" width="62" height="62"/>

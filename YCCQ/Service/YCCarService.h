@@ -22,6 +22,9 @@ typedef void (^OnSellBrandBlock) (NSArray *brands);
 // 获取在售品牌
 - (void)brandsFromOnSell:(OnSellBrandBlock)block;
 
+// 获取所有品牌
+- (void)allBrands:(OnSellBrandBlock)block;
+
 // 根据品牌 ID 获取在售车系
 - (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block;
 
