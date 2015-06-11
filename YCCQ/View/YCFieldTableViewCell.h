@@ -10,5 +10,5 @@
 
 @interface YCFieldTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *cellField;
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end

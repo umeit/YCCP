@@ -23,9 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setOKButton];
+    
     self.dataList = @[[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"品牌", @"detail": @"选择"}],
                       [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"上牌时间", @"detail": @"选择"}],
-                      [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"里程（万）", @"detail": @"输入"}]];
+                      [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"里程（万）", @"detail": @""}]];
+}
+
+#pragma mark - Action
+
+- (void)okButtonPress:(UIButton *)button
+{
+    
 }
 
 #pragma mark - Table view data source
@@ -46,7 +55,7 @@
     if (indexPath.row == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"FieldCell" forIndexPath:indexPath];
         YCFieldTableViewCell *fieldCell = (YCFieldTableViewCell *)cell;
-        fieldCell.textLabel.text = dic[@"title"];
+        fieldCell.titleLabel.text = dic[@"title"];
         fieldCell.cellField.text = dic[@"detail"];
     }
     else {
@@ -111,4 +120,19 @@
     
     [self.tableView reloadData];
 }
+
+
+#pragma mark - Private
+
+- (void)setOKButton
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"确定" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
+    button.backgroundColor = [UIColor redColor];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.tableView setTableFooterView:button];
+    [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 @end

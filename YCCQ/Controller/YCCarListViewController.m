@@ -107,6 +107,19 @@
     [self hideLodingView];
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSURL * url = [request URL];
+    if ([[url scheme] isEqualToString:@"gap"]) {
+        // 在这里做js调native的事情
+        // ....
+        // 做完之后用如下方法调回js
+        [webView stringByEvaluatingJavaScriptFromString:@"alert('done')"];
+        return NO;
+    }
+    return YES;
+}
+
 
 #pragma mark - Car Filter Delegate
 

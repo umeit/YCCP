@@ -1546,18 +1546,33 @@
                                                 </mask>
                                             </variation>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sci-fG-6jF">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="sci-fG-6jF" firstAttribute="top" secondItem="2bz-zx-opK" secondAttribute="topMargin" constant="4" id="IMV-Da-6Kt"/>
+                                        <constraint firstItem="sci-fG-6jF" firstAttribute="leading" secondItem="2bz-zx-opK" secondAttribute="leadingMargin" constant="7" id="Nz5-i4-3UL"/>
                                         <constraint firstItem="6mw-Rn-IGk" firstAttribute="top" secondItem="2bz-zx-opK" secondAttribute="top" constant="7" id="aAy-hx-6vA"/>
                                         <constraint firstItem="6mw-Rn-IGk" firstAttribute="leading" secondItem="2bz-zx-opK" secondAttribute="leading" constant="198" id="etM-N7-5Wq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sci-fG-6jF" secondAttribute="bottom" constant="2" id="lpe-Fb-6To"/>
                                         <constraint firstAttribute="bottom" secondItem="6mw-Rn-IGk" secondAttribute="bottom" constant="6" id="mlS-h5-tIu"/>
+                                        <constraint firstItem="sci-fG-6jF" firstAttribute="leading" secondItem="2bz-zx-opK" secondAttribute="leading" constant="15" id="o0h-YQ-tRc"/>
                                         <constraint firstAttribute="trailing" secondItem="6mw-Rn-IGk" secondAttribute="trailing" constant="8" id="zFo-Jk-sos"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="6mw-Rn-IGk"/>
+                                            <exclude reference="sci-fG-6jF"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <exclude reference="IMV-Da-6Kt"/>
+                                            <exclude reference="Nz5-i4-3UL"/>
+                                            <exclude reference="lpe-Fb-6To"/>
+                                            <exclude reference="o0h-YQ-tRc"/>
                                             <exclude reference="aAy-hx-6vA"/>
                                             <exclude reference="etM-N7-5Wq"/>
                                             <exclude reference="mlS-h5-tIu"/>
@@ -1567,8 +1582,13 @@
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
                                             <include reference="6mw-Rn-IGk"/>
+                                            <include reference="sci-fG-6jF"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="IMV-Da-6Kt"/>
+                                            <exclude reference="Nz5-i4-3UL"/>
+                                            <include reference="lpe-Fb-6To"/>
+                                            <include reference="o0h-YQ-tRc"/>
                                             <include reference="aAy-hx-6vA"/>
                                             <exclude reference="etM-N7-5Wq"/>
                                             <include reference="mlS-h5-tIu"/>
@@ -1578,6 +1598,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellField" destination="6mw-Rn-IGk" id="3Di-70-If9"/>
+                                    <outlet property="titleLabel" destination="sci-fG-6jF" id="vxx-gh-1Zm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
