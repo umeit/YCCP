@@ -10,6 +10,7 @@
 #import "YCCarUtil.h"
 #import "YCCarService.h"
 #import "UIViewController+GViewController.h"
+#import "YCCarFilterDelegate.h"
 
 @interface YCBrandTableViewController ()
 @property (strong, nonatomic) NSArray *brands;
@@ -248,6 +249,11 @@
                                                     @"CV" : dic[@"enname"],
                                                     @"PID": dic[@"id"]}
                                        filterType:ModelType];
+            
+            if (self.continuousMode) {
+                [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+                return;
+            }
         }
             break;
         default:
@@ -256,14 +262,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - YCCarFilterConditionDelegate
+
+- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+{
+    [self.delegate selecteConditionFinish:condition filterType:filterType];
 }
-*/
 
 @end

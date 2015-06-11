@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataList = @[@{@"title":@"品牌", @"detail": @"选择"},
+    self.dataList = @[[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"品牌", @"detail": @"选择"}],
                       @{@"title":@"上牌时间", @"detail": @"选择"},
                       @{@"title":@"里程（万）", @"detail": @"选择"}];
 }
@@ -78,4 +78,12 @@
     }
 }
 
+
+#pragma mark - YCCarFilterConditionDelegate
+
+-(void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+{
+    self.dataList[0][@"detail"] = condition[@"CN"];
+    [self.tableView reloadData];
+}
 @end

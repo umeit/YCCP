@@ -12,7 +12,7 @@
 
 @class YCCarService;
 
-@interface YCBrandTableViewController : UITableViewController
+@interface YCBrandTableViewController : UITableViewController<YCCarFilterConditionDelegate>
 
 @property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
 
