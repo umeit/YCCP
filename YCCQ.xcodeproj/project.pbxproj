@@ -90,6 +90,7 @@
 		03242C4B1B0C5842006E8B82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4A1B0C5842006E8B82 /* AVFoundation.framework */; };
 		03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */; };
 		03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4E1B0C585C006E8B82 /* libiconv.dylib */; };
+		0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038417611B27041E00A92A7D /* home_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384175D1B27041E00A92A7D /* home_bar.png */; };
 		038417621B27041E00A92A7D /* maiche_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384175E1B27041E00A92A7D /* maiche_bar.png */; };
@@ -265,6 +266,8 @@
 		03242C4A1B0C5842006E8B82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03242C4E1B0C585C006E8B82 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		0339D8781B293C0F00EC2EF5 /* YCFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFieldTableViewCell.h; sourceTree = "<group>"; };
+		0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFieldTableViewCell.m; sourceTree = "<group>"; };
 		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
@@ -436,6 +439,8 @@
 				03EBD2E91B146FA1004DD5E3 /* YCAfterMarketCell.m */,
 				03C73DC61B185CA8008FCF0F /* YCBrandHeadCell.h */,
 				03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */,
+				0339D8781B293C0F00EC2EF5 /* YCFieldTableViewCell.h */,
+				0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1085,6 +1090,7 @@
 				03EE9F161B12FC260051CC57 /* AFSecurityPolicy.m in Sources */,
 				03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */,
 				030A75A21B0B4211008753C8 /* YCCarService.m in Sources */,
+				0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */,
 				03EE9F181B12FC260051CC57 /* AFURLRequestSerialization.m in Sources */,
 				03EE9F151B12FC260051CC57 /* AFNetworkReachabilityManager.m in Sources */,
 				03EE9F361B12FCF40051CC57 /* UIWebView+AFNetworking.m in Sources */,

@@ -1490,6 +1490,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="YCEvaluateCarFilterController" title="车辆评估" id="eYQ-LS-d9w" customClass="YCEvaluateCarFilterController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tpv-RG-iJy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -1518,6 +1519,66 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FieldCell" id="Z3l-YK-uRb" customClass="YCFieldTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z3l-YK-uRb" id="2bz-zx-opK">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-Rn-IGk">
+                                            <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="TFP-Dv-oM7"/>
+                                                <constraint firstAttribute="width" constant="194" id="y5I-qN-0rs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="TFP-Dv-oM7"/>
+                                                    <exclude reference="y5I-qN-0rs"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="TFP-Dv-oM7"/>
+                                                    <include reference="y5I-qN-0rs"/>
+                                                </mask>
+                                            </variation>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6mw-Rn-IGk" firstAttribute="top" secondItem="2bz-zx-opK" secondAttribute="top" constant="7" id="aAy-hx-6vA"/>
+                                        <constraint firstItem="6mw-Rn-IGk" firstAttribute="leading" secondItem="2bz-zx-opK" secondAttribute="leading" constant="198" id="etM-N7-5Wq"/>
+                                        <constraint firstAttribute="bottom" secondItem="6mw-Rn-IGk" secondAttribute="bottom" constant="6" id="mlS-h5-tIu"/>
+                                        <constraint firstAttribute="trailing" secondItem="6mw-Rn-IGk" secondAttribute="trailing" constant="8" id="zFo-Jk-sos"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="6mw-Rn-IGk"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="aAy-hx-6vA"/>
+                                            <exclude reference="etM-N7-5Wq"/>
+                                            <exclude reference="mlS-h5-tIu"/>
+                                            <exclude reference="zFo-Jk-sos"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="6mw-Rn-IGk"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="aAy-hx-6vA"/>
+                                            <exclude reference="etM-N7-5Wq"/>
+                                            <include reference="mlS-h5-tIu"/>
+                                            <include reference="zFo-Jk-sos"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellField" destination="6mw-Rn-IGk" id="3Di-70-If9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

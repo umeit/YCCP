@@ -10,6 +10,7 @@
 #import "YCBrandTableViewController.h"
 #import "YCFilterTableViewController.h"
 #import "UIViewController+GViewController.h"
+#import "YCFieldTableViewCell.h"
 
 @interface YCEvaluateCarFilterController ()
 
@@ -23,8 +24,8 @@
     [super viewDidLoad];
     
     self.dataList = @[[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"品牌", @"detail": @"选择"}],
-                      @{@"title":@"上牌时间", @"detail": @"选择"},
-                      @{@"title":@"里程（万）", @"detail": @"选择"}];
+                      [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"上牌时间", @"detail": @"选择"}],
+                      [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"里程（万）", @"detail": @"输入"}]];
 }
 
 #pragma mark - Table view data source
@@ -39,12 +40,22 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
+    UITableViewCell *cell;
     NSDictionary *dic = self.dataList[indexPath.row];
-    cell.textLabel.text = dic[@"title"];
-    cell.detailTextLabel.text = dic[@"detail"];
     
+    if (indexPath.row == 2) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"FieldCell" forIndexPath:indexPath];
+        YCFieldTableViewCell *fieldCell = (YCFieldTableViewCell *)cell;
+        fieldCell.textLabel.text = dic[@"title"];
+        fieldCell.cellField.text = dic[@"detail"];
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+        
+        
+        cell.textLabel.text = dic[@"title"];
+        cell.detailTextLabel.text = dic[@"detail"];
+    }
     return cell;
 }
 
@@ -83,7 +94,21 @@
 
 -(void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
 {
-    self.dataList[0][@"detail"] = condition[@"CN"];
+    switch (filterType) {
+        case ModelType:
+        {
+            self.dataList[0][@"detail"] = condition[@"CN"];
+        }
+            break;
+        case yearNumType:
+        {
+            self.dataList[1][@"detail"] = condition[@"CN"];
+        }
+            break;
+        default:
+            break;
+    }
+    
     [self.tableView reloadData];
 }
 @end
