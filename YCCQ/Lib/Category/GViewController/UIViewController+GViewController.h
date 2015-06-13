@@ -39,7 +39,7 @@
 
 - (NSString *)documentPathAppendingComponent:(NSString *)component;
 
-- (UIViewController *)controllerWithStoryBoardID:(NSString *)name;
+- (id)controllerWithStoryBoardID:(NSString *)name;
 
 NSUInteger DeviceSystemMajorVersion();
 

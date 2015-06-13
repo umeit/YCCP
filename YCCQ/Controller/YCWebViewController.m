@@ -7,6 +7,7 @@
 //
 
 #import "YCWebViewController.h"
+#import "UIViewController+GViewController.h"
 
 @interface YCWebViewController ()
 
@@ -16,23 +17,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.url]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Web view delegate
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSURL * url = [request URL];
+    if ([[url scheme] isEqualToString:@"youcheapp"]) {
+        
+        NSString *command = [[url absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *jsonArg = [command substringFromIndex:@"youcheapp:///".length];
+        
+        NSError *error;
+        NSDictionary *dicArg = [NSJSONSerialization JSONObjectWithData:[jsonArg dataUsingEncoding:NSUTF8StringEncoding]
+                                                               options:NSJSONReadingAllowFragments
+                                                                 error:&error];
+        if ([dicArg[@"f"] isEqualToString:@"toCheckInfo"]) {
+            YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            webVC.url = [NSURL URLWithString:dicArg[@"args"][0]];
+            webVC.navigationItem.title = @"车辆信息";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        return NO;
+    }
+    return YES;
 }
-*/
 
 @end

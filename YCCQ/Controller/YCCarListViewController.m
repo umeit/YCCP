@@ -7,6 +7,7 @@
 //
 
 #import "YCCarListViewController.h"
+#import "YCWebViewController.h"
 #import "UIViewController+GViewController.h"
 
 @interface YCCarListViewController ()
@@ -28,7 +29,10 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
+    [self.carListWebView loadRequest:
+     [NSURLRequest requestWithURL:
+      [NSURL URLWithString:
+       [self.carListURL stringByAppendingString:@"?t=app"]]]];
     
     self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(47, 0, 0, 0);
     
@@ -52,40 +56,39 @@
 
 - (IBAction)defaultButtonPress:(id)sender
 {
-    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
+    [self.carListWebView loadRequest:
+     [NSURLRequest requestWithURL:
+      [NSURL URLWithString:
+       [self.carListURL stringByAppendingString:@"?t=app"]]]];
 }
 
 - (IBAction)priceButtonPress:(UIButton *)button
 {
-    NSMutableString *path = [NSMutableString stringWithString:self.carListURL.absoluteString];
-    
     if ([self.orderButtonStatus[@"price"] boolValue]) {
         self.orderButtonStatus[@"price"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o1?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o1?t=app"]]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o2?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o2?t=app"]]]];
     }
 }
 
 - (IBAction)mileageButtonPress:(id)sender
 {
-    NSMutableString *path = [NSMutableString stringWithString:self.carListURL.absoluteString];
-    
     if ([self.orderButtonStatus[@"mileage"] boolValue]) {
         self.orderButtonStatus[@"mileage"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o5?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o5?t=app"]]]];
     } else {
         self.orderButtonStatus[@"mileage"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[path stringByAppendingString:@"o6?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o6?t=app"]]]];
     }
 }
 
@@ -110,11 +113,21 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL * url = [request URL];
-    if ([[url scheme] isEqualToString:@"gap"]) {
-        // 在这里做js调native的事情
-        // ....
-        // 做完之后用如下方法调回js
-        [webView stringByEvaluatingJavaScriptFromString:@"alert('done')"];
+    if ([[url scheme] isEqualToString:@"youcheapp"]) {
+        
+        NSString *command = [[url absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *jsonArg = [command substringFromIndex:@"youcheapp:///".length];
+
+        NSError *error;
+        NSDictionary *dicArg = [NSJSONSerialization JSONObjectWithData:[jsonArg dataUsingEncoding:NSUTF8StringEncoding]
+                                                               options:NSJSONReadingAllowFragments
+                                                                 error:&error];
+        if ([dicArg[@"f"] isEqualToString:@"toDetail"]) {
+             YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            webVC.url = [NSURL URLWithString:dicArg[@"args"][0]];
+            webVC.navigationItem.title = @"车辆详情";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
         return NO;
     }
     return YES;
@@ -125,16 +138,16 @@
 
 - (void)conditionDidFinish:(NSString *)urlFuffix
 {
-    self.carListURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix]];
-    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:self.carListURL]];
+    self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix];
+    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"?t=app"]]]];
 }
 
 
 #pragma mark - Privatre
 
-- (NSURL *)defaultURL
+- (NSString *)defaultURL
 {
-    return [NSURL URLWithString:@"http://m.youche.com/ershouche/"];
+    return @"http://m.youche.com/ershouche";
 }
 
 

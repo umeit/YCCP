@@ -13,6 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *carListWebView;
 
-@property (strong, nonatomic) NSURL *carListURL;
+@property (strong, nonatomic) NSString *carListURL;
 
 @end
