@@ -40,7 +40,7 @@
     for (NSDictionary *bannerDic in bannerDicArray) {
         YCBannerEntity *banner = [[YCBannerEntity alloc] init];
         banner.imageURL = [NSURL URLWithString:bannerDic[@"url"]];
-        banner.linkURL = [NSURL URLWithString:bannerDic[@"link"]];
+        banner.linkURL = bannerDic[@"link"];
         [banners addObject:banner];
     }
     return banners;

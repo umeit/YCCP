@@ -7,10 +7,13 @@
 //
 
 #import "YCFilterTableViewController.h"
+#import "UIViewController+GViewController.h"
 
 @interface YCFilterTableViewController ()
 
 @property (strong, nonatomic) NSArray *dataList;
+
+@property (nonatomic) NSDictionary *selectedItem;
 
 @end
 
@@ -40,6 +43,9 @@
             break;
         case yearNumType:
             self.dataList = [self yearNumTypeList];
+            break;
+        case monthType:
+            self.dataList = [self monthTypeList];
             break;
         case mileageType:
             self.dataList = [self mileageTyppList];
@@ -74,12 +80,40 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 当前是选择年份
+    if (self.dataType == yearNumType) {
+        self.selectedItem = self.dataList[indexPath.row];
+        
+        // 导航到选择月份视图
+        YCFilterTableViewController *vc = [self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+        vc.dataType = monthType;
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
+    
     NSDictionary *dic = self.dataList[indexPath.row];
     [self.delegate selecteConditionFinish:@{@"CN" : dic[@"name"],
                                             @"CV" : dic[@"value"]}
                                filterType:self.dataType];
 
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - YCCarFilterConditionDelegate
+
+- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+{
+    if (filterType == monthType) {
+        NSString *yearCN = self.selectedItem[@"name"];
+        NSString *monthCN = condition[@"CN"];
+        NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
+                              @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
+        [self.delegate selecteConditionFinish:dic filterType:yearNumType];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -183,6 +217,15 @@
         [arr addObject:@{@"name": [@(year-i) stringValue], @"value":@""}];
     }
     
+    return arr;
+}
+
+- (NSArray *)monthTypeList
+{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSInteger i = 1; i < 13; i ++) {
+        [arr addObject:@{@"name": [@(i)stringValue], @"value":@""}];
+    }
     return arr;
 }
 

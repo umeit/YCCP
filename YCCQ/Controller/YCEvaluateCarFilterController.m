@@ -11,6 +11,7 @@
 #import "YCFilterTableViewController.h"
 #import "UIViewController+GViewController.h"
 #import "YCFieldTableViewCell.h"
+#import "YCWebViewController.h"
 
 @interface YCEvaluateCarFilterController ()
 
@@ -34,7 +35,23 @@
 
 - (void)okButtonPress:(UIButton *)button
 {
+    NSString *brand = self.dataList[0][@"value"];
+    if (!brand.length) {
+        return;
+    }
+    NSString *date = self.dataList[1][@"value"];
+    if (!date.length) {
+        return;
+    }
+    NSString *mileage = self.dataList[2][@"value"];
+    if (!mileage.length) {
+        return;
+    }
     
+    YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback", mileage, date, [brand substringToIndex:3], [brand substringToIndex:9], brand];
+    webVC.navigationItem.title = @"估价结果";
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -57,6 +74,8 @@
         YCFieldTableViewCell *fieldCell = (YCFieldTableViewCell *)cell;
         fieldCell.titleLabel.text = dic[@"title"];
         fieldCell.cellField.text = dic[@"detail"];
+        
+        fieldCell.cellField.delegate = self;
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
@@ -99,6 +118,18 @@
 }
 
 
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
+- (IBAction)textFieldEditingChanged:(UITextField *)field
+{
+    self.dataList[2][@"value"] = field.text;
+}
+
 #pragma mark - YCCarFilterConditionDelegate
 
 -(void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
@@ -107,11 +138,13 @@
         case ModelType:
         {
             self.dataList[0][@"detail"] = condition[@"CN"];
+            self.dataList[0][@"value"] = condition[@"CV"];
         }
             break;
         case yearNumType:
         {
             self.dataList[1][@"detail"] = condition[@"CN"];
+            self.dataList[1][@"value"] = condition[@"CV"];
         }
             break;
         default:

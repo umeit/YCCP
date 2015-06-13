@@ -1525,14 +1525,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z3l-YK-uRb" id="2bz-zx-opK">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-Rn-IGk">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-Rn-IGk">
                                             <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="TFP-Dv-oM7"/>
                                                 <constraint firstAttribute="width" constant="194" id="y5I-qN-0rs"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="TFP-Dv-oM7"/>
@@ -1545,6 +1545,9 @@
                                                     <include reference="y5I-qN-0rs"/>
                                                 </mask>
                                             </variation>
+                                            <connections>
+                                                <action selector="textFieldEditingChanged:" destination="eYQ-LS-d9w" eventType="editingChanged" id="NG6-fb-gPp"/>
+                                            </connections>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sci-fG-6jF">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>

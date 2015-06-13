@@ -111,16 +111,15 @@
 - (void)toCarListViewWithKey:(NSString *)key
 {
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
-    carListViewController.carListURL = [NSURL URLWithString:
-                                        [NSString stringWithFormat:@"http://m.youche.com/%@/", key]];
+    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", key];
     carListViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:carListViewController animated:YES];
 }
 
-- (void)toWebViewWithURL:(NSURL *)url
+- (void)toWebViewWithURL:(NSString *)url
 {
     YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];
-    webViewController.url = url;
+    webViewController.webPageURL = url;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
@@ -136,7 +135,9 @@
                                            CGRectGetHeight(self.bannerScrollView.frame))];
             button.contentMode = UIViewContentModeScaleAspectFill;
             [button setBackgroundImageForState:UIControlStateNormal withURL:banner.imageURL];
-            [button addTarget:self action:@selector(bannerDidTouch:) forControlEvents:UIControlEventTouchUpInside];
+            [button addTarget:self
+                       action:@selector(bannerDidTouch:)
+             forControlEvents:UIControlEventTouchUpInside];
             button.tag = idx;
             [self.bannerScrollView addSubview:button];
             

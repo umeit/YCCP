@@ -124,7 +124,7 @@
                                                                  error:&error];
         if ([dicArg[@"f"] isEqualToString:@"toDetail"]) {
              YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-            webVC.url = [NSURL URLWithString:dicArg[@"args"][0]];
+            webVC.webPageURL = dicArg[@"args"][0];
             webVC.navigationItem.title = @"车辆详情";
             [self.navigationController pushViewController:webVC animated:YES];
         }

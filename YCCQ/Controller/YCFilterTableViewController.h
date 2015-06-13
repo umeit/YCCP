@@ -10,7 +10,7 @@
 #import "YCCarFilterDelegate.h"
 #import "YCCarFilterEnum.h"
 
-@interface YCFilterTableViewController : UITableViewController
+@interface YCFilterTableViewController : UITableViewController <YCCarFilterConditionDelegate>
 
 @property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
 

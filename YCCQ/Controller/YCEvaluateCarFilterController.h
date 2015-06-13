@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "YCCarFilterDelegate.h"
 
-@interface YCEvaluateCarFilterController : UITableViewController<YCCarFilterConditionDelegate>
+@interface YCEvaluateCarFilterController : UITableViewController<YCCarFilterConditionDelegate, UITextFieldDelegate>
 
 @end
