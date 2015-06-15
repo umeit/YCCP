@@ -12,6 +12,6 @@
 
 + (NSURL *)youcheImageURLWithPath:(NSString *)path w:(NSInteger)w h:(NSInteger)h;
 
-+ (NSURL *)youcheCarURLWithCarID:(NSInteger)carID;
++ (NSString *)youcheCarURLWithCarID:(NSInteger)carID;
 
 @end

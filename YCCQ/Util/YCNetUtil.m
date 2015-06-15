@@ -18,10 +18,10 @@ static NSString *fileYouChePath = @"http://file.youche.com/_%d_%d%@";
     return [NSURL URLWithString:url];
 }
 
-+ (NSURL *)youcheCarURLWithCarID:(NSInteger)carID
++ (NSString *)youcheCarURLWithCarID:(NSInteger)carID
 {
     NSString *url = [NSString stringWithFormat:@"http://www.youche.com/detail/%ld.shtml", (long)carID];
-    return [NSURL URLWithString:url];
+    return url;
 }
 
 @end
