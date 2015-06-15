@@ -22,7 +22,14 @@
 #import "UtilDefine.h"
 #import "YCEvaluateCarFilterController.h"
 
-@interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+#define Banner_Row_Index    0
+#define Function_Row_Index  1
+#define Baokuan_Row_Index   2
+#define CarType_Row_Index   3
+#define CarBrand_Row_Index  4
+
+@interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource,
+                                    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSArray *banners;
 @property (strong, nonatomic) NSArray *baokuans;
@@ -221,28 +228,65 @@
     }
 }
 
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (iPhone4) {
+        return CGSizeMake(190, 160);
+    }
+    else if (iPhone6) {
+        return CGSizeMake(380, 160);
+    }
+    else if (iPhone6Plus) {
+        
+    }
+    
+    return CGSizeMake(190, 160);
+}
+
 #pragma mark - Table view data source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (iPhone4) {
-        if (indexPath.row == 0) {
+        if (indexPath.row == Banner_Row_Index) {
             return 150.f;
         }
-        if (indexPath.row == 1) {
+        if (indexPath.row == Function_Row_Index) {
             return 241.f;
         }
-        if (indexPath.row == 2) {
+        if (indexPath.row == Baokuan_Row_Index) {
             return 340.f;
         }
-        if (indexPath.row == 3) {
+        if (indexPath.row == CarType_Row_Index) {
             return 100.f;
         }
-        if (indexPath.row == 4) {
+        if (indexPath.row == CarBrand_Row_Index) {
             return 100.f;
         }
     }
-    return 4.4;
+    else if (iPhone6) {
+        if (indexPath.row == Banner_Row_Index) {
+            return 170.f;
+        }
+        if (indexPath.row == Function_Row_Index) {
+            return 241.f;
+        }
+        if (indexPath.row == Baokuan_Row_Index) {
+            return 380.f;
+        }
+        if (indexPath.row == CarType_Row_Index) {
+            return 100.f;
+        }
+        if (indexPath.row == CarBrand_Row_Index) {
+            return 120.f;
+        }
+    }
+    return 44.f;
 }
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
