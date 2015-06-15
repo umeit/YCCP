@@ -197,15 +197,15 @@
     
     YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
     
-    CGPoint origin = cell.frame.origin;
-    CGSize  size   = cell.frame.size;
-    
-    if (indexPath.row == 0 || indexPath.row == 1) {
-        cell.frame = CGRectMake(origin.x, origin.y, 160, size.height);
-    }
-    else if (indexPath.row == 2 || indexPath.row == 3) {
-        cell.frame = CGRectMake(160, origin.y, 160, size.height);
-    }
+//    CGPoint origin = cell.frame.origin;
+//    CGSize  size   = cell.frame.size;
+//    
+//    if (indexPath.row == 0 || indexPath.row == 1) {
+//        cell.frame = CGRectMake(origin.x, origin.y, 160, size.height);
+//    }
+//    else if (indexPath.row == 2 || indexPath.row == 3) {
+//        cell.frame = CGRectMake(160, origin.y, 160, size.height);
+//    }
     
     [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
     return cell;
@@ -236,16 +236,41 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (iPhone4) {
-        return CGSizeMake(190, 160);
+        return CGSizeMake(150, 160);
+    }
+    else if (iPhone5) {
+        return CGSizeMake(150, 160);
     }
     else if (iPhone6) {
-        return CGSizeMake(380, 160);
+        return CGSizeMake(170, 160);
     }
     else if (iPhone6Plus) {
-        
+        return CGSizeMake(190, 160);
     }
     
-    return CGSizeMake(190, 160);
+    return CGSizeMake(150, 160);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                        layout:(UICollectionViewLayout *)collectionViewLayout
+        insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(8, 8, 8, 8);
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.f;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10.f;
 }
 
 #pragma mark - Table view data source
@@ -257,7 +282,24 @@
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 241.f;
+            return 240.f;
+        }
+        if (indexPath.row == Baokuan_Row_Index) {
+            return 340.f;
+        }
+        if (indexPath.row == CarType_Row_Index) {
+            return 100.f;
+        }
+        if (indexPath.row == CarBrand_Row_Index) {
+            return 100.f;
+        }
+    }
+    else if (iPhone5) {
+        if (indexPath.row == Banner_Row_Index) {
+            return 150.f;
+        }
+        if (indexPath.row == Function_Row_Index) {
+            return 240.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return 340.f;
@@ -274,10 +316,27 @@
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 241.f;
+            return 240.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 380.f;
+            return 360.f;
+        }
+        if (indexPath.row == CarType_Row_Index) {
+            return 100.f;
+        }
+        if (indexPath.row == CarBrand_Row_Index) {
+            return 120.f;
+        }
+    }
+    else if (iPhone6Plus) {
+        if (indexPath.row == Banner_Row_Index) {
+            return 170.f;
+        }
+        if (indexPath.row == Function_Row_Index) {
+            return 270.f;
+        }
+        if (indexPath.row == Baokuan_Row_Index) {
+            return 360.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 100.f;

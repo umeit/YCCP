@@ -80,6 +80,7 @@
 		031AD6AE1B199C320076B32D /* volkswagen.png in Resources */ = {isa = PBXBuildFile; fileRef = 031AD66E1B199C320076B32D /* volkswagen.png */; };
 		031AD6AF1B199C320076B32D /* volvo.png in Resources */ = {isa = PBXBuildFile; fileRef = 031AD66F1B199C320076B32D /* volvo.png */; };
 		031AD6B01B199C320076B32D /* 哈弗.png in Resources */ = {isa = PBXBuildFile; fileRef = 031AD6701B199C320076B32D /* 哈弗.png */; };
+		031EB6FD1B2ED42800433780 /* yongche@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 031EB6FC1B2ED42800433780 /* yongche@x2.png */; };
 		03242C3D1B0C5764006E8B82 /* AppKeFuResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03242C3A1B0C5764006E8B82 /* AppKeFuResources.bundle */; };
 		03242C3E1B0C5764006E8B82 /* libAppKeFuLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C3B1B0C5764006E8B82 /* libAppKeFuLib.a */; };
 		03242C411B0C5803006E8B82 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C401B0C5803006E8B82 /* libxml2.dylib */; };
@@ -255,6 +256,7 @@
 		031AD66E1B199C320076B32D /* volkswagen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volkswagen.png; sourceTree = "<group>"; };
 		031AD66F1B199C320076B32D /* volvo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volvo.png; sourceTree = "<group>"; };
 		031AD6701B199C320076B32D /* 哈弗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "哈弗.png"; sourceTree = "<group>"; };
+		031EB6FC1B2ED42800433780 /* yongche@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yongche@x2.png"; sourceTree = "<group>"; };
 		03242C391B0C5764006E8B82 /* AppKeFuLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppKeFuLib.h; sourceTree = "<group>"; };
 		03242C3A1B0C5764006E8B82 /* AppKeFuResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppKeFuResources.bundle; sourceTree = "<group>"; };
 		03242C3B1B0C5764006E8B82 /* libAppKeFuLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppKeFuLib.a; sourceTree = "<group>"; };
@@ -595,6 +597,7 @@
 		038A560A1B26D591002FA96D /* function_icons */ = {
 			isa = PBXGroup;
 			children = (
+				031EB6FC1B2ED42800433780 /* yongche@x2.png */,
 				038A560B1B26D591002FA96D /* changshi.png */,
 				038A560C1B26D591002FA96D /* chexian.png */,
 				038A560D1B26D591002FA96D /* daolu.png */,
@@ -964,6 +967,7 @@
 				031AD6981B199C320076B32D /* maserati.png in Resources */,
 				03B6554A1B26F91100F28CAC /* hongdian.png in Resources */,
 				031AD67F1B199C320076B32D /* fiat.png in Resources */,
+				031EB6FD1B2ED42800433780 /* yongche@x2.png in Resources */,
 				031AD6AC1B199C320076B32D /* suzuki.png in Resources */,
 				03952DE51B05CA120055D36B /* Main.storyboard in Resources */,
 				031AD67C1B199C320076B32D /* dodge.png in Resources */,
