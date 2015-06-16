@@ -51,17 +51,72 @@
 #pragma mark - Action
 - (IBAction)functionButtonPress:(UIButton *)button {
     switch (button.tag) {
-        case 31:
+        case 31:  // 用车急问
         {
             [self toConsultationViewControllerWithWorkgroup:@"usecar"];
         }
             break;
-        case 36:
+        case 32:  // 维修咨询
+        {
+            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+        }
+            break;
+        case 33:  // 事故咨询
+        {
+            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+        }
+            break;
+        case 34:  // 道路救援
+        {
+            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+        }
+            break;
+        case 35:  // 违章查询
+        {
+            [self showCustomText:@"暂未开通功能" delay:1.3];
+        }
+            break;
+        case 36:  // 车辆评估
+        {
+            [self toEvaluateCar];
+        }
+            break;
+        case 37:  // 代办车险
+        {
+            [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
+                   controllerTitle:@"代办车险"];
+        }
+            break;
+        case 38:  // 今日油价
+        {
+            [self toEvaluateCar];
+        }
+            break;
+        case 39:  // 上门收车
+        {
+            [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
+             controllerTitle:@"上门收车"];
+        }
+            break;
+        case 40:  // 预约检测
+        {
+            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
+                   controllerTitle:@"预约检测"];
+        }
+            break;
+        case 41:  // 延保服务
+        {
+            [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
+                   controllerTitle:@"延保服务"];
+        }
+            break;
+        case 42:  // 全部工具
         {
             [self toEvaluateCar];
         }
             break;
         default:
+            [self showCustomText:@"功能暂未开通" delay:1.3];
             break;
     }
     
@@ -71,7 +126,7 @@
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
     if (bannner) {
-        [self toWebViewWithURL:bannner.linkURL];
+        [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情"];
     }
 }
 
@@ -123,10 +178,11 @@
     [self.navigationController pushViewController:carListViewController animated:YES];
 }
 
-- (void)toWebViewWithURL:(NSString *)url
+- (void)toWebViewWithURL:(NSString *)url controllerTitle:(NSString *)title
 {
     YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];
     webViewController.webPageURL = url;
+    webViewController.navigationItem.title = title;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
@@ -282,7 +338,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 240.f;
+            return 200.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return 340.f;
@@ -299,7 +355,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 240.f;
+            return 200.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return 340.f;
