@@ -27,6 +27,8 @@
     // 向苹果注册推送服务
     [self registerAPNs];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     return YES;
 }
 

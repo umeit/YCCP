@@ -41,6 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     self.carService = [[YCCarService alloc] init];
     self.bannerService = [[YCBannerService alloc] init];
     
@@ -48,72 +50,48 @@
     [self setBaokuan];
 }
 
+
 #pragma mark - Action
 - (IBAction)functionButtonPress:(UIButton *)button {
     switch (button.tag) {
         case 31:  // 用车急问
-        {
             [self toConsultationViewControllerWithWorkgroup:@"usecar"];
-        }
             break;
         case 32:  // 维修咨询
-        {
             [self toConsultationViewControllerWithWorkgroup:@"usecar"];
-        }
             break;
         case 33:  // 事故咨询
-        {
             [self toConsultationViewControllerWithWorkgroup:@"usecar"];
-        }
             break;
         case 34:  // 道路救援
-        {
             [self toConsultationViewControllerWithWorkgroup:@"usecar"];
-        }
             break;
         case 35:  // 违章查询
-        {
             [self showCustomText:@"暂未开通功能" delay:1.3];
-        }
             break;
         case 36:  // 车辆评估
-        {
             [self toEvaluateCar];
-        }
             break;
         case 37:  // 代办车险
-        {
             [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
                    controllerTitle:@"代办车险"];
-        }
             break;
         case 38:  // 今日油价
-        {
-            [self toEvaluateCar];
-        }
+            [self showCustomText:@"暂未开通功能" delay:1.3];
             break;
         case 39:  // 上门收车
-        {
             [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
-             controllerTitle:@"上门收车"];
-        }
+                   controllerTitle:@"上门收车"];
             break;
         case 40:  // 预约检测
-        {
             [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
                    controllerTitle:@"预约检测"];
-        }
             break;
         case 41:  // 延保服务
-        {
             [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
                    controllerTitle:@"延保服务"];
-        }
             break;
         case 42:  // 全部工具
-        {
-            [self toEvaluateCar];
-        }
             break;
         default:
             [self showCustomText:@"功能暂未开通" delay:1.3];
@@ -142,6 +120,47 @@
 
 
 #pragma mark - Private
+
+- (void)setBanner
+{
+    [self.bannerService bannersWithBlock:^(NSArray * banners) {
+        // 往 ScrollView 中添加图片
+        [banners enumerateObjectsUsingBlock:^(YCBannerEntity *banner, NSUInteger idx, BOOL *stop) {
+            UIButton *button = [[UIButton alloc] initWithFrame:
+                                CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
+                                           0,
+                                           CGRectGetWidth(self.bannerScrollView.frame),
+                                           CGRectGetHeight(self.bannerScrollView.frame))];
+            button.contentMode = UIViewContentModeScaleAspectFill;
+            [button setBackgroundImageForState:UIControlStateNormal withURL:banner.imageURL];
+            [button addTarget:self
+                       action:@selector(bannerDidTouch:)
+             forControlEvents:UIControlEventTouchUpInside];
+            button.tag = idx;
+            [self.bannerScrollView addSubview:button];
+            
+            // 图片的数量
+            NSInteger imagesCount = [banners count];
+            self.bannerPageControl.numberOfPages = imagesCount;
+            // ScrollView 的大小
+            self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount,
+                                                           CGRectGetHeight(self.bannerScrollView.frame));
+        }];
+        
+        self.banners = banners;
+    }];
+}
+
+- (void)setBaokuan
+{
+    [self.carService baokuanWithBlock:^(NSArray *baokuans) {
+        self.baokuans = baokuans;
+        [self.baokuanCollectionView reloadData];
+    }];
+}
+
+
+#pragma mark - Navigation
 
 - (void)toConsultationViewControllerWithWorkgroup:(NSString *)key
 {
@@ -186,44 +205,6 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
-- (void)setBanner
-{
-    [self.bannerService bannersWithBlock:^(NSArray * banners) {
-        // 往 ScrollView 中添加图片
-        [banners enumerateObjectsUsingBlock:^(YCBannerEntity *banner, NSUInteger idx, BOOL *stop) {
-            UIButton *button = [[UIButton alloc] initWithFrame:
-                                CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
-                                           0,
-                                           CGRectGetWidth(self.bannerScrollView.frame),
-                                           CGRectGetHeight(self.bannerScrollView.frame))];
-            button.contentMode = UIViewContentModeScaleAspectFill;
-            [button setBackgroundImageForState:UIControlStateNormal withURL:banner.imageURL];
-            [button addTarget:self
-                       action:@selector(bannerDidTouch:)
-             forControlEvents:UIControlEventTouchUpInside];
-            button.tag = idx;
-            [self.bannerScrollView addSubview:button];
-            
-            // 图片的数量
-            NSInteger imagesCount = [banners count];
-            self.bannerPageControl.numberOfPages = imagesCount;
-            // ScrollView 的大小
-            self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount,
-                                                           CGRectGetHeight(self.bannerScrollView.frame));
-        }];
-        
-        self.banners = banners;
-    }];
-}
-
-- (void)setBaokuan
-{
-    [self.carService baokuanWithBlock:^(NSArray *baokuans) {
-        self.baokuans = baokuans;
-        [self.baokuanCollectionView reloadData];
-    }];
-}
-
 
 #pragma mark - UIScrollViewDelegate
 
@@ -251,17 +232,11 @@
     YCBaoKuanCollectionViewCell *cell = (YCBaoKuanCollectionViewCell *)
     [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     
-    YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
+    if (indexPath.row == self.baokuans.count) {
+        return cell;
+    }
     
-//    CGPoint origin = cell.frame.origin;
-//    CGSize  size   = cell.frame.size;
-//    
-//    if (indexPath.row == 0 || indexPath.row == 1) {
-//        cell.frame = CGRectMake(origin.x, origin.y, 160, size.height);
-//    }
-//    else if (indexPath.row == 2 || indexPath.row == 3) {
-//        cell.frame = CGRectMake(160, origin.y, 160, size.height);
-//    }
+    YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
     
     [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
     return cell;
@@ -280,7 +255,7 @@
 {
     YCBaoKuanEntity *baokuan = self.baokuans[indexPath.row];
     if (baokuan) {
-        [self toWebViewWithURL:baokuan.linkURL];
+        [self toWebViewWithURL:baokuan.linkURL controllerTitle:@"爆款车辆"];
     }
 }
 
@@ -403,76 +378,5 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     }
     return 44.f;
 }
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 3;
-//}
-//
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    UITableViewCell *cell;
-//    
-//    if (indexPath.row == 0) {
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
-//    }
-//    else if (indexPath.row == 1) {
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"FunctionCell"];
-//    }
-//    else {
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"BaoKuanCell"];
-//    }
-//    
-//    return cell;
-//}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
