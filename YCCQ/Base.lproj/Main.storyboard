@@ -2290,7 +2290,7 @@
                             <outlet property="delegate" destination="abj-CY-dCi" id="ZQX-H3-LZr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title=" 售后" image="shouhou_bar.png" id="5jk-ov-eVI" userLabel="售后"/>
+                    <tabBarItem key="tabBarItem" title=" 售后" image="tab_shouhou" selectedImage="tab_shouhou_d" id="5jk-ov-eVI" userLabel="售后"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyx-7i-cUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2926,7 +2926,7 @@
         <scene sceneID="xW8-fN-Gdz">
             <objects>
                 <navigationController id="FVq-DO-AF5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title=" 买车" image="maiche_bar.png" id="a9P-ao-2Of"/>
+                    <tabBarItem key="tabBarItem" title=" 买车" image="tab_maiche" selectedImage="tab_maiche_d" id="a9P-ao-2Of"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5yz-2E-AMD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3298,7 +3298,7 @@
         <scene sceneID="CnM-90-S3i">
             <objects>
                 <navigationController id="SJU-qR-6bT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="wode_bar.png" id="z59-Iy-MSh"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tab_wode" selectedImage="tab_wode_d" id="z59-Iy-MSh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cYQ-vZ-Nw6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3319,7 +3319,7 @@
         <scene sceneID="1Uo-RJ-Dxj">
             <objects>
                 <navigationController id="ChD-X5-Bbv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" image="home_bar.png" id="ien-Qe-XOZ"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="tab_home" selectedImage="tab_home_d" id="ien-Qe-XOZ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3w-pQ-uYI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3400,23 +3400,27 @@
         <image name="buick.png" width="104" height="104"/>
         <image name="chexian" width="31" height="31"/>
         <image name="ford.png" width="104" height="104"/>
-        <image name="home_bar.png" width="30" height="30"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance" width="31" height="31"/>
         <image name="jiuyuan" width="31" height="31"/>
         <image name="maiche1" width="31" height="31"/>
         <image name="maiche2" width="31" height="31"/>
-        <image name="maiche_bar.png" width="30" height="30"/>
         <image name="mercedes-benz.png" width="104" height="104"/>
         <image name="pinggu" width="31" height="31"/>
         <image name="shangmen" width="31" height="31"/>
         <image name="shigu" width="31" height="31"/>
         <image name="shouhou" width="31" height="31"/>
-        <image name="shouhou_bar.png" width="30" height="30"/>
+        <image name="tab_home" width="30" height="30"/>
+        <image name="tab_home_d" width="30" height="30"/>
+        <image name="tab_maiche" width="30" height="30"/>
+        <image name="tab_maiche_d" width="30" height="30"/>
+        <image name="tab_shouhou" width="30" height="30"/>
+        <image name="tab_shouhou_d" width="30" height="30"/>
+        <image name="tab_wode" width="30" height="30"/>
+        <image name="tab_wode_d" width="30" height="30"/>
         <image name="volkswagen.png" width="104" height="104"/>
         <image name="weixiu" width="31" height="31"/>
         <image name="weizhang" width="31" height="31"/>
-        <image name="wode_bar.png" width="30" height="30"/>
         <image name="xianhao" width="31" height="31"/>
         <image name="yanbao" width="31" height="31"/>
         <image name="yongche" width="31" height="31"/>
