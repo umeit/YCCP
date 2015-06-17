@@ -122,12 +122,35 @@
         NSDictionary *dicArg = [NSJSONSerialization JSONObjectWithData:[jsonArg dataUsingEncoding:NSUTF8StringEncoding]
                                                                options:NSJSONReadingAllowFragments
                                                                  error:&error];
+        // 前往详情页
         if ([dicArg[@"f"] isEqualToString:@"toDetail"]) {
              YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
             webVC.webPageURL = dicArg[@"args"][0];
             webVC.navigationItem.title = @"车辆详情";
             [self.navigationController pushViewController:webVC animated:YES];
         }
+        // 弹出输入手机号码
+        else if ([dicArg[@"f"] isEqualToString:@"inputPhoneNum"]) {
+             [self showTextFieldAlertWithTitle:@"收藏车辆" message:@"请输入您的手机号码" block:^(NSString *text) {
+                 
+                 if (![self isValidPhoneNum:text]) {
+                     [self showCustomTextAlert:@"请正确输入号码"];
+                     return;
+                 }
+                 
+                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                 [userDefaults setObject:text forKey:@"UserPhoneNum"];
+                 
+                 [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"callbackUserMobile('%@')", text?:@""]];
+             }];
+        }
+        // 页面获取手机号
+        else if ([dicArg[@"f"] isEqualToString:@"getPhoneNum"]) {
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *userPhoneNum = [userDefaults stringForKey:@"UserPhoneNum"];
+            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"callbackUserMobile('%@')", userPhoneNum?:@""]];
+        }
+        
         return NO;
     }
     return YES;
@@ -144,6 +167,11 @@
 
 
 #pragma mark - Privatre
+
+- (BOOL)isValidPhoneNum:(NSString *)phoneNum
+{
+    return phoneNum.length == 11;
+}
 
 - (NSString *)defaultURL
 {

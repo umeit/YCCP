@@ -41,6 +41,29 @@ static char kAlertBlockIndex;
     self.alertBlockIndex ++;
 }
 
+- (void)showTextFieldAlertWithTitle:(NSString *)title
+                            message:(NSString *)message
+                              block:(void (^)(NSString *))block
+{
+    if (!self.blockList) {
+        self.blockList = [[NSMutableArray alloc] init];
+    }
+    
+    [self.blockList setObject:block atIndexedSubscript:self.alertBlockIndex];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"取消"
+                                          otherButtonTitles:@"确定", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag = self.alertBlockIndex;
+    [alert show];
+    
+    self.alertBlockIndex ++;
+
+}
+
 - (void)showCustomTextAlert:(NSString *)text withBlock:(void (^)())block
 {
     if (!self.blockList) {
@@ -158,10 +181,18 @@ NSUInteger DeviceSystemMajorVersion()
         void (^block)(void) = self.blockList[alertView.tag];
         block();
         
-        // 点击「确定」
+    // 点击「确定」
     } else if (buttonIndex == 1) {
-        void (^block)(void) = self.blockList[alertView.tag];
-        block();
+        // 普通 Alert
+        if (alertView.alertViewStyle == UIAlertViewStyleDefault) {
+            void (^block)(void) = self.blockList[alertView.tag];
+            block();
+        }
+        // 带一个输入框的 Alert
+        else if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
+            void (^block)(NSString *) = self.blockList[alertView.tag];
+            block([alertView textFieldAtIndex:0].text);
+        }
     }
 }
 

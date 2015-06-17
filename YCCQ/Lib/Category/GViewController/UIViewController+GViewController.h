@@ -21,6 +21,8 @@
 
 - (void)showCustomTextAlert:(NSString *)text withBlock:(void (^)())block;
 
+- (void)showTextFieldAlertWithTitle:(NSString *)title message:(NSString *)message block:(void (^)(NSString *))block;
+
 - (void)showCustomTextAlert:(NSString *)text;
 
 - (void)showCustomText:(NSString *)text delay:(NSInteger)delay;
