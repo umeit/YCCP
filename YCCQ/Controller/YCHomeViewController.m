@@ -319,32 +319,15 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4) {
+    if (iPhone4 || iPhone5) {
         if (indexPath.row == Banner_Row_Index) {
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 200.f;
+            return 210.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 340.f;
-        }
-        if (indexPath.row == CarType_Row_Index) {
-            return 100.f;
-        }
-        if (indexPath.row == CarBrand_Row_Index) {
-            return 100.f;
-        }
-    }
-    else if (iPhone5) {
-        if (indexPath.row == Banner_Row_Index) {
-            return 150.f;
-        }
-        if (indexPath.row == Function_Row_Index) {
-            return 200.f;
-        }
-        if (indexPath.row == Baokuan_Row_Index) {
-            return 340.f;
+            return 388.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 100.f;
