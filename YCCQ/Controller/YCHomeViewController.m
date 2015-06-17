@@ -266,7 +266,8 @@
 {
     YCBaoKuanEntity *baokuan = self.baokuans[indexPath.row];
     if (baokuan) {
-        [self toWebViewWithURL:baokuan.linkURL controllerTitle:@"爆款车辆"];
+        NSString *carURL = [NSString stringWithFormat:@"%@?t=app", [baokuan.linkURL stringByReplacingOccurrencesOfString:@"www" withString:@"m"]];
+        [self toWebViewWithURL:carURL controllerTitle:@"爆款车辆"];
     }
 }
 

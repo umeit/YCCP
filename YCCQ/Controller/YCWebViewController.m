@@ -23,6 +23,21 @@
 
 #pragma mark - Web view delegate
 
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showLodingView];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideLodingView];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideLodingView];
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL * url = [request URL];
