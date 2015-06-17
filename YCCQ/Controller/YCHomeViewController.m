@@ -344,13 +344,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 240.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 360.f;
+            return 382.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 100.f;
+            return 110.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 120.f;
+            return 140.f;
         }
     }
     else if (iPhone6Plus) {
@@ -358,16 +358,16 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 270.f;
+            return 280.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 360.f;
+            return 382.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 100.f;
+            return 110.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 120.f;
+            return 160.f;
         }
     }
     return 44.f;

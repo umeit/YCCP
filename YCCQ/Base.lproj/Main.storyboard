@@ -3170,8 +3170,8 @@
                             <constraint firstItem="MJz-ca-AKf" firstAttribute="top" secondItem="aMG-pA-Jwc" secondAttribute="topMargin" id="cf9-qT-mXn"/>
                             <constraint firstItem="MJz-ca-AKf" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leadingMargin" constant="-16" id="oWZ-08-PiO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MJz-ca-AKf" secondAttribute="trailing" constant="-16" id="qOJ-s6-5fx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="r0E-67-9en" secondAttribute="trailing" constant="-16" id="ubJ-b2-xYF"/>
-                            <constraint firstItem="r0E-67-9en" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leadingMargin" constant="-16" id="xaU-re-E2Q"/>
+                            <constraint firstAttribute="trailing" secondItem="r0E-67-9en" secondAttribute="trailing" id="ubJ-b2-xYF"/>
+                            <constraint firstItem="r0E-67-9en" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leading" id="xaU-re-E2Q"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
