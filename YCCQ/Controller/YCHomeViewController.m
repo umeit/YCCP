@@ -330,10 +330,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 388.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 120.f;
+            return 110.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 100.f;
+            return 110.f;
         }
     }
     else if (iPhone6) {
