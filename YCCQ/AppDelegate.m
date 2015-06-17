@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppKeFuLib.h"
 #import "UtilDefine.h"
+#import "MobClick.h"
 
 #define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
 
@@ -20,6 +21,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 设置友盟统计
+    [MobClick startWithAppkey:@"5581085367e58e8d64003ea0"];
     
     // 登录微客服
     [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];
@@ -27,6 +30,7 @@
     // 向苹果注册推送服务
     [self registerAPNs];
     
+    // 设置导航栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;

@@ -2625,7 +2625,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0E-67-9en">
+                            <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0E-67-9en" userLabel="Bar View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dh-iS-6sA">
@@ -2723,7 +2723,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96464646464646464" green="0.96464646464646464" blue="0.96464646464646464" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="8Dh-iS-6sA" firstAttribute="leading" secondItem="r0E-67-9en" secondAttribute="leading" constant="19" id="66C-sb-H5A">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -2761,7 +2761,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="47" id="ZyS-Oe-jP8">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                     </constraint>
                                     <constraint firstItem="kjs-ZY-pHq" firstAttribute="top" secondItem="r0E-67-9en" secondAttribute="top" constant="9" id="cio-lA-BiQ">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>

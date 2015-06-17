@@ -21,12 +21,15 @@
 #import "YCCarUtil.h"
 #import "UtilDefine.h"
 #import "YCEvaluateCarFilterController.h"
+#import "MobClick.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
 #define Baokuan_Row_Index   2
 #define CarType_Row_Index   3
 #define CarBrand_Row_Index  4
+
+#define PageIndex @"Home"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource,
                                     UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -48,6 +51,14 @@
     
     [self setBanner];
     [self setBaokuan];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [MobClick beginLogPageView:PageIndex];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [MobClick endLogPageView:PageIndex];
 }
 
 

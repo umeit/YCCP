@@ -91,6 +91,8 @@
 		03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */; };
 		03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4E1B0C585C006E8B82 /* libiconv.dylib */; };
 		0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */; };
+		0362E7791B3140600010EC48 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E7781B3140600010EC48 /* libz.dylib */; };
+		0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038417611B27041E00A92A7D /* home_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384175D1B27041E00A92A7D /* home_bar.png */; };
 		038417621B27041E00A92A7D /* maiche_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0384175E1B27041E00A92A7D /* maiche_bar.png */; };
@@ -253,6 +255,10 @@
 		03242C4E1B0C585C006E8B82 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		0339D8781B293C0F00EC2EF5 /* YCFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFieldTableViewCell.h; sourceTree = "<group>"; };
 		0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFieldTableViewCell.m; sourceTree = "<group>"; };
+		0362E7781B3140600010EC48 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		0362E77C1B31407C0010EC48 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		0362E77D1B31407C0010EC48 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
@@ -363,6 +369,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0362E7791B3140600010EC48 /* libz.dylib in Frameworks */,
 				03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */,
 				03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */,
 				03242C4B1B0C5842006E8B82 /* AVFoundation.framework in Frameworks */,
@@ -371,6 +378,7 @@
 				03242C451B0C581F006E8B82 /* SystemConfiguration.framework in Frameworks */,
 				03242C431B0C5814006E8B82 /* libresolv.dylib in Frameworks */,
 				03242C411B0C5803006E8B82 /* libxml2.dylib in Frameworks */,
+				0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */,
 				03242C3E1B0C5764006E8B82 /* libAppKeFuLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +532,7 @@
 		03242C371B0C574B006E8B82 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				0362E77A1B31407C0010EC48 /* UMAnalytics_Sdk_3.5.8 */,
 				03EBD2EB1B14736F004DD5E3 /* ParallaxTableViewHeader */,
 				03EE9F3B1B130F4C0051CC57 /* MBProgressHUD */,
 				03EE9F1C1B12FCF40051CC57 /* Category */,
@@ -542,6 +551,16 @@
 				03242C3B1B0C5764006E8B82 /* libAppKeFuLib.a */,
 			);
 			path = AppKeFuLib;
+			sourceTree = "<group>";
+		};
+		0362E77A1B31407C0010EC48 /* UMAnalytics_Sdk_3.5.8 */ = {
+			isa = PBXGroup;
+			children = (
+				0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */,
+				0362E77C1B31407C0010EC48 /* MobClick.h */,
+				0362E77D1B31407C0010EC48 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.5.8;
 			sourceTree = "<group>";
 		};
 		0376B67A1B186CCE005B5FFC /* Protocol */ = {
@@ -575,6 +594,7 @@
 		03952DCA1B05CA120055D36B = {
 			isa = PBXGroup;
 			children = (
+				0362E7781B3140600010EC48 /* libz.dylib */,
 				03952DD51B05CA120055D36B /* YCCQ */,
 				03952DF21B05CA130055D36B /* YCCQTests */,
 				03952DD41B05CA120055D36B /* Products */,
@@ -1166,6 +1186,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YCCQ/Lib/AppKeFuLib",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1189,6 +1210,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YCCQ/Lib/AppKeFuLib",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMAnalytics_Sdk_3.5.8",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
