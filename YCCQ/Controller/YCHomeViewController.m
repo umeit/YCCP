@@ -257,7 +257,7 @@
 {
     [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
-    cell.carPriceLabel.text = entity.price;
+    cell.carPriceLabel.text = entity.price.length > 4 ? [entity.price substringToIndex:4] : entity.price;
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -278,11 +278,8 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4) {
-        return CGSizeMake(150, 160);
-    }
-    else if (iPhone5) {
-        return CGSizeMake(150, 160);
+    if (iPhone4 || iPhone5) {
+        return CGSizeMake(150, 142);
     }
     else if (iPhone6) {
         return CGSizeMake(170, 160);
