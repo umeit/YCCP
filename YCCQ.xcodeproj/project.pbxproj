@@ -163,13 +163,13 @@
 		03F3F7721B32ACC40033C1A5 /* umeng_fb_audio_play_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F3F74B1B32ACC40033C1A5 /* umeng_fb_audio_play_03@2x.png */; };
 		03F3F7731B32ACC40033C1A5 /* umeng_fb_audio_play_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F3F74C1B32ACC40033C1A5 /* umeng_fb_audio_play_default@2x.png */; };
 		03F3F7741B32ACC40033C1A5 /* UMFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F74F1B32ACC40033C1A5 /* UMFeedbackViewController.m */; };
-		03F3F7751B32ACC40033C1A5 /* libUMOpus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F3F7521B32ACC40033C1A5 /* libUMOpus.a */; };
 		03F3F7761B32ACC40033C1A5 /* UMChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7571B32ACC40033C1A5 /* UMChatTableViewCell.m */; };
 		03F3F7771B32ACC40033C1A5 /* UMChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7591B32ACC40033C1A5 /* UMChatToolBar.m */; };
 		03F3F7781B32ACC40033C1A5 /* UMFullScreenPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F75B1B32ACC40033C1A5 /* UMFullScreenPhotoView.m */; };
 		03F3F7791B32ACC40033C1A5 /* UMPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F75D1B32ACC40033C1A5 /* UMPostTableViewCell.m */; };
 		03F3F77A1B32ACC40033C1A5 /* UMRadialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F75F1B32ACC40033C1A5 /* UMRadialView.m */; };
 		03F3F77B1B32ACC40033C1A5 /* UMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7611B32ACC40033C1A5 /* UMTextView.m */; };
+		03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,8 +398,6 @@
 		03F3F74E1B32ACC40033C1A5 /* UMFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedbackViewController.h; sourceTree = "<group>"; };
 		03F3F74F1B32ACC40033C1A5 /* UMFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMFeedbackViewController.m; sourceTree = "<group>"; };
 		03F3F7501B32ACC40033C1A5 /* UMOpenMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMOpenMacros.h; sourceTree = "<group>"; };
-		03F3F7521B32ACC40033C1A5 /* libUMOpus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMOpus.a; sourceTree = "<group>"; };
-		03F3F7531B32ACC40033C1A5 /* UMOpus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMOpus.h; sourceTree = "<group>"; };
 		03F3F7541B32ACC40033C1A5 /* UMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMRecorder.h; sourceTree = "<group>"; };
 		03F3F7561B32ACC40033C1A5 /* UMChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMChatTableViewCell.h; sourceTree = "<group>"; };
 		03F3F7571B32ACC40033C1A5 /* UMChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMChatTableViewCell.m; sourceTree = "<group>"; };
@@ -414,6 +412,8 @@
 		03F3F7601B32ACC40033C1A5 /* UMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMTextView.h; sourceTree = "<group>"; };
 		03F3F7611B32ACC40033C1A5 /* UMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMTextView.m; sourceTree = "<group>"; };
 		03F3F7621B32ACC40033C1A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
+		03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMyViewController.h; sourceTree = "<group>"; };
+		03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,7 +423,6 @@
 			files = (
 				03F3F7641B32ACC40033C1A5 /* libUMFeedback.a in Frameworks */,
 				0362E7791B3140600010EC48 /* libz.dylib in Frameworks */,
-				03F3F7751B32ACC40033C1A5 /* libUMOpus.a in Frameworks */,
 				03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */,
 				03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */,
 				03242C4B1B0C5842006E8B82 /* AVFoundation.framework in Frameworks */,
@@ -838,6 +837,8 @@
 				03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */,
 				03A236B01B3026C80009F47A /* YCToolListViewController.h */,
 				03A236B11B3026C80009F47A /* YCToolListViewController.m */,
+				03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */,
+				03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -882,7 +883,6 @@
 				03F3F74E1B32ACC40033C1A5 /* UMFeedbackViewController.h */,
 				03F3F74F1B32ACC40033C1A5 /* UMFeedbackViewController.m */,
 				03F3F7501B32ACC40033C1A5 /* UMOpenMacros.h */,
-				03F3F7511B32ACC40033C1A5 /* UMOpus */,
 				03F3F7541B32ACC40033C1A5 /* UMRecorder.h */,
 				03F3F7551B32ACC40033C1A5 /* Views */,
 			);
@@ -909,15 +909,6 @@
 				03F3F74C1B32ACC40033C1A5 /* umeng_fb_audio_play_default@2x.png */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		03F3F7511B32ACC40033C1A5 /* UMOpus */ = {
-			isa = PBXGroup;
-			children = (
-				03F3F7521B32ACC40033C1A5 /* libUMOpus.a */,
-				03F3F7531B32ACC40033C1A5 /* UMOpus.h */,
-			);
-			path = UMOpus;
 			sourceTree = "<group>";
 		};
 		03F3F7551B32ACC40033C1A5 /* Views */ = {
@@ -1150,6 +1141,7 @@
 				03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */,
 				03EE9F121B12FC260051CC57 /* AFHTTPRequestOperation.m in Sources */,
 				030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */,
+				03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */,
 				03EE9F311B12FCF40051CC57 /* UIAlertView+AFNetworking.m in Sources */,
 				03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */,
 				03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */,

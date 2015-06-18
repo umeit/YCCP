@@ -3406,7 +3406,7 @@
         <!--我的-->
         <scene sceneID="YmP-KP-kPV">
             <objects>
-                <tableViewController title="我的" id="NvE-mT-3W2" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="YCMyViewController" title="我的" id="NvE-mT-3W2" customClass="YCMyViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="emU-8R-P08">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
