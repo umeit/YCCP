@@ -10,8 +10,10 @@
 #import "AppKeFuLib.h"
 #import "UtilDefine.h"
 #import "MobClick.h"
+#import "UMFeedback.h"
 
 #define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
+#define UMAPPKey      @"5581085367e58e8d64003ea0"
 
 @interface AppDelegate ()
 
@@ -21,8 +23,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // 设置友盟统计
-    [MobClick startWithAppkey:@"5581085367e58e8d64003ea0"];
+    [MobClick startWithAppkey:UMAPPKey];
+    
+    // 设置友盟反馈
+    [UMFeedback setAppkey:UMAPPKey];
     
     // 登录微客服
     [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];

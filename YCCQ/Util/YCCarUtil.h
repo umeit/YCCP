@@ -14,6 +14,8 @@
 
 + (NSString *)brandWithTagForFilter:(NSInteger)tag;
 
++ (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag;
+
 + (NSString *)carTypeWithTag:(NSInteger)tag;
 
 + (NSString *)pIDWithBrand:(NSString *)brandName;

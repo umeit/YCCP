@@ -11,6 +11,7 @@
 #import "YCCarService.h"
 #import "UIViewController+GViewController.h"
 #import "YCCarFilterDelegate.h"
+#import "UtilDefine.h"
 
 @interface YCBrandTableViewController ()
 @property (strong, nonatomic) NSArray *brands;
@@ -92,7 +93,7 @@
 {
     NSString *brandVlue = [YCCarUtil brandWithTagForFilter:button.tag];
     NSString *pid = [YCCarUtil pIDWithBrand:brandVlue];
-    [self.delegate selecteConditionFinish:@{@"CN": button.titleLabel.text,
+    [self.delegate selecteConditionFinish:@{@"CN": [YCCarUtil brandCnNameWithHotBrandButtonTag:button.tag],
                                             @"CV": brandVlue,
                                             @"PID": pid}
                                filterType:BrandType];
@@ -165,7 +166,7 @@
 {
     if (self.dataType == BrandType) {
         if (section == 0) {
-            return @"热门车辆";
+            return @"热门品牌";
         }
         if (section == 1) {
             return @"";
@@ -182,12 +183,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.dataType == BrandType) {
+    if (iPhone4 || iPhone5) {
         if (indexPath.section == 0 && indexPath.row == 0) {
             return 104;
         }
+        return 44;
     }
-    return 44;
+    else {
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            return 194;
+        }
+        return 44;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

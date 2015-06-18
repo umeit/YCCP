@@ -12,6 +12,7 @@
 
 static NSDictionary *carBrands;
 static NSDictionary *carBrandsForFilter;
+static NSDictionary *carBrandsCnNameForHotBrand;
 static NSDictionary *carTypes;
 static NSDictionary *carPID;
 
@@ -35,16 +36,32 @@ static NSDictionary *carPID;
 {
     if (!carBrandsForFilter) {
         carBrandsForFilter = @{@"31": @"mercedes-benz",
-                      @"32": @"bmw",
-                      @"33": @"audi",
-                      @"34": @"volkswagen",
-                      @"35": @"hyundai",
-                      @"36": @"ford",
-                      @"37": @"buick",
-                      @"38": @"toyota"};
+                               @"32": @"bmw",
+                               @"33": @"audi",
+                               @"34": @"volkswagen",
+                               @"35": @"hyundai",
+                               @"36": @"ford",
+                               @"37": @"buick",
+                               @"38": @"toyota"};
     }
     
     return carBrandsForFilter[[@(tag) stringValue]];
+}
+
++ (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag
+{
+    if (!carBrandsCnNameForHotBrand) {
+        carBrandsCnNameForHotBrand = @{@"31": @"奔驰",
+                                       @"32": @"宝马",
+                                       @"33": @"奥迪",
+                                       @"34": @"大众",
+                                       @"35": @"现代",
+                                       @"36": @"福特",
+                                       @"37": @"别克",
+                                       @"38": @"丰田"};
+    }
+    
+    return carBrandsCnNameForHotBrand[[@(tag) stringValue]];
 }
 
 + (NSString *)pIDWithBrand:(NSString *)brandName
