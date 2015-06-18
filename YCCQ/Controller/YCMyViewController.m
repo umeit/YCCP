@@ -31,7 +31,7 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                
+                [self toWebViewWithURL:@"" controllerTitle:@"我的收藏"];
                 break;
             case 1:
             {
