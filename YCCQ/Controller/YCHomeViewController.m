@@ -66,16 +66,16 @@
 - (IBAction)functionButtonPress:(UIButton *)button {
     switch (button.tag) {
         case 31:  // 用车急问
-            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
             break;
         case 32:  // 维修咨询
-            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"维修咨询"];
             break;
         case 33:  // 事故咨询
-            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"事故咨询"];
             break;
         case 34:  // 道路救援
-            [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"道路救援"];
             break;
         case 35:  // 违章查询
             [self showCustomText:@"暂未开通功能" delay:1.3];
@@ -173,15 +173,26 @@
 
 #pragma mark - Navigation
 
-- (void)toConsultationViewControllerWithWorkgroup:(NSString *)key
+- (void)toConsultationViewControllerWithWorkgroup:(NSString *)key title:(NSString *)title
 {
+    UIFont *font = [UIFont boldSystemFontOfSize: 17];
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+    CGSize size = [title sizeWithAttributes:attributes];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    label.text = title;
+    label.font = font;
+    label.textColor = [UIColor whiteColor];
+    label.minimumScaleFactor = 1;
+    label.textAlignment = NSTextAlignmentCenter;
+
     [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
                                       withWorkgroupName:key
                                  hideRightBarButtonItem:YES
                              rightBarButtonItemCallback:nil
                                  showInputBarSwitchMenu:NO
                                   withLeftBarButtonItem:nil
-                                          withTitleView:nil
+                                          withTitleView:label
                                  withRightBarButtonItem:nil
                                         withProductInfo:nil
                              withLeftBarButtonItemColor:nil
@@ -234,7 +245,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 4;
+    return self.baokuans.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

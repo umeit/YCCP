@@ -31,12 +31,14 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                [self toWebViewWithURL:@"" controllerTitle:@"我的收藏"];
+                [self toWebViewWithURL:@"http://m.youche.com/collect/show?t=app"
+                       controllerTitle:@"我的收藏"];
                 break;
             case 1:
             {
                 UIViewController *feedbackVC = [UMFeedback feedbackViewController];
                 feedbackVC.hidesBottomBarWhenPushed = YES;
+                feedbackVC.navigationItem.title = @"意见反馈";
                 [self.navigationController pushViewController:feedbackVC animated:YES];
             }
                 break;
@@ -47,7 +49,8 @@
     else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                [self toWebViewWithURL:@"" controllerTitle:@"关于优车"];
+                [self toWebViewWithURL:@"http://m.youche.com/about/aboutme.shtml?t=app"
+                       controllerTitle:@"关于优车"];
                 break;
                 
             default:

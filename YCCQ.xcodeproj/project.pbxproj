@@ -112,6 +112,7 @@
 		03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */; };
 		03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */; };
 		03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */; };
+		03D3B4451B33B45200761B7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D3B4471B33B45200761B7B /* Localizable.strings */; };
 		03D503A71B27EC5A00E0A167 /* allbrand.json in Resources */ = {isa = PBXBuildFile; fileRef = 03D503A61B27EC5A00E0A167 /* allbrand.json */; };
 		03D503AA1B28315700E0A167 /* YCEvaluateCarFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */; };
 		03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B251B1706060021E43E /* YCCarListViewController.m */; };
@@ -310,6 +311,7 @@
 		03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandTableViewController.m; sourceTree = "<group>"; };
 		03C73DC61B185CA8008FCF0F /* YCBrandHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBrandHeadCell.h; sourceTree = "<group>"; };
 		03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandHeadCell.m; sourceTree = "<group>"; };
+		03D3B4481B33B66200761B7B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		03D503A61B27EC5A00E0A167 /* allbrand.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allbrand.json; sourceTree = "<group>"; };
 		03D503A81B28315700E0A167 /* YCEvaluateCarFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEvaluateCarFilterController.h; sourceTree = "<group>"; };
 		03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEvaluateCarFilterController.m; sourceTree = "<group>"; };
@@ -678,6 +680,7 @@
 			children = (
 				03952DD71B05CA120055D36B /* Info.plist */,
 				03952DD81B05CA120055D36B /* main.m */,
+				03D3B4471B33B45200761B7B /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				03F3F76B1B32ACC40033C1A5 /* ToolViewInputVoice@2x.png in Resources */,
 				031AD68E1B199C320076B32D /* jaguar.png in Resources */,
 				031AD67B1B199C320076B32D /* citroen.png in Resources */,
+				03D3B4451B33B45200761B7B /* Localizable.strings in Resources */,
 				031AD6921B199C320076B32D /* lamborghini.png in Resources */,
 				031AD6781B199C320076B32D /* cadillac.png in Resources */,
 				031AD68C1B199C320076B32D /* infiniti.png in Resources */,
@@ -1208,6 +1212,14 @@
 				03952DE41B05CA120055D36B /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		03D3B4471B33B45200761B7B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03D3B4481B33B66200761B7B /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		03F3F73A1B32ACC40033C1A5 /* UMFeedbackLocalizable.strings */ = {
