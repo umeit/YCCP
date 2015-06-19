@@ -1336,7 +1336,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05080c4e-d3f3-4b49-b0f3-b097c9b69d7f";
+				PROVISIONING_PROFILE = "b2f5f105-ebdc-4c59-987f-64273b770aef";
 			};
 			name = Debug;
 		};
@@ -1362,7 +1362,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05080c4e-d3f3-4b49-b0f3-b097c9b69d7f";
+				PROVISIONING_PROFILE = "b2f5f105-ebdc-4c59-987f-64273b770aef";
 			};
 			name = Release;
 		};
