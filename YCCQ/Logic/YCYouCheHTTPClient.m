@@ -17,7 +17,6 @@
         AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
         c.responseSerializer = responseSerializer;
         return c;
-//    return [[self alloc] initWithBaseURL:[NSURL URLWithString:url]];;
 }
 
 @end
