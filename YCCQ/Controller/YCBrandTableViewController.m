@@ -183,18 +183,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4 || iPhone5) {
-        if (indexPath.section == 0 && indexPath.row == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0 && self.dataType == BrandType) {
+        if (iPhone4 || iPhone5) {
             return 104;
         }
-        return 44;
-    }
-    else {
-        if (indexPath.section == 0 && indexPath.row == 0) {
-            return 194;
+        if (iPhone6) {
+            return 124;
         }
-        return 44;
+        if (iPhone6Plus) {
+            return 138;
+        }
     }
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
