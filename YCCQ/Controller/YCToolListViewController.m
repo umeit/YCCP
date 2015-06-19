@@ -14,6 +14,8 @@
 
 @interface YCToolListViewController ()
 
+@property (strong, nonatomic) UIWebView *callWebView;
+
 @end
 
 @implementation YCToolListViewController
@@ -22,6 +24,13 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.callWebView removeFromSuperview];
+    self.callWebView = nil;
+    
+    [super viewWillDisappear:animated];
+}
 
 #pragma mark - Table view delegate
 
@@ -29,26 +38,26 @@
 {
     if (indexPath.section == 0) {
         switch (indexPath.row) {
-            case 0:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 0:  // 用车急问
+                [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
                 break;
-            case 1:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 1:  // 维修咨询
+                [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
                 break;
-            case 2:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 2:  // 事故咨询
+                [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
-            case 3:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 3:  // 道路救援
+                [self call:@"4000-689-966"];
                 break;
-            case 4:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 4:  // 售后咨询
+                [self toConsultationViewControllerWithWorkgroup:@"aftersales" title:@"售后咨询"];
                 break;
-            case 5:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 5:  // 买车咨询
+                [self toConsultationViewControllerWithWorkgroup:@"buycar" title:@"买车咨询"];
                 break;
-            case 6:
-                [self toConsultationViewControllerWithWorkgroup:@"usecar"];
+            case 6:  // 卖车咨询
+                [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
                 break;
             default:
                 break;
@@ -56,17 +65,17 @@
     }
     else if (indexPath.section == 1) {
         switch (indexPath.row) {
-            case 0:
+            case 0:  // 违章查询
                 [self showCustomText:@"功能暂未开通" delay:1.3];
                 break;
-            case 1:
+            case 1:  // 估价
                 [self toEvaluateCar];
                 break;
             case 2:
                 [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
                        controllerTitle:@"代办车险"];
                 break;
-            case 3:
+            case 3:  // 今日油价
                 [self showCustomText:@"功能暂未开通" delay:1.3];
                 break;
         }
@@ -91,7 +100,7 @@
     }
     else if (indexPath.section == 3) {
         switch (indexPath.row) {
-            case 0:
+            case 0:  // 限号提醒
                 [self showCustomText:@"功能暂未开通" delay:1.3];
                 break;
                 
@@ -110,15 +119,26 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
-- (void)toConsultationViewControllerWithWorkgroup:(NSString *)key
+- (void)toConsultationViewControllerWithWorkgroup:(NSString *)key title:(NSString *)title
 {
+    UIFont *font = [UIFont boldSystemFontOfSize: 17];
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+    CGSize size = [title sizeWithAttributes:attributes];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    label.text = title;
+    label.font = font;
+    label.textColor = [UIColor whiteColor];
+    label.minimumScaleFactor = 1;
+    label.textAlignment = NSTextAlignmentCenter;
+    
     [[AppKeFuLib sharedInstance] pushChatViewController:self.navigationController
                                       withWorkgroupName:key
                                  hideRightBarButtonItem:YES
                              rightBarButtonItemCallback:nil
                                  showInputBarSwitchMenu:NO
                                   withLeftBarButtonItem:nil
-                                          withTitleView:nil
+                                          withTitleView:label
                                  withRightBarButtonItem:nil
                                         withProductInfo:nil
                              withLeftBarButtonItemColor:nil
@@ -135,5 +155,16 @@
 {
     YCEvaluateCarFilterController *filterViewController = (YCEvaluateCarFilterController *)[self controllerWithStoryBoardID:@"YCEvaluateCarFilterController"];
     [self.navigationController pushViewController:filterViewController animated:YES];
+}
+
+
+#pragma mark - Private
+
+- (void)call:(NSString *)tel
+{
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
+    self.callWebView = [[UIWebView alloc] init];
+    [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:self.callWebView];
 }
 @end

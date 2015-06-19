@@ -36,6 +36,7 @@
 
 @property (strong, nonatomic) NSArray *banners;
 @property (strong, nonatomic) NSArray *baokuans;
+@property (strong, nonatomic) UIWebView *callWebView;
 
 @end
 
@@ -54,11 +55,18 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     [MobClick beginLogPageView:PageIndex];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [MobClick endLogPageView:PageIndex];
+    
+    [self.callWebView removeFromSuperview];
+    self.callWebView = nil;
+    
+    [super viewWillDisappear:animated];
 }
 
 
@@ -69,13 +77,13 @@
             [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
             break;
         case 32:  // 维修咨询
-            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"维修咨询"];
+            [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
             break;
         case 33:  // 事故咨询
-            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"事故咨询"];
+            [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
             break;
         case 34:  // 道路救援
-            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"道路救援"];
+            [self call:@"4000-689-966"];
             break;
         case 35:  // 违章查询
             [self showCustomText:@"暂未开通功能" delay:1.3];
@@ -131,6 +139,14 @@
 
 
 #pragma mark - Private
+
+- (void)call:(NSString *)tel
+{
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
+    self.callWebView = [[UIWebView alloc] init];
+    [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:self.callWebView];
+}
 
 - (void)setBanner
 {

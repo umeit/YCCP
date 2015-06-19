@@ -60,6 +60,7 @@
     return cell;
 }
 
+
 #pragma mark - TableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +73,7 @@
     [self.view addSubview:self.callWebView];
 }
 
+
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -82,49 +84,6 @@
     }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Private
 
@@ -138,19 +97,19 @@
 - (void)initTableData
 {
     YCAftermarketEntity *aftermarket1 = [[YCAftermarketEntity alloc] initWithName:@"24小时道路救援"
-                                                                              tel:@"4000-990-888"
+                                                                              tel:@"4000-689-966"
                                                                             image:@"jiuyuanp"];
     
     YCAftermarketEntity *aftermarket2 = [[YCAftermarketEntity alloc] initWithName:@"预约报修"
-                                                                              tel:@"4000-990-888"
+                                                                              tel:@"4000-689-966"
                                                                             image:@"baoxiup"];
     
     YCAftermarketEntity *aftermarket3 = [[YCAftermarketEntity alloc] initWithName:@"预约检测"
-                                                                              tel:@"4000-990-888"
+                                                                              tel:@"4000-689-966"
                                                                             image:@"jiancep"];
     
     YCAftermarketEntity *aftermarket4 = [[YCAftermarketEntity alloc] initWithName:@"热线投诉"
-                                                                              tel:@"4000-990-888"
+                                                                              tel:@"4000-689-966"
                                                                             image:@"tousup"];
     
     YCAftermarketEntity *aftermarket5 = [[YCAftermarketEntity alloc] initWithName:@"平安车险"
@@ -188,13 +147,6 @@
     YCAftermarketEntity *aftermarket13 = [[YCAftermarketEntity alloc] initWithName:@"报警电话 110"
                                                                               tel:@"110"
                                                                             image:@"hongdian"];
-    
-//    YCAftermarketEntity *aftermarket14 = [[YCAftermarketEntity alloc] initWithName:@"优车400"
-//                                                                              tel:@"400-400-400"
-//                                                                            image:@"用车急问"];
-//    YCAftermarketEntity *aftermarket15 = [[YCAftermarketEntity alloc] initWithName:@"优车400"
-//                                                                              tel:@"400-400-400"
-//                                                                            image:@"用车急问"];
     
     self.aftermarkets = @[aftermarket1, aftermarket2, aftermarket3, aftermarket4,
                           aftermarket5, aftermarket6, aftermarket7, aftermarket8,
