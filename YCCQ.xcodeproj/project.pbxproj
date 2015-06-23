@@ -115,6 +115,11 @@
 		03D3B4451B33B45200761B7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D3B4471B33B45200761B7B /* Localizable.strings */; };
 		03D503A71B27EC5A00E0A167 /* allbrand.json in Resources */ = {isa = PBXBuildFile; fileRef = 03D503A61B27EC5A00E0A167 /* allbrand.json */; };
 		03D503AA1B28315700E0A167 /* YCEvaluateCarFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */; };
+		03D751A61B39328D00AAA71C /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751A11B39328D00AAA71C /* TFHpple.m */; };
+		03D751A71B39328D00AAA71C /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751A31B39328D00AAA71C /* TFHppleElement.m */; };
+		03D751A81B39328D00AAA71C /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751A51B39328D00AAA71C /* XPathQuery.m */; };
+		03D751AB1B393B7700AAA71C /* YCDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751AA1B393B7700AAA71C /* YCDriveService.m */; };
+		03D751AF1B39592200AAA71C /* YCOilPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */; };
 		03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B251B1706060021E43E /* YCCarListViewController.m */; };
 		03DB7B291B1709170021E43E /* YCCarUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B281B1709170021E43E /* YCCarUtil.m */; };
 		03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
@@ -315,6 +320,16 @@
 		03D503A61B27EC5A00E0A167 /* allbrand.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allbrand.json; sourceTree = "<group>"; };
 		03D503A81B28315700E0A167 /* YCEvaluateCarFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEvaluateCarFilterController.h; sourceTree = "<group>"; };
 		03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCEvaluateCarFilterController.m; sourceTree = "<group>"; };
+		03D751A01B39328D00AAA71C /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		03D751A11B39328D00AAA71C /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		03D751A21B39328D00AAA71C /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		03D751A31B39328D00AAA71C /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		03D751A41B39328D00AAA71C /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		03D751A51B39328D00AAA71C /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		03D751A91B393B7700AAA71C /* YCDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCDriveService.h; sourceTree = "<group>"; };
+		03D751AA1B393B7700AAA71C /* YCDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCDriveService.m; sourceTree = "<group>"; };
+		03D751AD1B39592200AAA71C /* YCOilPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCOilPriceViewController.h; sourceTree = "<group>"; };
+		03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCOilPriceViewController.m; sourceTree = "<group>"; };
 		03DB7B241B1706060021E43E /* YCCarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarListViewController.h; sourceTree = "<group>"; };
 		03DB7B251B1706060021E43E /* YCCarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarListViewController.m; sourceTree = "<group>"; };
 		03DB7B271B1709170021E43E /* YCCarUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarUtil.h; sourceTree = "<group>"; };
@@ -499,6 +514,8 @@
 				030A759E1B0B41ED008753C8 /* YCBannerService.m */,
 				030A75A01B0B4211008753C8 /* YCCarService.h */,
 				030A75A11B0B4211008753C8 /* YCCarService.m */,
+				03D751A91B393B7700AAA71C /* YCDriveService.h */,
+				03D751AA1B393B7700AAA71C /* YCDriveService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -585,6 +602,7 @@
 		03242C371B0C574B006E8B82 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				03D7519F1B39328D00AAA71C /* Hpple */,
 				03F3F7391B32ACC40033C1A5 /* UMengFeedback_SDK_2.3.1 */,
 				0362E7781B3140600010EC48 /* libz.dylib */,
 				0362E77A1B31407C0010EC48 /* UMAnalytics_Sdk_3.5.8 */,
@@ -717,6 +735,19 @@
 			path = shouhou_icons;
 			sourceTree = "<group>";
 		};
+		03D7519F1B39328D00AAA71C /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				03D751A01B39328D00AAA71C /* TFHpple.h */,
+				03D751A11B39328D00AAA71C /* TFHpple.m */,
+				03D751A21B39328D00AAA71C /* TFHppleElement.h */,
+				03D751A31B39328D00AAA71C /* TFHppleElement.m */,
+				03D751A41B39328D00AAA71C /* XPathQuery.h */,
+				03D751A51B39328D00AAA71C /* XPathQuery.m */,
+			);
+			path = Hpple;
+			sourceTree = "<group>";
+		};
 		03EBD2DE1B142064004DD5E3 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,6 +873,8 @@
 				03A236B11B3026C80009F47A /* YCToolListViewController.m */,
 				03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */,
 				03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */,
+				03D751AD1B39592200AAA71C /* YCOilPriceViewController.h */,
+				03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1140,6 +1173,7 @@
 				03EE9F351B12FCF40051CC57 /* UIRefreshControl+AFNetworking.m in Sources */,
 				03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */,
 				03EE9F321B12FCF40051CC57 /* UIButton+AFNetworking.m in Sources */,
+				03D751AF1B39592200AAA71C /* YCOilPriceViewController.m in Sources */,
 				03F3F7741B32ACC40033C1A5 /* UMFeedbackViewController.m in Sources */,
 				03EE9F341B12FCF40051CC57 /* UIProgressView+AFNetworking.m in Sources */,
 				03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */,
@@ -1180,10 +1214,14 @@
 				03EE9F151B12FC260051CC57 /* AFNetworkReachabilityManager.m in Sources */,
 				03EE9F361B12FCF40051CC57 /* UIWebView+AFNetworking.m in Sources */,
 				03EE9F3A1B130AE30051CC57 /* YCHomeViewController.m in Sources */,
+				03D751A61B39328D00AAA71C /* TFHpple.m in Sources */,
+				03D751A81B39328D00AAA71C /* XPathQuery.m in Sources */,
 				03DB7B291B1709170021E43E /* YCCarUtil.m in Sources */,
+				03D751AB1B393B7700AAA71C /* YCDriveService.m in Sources */,
 				03EE9F191B12FC260051CC57 /* AFURLResponseSerialization.m in Sources */,
 				030A75971B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.m in Sources */,
 				03F3F7771B32ACC40033C1A5 /* UMChatToolBar.m in Sources */,
+				03D751A71B39328D00AAA71C /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,6 +1359,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Feng Liu (FDFJQJ3S89)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Feng Liu (FDFJQJ3S89)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = YCCQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1347,6 +1390,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Feng Liu (FDFJQJ3S89)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Feng Liu (FDFJQJ3S89)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = YCCQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
