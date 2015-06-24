@@ -45,23 +45,4 @@
     });
 }
 
-- (NSDictionary *)oilPrice
-{
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://m.15tianqi.cn/youjia/beijing/"]];
-    
-    TFHpple *htmlDoc = [[TFHpple alloc] initWithHTMLData:data encoding:@"UTF8"];
-    NSArray *array = [htmlDoc searchWithXPathQuery:@"//td[@class='red']"];
-    
-    [array sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        TFHppleElement *element1 = obj1;
-        
-        
-        NSLog(@"%@", element1.content);
-        
-        return NSOrderedAscending;
-    }];
-    
-    return nil;
-}
-
 @end

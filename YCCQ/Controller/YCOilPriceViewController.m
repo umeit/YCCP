@@ -24,12 +24,11 @@
         self.num90PriceLabel.text = [NSString stringWithFormat:@"%@（元/升）", oilPrice[@"90"]];
         self.num93PriceLabel.text = [NSString stringWithFormat:@"%@（元/升）", oilPrice[@"93"]];
         self.num97PriceLabel.text = [NSString stringWithFormat:@"%@（元/升）", oilPrice[@"97"]];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        self.dateLabel.text = [NSString stringWithFormat:@"更新时间:%@", [formatter stringFromDate:[NSDate date]]];
     }];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-    self.dateLabel.text = [NSString stringWithFormat:@"更新时间:%@", [formatter stringFromDate:[NSDate date]]];
-    
 }
 
 @end
