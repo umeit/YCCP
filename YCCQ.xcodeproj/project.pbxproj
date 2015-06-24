@@ -122,6 +122,7 @@
 		03D751AF1B39592200AAA71C /* YCOilPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */; };
 		03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B251B1706060021E43E /* YCCarListViewController.m */; };
 		03DB7B291B1709170021E43E /* YCCarUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B281B1709170021E43E /* YCCarUtil.m */; };
+		03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */; };
 		03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
 		03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E31B1465A9004DD5E3 /* YCAftermarketTableViewController.m */; };
 		03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */; };
@@ -334,6 +335,8 @@
 		03DB7B251B1706060021E43E /* YCCarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarListViewController.m; sourceTree = "<group>"; };
 		03DB7B271B1709170021E43E /* YCCarUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarUtil.h; sourceTree = "<group>"; };
 		03DB7B281B1709170021E43E /* YCCarUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarUtil.m; sourceTree = "<group>"; };
+		03EBA69B1B3A5DB100F2F3BF /* YCUserUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCUserUtil.h; sourceTree = "<group>"; };
+		03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCUserUtil.m; sourceTree = "<group>"; };
 		03EBD2DF1B142705004DD5E3 /* YCYouCheHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCYouCheHTTPClient.h; sourceTree = "<group>"; };
 		03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCYouCheHTTPClient.m; sourceTree = "<group>"; };
 		03EBD2E21B1465A9004DD5E3 /* YCAftermarketTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAftermarketTableViewController.h; sourceTree = "<group>"; };
@@ -905,6 +908,8 @@
 				03C64BBA1B15D50D00848FCD /* YCNetUtil.m */,
 				03DB7B271B1709170021E43E /* YCCarUtil.h */,
 				03DB7B281B1709170021E43E /* YCCarUtil.m */,
+				03EBA69B1B3A5DB100F2F3BF /* YCUserUtil.h */,
+				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1201,6 +1206,7 @@
 				03EBD2E11B142705004DD5E3 /* YCYouCheHTTPClient.m in Sources */,
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */,
 				03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
 				03D503AA1B28315700E0A167 /* YCEvaluateCarFilterController.m in Sources */,

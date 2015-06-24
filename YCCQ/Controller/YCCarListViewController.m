@@ -9,6 +9,7 @@
 #import "YCCarListViewController.h"
 #import "YCWebViewController.h"
 #import "UIViewController+GViewController.h"
+#import "YCUserUtil.h"
 
 @interface YCCarListViewController ()
 
@@ -135,7 +136,7 @@
             NSString *carID = dicArg[@"args"][0];
              [self showTextFieldAlertWithTitle:@"收藏车辆" message:@"请输入您的手机号码" block:^(NSString *text) {
                  
-                 if (![self isValidPhoneNum:text]) {
+                 if (![YCUserUtil isValidPhoneNum:text]) {
                      [self showCustomTextAlert:@"请正确输入号码"];
                      return;
                  }
@@ -168,11 +169,6 @@
 
 
 #pragma mark - Privatre
-
-- (BOOL)isValidPhoneNum:(NSString *)phoneNum
-{
-    return phoneNum.length == 11;
-}
 
 - (NSString *)defaultURL
 {
