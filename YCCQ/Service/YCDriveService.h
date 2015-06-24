@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^OilPriceBlock) (NSDictionary *oilPrice);
+typedef void (^LimitDriveBlock) (NSArray *limitDriveInfo);
 
 @interface YCDriveService : NSObject
 
 // 获取北京油价
 - (void)oilPrice:(OilPriceBlock)block;
+
+// 获取北京的限行信息
+- (void)limitDriveInfo:(LimitDriveBlock)block;
 
 @end
