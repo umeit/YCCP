@@ -8,11 +8,20 @@
 
 #import "YCUserUtil.h"
 
+#define kUserLicensePlateNumber @"UserLicensePlateNumber"
+
+#define UserDefaulte [NSUserDefaults standardUserDefaults]
+
 @implementation YCUserUtil
 
 + (BOOL)isValidPhoneNum:(NSString *)num
 {
     return num.length == 11;
+}
+
++ (NSString *)userLicensePlateNumber
+{
+    return [UserDefaulte stringForKey:kUserLicensePlateNumber];
 }
 
 @end

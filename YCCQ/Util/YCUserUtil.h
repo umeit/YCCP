@@ -12,4 +12,6 @@
 
 + (BOOL)isValidPhoneNum:(NSString *)num;
 
++ (NSString *)userLicensePlateNumber;
+
 @end

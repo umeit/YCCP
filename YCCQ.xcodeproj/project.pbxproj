@@ -94,6 +94,8 @@
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
+		038F5AA61B3BD73100BA03CE /* YCLimitDriveEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F5AA51B3BD73100BA03CE /* YCLimitDriveEditViewController.m */; };
+		038F5AA91B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F5AA81B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m */; };
 		03952DD91B05CA120055D36B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DD81B05CA120055D36B /* main.m */; };
 		03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DDB1B05CA120055D36B /* AppDelegate.m */; };
 		03952DE51B05CA120055D36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03952DE31B05CA120055D36B /* Main.storyboard */; };
@@ -289,6 +291,10 @@
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
 		038A560B1B26D591002FA96D /* changshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changshi.png; sourceTree = "<group>"; };
 		038A56191B26D591002FA96D /* yaohao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yaohao.png; sourceTree = "<group>"; };
+		038F5AA41B3BD73100BA03CE /* YCLimitDriveEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLimitDriveEditViewController.h; sourceTree = "<group>"; };
+		038F5AA51B3BD73100BA03CE /* YCLimitDriveEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLimitDriveEditViewController.m; sourceTree = "<group>"; };
+		038F5AA71B3BF01B00BA03CE /* YCLimitDriveInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLimitDriveInfoViewController.h; sourceTree = "<group>"; };
+		038F5AA81B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLimitDriveInfoViewController.m; sourceTree = "<group>"; };
 		03952DD31B05CA120055D36B /* YCCQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YCCQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03952DD71B05CA120055D36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03952DD81B05CA120055D36B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -878,6 +884,10 @@
 				03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */,
 				03D751AD1B39592200AAA71C /* YCOilPriceViewController.h */,
 				03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */,
+				038F5AA41B3BD73100BA03CE /* YCLimitDriveEditViewController.h */,
+				038F5AA51B3BD73100BA03CE /* YCLimitDriveEditViewController.m */,
+				038F5AA71B3BF01B00BA03CE /* YCLimitDriveInfoViewController.h */,
+				038F5AA81B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1188,6 +1198,7 @@
 				03EE9F311B12FCF40051CC57 /* UIAlertView+AFNetworking.m in Sources */,
 				03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */,
 				03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */,
+				038F5AA91B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m in Sources */,
 				03EBD2EE1B14736F004DD5E3 /* ParallaxHeaderView.m in Sources */,
 				03109AA91B1EF9F200356FB3 /* YCFilterTableViewController.m in Sources */,
 				03F3F7761B32ACC40033C1A5 /* UMChatTableViewCell.m in Sources */,
@@ -1212,6 +1223,7 @@
 				03D503AA1B28315700E0A167 /* YCEvaluateCarFilterController.m in Sources */,
 				03952DD91B05CA120055D36B /* main.m in Sources */,
 				03EE9F161B12FC260051CC57 /* AFSecurityPolicy.m in Sources */,
+				038F5AA61B3BD73100BA03CE /* YCLimitDriveEditViewController.m in Sources */,
 				03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */,
 				030A75A21B0B4211008753C8 /* YCCarService.m in Sources */,
 				0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */,

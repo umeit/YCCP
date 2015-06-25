@@ -11,6 +11,8 @@
 #import "UIViewController+GViewController.h"
 #import "AppKeFuLib.h"
 #import "YCEvaluateCarFilterController.h"
+#import "YCUserUtil.h"
+#import "YCLimitDriveEditViewController.h"
 
 @interface YCToolListViewController ()
 
@@ -65,19 +67,23 @@
     }
     else if (indexPath.section == 1) {
         switch (indexPath.row) {
-            case 0:  // 违章查询
-                [self showCustomText:@"功能暂未开通" delay:1.3];
-                break;
-            case 1:  // 估价
+//            case 0:  // 违章查询
+//                [self showCustomText:@"功能暂未开通" delay:1.3];
+//                break;
+            case 0:  // 估价
                 [self toEvaluateCar];
                 break;
-            case 2:
+            case 1:
                 [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
                        controllerTitle:@"代办车险"];
                 break;
-            case 3:  // 今日油价
+            case 2:
                 [self showCustomText:@"功能暂未开通" delay:1.3];
+//                [self toLimitDrive];
                 break;
+//            case 3:  // 今日油价
+//                [self showCustomText:@"功能暂未开通" delay:1.3];
+//                break;
         }
     }
     else if (indexPath.section == 2) {
@@ -98,19 +104,32 @@
                 break;
         }
     }
-    else if (indexPath.section == 3) {
-        switch (indexPath.row) {
-            case 0:  // 限号提醒
-                [self showCustomText:@"功能暂未开通" delay:1.3];
-                break;
-                
-            default:
-                break;
-        }
+//    else if (indexPath.section == 3) {
+//        switch (indexPath.row) {
+//            case 0:  // 限号提醒
+//                [self showCustomText:@"功能暂未开通" delay:1.3];
+//                break;
+//                
+//            default:
+//                break;
+//        }
+//    }
+}
+
+
+#pragma mark - Navigation
+
+- (void)toLimitDrive
+{
+    if ([YCUserUtil userLicensePlateNumber]) {
+        [self controllerWithStoryBoardID:@"YCLimitDriveInfoViewController"];
+    }
+    else {
+        YCLimitDriveEditViewController *vc = [self controllerWithStoryBoardID:@"YCLimitDriveEditViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
-#pragma mark - Navigation
 - (void)toWebViewWithURL:(NSString *)url controllerTitle:(NSString *)title
 {
     YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];
