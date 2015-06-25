@@ -613,7 +613,6 @@
 			children = (
 				03D7519F1B39328D00AAA71C /* Hpple */,
 				03F3F7391B32ACC40033C1A5 /* UMengFeedback_SDK_2.3.1 */,
-				0362E7781B3140600010EC48 /* libz.dylib */,
 				0362E77A1B31407C0010EC48 /* UMAnalytics_Sdk_3.5.8 */,
 				03EBD2EB1B14736F004DD5E3 /* ParallaxTableViewHeader */,
 				03EE9F3B1B130F4C0051CC57 /* MBProgressHUD */,
@@ -813,6 +812,7 @@
 		03EE9F1B1B12FC600051CC57 /* iOSLib */ = {
 			isa = PBXGroup;
 			children = (
+				0362E7781B3140600010EC48 /* libz.dylib */,
 				03242C4E1B0C585C006E8B82 /* libiconv.dylib */,
 				03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */,
 				03242C4A1B0C5842006E8B82 /* AVFoundation.framework */,

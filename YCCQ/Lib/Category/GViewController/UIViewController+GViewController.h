@@ -43,6 +43,8 @@
 
 - (id)controllerWithStoryBoardID:(NSString *)name;
 
+- (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title;
+
 NSUInteger DeviceSystemMajorVersion();
 
 @end

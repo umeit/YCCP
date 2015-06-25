@@ -96,7 +96,7 @@
                    controllerTitle:@"代办车险"];
             break;
         case 38:  // 今日油价
-            [self toViewControllerWithID:@"YCOilPriceViewController" title:@"今日油价"];
+            [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
             break;
         case 39:  // 上门收车
             [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
@@ -225,13 +225,6 @@
 {
     YCEvaluateCarFilterController *filterViewController = (YCEvaluateCarFilterController *)[self controllerWithStoryBoardID:@"YCEvaluateCarFilterController"];
     [self.navigationController pushViewController:filterViewController animated:YES];
-}
-
-- (void)toViewControllerWithID:(NSString *)vcID title:(NSString *)title
-{
-    UIViewController *vc = [self controllerWithStoryBoardID:vcID];
-    vc.navigationItem.title = title;
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)toCarListViewWithKey:(NSString *)key

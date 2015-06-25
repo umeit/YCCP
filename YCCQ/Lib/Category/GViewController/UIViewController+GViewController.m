@@ -172,6 +172,13 @@ NSUInteger DeviceSystemMajorVersion()
     return controller;
 }
 
+- (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title
+{
+    UIViewController *vc = [self controllerWithStoryBoardID:viewControllerID];
+    vc.navigationItem.title = title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
