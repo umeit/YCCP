@@ -19,22 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setOKButton];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)okButtonPress:(id)sender {
+- (void)okButtonPress:(id)sender {
     YCLimitDriveInfoViewController *vc = [self controllerWithStoryBoardID:@"YCLimitDriveInfoViewController"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 
+- (void)setOKButton
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"确定" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
+    button.backgroundColor = [UIColor redColor];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.tableView setTableFooterView:button];
+    [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+}
 @end

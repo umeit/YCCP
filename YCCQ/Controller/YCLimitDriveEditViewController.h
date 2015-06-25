@@ -10,5 +10,6 @@
 
 @interface YCLimitDriveEditViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UITextField *licensePlateNumberField;
+//@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 @end
