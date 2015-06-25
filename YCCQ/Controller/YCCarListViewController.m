@@ -98,16 +98,19 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    webView.hidden = YES;
     [self showLodingView];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    webView.hidden = NO;
     [self hideLodingView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+    webView.hidden = NO;
     [self hideLodingView];
 }
 
