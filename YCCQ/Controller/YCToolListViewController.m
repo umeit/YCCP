@@ -50,7 +50,7 @@
                 [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
             case 3:  // 道路救援
-                [self call:@"4000-689-966"];
+                [self call:@"18500581075"];
                 break;
             case 4:  // 售后咨询
                 [self toConsultationViewControllerWithWorkgroup:@"aftersales" title:@"售后咨询"];
@@ -61,8 +61,8 @@
             case 6:  // 卖车咨询
                 [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
                 break;
-            case 7:  // 卖车咨询
-                [self toConsultationViewControllerWithWorkgroup:@"reservation" title:@"预约咨询"];
+            case 7:  // 预约咨询
+                [self call:@"13718233424"];
                 break;
             default:
                 break;
@@ -81,8 +81,8 @@
                        controllerTitle:@"代办车险"];
                 break;
             case 2:
-//                [self showCustomText:@"功能暂未开通" delay:1.3];
-                [self toLimitDrive];
+                [self showCustomText:@"功能暂未开通" delay:1.3];
+//                [self toLimitDrive];
                 break;
 //            case 3:  // 今日油价
 //                [self showCustomText:@"功能暂未开通" delay:1.3];

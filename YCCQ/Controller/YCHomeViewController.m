@@ -83,7 +83,7 @@
             [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
             break;
         case 34:  // 道路救援
-            [self call:@"4000-689-966"];
+            [self call:@"18500581075"];
             break;
         case 35:  // 违章查询
             [self showCustomText:@"暂未开通功能" delay:1.3];
