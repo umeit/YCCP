@@ -61,6 +61,9 @@
             case 6:  // 卖车咨询
                 [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
                 break;
+            case 7:  // 卖车咨询
+                [self toConsultationViewControllerWithWorkgroup:@"reservation" title:@"预约咨询"];
+                break;
             default:
                 break;
         }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^OilPriceBlock) (NSDictionary *oilPrice);
-typedef void (^LimitDriveBlock) (NSArray *limitDriveInfo);
+typedef void (^LimitDriveBlock) (NSDictionary *limitDriveInfo);
 
 @interface YCDriveService : NSObject
 

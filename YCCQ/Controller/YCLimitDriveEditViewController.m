@@ -23,8 +23,7 @@
 }
 
 - (void)okButtonPress:(id)sender {
-    YCLimitDriveInfoViewController *vc = [self controllerWithStoryBoardID:@"YCLimitDriveInfoViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self pushViewControllerWithStoryBoardID:@"YCLimitDriveInfoViewController" title:@"限行详情"];
 }
 
 

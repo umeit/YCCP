@@ -7,6 +7,7 @@
 //
 
 #import "YCLimitDriveInfoViewController.h"
+#import "YCDriveService.h"
 
 @interface YCLimitDriveInfoViewController ()
 
@@ -16,22 +17,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.driveService = [[YCDriveService alloc] init];
+    
+    self.licensePlateNumLabel.text = self.licensePlateNum ? : @"没有填写车牌号";
+    
+    [self.driveService limitDriveInfo:^(NSDictionary *limitDriveInfo) {
+        NSArray *limitNum = limitDriveInfo[@"LimitNum"];
+        NSString *limitIntro = limitDriveInfo[@"LimitIntro"];
+        
+        self.limitIntroLabel.text = limitIntro;
+        
+        self.mon1numLabel.text = limitNum[0][0];
+        self.mon2numLabel.text = limitNum[0][1];
+        
+        self.tues1NumLabel.text = limitNum[1][0];
+        self.tues2NumLabel.text = limitNum[1][1];
+        
+        self.wed1NumLabel.text = limitNum[2][0];
+        self.wed2NumLabel.text = limitNum[2][1];
+        
+        self.thurs1NumLabel.text = limitNum[3][0];
+        self.thurs2NumLabel.text = limitNum[3][1];
+        
+        self.fri1NumLabel.text = limitNum[4][0];
+        self.fri2NumLabel.text = limitNum[4][1];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

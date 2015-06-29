@@ -37,12 +37,23 @@
         }];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            block(@{@"97":[((TFHppleElement *)sortedArray[0]).content substringFromIndex:1],
-                    @"93":[((TFHppleElement *)sortedArray[1]).content substringFromIndex:1],
-                     @"0":[((TFHppleElement *)sortedArray[2]).content substringFromIndex:1],
-                    @"90":[((TFHppleElement *)sortedArray[3]).content substringFromIndex:1]});
+            if (sortedArray) {
+                block(@{@"97":[((TFHppleElement *)sortedArray[0]).content substringFromIndex:1],
+                        @"93":[((TFHppleElement *)sortedArray[1]).content substringFromIndex:1],
+                        @"0":[((TFHppleElement *)sortedArray[2]).content substringFromIndex:1],
+                        @"90":[((TFHppleElement *)sortedArray[3]).content substringFromIndex:1]});
+            }
+            else {
+                block(nil);
+            }
         });
     });
+}
+
+- (void)limitDriveInfo:(LimitDriveBlock)block
+{
+    block(@{@"LimitNum": @[@[@"1", @"6"], @[@"2", @"7"], @[@"3", @"8"], @[@"4", @"9"], @[@"5", @"0"], @[]],
+            @"LimitIntro": @"2015年4月13日--2015年7月11日，限行规则："});
 }
 
 @end
