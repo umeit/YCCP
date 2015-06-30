@@ -85,8 +85,8 @@
         case 34:  // 道路救援
             [self call:@"18500581075"];
             break;
-        case 35:  // 违章查询
-            [self showCustomText:@"暂未开通功能" delay:1.3];
+        case 35:  // 卖车咨询
+            [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
             break;
         case 36:  // 车辆评估
             [self toEvaluateCar];
@@ -311,8 +311,11 @@
     else if (iPhone6) {
         return CGSizeMake(170, 170);
     }
-    else if (iPhone6Plus) {
+    else if (iPhone6Plus_Simulator) {
         return CGSizeMake(190, 180);
+    }
+    else if (iPhone6Plus) {
+        return CGSizeMake(174, 180);
     }
     
     return CGSizeMake(150, 160);
@@ -378,7 +381,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 186.f;
         }
     }
-    else if (iPhone6Plus) {
+    else if (iPhone6Plus_Simulator) {
         if (indexPath.row == Banner_Row_Index) {
             return 170.f;
         }
@@ -410,6 +413,23 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         }
         if (indexPath.row == CarBrand_Row_Index) {
             return 154.f;
+        }
+    }
+    else if (iPhone6Plus) {
+        if (indexPath.row == Banner_Row_Index) {
+            return 170.f;
+        }
+        if (indexPath.row == Function_Row_Index) {
+            return 250.f;
+        }
+        if (indexPath.row == Baokuan_Row_Index) {
+            return 424.f;
+        }
+        if (indexPath.row == CarType_Row_Index) {
+            return 110.f;
+        }
+        if (indexPath.row == CarBrand_Row_Index) {
+            return 196.f;
         }
     }
     

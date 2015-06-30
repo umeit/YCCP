@@ -190,7 +190,7 @@
         if (iPhone6) {
             return 124;
         }
-        if (iPhone6Plus) {
+        if (iPhone6Plus || iPhone6Plus_Simulator) {
             return 138;
         }
         if (iPad_Retina) {
