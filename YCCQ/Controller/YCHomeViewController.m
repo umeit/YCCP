@@ -305,7 +305,7 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4 || iPhone5) {
+    if (iPhone4 || iPhone5 || iPad_Retina) {
         return CGSizeMake(150, 150);
     }
     else if (iPhone6) {
@@ -395,6 +395,24 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 196.f;
         }
     }
+    else if (iPad_Retina) {
+        if (indexPath.row == Banner_Row_Index) {
+            return 150.f;
+        }
+        if (indexPath.row == Function_Row_Index) {
+            return 210.f;
+        }
+        if (indexPath.row == Baokuan_Row_Index) {
+            return 382.f;
+        }
+        if (indexPath.row == CarType_Row_Index) {
+            return 116.f;
+        }
+        if (indexPath.row == CarBrand_Row_Index) {
+            return 154.f;
+        }
+    }
+    
     return 44.f;
 }
 

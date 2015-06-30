@@ -97,7 +97,7 @@
 - (void)initTableData
 {
     YCAftermarketEntity *aftermarket1 = [[YCAftermarketEntity alloc] initWithName:@"24小时道路救援"
-                                                                              tel:@"4000-689-966"
+                                                                              tel:@"18500581075"
                                                                             image:@"jiuyuanp"];
     
     YCAftermarketEntity *aftermarket2 = [[YCAftermarketEntity alloc] initWithName:@"预约报修"

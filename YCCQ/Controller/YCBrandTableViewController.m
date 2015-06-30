@@ -193,6 +193,9 @@
         if (iPhone6Plus) {
             return 138;
         }
+        if (iPad_Retina) {
+            return 104;
+        }
     }
     return 44;
 }
