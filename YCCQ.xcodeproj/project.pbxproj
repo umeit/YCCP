@@ -1383,7 +1383,7 @@
 					"${SDKROOT}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = YCCQ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1397,7 +1397,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
+				PROVISIONING_PROFILE = "b2f5f105-ebdc-4c59-987f-64273b770aef";
 			};
 			name = Debug;
 		};
@@ -1414,7 +1414,7 @@
 					"${SDKROOT}/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = YCCQ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1428,7 +1428,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
+				PROVISIONING_PROFILE = "b2f5f105-ebdc-4c59-987f-64273b770aef";
 			};
 			name = Release;
 		};
