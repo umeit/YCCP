@@ -168,10 +168,11 @@
         if (section == 0) {
             return @"热门品牌";
         }
-        if (section == 1) {
+        NSString *title = self.brands[section - 1][@"key1"];
+        if ([title isEqualToString:@"0"]) {
             return @"";
         }
-        return self.brands[section - 1][@"key1"];
+        return title;
     }
     else {
         return self.brands[section][@"key1"];
