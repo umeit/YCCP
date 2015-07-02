@@ -262,7 +262,8 @@
                                        filterType:ModelType];
             
             if (self.continuousMode) {
-                [self.navigationController popToViewController:self.navigationController.viewControllers[1] animated:YES];
+                NSInteger controllerCount = self.navigationController.viewControllers.count;
+                [self.navigationController popToViewController:self.navigationController.viewControllers[controllerCount - 4] animated:YES];
                 return;
             }
         }
