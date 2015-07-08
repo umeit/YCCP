@@ -182,6 +182,7 @@
 {
     [self.carService baokuanWithBlock:^(NSArray *baokuans) {
         self.baokuans = baokuans;
+        [self.tableView reloadData];
         [self.baokuanCollectionView reloadData];
     }];
 }

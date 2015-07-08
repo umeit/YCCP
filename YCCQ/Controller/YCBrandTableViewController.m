@@ -89,15 +89,31 @@
     }
 }
 
+#pragma mark - Action
+
+/** 点击品牌快捷入口 */
 - (IBAction)brandButtonPress:(UIButton *)button
 {
     NSString *brandVlue = [YCCarUtil brandWithTagForFilter:button.tag];
     NSString *pid = [YCCarUtil pIDWithBrand:brandVlue];
-    [self.delegate selecteConditionFinish:@{@"CN": [YCCarUtil brandCnNameWithHotBrandButtonTag:button.tag],
-                                            @"CV": brandVlue,
-                                            @"PID": pid}
-                               filterType:BrandType];
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.continuousMode) {
+        YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+        vc.delegate = self;
+        vc.dataType = SeriesType;
+        vc.useOnlineData = NO;
+        vc.continuousMode = YES;
+        vc.pid = [pid integerValue];
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    else {
+        [self.delegate selecteConditionFinish:@{@"CN": [YCCarUtil brandCnNameWithHotBrandButtonTag:button.tag],
+                                                @"CV": brandVlue,
+                                                @"PID": pid}
+                                   filterType:BrandType];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - Table view data source
