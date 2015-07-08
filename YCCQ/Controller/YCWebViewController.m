@@ -59,28 +59,29 @@
             webVC.navigationItem.title = @"车辆信息";
             [self.navigationController pushViewController:webVC animated:YES];
         }
+        // 页面请求手机号，与显示用户收藏的车辆
         else if ([dicArg[@"f"] isEqualToString:@"getPhoneNum"]) {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             NSString *userPhoneNum = [userDefaults stringForKey:@"UserPhoneNum"];
             if (userPhoneNum.length) {
                 [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@')", jsFunctionName, userPhoneNum?:@""]];
             }
-            else {
-                [self showTextFieldAlertWithTitle:@"收藏车辆" message:@"请输入您的手机号码" block:^(NSString *text) {
-                    
-                    if (![YCUserUtil isValidPhoneNum:text]) {
-                        [self showCustomTextAlert:@"请正确输入号码"];
-                        return;
-                    }
-                    
-                    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                    [userDefaults setObject:text forKey:@"UserPhoneNum"];
-                    
-                    [self.webView reload];
-                    
-//                    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@')", jsFunctionName, userPhoneNum?:@""]];
-                }];
-            }
+        }
+        // 弹出输入手机号码
+        else if ([dicArg[@"f"] isEqualToString:@"inputPhoneNum"]) {
+            NSString *carID = dicArg[@"args"][0];
+            [self showTextFieldAlertWithTitle:@"收藏车辆" message:@"请输入您的手机号码" block:^(NSString *text) {
+                
+                if (![YCUserUtil isValidPhoneNum:text]) {
+                    [self showCustomTextAlert:@"请正确输入号码"];
+                    return;
+                }
+                
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:text forKey:@"UserPhoneNum"];
+                
+                [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@')", jsFunctionName, text?:@"", carID?:@""]];
+            }];
         }
         return NO;
     }

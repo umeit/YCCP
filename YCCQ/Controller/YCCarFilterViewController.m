@@ -325,7 +325,6 @@
     // 车龄
     if (self.filterCondition.yearValue.length) {
         [url appendString:self.filterCondition.yearValue];
-        [url appendString:@"/"];
     }
     return url;
 }

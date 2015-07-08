@@ -49,7 +49,7 @@
     }
     
     YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback", mileage, date, [brand substringToIndex:3], [brand substringToIndex:9], brand];
+    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", mileage, date, [brand substringToIndex:3], [brand substringToIndex:9], brand];
     webVC.navigationItem.title = @"估价结果";
     [self.navigationController pushViewController:webVC animated:YES];
 }

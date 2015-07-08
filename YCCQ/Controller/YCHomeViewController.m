@@ -284,7 +284,7 @@
 {
     [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
-    cell.carPriceLabel.text = entity.price.length > 4 ? [entity.price substringToIndex:4] : entity.price;
+    cell.carPriceLabel.text = entity.price;
 }
 
 #pragma mark - UICollectionViewDelegate
