@@ -372,7 +372,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 250.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 406.f;
+            return self.baokuans.count <= 2 ? 223.f : 406.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 116.f;
