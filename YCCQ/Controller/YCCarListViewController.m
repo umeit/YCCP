@@ -69,12 +69,12 @@
         self.orderButtonStatus[@"price"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o1?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o2?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
     }
 }
 
@@ -84,12 +84,12 @@
         self.orderButtonStatus[@"mileage"] = @NO;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o5?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
     } else {
         self.orderButtonStatus[@"mileage"] = @YES;
         
         [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"/o6?t=app"]]]];
+        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
     }
 }
 
@@ -175,7 +175,7 @@
 
 - (NSString *)defaultURL
 {
-    return @"http://m.youche.com/ershouche";
+    return @"http://m.youche.com/ershouche/";
 }
 
 

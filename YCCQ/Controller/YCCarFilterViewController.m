@@ -302,6 +302,7 @@
     // 价格
     if (self.filterCondition.priceValue.length) {
         [url appendString:self.filterCondition.priceValue];
+        [url appendString:@"/"];
     }
     // 颜色
     if (self.filterCondition.colorValue.length) {
@@ -310,6 +311,7 @@
     // 公里
     if (self.filterCondition.mileageValue.length) {
         [url appendString:self.filterCondition.mileageValue];
+        [url appendString:@"/"];
     }
     // 排量
     if (self.filterCondition.ccValue.length) {
@@ -318,10 +320,12 @@
     // 变速箱
     if (self.filterCondition.gearboxValue.length) {
         [url appendString:self.filterCondition.gearboxValue];
+        [url appendString:@"/"];
     }
     // 车龄
     if (self.filterCondition.yearValue.length) {
         [url appendString:self.filterCondition.yearValue];
+        [url appendString:@"/"];
     }
     return url;
 }
