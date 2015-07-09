@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *mileageArrowImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *priceArrowImageView;
 @property (strong, nonatomic) NSString *carListURL;
 
 @end

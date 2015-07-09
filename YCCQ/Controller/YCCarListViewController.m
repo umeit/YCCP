@@ -58,6 +58,8 @@
 - (IBAction)defaultButtonPress:(id)sender
 {
     [self arrowDefault:self.mileageArrowImageView];
+    [self arrowDefault:self.priceArrowImageView];
+    
     [self.carListWebView loadRequest:
      [NSURLRequest requestWithURL:
       [NSURL URLWithString:
@@ -66,14 +68,15 @@
 
 - (IBAction)priceButtonPress:(UIButton *)button
 {
+    [self arrowDefault:self.mileageArrowImageView];
     if ([self.orderButtonStatus[@"price"] boolValue]) {
         self.orderButtonStatus[@"price"] = @NO;
-        
+        [self arrowUp:self.priceArrowImageView];
         [self.carListWebView loadRequest:
         [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
     } else {
         self.orderButtonStatus[@"price"] = @YES;
-        
+        [self arrowDown:self.priceArrowImageView];
         [self.carListWebView loadRequest:
         [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
     }
@@ -81,6 +84,7 @@
 
 - (IBAction)mileageButtonPress:(id)sender
 {
+    [self arrowDefault:self.priceArrowImageView];
     if ([self.orderButtonStatus[@"mileage"] boolValue]) {
         self.orderButtonStatus[@"mileage"] = @NO;
         [self arrowUp:self.mileageArrowImageView];

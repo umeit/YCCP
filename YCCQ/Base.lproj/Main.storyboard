@@ -4463,6 +4463,25 @@
                                             <action selector="priceButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="ArI-N8-J7G"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="gHP-RG-oen" userLabel="箭头">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="LLO-M6-7kJ"/>
+                                            <constraint firstAttribute="height" constant="18" id="lfN-Hw-maE"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="lfN-Hw-maE"/>
+                                                <exclude reference="LLO-M6-7kJ"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="lfN-Hw-maE"/>
+                                                <include reference="LLO-M6-7kJ"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjs-ZY-pHq">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
@@ -4547,10 +4566,14 @@
                                     <constraint firstAttribute="bottom" secondItem="bdI-KM-NE9" secondAttribute="bottom" constant="8" id="Bev-11-Ev1">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
+                                    <constraint firstItem="gHP-RG-oen" firstAttribute="leading" secondItem="bdI-KM-NE9" secondAttribute="centerX" constant="24" id="Ddt-oj-AYz">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="14"/>
+                                    </constraint>
                                     <constraint firstItem="sqA-Nh-PrQ" firstAttribute="leading" secondItem="kjs-ZY-pHq" secondAttribute="trailing" constant="218" id="DiV-7h-RVk">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="kjs-ZY-pHq" firstAttribute="width" secondItem="bdI-KM-NE9" secondAttribute="width" id="EeY-zP-Zgj"/>
+                                    <constraint firstItem="gHP-RG-oen" firstAttribute="centerY" secondItem="bdI-KM-NE9" secondAttribute="centerY" id="IKo-dr-9Hh"/>
                                     <constraint firstItem="sqA-Nh-PrQ" firstAttribute="top" secondItem="r0E-67-9en" secondAttribute="top" constant="9" id="LhG-P1-gFE">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
@@ -4583,6 +4606,7 @@
                                     <mask key="subviews">
                                         <exclude reference="8Dh-iS-6sA"/>
                                         <exclude reference="bdI-KM-NE9"/>
+                                        <exclude reference="gHP-RG-oen"/>
                                         <exclude reference="kjs-ZY-pHq"/>
                                         <exclude reference="x0J-o9-KdM"/>
                                         <exclude reference="sqA-Nh-PrQ"/>
@@ -4596,6 +4620,8 @@
                                         <exclude reference="Bev-11-Ev1"/>
                                         <exclude reference="WcS-Wx-fzt"/>
                                         <exclude reference="Y1u-hH-5xL"/>
+                                        <exclude reference="Ddt-oj-AYz"/>
+                                        <exclude reference="IKo-dr-9Hh"/>
                                         <exclude reference="7gP-gD-8RP"/>
                                         <exclude reference="EeY-zP-Zgj"/>
                                         <exclude reference="XGa-jJ-b2M"/>
@@ -4613,6 +4639,7 @@
                                     <mask key="subviews">
                                         <include reference="8Dh-iS-6sA"/>
                                         <include reference="bdI-KM-NE9"/>
+                                        <include reference="gHP-RG-oen"/>
                                         <include reference="kjs-ZY-pHq"/>
                                         <include reference="x0J-o9-KdM"/>
                                         <include reference="sqA-Nh-PrQ"/>
@@ -4626,6 +4653,8 @@
                                         <include reference="Bev-11-Ev1"/>
                                         <include reference="WcS-Wx-fzt"/>
                                         <include reference="Y1u-hH-5xL"/>
+                                        <include reference="Ddt-oj-AYz"/>
+                                        <include reference="IKo-dr-9Hh"/>
                                         <include reference="7gP-gD-8RP"/>
                                         <include reference="EeY-zP-Zgj"/>
                                         <include reference="XGa-jJ-b2M"/>
@@ -4691,6 +4720,7 @@
                     <connections>
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
                         <outlet property="mileageArrowImageView" destination="x0J-o9-KdM" id="Hg9-R1-KiV"/>
+                        <outlet property="priceArrowImageView" destination="gHP-RG-oen" id="wK2-8a-otD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zh-CJ-hB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
