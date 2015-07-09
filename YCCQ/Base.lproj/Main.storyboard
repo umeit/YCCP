@@ -4486,6 +4486,25 @@
                                             <action selector="mileageButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="HOK-ch-5dT"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="x0J-o9-KdM" userLabel="箭头">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="VHz-ao-IUu"/>
+                                            <constraint firstAttribute="width" constant="18" id="hAt-7v-sFI"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="VHz-ao-IUu"/>
+                                                <exclude reference="hAt-7v-sFI"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="VHz-ao-IUu"/>
+                                                <include reference="hAt-7v-sFI"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqA-Nh-PrQ">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
@@ -4547,6 +4566,7 @@
                                     <constraint firstItem="bdI-KM-NE9" firstAttribute="leading" secondItem="8Dh-iS-6sA" secondAttribute="trailing" constant="53" id="Y1u-hH-5xL">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
+                                    <constraint firstItem="x0J-o9-KdM" firstAttribute="centerY" secondItem="kjs-ZY-pHq" secondAttribute="centerY" id="YsS-9f-vc4"/>
                                     <constraint firstAttribute="height" constant="47" id="ZyS-Oe-jP8">
                                         <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                     </constraint>
@@ -4556,6 +4576,7 @@
                                     <constraint firstAttribute="bottom" secondItem="sqA-Nh-PrQ" secondAttribute="bottom" constant="8" id="egm-vy-XnN">
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
+                                    <constraint firstItem="x0J-o9-KdM" firstAttribute="leading" secondItem="kjs-ZY-pHq" secondAttribute="centerX" constant="14" id="qBN-5b-8EU"/>
                                     <constraint firstItem="kjs-ZY-pHq" firstAttribute="width" secondItem="sqA-Nh-PrQ" secondAttribute="width" id="qC5-3K-3LS"/>
                                 </constraints>
                                 <variation key="default">
@@ -4563,6 +4584,7 @@
                                         <exclude reference="8Dh-iS-6sA"/>
                                         <exclude reference="bdI-KM-NE9"/>
                                         <exclude reference="kjs-ZY-pHq"/>
+                                        <exclude reference="x0J-o9-KdM"/>
                                         <exclude reference="sqA-Nh-PrQ"/>
                                     </mask>
                                     <mask key="constraints">
@@ -4579,6 +4601,8 @@
                                         <exclude reference="XGa-jJ-b2M"/>
                                         <exclude reference="cio-lA-BiQ"/>
                                         <exclude reference="qC5-3K-3LS"/>
+                                        <exclude reference="YsS-9f-vc4"/>
+                                        <exclude reference="qBN-5b-8EU"/>
                                         <exclude reference="91O-ud-r27"/>
                                         <exclude reference="DiV-7h-RVk"/>
                                         <exclude reference="LhG-P1-gFE"/>
@@ -4590,6 +4614,7 @@
                                         <include reference="8Dh-iS-6sA"/>
                                         <include reference="bdI-KM-NE9"/>
                                         <include reference="kjs-ZY-pHq"/>
+                                        <include reference="x0J-o9-KdM"/>
                                         <include reference="sqA-Nh-PrQ"/>
                                     </mask>
                                     <mask key="constraints">
@@ -4606,6 +4631,8 @@
                                         <include reference="XGa-jJ-b2M"/>
                                         <include reference="cio-lA-BiQ"/>
                                         <include reference="qC5-3K-3LS"/>
+                                        <include reference="YsS-9f-vc4"/>
+                                        <include reference="qBN-5b-8EU"/>
                                         <include reference="91O-ud-r27"/>
                                         <include reference="DiV-7h-RVk"/>
                                         <include reference="LhG-P1-gFE"/>
@@ -4658,9 +4685,12 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title=" 买车" id="R7L-jW-9lI" userLabel="买车"/>
-                    <navigationItem key="navigationItem" title="车辆列表" id="fa2-bG-dKn"/>
+                    <navigationItem key="navigationItem" title="北京二手车" id="fa2-bG-dKn">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="YyP-YZ-2Pp"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
+                        <outlet property="mileageArrowImageView" destination="x0J-o9-KdM" id="Hg9-R1-KiV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zh-CJ-hB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4872,6 +4902,7 @@
         <image name="ford.png" width="104" height="104"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance" width="35" height="35"/>
+        <image name="jiantou" width="5" height="8"/>
         <image name="jiuyuan" width="35" height="35"/>
         <image name="maiche1" width="35" height="35"/>
         <image name="maiche2" width="35" height="35"/>

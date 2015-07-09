@@ -311,7 +311,6 @@
     // 公里
     if (self.filterCondition.mileageValue.length) {
         [url appendString:self.filterCondition.mileageValue];
-        [url appendString:@"/"];
     }
     // 排量
     if (self.filterCondition.ccValue.length) {

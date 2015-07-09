@@ -57,6 +57,7 @@
 
 - (IBAction)defaultButtonPress:(id)sender
 {
+    [self arrowDefault:self.mileageArrowImageView];
     [self.carListWebView loadRequest:
      [NSURLRequest requestWithURL:
       [NSURL URLWithString:
@@ -82,12 +83,12 @@
 {
     if ([self.orderButtonStatus[@"mileage"] boolValue]) {
         self.orderButtonStatus[@"mileage"] = @NO;
-        
+        [self arrowUp:self.mileageArrowImageView];
         [self.carListWebView loadRequest:
         [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
     } else {
         self.orderButtonStatus[@"mileage"] = @YES;
-        
+        [self arrowDown:self.mileageArrowImageView];
         [self.carListWebView loadRequest:
         [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
     }
@@ -178,6 +179,50 @@
     return @"http://m.youche.com/ershouche/";
 }
 
+- (void)arrowUp:(UIImageView *)arrowImage
+{
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation((M_PI / -2));
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         arrowImage.transform = endAngle;
+                     }
+                     completion:^(BOOL finished) {
+                         arrowImage.transform = endAngle;
+                     }];
+}
+
+- (void)arrowDown:(UIImageView *)arrowImage
+{
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation((M_PI / 2));
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         arrowImage.transform = endAngle;
+                     }
+                     completion:^(BOOL finished) {
+                         arrowImage.transform = endAngle;
+                     }];
+}
+
+- (void)arrowDefault:(UIImageView *)arrowImage
+{
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(0);
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         arrowImage.transform = endAngle;
+                     }
+                     completion:^(BOOL finished) {
+                         arrowImage.transform = endAngle;
+                     }];
+}
 
 #pragma mark - Navigation
 
