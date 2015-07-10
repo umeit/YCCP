@@ -103,10 +103,8 @@
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
 		03A236B21B3026C80009F47A /* YCToolListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A236B11B3026C80009F47A /* YCToolListViewController.m */; };
 		03B655491B26F91100F28CAC /* baoxiup.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655411B26F91100F28CAC /* baoxiup.png */; };
-		03B6554A1B26F91100F28CAC /* hongdian.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655421B26F91100F28CAC /* hongdian.png */; };
 		03B6554B1B26F91100F28CAC /* jiancep.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655431B26F91100F28CAC /* jiancep.png */; };
 		03B6554C1B26F91100F28CAC /* jiuyuanp.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655441B26F91100F28CAC /* jiuyuanp.png */; };
-		03B6554D1B26F91100F28CAC /* landian.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655451B26F91100F28CAC /* landian.png */; };
 		03B6554E1B26F91100F28CAC /* p.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655461B26F91100F28CAC /* p.png */; };
 		03B6554F1B26F91100F28CAC /* shouhoubanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655471B26F91100F28CAC /* shouhoubanner.png */; };
 		03B655501B26F91100F28CAC /* tousup.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655481B26F91100F28CAC /* tousup.png */; };
@@ -308,10 +306,8 @@
 		03A236B01B3026C80009F47A /* YCToolListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCToolListViewController.h; sourceTree = "<group>"; };
 		03A236B11B3026C80009F47A /* YCToolListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCToolListViewController.m; sourceTree = "<group>"; };
 		03B655411B26F91100F28CAC /* baoxiup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baoxiup.png; sourceTree = "<group>"; };
-		03B655421B26F91100F28CAC /* hongdian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hongdian.png; sourceTree = "<group>"; };
 		03B655431B26F91100F28CAC /* jiancep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiancep.png; sourceTree = "<group>"; };
 		03B655441B26F91100F28CAC /* jiuyuanp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jiuyuanp.png; sourceTree = "<group>"; };
-		03B655451B26F91100F28CAC /* landian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landian.png; sourceTree = "<group>"; };
 		03B655461B26F91100F28CAC /* p.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p.png; sourceTree = "<group>"; };
 		03B655471B26F91100F28CAC /* shouhoubanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shouhoubanner.png; sourceTree = "<group>"; };
 		03B655481B26F91100F28CAC /* tousup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tousup.png; sourceTree = "<group>"; };
@@ -732,10 +728,8 @@
 			isa = PBXGroup;
 			children = (
 				03B655411B26F91100F28CAC /* baoxiup.png */,
-				03B655421B26F91100F28CAC /* hongdian.png */,
 				03B655431B26F91100F28CAC /* jiancep.png */,
 				03B655441B26F91100F28CAC /* jiuyuanp.png */,
-				03B655451B26F91100F28CAC /* landian.png */,
 				03B655461B26F91100F28CAC /* p.png */,
 				03B655471B26F91100F28CAC /* shouhoubanner.png */,
 				03B655481B26F91100F28CAC /* tousup.png */,
@@ -1076,7 +1070,6 @@
 				031AD6A51B199C320076B32D /* Rolls-Royce.png in Resources */,
 				03F3F7731B32ACC40033C1A5 /* umeng_fb_audio_play_default@2x.png in Resources */,
 				031AD6741B199C320076B32D /* baicmotor.png in Resources */,
-				03B6554D1B26F91100F28CAC /* landian.png in Resources */,
 				031AD6A01B199C320076B32D /* opel.png in Resources */,
 				03F3F76E1B32ACC40033C1A5 /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
 				031AD6A61B199C320076B32D /* seat.png in Resources */,
@@ -1092,7 +1085,6 @@
 				03F3F7691B32ACC40033C1A5 /* ToolViewInputText@2x.png in Resources */,
 				03F3F7651B32ACC40033C1A5 /* bubble_min@2x.png in Resources */,
 				031AD6981B199C320076B32D /* maserati.png in Resources */,
-				03B6554A1B26F91100F28CAC /* hongdian.png in Resources */,
 				031AD67F1B199C320076B32D /* fiat.png in Resources */,
 				031AD6AC1B199C320076B32D /* suzuki.png in Resources */,
 				03952DE51B05CA120055D36B /* Main.storyboard in Resources */,

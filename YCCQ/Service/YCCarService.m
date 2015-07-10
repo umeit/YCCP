@@ -66,7 +66,9 @@
     [[YCYouCheHTTPClient httpClient] GET:@"select/allcarmodel"
                               parameters:@{@"depth": @2, @"pid": @(pid)}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     block(responseObject);
+                                     NSMutableArray *responseArray = [NSMutableArray arrayWithArray:responseObject];
+                                     [responseArray removeObjectAtIndex:0];  // 删除‘不限’
+                                     block(responseArray);
                                  }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                      NSLog(@"Error! %@", error);
@@ -90,7 +92,9 @@
     [[YCYouCheHTTPClient httpClient] GET:@"select/allcarmodel"
                               parameters:@{@"depth": @3, @"pid": @(pid)}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                     block(responseObject);
+                                     NSMutableArray *responseArray = [NSMutableArray arrayWithArray:responseObject];
+                                     [responseArray removeObjectAtIndex:0];  // 删除‘不限’
+                                     block(responseArray);
                                  }
                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                      NSLog(@"Error! %@", error);

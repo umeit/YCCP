@@ -90,6 +90,7 @@
 - (void)configureCell:(YCAfterMarketCell *)cell with:(YCAftermarketEntity *)entity
 {
     cell.iconImageView.image = [UIImage imageNamed:entity.imageName];
+    cell.iconImageView.contentMode = UIViewContentModeCenter;
     cell.nameLabel.text = entity.name;
     cell.rightIconImageVIew.image = [UIImage imageNamed:@"p"];
 }

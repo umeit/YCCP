@@ -45,6 +45,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshHome:)
+                  forControlEvents:UIControlEventValueChanged];
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     self.carService = [[YCCarService alloc] init];
@@ -71,6 +76,15 @@
 
 
 #pragma mark - Action
+
+- (void)refreshHome:(id)sender
+{
+    [self setBanner];
+    [self setBaokuan];
+    
+    [self.refreshControl endRefreshing];
+}
+
 - (IBAction)functionButtonPress:(UIButton *)button {
     switch (button.tag) {
         case 31:  // 用车急问
@@ -344,7 +358,8 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     return 10.f;
 }
 
-#pragma mark - Table view data source
+
+#pragma mark - Table View Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
