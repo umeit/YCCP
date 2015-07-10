@@ -2119,6 +2119,12 @@
                     <tabBarItem key="tabBarItem" title="Item" id="LWL-io-WNM"/>
                     <navigationItem key="navigationItem" title="优车诚品" id="Jf9-oC-0rV">
                         <barButtonItem key="backBarButtonItem" title="返回" id="9LH-Wc-lge"/>
+                        <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="mA8-GS-i75">
+                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="phoneButtonPress:" destination="5EO-Kz-vnM" id="S6p-mE-YmD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bannerPageControl" destination="lOL-pL-0t3" id="nd9-sU-uUX"/>
@@ -4365,7 +4371,14 @@
                             <outlet property="delegate" destination="OlY-nw-0TL" id="vH0-Fg-a32"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="工具列表" id="Usq-bG-Nwm"/>
+                    <navigationItem key="navigationItem" title="工具列表" id="Usq-bG-Nwm">
+                        <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="vdM-jA-8VY">
+                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="phoneButtonPress:" destination="OlY-nw-0TL" id="eO8-fv-QzN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZM-jl-4Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4716,6 +4729,12 @@
                     <tabBarItem key="tabBarItem" title=" 买车" id="R7L-jW-9lI" userLabel="买车"/>
                     <navigationItem key="navigationItem" title="北京二手车" id="fa2-bG-dKn">
                         <barButtonItem key="backBarButtonItem" title="返回" id="YyP-YZ-2Pp"/>
+                        <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="Cfr-Vk-PGn">
+                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="phoneButtonPress:" destination="3aE-xA-77v" id="SXV-pR-pm3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
@@ -4801,7 +4820,14 @@
                             <outlet property="delegate" destination="NvE-mT-3W2" id="x94-Cx-rNb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="我的" id="Uzq-i0-gtz"/>
+                    <navigationItem key="navigationItem" title="我的" id="Uzq-i0-gtz">
+                        <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="yyb-ap-Nip">
+                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="phoneButtonPress:" destination="NvE-mT-3W2" id="IP5-qS-eWl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQ9-bl-3Rl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4929,6 +4955,7 @@
         <image name="bmw.png" width="104" height="104"/>
         <image name="buick.png" width="104" height="104"/>
         <image name="chexian" width="35" height="35"/>
+        <image name="dianhua" width="36" height="36"/>
         <image name="ford.png" width="104" height="104"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance" width="35" height="35"/>

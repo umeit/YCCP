@@ -10,8 +10,11 @@
 #import "UMFeedback.h"
 #import "YCWebViewController.h"
 #import "UIViewController+GViewController.h"
+#import "UtilDefine.h"
 
 @interface YCMyViewController ()
+
+@property (strong, nonatomic) UIWebView *callWebView;
 
 @end
 
@@ -21,6 +24,21 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [self.callWebView removeFromSuperview];
+    self.callWebView = nil;
+    
+    [super viewWillDisappear:animated];
+}
+
+#pragma mark - Action
+
+- (IBAction)phoneButtonPress:(id)sender
+{
+    [self call:MainPhoneNum];
 }
 
 
@@ -60,7 +78,16 @@
 }
 
 
-#pragma mark - Private 
+#pragma mark - Private
+
+- (void)call:(NSString *)tel
+{
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
+    self.callWebView = [[UIWebView alloc] init];
+    [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:self.callWebView];
+}
+
 - (void)toWebViewWithURL:(NSString *)url controllerTitle:(NSString *)title
 {
     YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];

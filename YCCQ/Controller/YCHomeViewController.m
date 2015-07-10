@@ -76,6 +76,10 @@
 
 
 #pragma mark - Action
+- (IBAction)phoneButtonPress:(id)sender
+{
+    [self call:MainPhoneNum];
+}
 
 - (void)refreshHome:(id)sender
 {
