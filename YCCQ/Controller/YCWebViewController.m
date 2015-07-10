@@ -9,18 +9,40 @@
 #import "YCWebViewController.h"
 #import "UIViewController+GViewController.h"
 #import "YCUserUtil.h"
+#import "UtilDefine.h"
 
 @interface YCWebViewController ()
-
+@property (strong, nonatomic) UIWebView *callWebView;
 @end
 
 @implementation YCWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem
+    = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"dianhua"]
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(phoneButtonPress:)];
+    
     self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webPageURL]]];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.callWebView removeFromSuperview];
+    self.callWebView = nil;
+    
+    [super viewWillDisappear:animated];
+}
+
+#pragma mark - Action
+- (void)phoneButtonPress:(id)sender
+{
+    [self call:MainPhoneNum];
+}
+
 
 #pragma mark - Web view delegate
 
@@ -86,6 +108,16 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - Private
+
+- (void)call:(NSString *)tel
+{
+    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
+    self.callWebView = [[UIWebView alloc] init];
+    [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:self.callWebView];
 }
 
 @end
