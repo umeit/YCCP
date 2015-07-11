@@ -220,14 +220,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (self.dataType) {
-        case BrandType:
-        {
+        case BrandType: {
+            // 品牌列表的第一行是热门品牌的容器，点击无效
             if (indexPath.section == 0 && indexPath.row == 0) {
                 return;
             }
             
             NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
             
+            // 一直选到车款
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
                 vc.delegate = self;

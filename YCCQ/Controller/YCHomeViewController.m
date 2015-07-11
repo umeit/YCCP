@@ -22,6 +22,7 @@
 #import "UtilDefine.h"
 #import "YCEvaluateCarFilterController.h"
 #import "MobClick.h"
+#import "YCBrandTableViewController.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
@@ -32,7 +33,8 @@
 #define PageIndex @"Home"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource,
-                                    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+                                    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
+                                    YCCarFilterConditionDelegate>
 
 @property (strong, nonatomic) NSArray *banners;
 @property (strong, nonatomic) NSArray *baokuans;
@@ -145,9 +147,19 @@
     }
 }
 
+/** 选择品牌 */
 - (IBAction)brandButtonPress:(UIButton *)sender
 {
-    [self toCarListViewWithKey:[YCCarUtil brandWithTag:sender.tag]];
+    if (sender.tag == 38) {
+        YCBrandTableViewController *vc = [self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+        vc.navigationItem.title = @"选择品牌";
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.useOnlineData = YES;
+        [vc performSelector:@selector(setDelegate:) withObject:self];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [self toCarListViewWithKey:[YCCarUtil brandWithTag:sender.tag]];
+    }
 }
 
 - (IBAction)carTypeButtonPress:(UIButton *)sender
@@ -454,6 +466,19 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     }
     
     return 44.f;
+}
+
+
+#pragma mark - YCCarFilterConditionDelegate
+
+- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+{
+    YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
+    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", condition[@"CV"]];
+    carListViewController.hidesBottomBarWhenPushed = YES;
+    NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+    [controllers setObject:carListViewController atIndexedSubscript:1];
+    [self.navigationController setViewControllers:controllers];
 }
 
 @end
