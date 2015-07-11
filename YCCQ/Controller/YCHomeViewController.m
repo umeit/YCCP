@@ -23,6 +23,7 @@
 #import "YCEvaluateCarFilterController.h"
 #import "MobClick.h"
 #import "YCBrandTableViewController.h"
+#import "YCBaokuanTableViewController.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
@@ -139,7 +140,7 @@
     
 }
 
-// 进入 banner 所指链接
+/** 进入 banner 所指链接 */
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
     if (bannner) {
@@ -219,6 +220,14 @@
 
 
 #pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[YCBaokuanTableViewController class]]) {
+        YCBaokuanTableViewController *controller = (YCBaokuanTableViewController *)segue.destinationViewController;
+        controller.baokuans = self.baokuans;
+    }
+}
 
 - (void)toConsultationViewControllerWithWorkgroup:(NSString *)key title:(NSString *)title
 {
