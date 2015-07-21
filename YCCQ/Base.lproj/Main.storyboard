@@ -822,7 +822,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="190" height="160"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车系" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-f6-N0j">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车系" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-f6-N0j">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -4101,7 +4101,6 @@
                             </pageControl>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1N-Pl-pED">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Zfi-Iv-epn">
                                         <variation key="heightClass=regular-widthClass=compact" constant="260"/>
@@ -4144,7 +4143,7 @@
                             <constraint firstItem="8XY-PJ-Pqk" firstAttribute="leading" secondItem="YCO-47-zxG" secondAttribute="leading" id="nk0-bx-nhg"/>
                             <constraint firstAttribute="centerX" secondItem="w1N-Pl-pED" secondAttribute="centerX" id="pO6-k2-OtO"/>
                             <constraint firstItem="abh-38-fh8" firstAttribute="top" secondItem="w1N-Pl-pED" secondAttribute="bottom" constant="25" id="ue2-Ha-8El">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="abh-38-fh8" secondAttribute="centerX" id="vmt-EK-VSk"/>
                             <constraint firstAttribute="trailing" secondItem="8XY-PJ-Pqk" secondAttribute="trailing" id="ymy-b1-vcl"/>

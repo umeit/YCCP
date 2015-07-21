@@ -110,10 +110,9 @@
 
 - (BOOL)isFirestLaunch
 {
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    
-//    return ![userDefaults boolForKey:FirstLaunch];
-    return YES;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    return ![userDefaults boolForKey:FirstLaunch];
 }
 
 @end
