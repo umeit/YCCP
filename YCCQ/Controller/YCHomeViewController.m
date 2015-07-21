@@ -227,6 +227,10 @@
         YCBaokuanTableViewController *controller = (YCBaokuanTableViewController *)segue.destinationViewController;
         controller.baokuans = self.baokuans;
     }
+    else if ([segue.identifier isEqualToString:@"ToToolsList"]) {
+        UIViewController *vc = segue.destinationViewController;
+        vc.hidesBottomBarWhenPushed = YES;
+    }
 }
 
 - (void)toConsultationViewControllerWithWorkgroup:(NSString *)key title:(NSString *)title
