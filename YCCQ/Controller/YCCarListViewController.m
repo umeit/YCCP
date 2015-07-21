@@ -38,7 +38,7 @@
       [NSURL URLWithString:
        [self.carListURL stringByAppendingString:@"?t=app"]]]];
     
-    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(47, 0, 0, 0);
+    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(28, 0, 0, 0);
     
     self.orderButtonStatus = [NSMutableDictionary dictionaryWithDictionary:@{@"price": @NO, @"mileage": @NO}];
 }
