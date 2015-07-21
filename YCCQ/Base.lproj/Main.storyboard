@@ -4133,15 +4133,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8XY-PJ-Pqk" firstAttribute="top" secondItem="YCO-47-zxG" secondAttribute="topMargin" id="0cZ-2W-IV0"/>
+                            <constraint firstItem="lDu-Cc-hr3" firstAttribute="top" secondItem="8XY-PJ-Pqk" secondAttribute="bottom" id="6Mj-ST-JKF"/>
                             <constraint firstItem="8XY-PJ-Pqk" firstAttribute="leading" secondItem="YCO-47-zxG" secondAttribute="leadingMargin" constant="-16" id="FIG-6n-fjE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8XY-PJ-Pqk" secondAttribute="trailing" constant="-16" id="WjC-cx-ZkD"/>
+                            <constraint firstItem="8XY-PJ-Pqk" firstAttribute="top" secondItem="YCO-47-zxG" secondAttribute="top" id="Q45-qN-07P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8XY-PJ-Pqk" secondAttribute="trailing" constant="-16" id="WjC-cx-ZkD">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="lDu-Cc-hr3" firstAttribute="top" secondItem="8XY-PJ-Pqk" secondAttribute="bottom" id="Zjk-eC-HTp"/>
                             <constraint firstItem="lDu-Cc-hr3" firstAttribute="top" secondItem="abh-38-fh8" secondAttribute="bottom" constant="8" id="b9Z-7A-aiR"/>
+                            <constraint firstItem="8XY-PJ-Pqk" firstAttribute="leading" secondItem="YCO-47-zxG" secondAttribute="leading" id="nk0-bx-nhg"/>
                             <constraint firstAttribute="centerX" secondItem="w1N-Pl-pED" secondAttribute="centerX" id="pO6-k2-OtO"/>
                             <constraint firstItem="abh-38-fh8" firstAttribute="top" secondItem="w1N-Pl-pED" secondAttribute="bottom" constant="25" id="ue2-Ha-8El">
                                 <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="abh-38-fh8" secondAttribute="centerX" id="vmt-EK-VSk"/>
+                            <constraint firstAttribute="trailing" secondItem="8XY-PJ-Pqk" secondAttribute="trailing" id="ymy-b1-vcl"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -4152,10 +4158,14 @@
                             <mask key="constraints">
                                 <exclude reference="0cZ-2W-IV0"/>
                                 <exclude reference="FIG-6n-fjE"/>
+                                <exclude reference="Q45-qN-07P"/>
                                 <exclude reference="WjC-cx-ZkD"/>
+                                <exclude reference="nk0-bx-nhg"/>
+                                <exclude reference="ymy-b1-vcl"/>
                                 <exclude reference="pO6-k2-OtO"/>
                                 <exclude reference="ue2-Ha-8El"/>
                                 <exclude reference="vmt-EK-VSk"/>
+                                <exclude reference="6Mj-ST-JKF"/>
                                 <exclude reference="Zjk-eC-HTp"/>
                                 <exclude reference="b9Z-7A-aiR"/>
                             </mask>
@@ -4167,13 +4177,17 @@
                                 <include reference="w1N-Pl-pED"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0cZ-2W-IV0"/>
-                                <include reference="FIG-6n-fjE"/>
-                                <include reference="WjC-cx-ZkD"/>
+                                <exclude reference="0cZ-2W-IV0"/>
+                                <exclude reference="FIG-6n-fjE"/>
+                                <include reference="Q45-qN-07P"/>
+                                <exclude reference="WjC-cx-ZkD"/>
+                                <include reference="nk0-bx-nhg"/>
+                                <include reference="ymy-b1-vcl"/>
                                 <include reference="pO6-k2-OtO"/>
                                 <include reference="ue2-Ha-8El"/>
                                 <include reference="vmt-EK-VSk"/>
-                                <include reference="Zjk-eC-HTp"/>
+                                <include reference="6Mj-ST-JKF"/>
+                                <exclude reference="Zjk-eC-HTp"/>
                                 <include reference="b9Z-7A-aiR"/>
                             </mask>
                         </variation>
