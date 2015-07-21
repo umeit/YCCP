@@ -15,6 +15,8 @@
 #define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
 #define UMAPPKey      @"5581085367e58e8d64003ea0"
 
+#define FirstLaunch @"FirstLaunch"
+
 @interface AppDelegate ()
 
 @end
@@ -39,6 +41,12 @@
     // 设置导航栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    if ([self isFirestLaunch]) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setBool:YES forKey:@"FirstLaunch"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"YCUserGuideViewController"];
+    }
     return YES;
 }
 
@@ -95,6 +103,17 @@
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
     NSLog(@"注册推送失败，原因：%@",error);
+}
+
+
+#pragma mark - Private
+
+- (BOOL)isFirestLaunch
+{
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    
+//    return ![userDefaults boolForKey:FirstLaunch];
+    return YES;
 }
 
 @end
