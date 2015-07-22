@@ -396,10 +396,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 210.f;
+            return 214.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 366.f;
+            return self.baokuans.count <= 2 ? 210 : 380.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 116.f;
@@ -416,10 +416,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 250.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count <= 2 ? 223.f : 406.f;
+            return self.baokuans.count <= 2 ? 234.f : 406.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 116.f;
+            return 118.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
             return 186.f;
