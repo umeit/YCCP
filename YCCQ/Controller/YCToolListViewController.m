@@ -25,13 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.callWebView = [[UIWebView alloc] init];
+    [self.view addSubview:self.callWebView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.callWebView removeFromSuperview];
-    self.callWebView = nil;
-    
     [super viewWillDisappear:animated];
 }
 
@@ -193,8 +193,8 @@
 - (void)call:(NSString *)tel
 {
     NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
-    self.callWebView = [[UIWebView alloc] init];
+    
     [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:self.callWebView];
+    
 }
 @end
