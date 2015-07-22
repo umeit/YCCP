@@ -99,19 +99,19 @@
 {
     YCAftermarketEntity *aftermarket1 = [[YCAftermarketEntity alloc] initWithName:@"24小时道路救援"
                                                                               tel:@"18500581075"
-                                                                            image:@"jiuyuanp"];
+                                                                            image:@"p_jiuyuan"];
     
     YCAftermarketEntity *aftermarket2 = [[YCAftermarketEntity alloc] initWithName:@"预约报修"
                                                                               tel:@"4000-689-966"
-                                                                            image:@"baoxiup"];
+                                                                            image:@"p_baoxiu"];
     
     YCAftermarketEntity *aftermarket3 = [[YCAftermarketEntity alloc] initWithName:@"预约检测"
                                                                               tel:@"13718233424"
-                                                                            image:@"jiancep"];
+                                                                            image:@"p_jiance"];
     
     YCAftermarketEntity *aftermarket4 = [[YCAftermarketEntity alloc] initWithName:@"热线投诉"
                                                                               tel:@"4000-689-966"
-                                                                            image:@"tousup"];
+                                                                            image:@"p_tousu"];
     
     YCAftermarketEntity *aftermarket5 = [[YCAftermarketEntity alloc] initWithName:@"中国人民财产保险"
                                                                               tel:@"95518"
