@@ -30,6 +30,7 @@
 #define Baokuan_Row_Index   2
 #define CarType_Row_Index   3
 #define CarBrand_Row_Index  4
+#define CarPrice_Row_Index  5
 
 #define PageIndex @"Home"
 
@@ -407,6 +408,9 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         if (indexPath.row == CarBrand_Row_Index) {
             return 200.f;
         }
+        if (indexPath.row == CarPrice_Row_Index) {
+            return 122.f;
+        }
     }
     else if (iPhone6) {
         if (indexPath.row == Banner_Row_Index) {
@@ -424,6 +428,9 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         if (indexPath.row == CarBrand_Row_Index) {
             return 200.f;
         }
+        if (indexPath.row == CarPrice_Row_Index) {
+            return 142.f;
+        }
     }
     else if (iPhone6Plus_Simulator) {
         if (indexPath.row == Banner_Row_Index) {
@@ -436,10 +443,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 424.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 110.f;
+            return 122.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 196.f;
+            return 200.f;
+        }
+        if (indexPath.row == CarPrice_Row_Index) {
+            return 122.f;
         }
     }
     else if (iPad_Retina) {
@@ -470,10 +480,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 424.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 110.f;
+            return 122.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 196.f;
+            return 200.f;
+        }
+        if (indexPath.row == CarPrice_Row_Index) {
+            return 122.f;
         }
     }
     
