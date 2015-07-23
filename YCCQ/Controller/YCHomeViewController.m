@@ -422,7 +422,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 122.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 186.f;
+            return 200.f;
         }
     }
     else if (iPhone6Plus_Simulator) {
