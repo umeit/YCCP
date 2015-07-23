@@ -169,7 +169,6 @@
 		03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F411B130F550051CC57 /* UIViewController+GViewController.m */; };
 		03EE9F451B13129F0051CC57 /* YCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9F441B13129F0051CC57 /* YCWebViewController.m */; };
 		03EFA49F1B5E1AC8008E0401 /* YCUserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EFA49E1B5E1AC8008E0401 /* YCUserGuideViewController.m */; };
-		03F3F7381B3274480033C1A5 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F3F7371B3274480033C1A5 /* 6.png */; };
 		03F3F7631B32ACC40033C1A5 /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03F3F73A1B32ACC40033C1A5 /* UMFeedbackLocalizable.strings */; };
 		03F3F7641B32ACC40033C1A5 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F3F73C1B32ACC40033C1A5 /* libUMFeedback.a */; };
 		03F3F7651B32ACC40033C1A5 /* bubble_min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F3F73E1B32ACC40033C1A5 /* bubble_min@2x.png */; };
@@ -437,7 +436,6 @@
 		03EE9F471B1339A70051CC57 /* UtilDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilDefine.h; sourceTree = "<group>"; };
 		03EFA49D1B5E1AC8008E0401 /* YCUserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCUserGuideViewController.h; sourceTree = "<group>"; };
 		03EFA49E1B5E1AC8008E0401 /* YCUserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCUserGuideViewController.m; sourceTree = "<group>"; };
-		03F3F7371B3274480033C1A5 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		03F3F73B1B32ACC40033C1A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/UMFeedbackLocalizable.strings; sourceTree = "<group>"; };
 		03F3F73C1B32ACC40033C1A5 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		03F3F73E1B32ACC40033C1A5 /* bubble_min@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_min@2x.png"; sourceTree = "<group>"; };
@@ -511,7 +509,6 @@
 			isa = PBXGroup;
 			children = (
 				035F60AD1B5E30AE00868728 /* user_guide */,
-				03F3F7371B3274480033C1A5 /* 6.png */,
 				03D503A61B27EC5A00E0A167 /* allbrand.json */,
 				03B655401B26F91100F28CAC /* shouhou_icons */,
 				038A560A1B26D591002FA96D /* function_icons */,
@@ -1168,7 +1165,6 @@
 				035F60CB1B5E30AE00868728 /* ug_640-1136-5@2x.png in Resources */,
 				031AD6801B199C320076B32D /* ford.png in Resources */,
 				031AD68B1B199C320076B32D /* hyundai.png in Resources */,
-				03F3F7381B3274480033C1A5 /* 6.png in Resources */,
 				031AD6821B199C320076B32D /* gagc.png in Resources */,
 				035F60C81B5E30AE00868728 /* ug_640-1136-2@2x.png in Resources */,
 				031AD6851B199C320076B32D /* greatwallmotor.png in Resources */,
