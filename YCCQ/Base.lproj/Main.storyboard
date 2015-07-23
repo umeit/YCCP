@@ -2419,6 +2419,9 @@
                                                                     <include reference="rAx-UM-Uoi"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="YBD-J2-HLh"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvt-gZ-Wvs">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2426,6 +2429,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="L4F-uP-Yvi"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JI-7V-euE">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2433,6 +2439,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="a4x-jP-JKG"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6G-7A-Dxr">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2440,6 +2449,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="JAy-Dw-qkf"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-SA-wxg">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2447,6 +2459,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="gqi-sN-vMa"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lof-Av-UR0">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2454,6 +2469,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="Y6u-4A-ZMU"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTN-JW-jI7">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2461,6 +2479,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="cx2-XM-QYW"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHf-Id-t3G">
                                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -2468,6 +2489,9 @@
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="carPriceButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="Acy-r3-mfk"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

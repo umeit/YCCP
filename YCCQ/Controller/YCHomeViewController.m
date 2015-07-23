@@ -164,7 +164,14 @@
     }
 }
 
+/** 选测车型 */
 - (IBAction)carTypeButtonPress:(UIButton *)sender
+{
+    [self toCarListViewWithKey:[YCCarUtil carTypeWithTag:sender.tag]];
+}
+
+/** 选择价格 */
+- (IBAction)carPriceButtonPress:(UIButton *)sender
 {
     [self toCarListViewWithKey:[YCCarUtil carTypeWithTag:sender.tag]];
 }
