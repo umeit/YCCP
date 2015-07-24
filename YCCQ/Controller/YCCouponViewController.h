@@ -10,4 +10,5 @@
 
 @interface YCCouponViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumField;
+@property (weak, nonatomic) IBOutlet UIButton *getButton;
 @end

@@ -6523,6 +6523,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MQq-1M-iEe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Fk6-wq-vTa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Zo-3n-kjw">
@@ -6589,12 +6590,14 @@
                             <constraint firstItem="CC4-Ts-2rG" firstAttribute="top" secondItem="4Zo-3n-kjw" secondAttribute="bottom" constant="22" id="HIf-RI-fhH"/>
                             <constraint firstItem="Tst-vg-F8X" firstAttribute="centerX" secondItem="4Zo-3n-kjw" secondAttribute="centerX" constant="-0.5" id="JOV-RA-VGU"/>
                             <constraint firstItem="Tao-ub-Q8E" firstAttribute="top" secondItem="CC4-Ts-2rG" secondAttribute="bottom" constant="62" id="Qca-y5-dWH">
-                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="22"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="Tst-vg-F8X" secondAttribute="centerX" id="UIo-Lc-5fA"/>
                             <constraint firstItem="CC4-Ts-2rG" firstAttribute="centerX" secondItem="4Zo-3n-kjw" secondAttribute="centerX" id="lWm-0R-tnB"/>
                             <constraint firstItem="Tao-ub-Q8E" firstAttribute="centerX" secondItem="CC4-Ts-2rG" secondAttribute="centerX" constant="-0.5" id="oOh-NO-EGH"/>
-                            <constraint firstItem="4Zo-3n-kjw" firstAttribute="top" secondItem="Tst-vg-F8X" secondAttribute="bottom" constant="20" id="sSE-Ab-EW6"/>
+                            <constraint firstItem="4Zo-3n-kjw" firstAttribute="top" secondItem="Tst-vg-F8X" secondAttribute="bottom" constant="20" id="sSE-Ab-EW6">
+                                <variation key="heightClass=regular-widthClass=compact" constant="22"/>
+                            </constraint>
                             <constraint firstItem="Tst-vg-F8X" firstAttribute="top" secondItem="vne-9g-i58" secondAttribute="bottom" constant="42" id="uCh-HI-ft7"/>
                         </constraints>
                         <variation key="default">
@@ -6605,14 +6608,14 @@
                                 <exclude reference="Tao-ub-Q8E"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="sSE-Ab-EW6"/>
+                                <exclude reference="Qca-y5-dWH"/>
+                                <exclude reference="oOh-NO-EGH"/>
                                 <exclude reference="JOV-RA-VGU"/>
                                 <exclude reference="UIo-Lc-5fA"/>
                                 <exclude reference="uCh-HI-ft7"/>
-                                <exclude reference="sSE-Ab-EW6"/>
                                 <exclude reference="HIf-RI-fhH"/>
                                 <exclude reference="lWm-0R-tnB"/>
-                                <exclude reference="Qca-y5-dWH"/>
-                                <exclude reference="oOh-NO-EGH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -6623,14 +6626,14 @@
                                 <include reference="Tao-ub-Q8E"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="sSE-Ab-EW6"/>
+                                <include reference="Qca-y5-dWH"/>
+                                <include reference="oOh-NO-EGH"/>
                                 <include reference="JOV-RA-VGU"/>
                                 <include reference="UIo-Lc-5fA"/>
                                 <include reference="uCh-HI-ft7"/>
-                                <include reference="sSE-Ab-EW6"/>
                                 <include reference="HIf-RI-fhH"/>
                                 <include reference="lWm-0R-tnB"/>
-                                <include reference="Qca-y5-dWH"/>
-                                <include reference="oOh-NO-EGH"/>
                             </mask>
                         </variation>
                     </view>
@@ -6643,6 +6646,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="getButton" destination="CC4-Ts-2rG" id="Ig1-f8-qhV"/>
                         <outlet property="phoneNumField" destination="4Zo-3n-kjw" id="HdF-eG-bI1"/>
                     </connections>
                 </viewController>
@@ -6774,7 +6778,7 @@
         <image name="chexian" width="40" height="40"/>
         <image name="dianhua" width="22" height="22"/>
         <image name="ford.png" width="104" height="104"/>
-        <image name="guanyu" width="36" height="36"/>
+        <image name="guanyu" width="34" height="34"/>
         <image name="home_baoma" width="52" height="52"/>
         <image name="home_benchi" width="52" height="52"/>
         <image name="home_bieke" width="52" height="52"/>
@@ -6783,7 +6787,7 @@
         <image name="home_fute" width="52" height="52"/>
         <image name="home_gengduo" width="52" height="52"/>
         <image name="home_xiandai" width="52" height="52"/>
-        <image name="hongbao" width="44" height="44"/>
+        <image name="hongbao" width="34" height="34"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance" width="40" height="40"/>
         <image name="jiantou" width="5" height="8"/>
@@ -6794,7 +6798,7 @@
         <image name="pinggu" width="40" height="40"/>
         <image name="shangmen" width="40" height="40"/>
         <image name="shigu" width="40" height="40"/>
-        <image name="shoucang" width="44" height="44"/>
+        <image name="shoucang" width="34" height="34"/>
         <image name="shouhou" width="35" height="35"/>
         <image name="tab_gongju" width="30" height="30"/>
         <image name="tab_gongju_d" width="30" height="30"/>
@@ -6811,7 +6815,7 @@
         <image name="weixiu" width="40" height="40"/>
         <image name="xianhao" width="35" height="35"/>
         <image name="yanbao" width="40" height="40"/>
-        <image name="yijian" width="44" height="44"/>
+        <image name="yijian" width="34" height="34"/>
         <image name="yongche" width="40" height="40"/>
         <image name="youjia" width="40" height="40"/>
         <image name="yuyue" width="35" height="35"/>

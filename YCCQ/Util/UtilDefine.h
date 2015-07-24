@@ -27,4 +27,6 @@
 
 #define MainPhoneNum @"400-068-9966"
 
+#define UserCouponPhoneNum @"UserCouponPhoneNum"
+
 #endif
