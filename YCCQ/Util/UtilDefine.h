@@ -25,6 +25,6 @@
 
 #define iPad_Retina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1536, 2048), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define MainPhoneNum @"4000-990-888"
+#define MainPhoneNum @"400-068-9966"
 
 #endif

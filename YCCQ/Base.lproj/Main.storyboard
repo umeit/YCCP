@@ -6445,7 +6445,31 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c2H-QU-28f" id="Let-Kw-3Tc">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="关于优车" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7oW-gU-xsP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="领取 1000 元购车劵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7oW-gU-xsP">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="x4b-7c-UoT" kind="push" id="OfR-m3-lqG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="UBa-9d-H3n">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="RjZ-yw-C0u" style="IBUITableViewCellStyleDefault" id="3SP-ip-m2F">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3SP-ip-m2F" id="3lM-3D-tX2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="关于优车" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RjZ-yw-C0u">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6467,7 +6491,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="我的" id="Uzq-i0-gtz">
                         <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="yyb-ap-Nip">
-                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="phoneButtonPress:" destination="NvE-mT-3W2" id="IP5-qS-eWl"/>
                             </connections>
@@ -6477,6 +6501,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQ9-bl-3Rl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1801.5" y="-382.5"/>
+        </scene>
+        <!--领取礼劵-->
+        <scene sceneID="TJB-Oc-sHG">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="x4b-7c-UoT" customClass="YCCouponViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vne-9g-i58"/>
+                        <viewControllerLayoutGuide type="bottom" id="MQq-1M-iEe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fk6-wq-vTa">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Zo-3n-kjw">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="289" id="c2D-ng-RFB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="c2D-ng-RFB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="c2D-ng-RFB"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CC4-Ts-2rG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.12549019607843137" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="2PB-p9-8gr"/>
+                                    <constraint firstAttribute="width" constant="289" id="FSX-YZ-QgW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="领 取">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2PB-p9-8gr"/>
+                                        <exclude reference="FSX-YZ-QgW"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2PB-p9-8gr"/>
+                                        <include reference="FSX-YZ-QgW"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="getButtonPress:" destination="x4b-7c-UoT" eventType="touchUpInside" id="xfm-uQ-DiT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入手机号立即领取1000元现金购车券！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tst-vg-F8X">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8月31日前到店使用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tao-ub-Q8E">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CC4-Ts-2rG" firstAttribute="top" secondItem="4Zo-3n-kjw" secondAttribute="bottom" constant="22" id="HIf-RI-fhH"/>
+                            <constraint firstItem="Tst-vg-F8X" firstAttribute="centerX" secondItem="4Zo-3n-kjw" secondAttribute="centerX" constant="-0.5" id="JOV-RA-VGU"/>
+                            <constraint firstItem="Tao-ub-Q8E" firstAttribute="top" secondItem="CC4-Ts-2rG" secondAttribute="bottom" constant="62" id="Qca-y5-dWH">
+                                <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="Tst-vg-F8X" secondAttribute="centerX" id="UIo-Lc-5fA"/>
+                            <constraint firstItem="CC4-Ts-2rG" firstAttribute="centerX" secondItem="4Zo-3n-kjw" secondAttribute="centerX" id="lWm-0R-tnB"/>
+                            <constraint firstItem="Tao-ub-Q8E" firstAttribute="centerX" secondItem="CC4-Ts-2rG" secondAttribute="centerX" constant="-0.5" id="oOh-NO-EGH"/>
+                            <constraint firstItem="4Zo-3n-kjw" firstAttribute="top" secondItem="Tst-vg-F8X" secondAttribute="bottom" constant="20" id="sSE-Ab-EW6"/>
+                            <constraint firstItem="Tst-vg-F8X" firstAttribute="top" secondItem="vne-9g-i58" secondAttribute="bottom" constant="42" id="uCh-HI-ft7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4Zo-3n-kjw"/>
+                                <exclude reference="CC4-Ts-2rG"/>
+                                <exclude reference="Tst-vg-F8X"/>
+                                <exclude reference="Tao-ub-Q8E"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="JOV-RA-VGU"/>
+                                <exclude reference="UIo-Lc-5fA"/>
+                                <exclude reference="uCh-HI-ft7"/>
+                                <exclude reference="sSE-Ab-EW6"/>
+                                <exclude reference="HIf-RI-fhH"/>
+                                <exclude reference="lWm-0R-tnB"/>
+                                <exclude reference="Qca-y5-dWH"/>
+                                <exclude reference="oOh-NO-EGH"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="4Zo-3n-kjw"/>
+                                <include reference="CC4-Ts-2rG"/>
+                                <include reference="Tst-vg-F8X"/>
+                                <include reference="Tao-ub-Q8E"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="JOV-RA-VGU"/>
+                                <include reference="UIo-Lc-5fA"/>
+                                <include reference="uCh-HI-ft7"/>
+                                <include reference="sSE-Ab-EW6"/>
+                                <include reference="HIf-RI-fhH"/>
+                                <include reference="lWm-0R-tnB"/>
+                                <include reference="Qca-y5-dWH"/>
+                                <include reference="oOh-NO-EGH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="领取礼劵" id="0nG-af-voF">
+                        <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="QEm-nt-5eK">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="phtonButtonPress:" destination="x4b-7c-UoT" id="28S-xk-yUn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="phoneNumField" destination="4Zo-3n-kjw" id="HdF-eG-bI1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WBg-g3-djk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1110" y="-382.5"/>
         </scene>
         <!--我的-->
         <scene sceneID="CnM-90-S3i">

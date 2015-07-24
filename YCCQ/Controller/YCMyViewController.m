@@ -64,7 +64,7 @@
                 break;
         }
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
                 [self toWebViewWithURL:@"http://m.youche.com/about/aboutme.shtml?t=app"
