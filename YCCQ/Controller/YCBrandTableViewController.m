@@ -7,7 +7,7 @@
 //
 
 #import "YCBrandTableViewController.h"
-#import "YCCarUtil.h"
+#import "YCFilterKeyUtil.h"
 #import "YCCarService.h"
 #import "UIViewController+GViewController.h"
 #import "YCCarFilterDelegate.h"
@@ -94,8 +94,8 @@
 /** 点击品牌快捷入口 */
 - (IBAction)brandButtonPress:(UIButton *)button
 {
-    NSString *brandVlue = [YCCarUtil brandWithTagForFilter:button.tag];
-    NSString *pid = [YCCarUtil pIDWithBrand:brandVlue];
+    NSString *brandVlue = [YCFilterKeyUtil brandFilterKeyWithButtonTag:button.tag];
+    NSString *pid = [YCFilterKeyUtil pIDWithBrand:brandVlue];
     
     if (self.continuousMode) {
         YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
@@ -108,7 +108,7 @@
         return;
     }
     else {
-        [self.delegate selecteConditionFinish:@{@"CN": [YCCarUtil brandCnNameWithHotBrandButtonTag:button.tag],
+        [self.delegate selecteConditionFinish:@{@"CN": [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag],
                                                 @"CV": brandVlue,
                                                 @"PID": pid}
                                    filterType:BrandType];

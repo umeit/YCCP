@@ -6,33 +6,35 @@
 //  Copyright (c) 2015年 Baisika. All rights reserved.
 //
 
-#import "YCCarUtil.h"
+#import "YCFilterKeyUtil.h"
 
-@implementation YCCarUtil
+@implementation YCFilterKeyUtil
 
-static NSDictionary *carBrands;
+//static NSDictionary *carBrands;
 static NSDictionary *carBrandsForFilter;
 static NSDictionary *carBrandsCnNameForHotBrand;
 static NSDictionary *carTypes;
+static NSDictionary *carPrice;
 static NSDictionary *carPID;
 
-+ (NSString *)brandWithTag:(NSInteger)tag
-{
-    if (!carBrands) {
-        carBrands = @{@"31": @"mercedes-benz",
-                      @"32": @"bmw",
-                      @"33": @"audi",
-                      @"34": @"volkswagen",
-                      @"35": @"hyundai",
-                      @"36": @"ford",
-                      @"37": @"buick",
-                      @"38": @""};
-    }
+// /** 根据在首页选择的品牌获取筛选参数 */
+//+ (NSString *)brandWithTag:(NSInteger)tag
+//{
+//    if (!carBrands) {
+//        carBrands = @{@"31": @"mercedes-benz",
+//                      @"32": @"bmw",
+//                      @"33": @"audi",
+//                      @"34": @"volkswagen",
+//                      @"35": @"hyundai",
+//                      @"36": @"ford",
+//                      @"37": @"buick",
+//                      @"38": @""};
+//    }
+//    return carBrands[[@(tag) stringValue]];
+//}
 
-    return carBrands[[@(tag) stringValue]];
-}
-
-+ (NSString *)brandWithTagForFilter:(NSInteger)tag
+/** 根据快速选择品牌的按钮的 tag 获取品牌筛选筛选参数 */
++ (NSString *)brandFilterKeyWithButtonTag:(NSInteger)tag
 {
     if (!carBrandsForFilter) {
         carBrandsForFilter = @{@"31": @"mercedes-benz",
@@ -44,7 +46,6 @@ static NSDictionary *carPID;
                                @"37": @"buick",
                                @"38": @"toyota"};
     }
-    
     return carBrandsForFilter[[@(tag) stringValue]];
 }
 
@@ -60,7 +61,6 @@ static NSDictionary *carPID;
                                        @"37": @"别克",
                                        @"38": @"丰田"};
     }
-    
     return carBrandsCnNameForHotBrand[[@(tag) stringValue]];
 }
 
@@ -76,11 +76,10 @@ static NSDictionary *carPID;
                    @"buick": @"117",
                    @"toyota": @"144"};
     }
-    
     return carPID[brandName];
 }
 
-+ (NSString *)carTypeWithTag:(NSInteger)tag
++ (NSString *)carTypeWithButtonTag:(NSInteger)tag
 {
     if (!carTypes) {
         carTypes = @{@"31": @"suv",
@@ -94,8 +93,22 @@ static NSDictionary *carPID;
                      @"39": @"haohua",
                      @"40": @"ershouche"};
     }
-    
     return carTypes[[@(tag) stringValue]];
+}
+
++ (NSString *)carPriceFilterKeyWithButtonTag:(NSInteger)tag
+{
+    if (!carPrice) {
+        carPrice = @{@"31": @"j1",
+                     @"32": @"j2",
+                     @"33": @"j3",
+                     @"34": @"j4",
+                     @"35": @"j5",
+                     @"36": @"j6",
+                     @"37": @"j7",
+                     @"38": @"j8"};
+    }
+    return carPrice[[@(tag) stringValue]];
 }
 
 @end

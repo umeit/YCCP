@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YCCarUtil : NSObject
+@interface YCFilterKeyUtil : NSObject
 
-+ (NSString *)brandWithTag:(NSInteger)tag;
+//+ (NSString *)brandWithTag:(NSInteger)tag;
 
-+ (NSString *)brandWithTagForFilter:(NSInteger)tag;
++ (NSString *)brandFilterKeyWithButtonTag:(NSInteger)tag;
 
 + (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag;
 
-+ (NSString *)carTypeWithTag:(NSInteger)tag;
++ (NSString *)carTypeWithButtonTag:(NSInteger)tag;
 
 + (NSString *)pIDWithBrand:(NSString *)brandName;
+
++ (NSString *)carPriceFilterKeyWithButtonTag:(NSInteger)tag;
 
 @end

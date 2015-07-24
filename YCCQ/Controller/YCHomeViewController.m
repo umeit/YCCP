@@ -18,7 +18,7 @@
 #import "UIViewController+GViewController.h"
 #import "YCWebViewController.h"
 #import "YCCarListViewController.h"
-#import "YCCarUtil.h"
+#import "YCFilterKeyUtil.h"
 #import "UtilDefine.h"
 #import "YCEvaluateCarFilterController.h"
 #import "MobClick.h"
@@ -160,20 +160,20 @@
         [vc performSelector:@selector(setDelegate:) withObject:self];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        [self toCarListViewWithKey:[YCCarUtil brandWithTag:sender.tag]];
+        [self toCarListViewWithKey:[YCFilterKeyUtil brandFilterKeyWithButtonTag:sender.tag]];
     }
 }
 
 /** 选测车型 */
 - (IBAction)carTypeButtonPress:(UIButton *)sender
 {
-    [self toCarListViewWithKey:[YCCarUtil carTypeWithTag:sender.tag]];
+    [self toCarListViewWithKey:[YCFilterKeyUtil carTypeWithButtonTag:sender.tag]];
 }
 
 /** 选择价格 */
 - (IBAction)carPriceButtonPress:(UIButton *)sender
 {
-    [self toCarListViewWithKey:[YCCarUtil carTypeWithTag:sender.tag]];
+    [self toCarListViewWithPriceKey:[YCFilterKeyUtil carPriceFilterKeyWithButtonTag:sender.tag]];
 }
 
 
@@ -270,17 +270,29 @@
                              httpLinkURLClickedCallBack:nil];
 }
 
-// 加载车辆估价视图
+/** 加载车辆估价视图 */
 - (void)toEvaluateCar
 {
     YCEvaluateCarFilterController *filterViewController = (YCEvaluateCarFilterController *)[self controllerWithStoryBoardID:@"YCEvaluateCarFilterController"];
     [self.navigationController pushViewController:filterViewController animated:YES];
 }
 
+/** 显示车辆列表，根据选择的筛选条件 */
 - (void)toCarListViewWithKey:(NSString *)key
 {
+    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"http://m.youche.com/%@/", key]];
+}
+
+/** 显示车辆列表，根据选择的价格筛选条件 */
+- (void)toCarListViewWithPriceKey:(NSString *)priceKey
+{
+    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"http://m.youche.com/ershouche/%@", priceKey]];
+}
+
+- (void)toCarListViewWithCarListURL:(NSString *)url
+{
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
-    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", key];
+    carListViewController.carListURL = url;
     carListViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:carListViewController animated:YES];
 }
