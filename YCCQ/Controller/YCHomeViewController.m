@@ -95,39 +95,42 @@
 
 - (IBAction)functionButtonPress:(UIButton *)button {
     switch (button.tag) {
-        case 31:  // 用车急问
+        case 31:  // 我要买车
+            [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
+            break;
+        case 32:  // 用车急问
             [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
             break;
-        case 32:  // 维修咨询
+        case 33:  // 维修咨询
             [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
             break;
-        case 33:  // 事故咨询
+        case 34:  // 事故咨询
             [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
             break;
-        case 34:  // 道路救援
+        case 35:  // 道路救援
             [self call:@"18500581075"];
             break;
-        case 35:  // 卖车咨询
+        case 36:  // 卖车咨询
             [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
             break;
-        case 36:  // 车辆评估
+        case 37:  // 车辆评估
             [self toEvaluateCar];
             break;
-        case 37:  // 代办车险
+        case 38:  // 代办车险
             [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
                    controllerTitle:@"代办车险"];
             break;
-        case 38:  // 今日油价
+        case 39:  // 今日油价
             [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
             break;
-        case 39:  // 上门收车
+        case 40:  // 上门收车
             [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
                    controllerTitle:@"上门收车"];
             break;
-        case 40:  // 预约检测
-            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
-                   controllerTitle:@"预约检测"];
-            break;
+//        case 40:  // 预约检测
+//            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
+//                   controllerTitle:@"预约检测"];
+//            break;
         case 41:  // 延保服务
             [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
                    controllerTitle:@"延保服务"];
@@ -135,7 +138,6 @@
         case 42:  // 全部工具
             break;
         default:
-            [self showCustomText:@"功能暂未开通" delay:1.3];
             break;
     }
     
@@ -428,7 +430,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 200.f;
         }
         if (indexPath.row == CarPrice_Row_Index) {
-            return 122.f;
+            return 142.f;
         }
     }
     else if (iPhone6) {
@@ -485,7 +487,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 116.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
-            return 154.f;
+            return 200.f;
+        }
+        if (indexPath.row == CarPrice_Row_Index) {
+            return 142.f;
         }
     }
     else if (iPhone6Plus) {
@@ -505,7 +510,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 200.f;
         }
         if (indexPath.row == CarPrice_Row_Index) {
-            return 122.f;
+            return 142.f;
         }
     }
     

@@ -258,7 +258,11 @@
 - (void)setOKButton
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setTitle:@"确定" forState:UIControlStateNormal];
+    [button setTitle:@"确 定" forState:UIControlStateNormal];
+    
+//    UIFont *font = [UIFont fontWithName:@"System Bold" size:18.0];
+//    [button setAttributedTitle:[[NSAttributedString alloc] initWithString:@"确 定" attributes:@{NSFontAttributeName: font}]
+//                      forState:UIControlStateNormal];
     button.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height + 40);
     button.backgroundColor = [UIColor redColor];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
