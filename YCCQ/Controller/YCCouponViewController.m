@@ -44,6 +44,7 @@
                                           [self hideLodingView];
                                           
                                           if (success) {
+                                              [self saveUserPhoneNum:self.phoneNumField.text];
                                               [self showCustomTextAlert:@"优惠劵已用短信发送到您的手机，请注意查收。"];
                                           }
                                           else {
@@ -58,4 +59,10 @@
     [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
 }
 
+
+#pragma mark - Private
+- (void)saveUserPhoneNum:(NSString *)phoneNum
+{
+    
+}
 @end
