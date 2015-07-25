@@ -3148,7 +3148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKG-1U-ddo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2979" y="3"/>
+            <point key="canvasLocation" x="2979" y="59.25"/>
         </scene>
         <!--筛选-->
         <scene sceneID="P4t-rE-NeZ">
@@ -5948,8 +5948,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="" id="rAk-vN-PIF"/>
                     <navigationItem key="navigationItem" title="工具列表" id="Usq-bG-Nwm">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="Jzw-HI-80B"/>
                         <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="vdM-jA-8VY">
-                            <color key="tintColor" white="0.94202390309999995" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="phoneButtonPress:" destination="OlY-nw-0TL" id="eO8-fv-QzN"/>
                             </connections>
