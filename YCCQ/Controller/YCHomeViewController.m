@@ -421,7 +421,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 214.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count <= 2 ? 210 : 374.f;
+            return self.baokuans.count < 4 ? 210 : 374.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 122.f;
@@ -441,7 +441,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 250.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count <= 2 ? 234.f : 410.f;
+            return self.baokuans.count < 4 ? 234.f : 410.f;
         }
         if (indexPath.row == CarType_Row_Index) {
             return 122.f;
