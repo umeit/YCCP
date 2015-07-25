@@ -31,13 +31,7 @@
     NSString *imageNmae4;
     NSString *imageNmae5;
     
-    if (iPhone4) {
-        imageNmae1 = @"ug_640-960-1";
-        imageNmae2 = @"ug_640-960-2";
-        imageNmae3 = @"ug_640-960-3";
-        imageNmae4 = @"ug_640-960-4";
-        imageNmae5 = @"ug_640-960-5";
-    } else if (iPhone5) {
+    if (iPhone5) {
         imageNmae1 = @"ug_640-1136-1";
         imageNmae2 = @"ug_640-1136-2";
         imageNmae3 = @"ug_640-1136-3";
@@ -55,6 +49,12 @@
         imageNmae3 = @"ug_1242-2208-3";
         imageNmae4 = @"ug_1242-2208-4";
         imageNmae5 = @"ug_1242-2208-5";
+    } else {
+        imageNmae1 = @"ug_640-960-1";
+        imageNmae2 = @"ug_640-960-2";
+        imageNmae3 = @"ug_640-960-3";
+        imageNmae4 = @"ug_640-960-4";
+        imageNmae5 = @"ug_640-960-5";
     }
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageNmae1]];

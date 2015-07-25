@@ -370,10 +370,7 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4 || iPhone5 || iPad_Retina) {
-        return CGSizeMake(150, 150);
-    }
-    else if (iPhone6) {
+    if (iPhone6) {
         return CGSizeMake(170, 170);
     }
     else if (iPhone6Plus_Simulator) {
@@ -382,7 +379,9 @@
     else if (iPhone6Plus) {
         return CGSizeMake(174, 180);
     }
-    
+    else {
+        return CGSizeMake(150, 150);
+    }
     return CGSizeMake(150, 160);
 }
 
@@ -413,27 +412,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone4 || iPhone5) {
-        if (indexPath.row == Banner_Row_Index) {
-            return 150.f;
-        }
-        if (indexPath.row == Function_Row_Index) {
-            return 214.f;
-        }
-        if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count < 4 ? 210 : 374.f;
-        }
-        if (indexPath.row == CarType_Row_Index) {
-            return 122.f;
-        }
-        if (indexPath.row == CarBrand_Row_Index) {
-            return 200.f;
-        }
-        if (indexPath.row == CarPrice_Row_Index) {
-            return 142.f;
-        }
-    }
-    else if (iPhone6) {
+    if (iPhone6) {
         if (indexPath.row == Banner_Row_Index) {
             return 170.f;
         }
@@ -473,18 +452,18 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
     }
-    else if (iPad_Retina) {
+    else {
         if (indexPath.row == Banner_Row_Index) {
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 210.f;
+            return 214.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
-            return 382.f;
+            return self.baokuans.count < 4 ? 210 : 374.f;
         }
         if (indexPath.row == CarType_Row_Index) {
-            return 116.f;
+            return 122.f;
         }
         if (indexPath.row == CarBrand_Row_Index) {
             return 200.f;
