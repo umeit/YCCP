@@ -90,11 +90,11 @@
                        controllerTitle:@"代办车险"];
                 break;
             case 2:
-//                [self showCustomText:@"功能暂未开通" delay:1.3];
-                [self toLimitDrive];
+//                [self toLimitDrive];
+                [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
                 break;
 //            case 3:  // 今日油价
-//                [self showCustomText:@"功能暂未开通" delay:1.3];
+//                [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
 //                break;
         }
     }

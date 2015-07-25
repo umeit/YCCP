@@ -5658,75 +5658,6 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="48" id="BBm-Kj-aLA">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BBm-Kj-aLA" id="qKy-BE-Vld">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xianhao" translatesAutoresizingMaskIntoConstraints="NO" id="E9Q-fX-Zn7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="F9t-jl-IcO"/>
-                                                        <constraint firstAttribute="width" constant="35" id="cLc-IG-aW8"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="F9t-jl-IcO"/>
-                                                            <exclude reference="cLc-IG-aW8"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="F9t-jl-IcO"/>
-                                                            <include reference="cLc-IG-aW8"/>
-                                                        </mask>
-                                                    </variation>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限行查询" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R64-gb-b9o">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="E9Q-fX-Zn7" secondAttribute="centerY" id="DCe-LK-YX1"/>
-                                                <constraint firstItem="E9Q-fX-Zn7" firstAttribute="leading" secondItem="qKy-BE-Vld" secondAttribute="leadingMargin" id="EUv-mT-Nfj"/>
-                                                <constraint firstItem="R64-gb-b9o" firstAttribute="leading" secondItem="E9Q-fX-Zn7" secondAttribute="trailing" constant="15" id="I3u-nF-V1N"/>
-                                                <constraint firstAttribute="trailing" secondItem="R64-gb-b9o" secondAttribute="trailing" constant="2" id="Tnm-fI-j6q"/>
-                                                <constraint firstAttribute="bottom" secondItem="R64-gb-b9o" secondAttribute="bottom" id="h0O-Tg-2Vq"/>
-                                                <constraint firstItem="R64-gb-b9o" firstAttribute="top" secondItem="qKy-BE-Vld" secondAttribute="top" id="kHF-pc-FYj"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="E9Q-fX-Zn7"/>
-                                                    <exclude reference="R64-gb-b9o"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="I3u-nF-V1N"/>
-                                                    <exclude reference="Tnm-fI-j6q"/>
-                                                    <exclude reference="h0O-Tg-2Vq"/>
-                                                    <exclude reference="kHF-pc-FYj"/>
-                                                    <exclude reference="DCe-LK-YX1"/>
-                                                    <exclude reference="EUv-mT-Nfj"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="E9Q-fX-Zn7"/>
-                                                    <include reference="R64-gb-b9o"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="I3u-nF-V1N"/>
-                                                    <include reference="Tnm-fI-j6q"/>
-                                                    <include reference="h0O-Tg-2Vq"/>
-                                                    <include reference="kHF-pc-FYj"/>
-                                                    <include reference="DCe-LK-YX1"/>
-                                                    <include reference="EUv-mT-Nfj"/>
-                                                </mask>
-                                            </variation>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="48" id="DSz-Ch-nsf">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DSz-Ch-nsf" id="Dew-Vn-mfW">
@@ -6814,7 +6745,6 @@
         <image name="volkswagen.png" width="104" height="104"/>
         <image name="weixiu" width="40" height="40"/>
         <image name="woyaomaiche" width="40" height="40"/>
-        <image name="xianhao" width="35" height="35"/>
         <image name="yanbao" width="40" height="40"/>
         <image name="yijian" width="34" height="34"/>
         <image name="yongche" width="40" height="40"/>
