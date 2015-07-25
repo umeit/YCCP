@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationItem.backBarButtonItem setTintColor:[UIColor whiteColor]];
+    
     self.callWebView = [[UIWebView alloc] init];
     [self.view addSubview:self.callWebView];
 }

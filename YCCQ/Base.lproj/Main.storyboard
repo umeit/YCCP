@@ -4924,6 +4924,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jzo-S2-QPl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.93725490196078431" green="0.12549019607843137" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4935,7 +4936,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJK-2W-9He" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610.5" y="-1206.75"/>
+            <point key="canvasLocation" x="712.5" y="-1548.75"/>
         </scene>
         <!--工具列表-->
         <scene sceneID="eLd-bI-zbm">
@@ -5948,7 +5949,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="" id="rAk-vN-PIF"/>
                     <navigationItem key="navigationItem" title="工具列表" id="Usq-bG-Nwm">
-                        <barButtonItem key="backBarButtonItem" title="返回" id="Jzw-HI-80B"/>
+                        <barButtonItem key="backBarButtonItem" title="返回" id="Jzw-HI-80B">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="dianhua" style="plain" id="vdM-jA-8VY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -5959,7 +5962,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZM-jl-4Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2230.5" y="-1079.25"/>
+            <point key="canvasLocation" x="2308.5" y="-1548.75"/>
         </scene>
         <!-- 买车-->
         <scene sceneID="xW8-fN-Gdz">
@@ -6262,13 +6265,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6Kg-V1-lMo" firstAttribute="top" secondItem="MJz-ca-AKf" secondAttribute="bottom" id="7hC-3O-LgI"/>
+                            <constraint firstAttribute="trailing" secondItem="MJz-ca-AKf" secondAttribute="trailing" id="CaQ-ZC-YXk"/>
                             <constraint firstItem="r0E-67-9en" firstAttribute="top" secondItem="rxZ-IA-lWc" secondAttribute="bottom" constant="44" id="KQK-4V-iQ6">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="MJz-ca-AKf" firstAttribute="top" secondItem="aMG-pA-Jwc" secondAttribute="topMargin" id="cf9-qT-mXn"/>
-                            <constraint firstItem="MJz-ca-AKf" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leadingMargin" constant="-16" id="oWZ-08-PiO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MJz-ca-AKf" secondAttribute="trailing" constant="-16" id="qOJ-s6-5fx"/>
+                            <constraint firstAttribute="bottom" secondItem="MJz-ca-AKf" secondAttribute="bottom" id="gOZ-pI-M85"/>
+                            <constraint firstItem="MJz-ca-AKf" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leading" id="q5u-IQ-gLB"/>
                             <constraint firstAttribute="trailing" secondItem="r0E-67-9en" secondAttribute="trailing" id="ubJ-b2-xYF"/>
                             <constraint firstItem="r0E-67-9en" firstAttribute="leading" secondItem="aMG-pA-Jwc" secondAttribute="leading" id="xaU-re-E2Q"/>
                         </constraints>
@@ -6278,10 +6281,10 @@
                                 <exclude reference="r0E-67-9en"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="7hC-3O-LgI"/>
+                                <exclude reference="CaQ-ZC-YXk"/>
                                 <exclude reference="cf9-qT-mXn"/>
-                                <exclude reference="oWZ-08-PiO"/>
-                                <exclude reference="qOJ-s6-5fx"/>
+                                <exclude reference="gOZ-pI-M85"/>
+                                <exclude reference="q5u-IQ-gLB"/>
                                 <exclude reference="KQK-4V-iQ6"/>
                                 <exclude reference="ubJ-b2-xYF"/>
                                 <exclude reference="xaU-re-E2Q"/>
@@ -6293,10 +6296,10 @@
                                 <include reference="r0E-67-9en"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="7hC-3O-LgI"/>
+                                <include reference="CaQ-ZC-YXk"/>
                                 <include reference="cf9-qT-mXn"/>
-                                <include reference="oWZ-08-PiO"/>
-                                <include reference="qOJ-s6-5fx"/>
+                                <include reference="gOZ-pI-M85"/>
+                                <include reference="q5u-IQ-gLB"/>
                                 <include reference="KQK-4V-iQ6"/>
                                 <include reference="ubJ-b2-xYF"/>
                                 <include reference="xaU-re-E2Q"/>
@@ -6753,6 +6756,6 @@
         <image name="yuyue" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xqu-rw-6QW"/>
+        <segue reference="pZt-30-N7c"/>
     </inferredMetricsTieBreakers>
 </document>

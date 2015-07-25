@@ -61,6 +61,7 @@
                                           
                                           if (success) {
                                               [self saveUserPhoneNum:self.phoneNumField.text];
+                                              [self.getButton setTitle:@"重新领取" forState: UIControlStateNormal];
                                               [self showCustomTextAlert:@"亲，优惠劵已用短信发送到您的手机，请注意查收。"];
                                           }
                                           else {

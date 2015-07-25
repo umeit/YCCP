@@ -453,12 +453,12 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 142.f;
         }
     }
-    else if (iPhone6Plus) {
+    else if (iPhone6Plus || iPhone6Plus_Simulator) {
         if (indexPath.row == Banner_Row_Index) {
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 250.f;
+            return 276.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 240.f : 416.f;
