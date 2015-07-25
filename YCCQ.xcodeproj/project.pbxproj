@@ -1483,7 +1483,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
 			};
 			name = Debug;
 		};
@@ -1514,7 +1514,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
 			};
 			name = Release;
 		};
