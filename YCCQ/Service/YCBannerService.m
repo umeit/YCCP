@@ -21,7 +21,7 @@
 
 - (void)bannersWithBlock:(BannerBlock)block
 {
-    [[YCYouCheHTTPClient httpClient] GET:@"app/banner"
+    [[YCYouCheHTTPClient httpClient] GET:@"app/banner?type=3"
                               parameters:nil
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      NSNumber *ret = [responseObject objectForKey:@"ret"];
