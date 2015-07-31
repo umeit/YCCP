@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>YCCPTodyExtenstion.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>YCCPkit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>YCCQ.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,21 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0342D78B1B6760CD004BA466</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0342D7A71B67912C004BA466</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0342D7B11B67912C004BA466</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>03952DD21B05CA120055D36B</key>
 		<dict>
 			<key>primary</key>

@@ -34,6 +34,20 @@
                ReferencedContainer = "container:YCCQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0342D7B11B67912C004BA466"
+               BuildableName = "YCCPkitTests.xctest"
+               BlueprintName = "YCCPkitTests"
+               ReferencedContainer = "container:YCCQ.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "03952DEE1B05CA130055D36B"
                BuildableName = "YCCQTests.xctest"
                BlueprintName = "YCCQTests"
+               ReferencedContainer = "container:YCCQ.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0342D7B11B67912C004BA466"
+               BuildableName = "YCCPkitTests.xctest"
+               BlueprintName = "YCCPkitTests"
                ReferencedContainer = "container:YCCQ.xcodeproj">
             </BuildableReference>
          </TestableReference>
