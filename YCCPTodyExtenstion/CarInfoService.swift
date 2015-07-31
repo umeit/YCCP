@@ -29,6 +29,7 @@ class CarInfoService {
                     }
                     if let price = baokuanDic["salePrice"] as? Float {
                         baokuan.price = String(format:"%.2f", price)
+                        baokuan.price = baokuan.price[count(baokuan.price)-2, count(baokuan.price)-1]
                     }
                     baokuanInfoList.append(baokuan)
                 }
