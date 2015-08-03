@@ -16,20 +16,20 @@ class CarInfoService {
             print(JSON)
             var baokuanInfoList = [BaoKuanCarInfo]()
             if let baokuanList: [[String: AnyObject]] = JSON?.objectForKey("baokuandata") as? [[String: AnyObject]] {
-                for baokuanDic in baokuanList {
+                for baokuanJSON in baokuanList {
+                    
                     let baokuan = BaoKuanCarInfo()
-                    if let carName = baokuanDic["carName"] as? String {
+                    if let carName = baokuanJSON["carName"] as? String {
                         baokuan.carName = carName
                     }
-                    if let pic = baokuanDic["firstPic"] as? String {
+                    if let pic = baokuanJSON["firstPic"] as? String {
                         baokuan.pic = pic
                     }
-                    if let id = baokuanDic["id"] as? Int {
+                    if let id = baokuanJSON["id"] as? Int {
                         baokuan.id = id
                     }
-                    if let price = baokuanDic["salePrice"] as? Float {
-                        baokuan.price = String(format:"%.2f", price)
-                        baokuan.price = baokuan.price[count(baokuan.price)-2, count(baokuan.price)-1]
+                    if let price = baokuanJSON["salePrice"] as? Float {
+                        baokuan.price = price.description
                     }
                     baokuanInfoList.append(baokuan)
                 }

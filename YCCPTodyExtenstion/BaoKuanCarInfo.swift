@@ -12,5 +12,5 @@ class BaoKuanCarInfo {
     var carName: String?
     var pic: String?
     var id: Int?
-    var price: String?
+    var price: String = ""
 }
