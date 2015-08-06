@@ -6,17 +6,15 @@
 //  Copyright (c) 2015年 Baisika. All rights reserved.
 //
 
-import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var carNameLabel: UILabel!
-    
     var currentIndex: Int = 0
-    
     var baokuanCarInfoList: [BaoKuanCarInfo]?
     
+    // MARK: - Override
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +46,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 
+    // MARK: - Privatre
     private func showBaokuanCarInfoWithCurrentIndex() {
         if let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
             let imageURLStr = "http://file.youche.com/_100_100" + baokuanCarInfo.pic!
@@ -59,6 +58,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     
+    
+    // MARK: - Action
     @IBAction func nextButtonPress(sender: AnyObject) {
         if let carInfoListCount = self.baokuanCarInfoList?.count {
             if currentIndex + 1 < carInfoListCount {
