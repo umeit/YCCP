@@ -1801,6 +1801,7 @@
 				0342D79B1B6760CD004BA466 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03952DCE1B05CA120055D36B /* Build configuration list for PBXProject "YCCQ" */ = {
 			isa = XCConfigurationList;

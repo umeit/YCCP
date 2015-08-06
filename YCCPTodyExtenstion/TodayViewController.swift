@@ -11,12 +11,28 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var carImageView: UIImageView!
-        
+    @IBOutlet weak var carNameLabel: UILabel!
+    
+    var currentIndex: Int!
+    
+    var baokuanCarInfoList: [BaoKuanCarInfo]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.currentIndex = 0;
+        
         CarInfoService.baoKuanCarList({(list: [BaoKuanCarInfo]) in
-            print(list)
+            self.baokuanCarInfoList = list
+            
+            // 显示第一张图片
+            self.showBaokuanCarInfoWithCurrentIndex()
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,11 +50,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 
+    private func showBaokuanCarInfoWithCurrentIndex() {
+        if let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
+            let imageURLStr = "http://file.youche.com/_100_100" + baokuanCarInfo.pic!
+            let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!)
+            var image = UIImage(data: data!)
+            self.carImageView.image = image
+            self.carNameLabel.text = baokuanCarInfo.carName
+        }
+    }
+    
+    
     @IBAction func nextButtonPress(sender: AnyObject) {
-        
+        self.currentIndex!++
+        if currentIndex >= self.baokuanCarInfoList?.count {
+            self.currentIndex = 0
+        }
+        self.showBaokuanCarInfoWithCurrentIndex()
     }
 
     @IBAction func prevButtonPress(sender: AnyObject) {
-        
+        self.currentIndex!--
+        if currentIndex <= 0 {
+            self.currentIndex = self.baokuanCarInfoList!.count - 1
+        }
     }
 }
