@@ -13,14 +13,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var carNameLabel: UILabel!
     
-    var currentIndex: Int!
+    var currentIndex: Int = 0
     
     var baokuanCarInfoList: [BaoKuanCarInfo]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.currentIndex = 0;
         
         CarInfoService.baoKuanCarList({(list: [BaoKuanCarInfo]) in
             self.baokuanCarInfoList = list
@@ -62,17 +60,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     @IBAction func nextButtonPress(sender: AnyObject) {
-        self.currentIndex!++
-        if currentIndex >= self.baokuanCarInfoList?.count {
-            self.currentIndex = 0
+        if let carInfoListCount = self.baokuanCarInfoList?.count {
+            if currentIndex + 1 < carInfoListCount {
+                self.currentIndex++
+            }
+            else {
+                self.currentIndex = 0
+            }
+            self.showBaokuanCarInfoWithCurrentIndex()
         }
-        self.showBaokuanCarInfoWithCurrentIndex()
     }
 
     @IBAction func prevButtonPress(sender: AnyObject) {
-        self.currentIndex!--
-        if currentIndex <= 0 {
-            self.currentIndex = self.baokuanCarInfoList!.count - 1
+        if let carInfoListCount = self.baokuanCarInfoList?.count {
+            if self.currentIndex - 1 >= 0 {
+                self.currentIndex--
+            }
+            else {
+                self.currentIndex = carInfoListCount - 1
+            }
+            self.showBaokuanCarInfoWithCurrentIndex()
         }
     }
 }
