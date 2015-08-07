@@ -15,7 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *bannerScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *bannerPageControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *baokuanCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *functionCollectionView;
 
 @property (strong, nonatomic) YCCarService *carService;
 @property (strong, nonatomic) YCBannerService *bannerService;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *functionScrolViewConstraintWidth;
+@property (weak, nonatomic) IBOutlet UIView *functionScrollViewContentView;
 @end

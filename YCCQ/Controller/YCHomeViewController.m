@@ -9,9 +9,11 @@
 #import "YCHomeViewController.h"
 #import "YCBannerService.h"
 #import "YCBaoKuanCollectionViewCell.h"
+#import "YCFunctionCollectionViewCell.h"
 #import "YCCarService.h"
 #import "YCBaoKuanEntity.h"
 #import "YCBannerEntity.h"
+#import "YCFunctionEntity.h"
 #import "AppKeFuLib.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIButton+AFNetworking.h"
@@ -27,10 +29,12 @@
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
-#define Baokuan_Row_Index   2
-#define CarType_Row_Index   3
-#define CarBrand_Row_Index  4
-#define CarPrice_Row_Index  5
+#define Function_Row_New_Index 2
+#define Function_Row_New_V2_Index 3
+#define Baokuan_Row_Index   4
+#define CarType_Row_Index   5
+#define CarBrand_Row_Index  6
+#define CarPrice_Row_Index  7
 
 #define PageIndex @"Home"
 
@@ -64,18 +68,20 @@
     
     [self setBanner];
     [self setBaokuan];
+    
+    self.functionCollectionView.contentSize = CGSizeMake(CGRectGetWidth(self.functionCollectionView.frame) * 3,
+                                                         CGRectGetHeight(self.functionCollectionView.frame));
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [MobClick beginLogPageView:PageIndex];
+    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [MobClick endLogPageView:PageIndex];
-    
     [super viewWillDisappear:animated];
+    [MobClick endLogPageView:PageIndex];
 }
 
 
@@ -181,6 +187,11 @@
 
 #pragma mark - Private
 
+- (YCFunctionEntity *)functionEntityWithIndexPath:(NSIndexPath *)indexPath {
+    return [[YCFunctionEntity alloc] initWithImageName:@"woyaomaiche" labelText:@"我要买车"];
+}
+
+
 - (void)call:(NSString *)tel
 {
     NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
@@ -224,6 +235,21 @@
         [self.tableView reloadData];
         [self.baokuanCollectionView reloadData];
     }];
+}
+
+
+#pragma mark - Configrue Cell
+
+- (void)configrueFunctionCell:(YCFunctionCollectionViewCell *)functionCell withEntity:(YCFunctionEntity *)entity {
+    functionCell.functionImageView.image = [UIImage imageNamed:entity.imageName];
+    functionCell.functionLabel.text = entity.labelText;
+}
+
+- (void)configrueBaoKuanCell:(YCBaoKuanCollectionViewCell *)cell entity:(YCBaoKuanEntity *)entity
+{
+    [cell.carImageView setImageWithURL:entity.imageURL];
+    cell.carSeriesLabel.text = entity.series;
+    cell.carPriceLabel.text = entity.price;
 }
 
 
@@ -320,36 +346,53 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+//    if (collectionView == self.functionCollectionView) {
+//        return 2;
+//    }
+//    else if (collectionView == self.baokuanCollectionView) {
+//        return 1;
+//    }
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.baokuans.count;
+    if (collectionView == self.functionCollectionView) {
+        return 32;
+    }
+    else if (collectionView == self.baokuanCollectionView) {
+        return self.baokuans.count;
+    }
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *collectionCellID = @"BaoKuaiCell";
-    YCBaoKuanCollectionViewCell *cell = (YCBaoKuanCollectionViewCell *)
-    [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
-    
-    if (indexPath.row == self.baokuans.count) {
+    if (collectionView == self.baokuanCollectionView) {
+        static NSString *collectionCellID = @"BaoKuaiCell";
+        
+        YCBaoKuanCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+        
+        if (indexPath.row == self.baokuans.count) {
+            return cell;
+        }
+        
+        YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
+        
+        [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
         return cell;
     }
-    
-    YCBaoKuanEntity *baoKuanEntity = self.baokuans[indexPath.row];
-    
-    [self  configrueBaoKuanCell:cell entity:baoKuanEntity];
-    return cell;
+    else if (collectionView == self.functionCollectionView) {
+        static NSString *functionCellID   = @"FunctionCell";
+        YCFunctionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:functionCellID forIndexPath:indexPath];
+        YCFunctionEntity *functionEntity = [self functionEntityWithIndexPath:indexPath];
+        
+        [self configrueFunctionCell:cell withEntity:functionEntity];
+        return cell;
+    }
+    return nil;
 }
 
-- (void)configrueBaoKuanCell:(YCBaoKuanCollectionViewCell *)cell entity:(YCBaoKuanEntity *)entity
-{
-    [cell.carImageView setImageWithURL:entity.imageURL];
-    cell.carSeriesLabel.text = entity.series;
-    cell.carPriceLabel.text = entity.price;
-}
 
 #pragma mark - UICollectionViewDelegate
 
@@ -370,19 +413,30 @@
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (iPhone6) {
-        return CGSizeMake(170, 170);
+    if (collectionView == self.baokuanCollectionView) {  // 爆款
+        if (iPhone6) {
+            return CGSizeMake(170, 170);
+        }
+        else if (iPhone6Plus || iPhone6Plus_Simulator) {
+            return CGSizeMake(174, 180);
+        }
+        else {
+            return CGSizeMake(150, 150);
+        }
     }
-    else if (iPhone6Plus_Simulator) {
-        return CGSizeMake(190, 180);
+    else if (collectionView == self.functionCollectionView) {  // 功能按钮
+        if (iPhone6) {
+            return CGSizeMake(78, 78);
+        }
+        else if (iPhone6Plus || iPhone6Plus_Simulator) {
+            return CGSizeMake(78, 78);
+        }
+        else {
+            return CGSizeMake(78, 78);
+        }
     }
-    else if (iPhone6Plus) {
-        return CGSizeMake(174, 180);
-    }
-    else {
-        return CGSizeMake(150, 150);
-    }
-    return CGSizeMake(150, 160);
+    
+    return CGSizeMake(0, 0);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
@@ -419,6 +473,12 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         if (indexPath.row == Function_Row_Index) {
             return 250.f;
         }
+        if (indexPath.row == Function_Row_New_Index) {
+            return 138.f;
+        }
+        if (indexPath.row == Function_Row_New_V2_Index) {
+            return 208.f;
+        }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 234.f : 410.f;
         }
@@ -439,6 +499,12 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         if (indexPath.row == Function_Row_Index) {
             return 276.f;
         }
+        if (indexPath.row == Function_Row_New_Index) {
+            return 138.f;
+        }
+        if (indexPath.row == Function_Row_New_V2_Index) {
+            return 168.f;
+        }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 240.f : 416.f;
         }
@@ -452,12 +518,18 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
     }
-    else {
+    else { // iPhone 4/5
         if (indexPath.row == Banner_Row_Index) {
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
             return 214.f;
+        }
+        if (indexPath.row == Function_Row_New_Index) {
+            return 138.f;
+        }
+        if (indexPath.row == Function_Row_New_V2_Index) {
+            return 138.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 210 : 374.f;
@@ -486,6 +558,17 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
     [controllers setObject:carListViewController atIndexedSubscript:1];
     [self.navigationController setViewControllers:controllers];
+}
+
+//- (void)updateViewConstraints
+//{
+//    [super updateViewConstraints];
+//    self.functionScrolViewConstraintWidth.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
+//}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.functionScrolViewConstraintWidth.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
 }
 
 @end

@@ -156,6 +156,8 @@
 		03D751AF1B39592200AAA71C /* YCOilPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D751AE1B39592200AAA71C /* YCOilPriceViewController.m */; };
 		03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B251B1706060021E43E /* YCCarListViewController.m */; };
 		03DB7B291B1709170021E43E /* YCFilterKeyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DB7B281B1709170021E43E /* YCFilterKeyUtil.m */; };
+		03E4CB381B74B67D00218C2F /* YCFunctionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E4CB371B74B67D00218C2F /* YCFunctionCollectionViewCell.m */; };
+		03E4CB3B1B74BCA100218C2F /* YCFunctionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E4CB3A1B74BCA100218C2F /* YCFunctionEntity.m */; };
 		03EA57931B50FF4A006BDBAB /* YCBaokuanRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EA57921B50FF4A006BDBAB /* YCBaokuanRowCell.m */; };
 		03EA57961B50FFEF006BDBAB /* YCBaokuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EA57951B50FFEF006BDBAB /* YCBaokuanTableViewController.m */; };
 		03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */; };
@@ -440,6 +442,10 @@
 		03DB7B251B1706060021E43E /* YCCarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarListViewController.m; sourceTree = "<group>"; };
 		03DB7B271B1709170021E43E /* YCFilterKeyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterKeyUtil.h; sourceTree = "<group>"; };
 		03DB7B281B1709170021E43E /* YCFilterKeyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFilterKeyUtil.m; sourceTree = "<group>"; };
+		03E4CB361B74B67D00218C2F /* YCFunctionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFunctionCollectionViewCell.h; sourceTree = "<group>"; };
+		03E4CB371B74B67D00218C2F /* YCFunctionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFunctionCollectionViewCell.m; sourceTree = "<group>"; };
+		03E4CB391B74BCA100218C2F /* YCFunctionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFunctionEntity.h; sourceTree = "<group>"; };
+		03E4CB3A1B74BCA100218C2F /* YCFunctionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFunctionEntity.m; sourceTree = "<group>"; };
 		03EA57911B50FF4A006BDBAB /* YCBaokuanRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBaokuanRowCell.h; sourceTree = "<group>"; };
 		03EA57921B50FF4A006BDBAB /* YCBaokuanRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBaokuanRowCell.m; sourceTree = "<group>"; };
 		03EA57941B50FFEF006BDBAB /* YCBaokuanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBaokuanTableViewController.h; sourceTree = "<group>"; };
@@ -611,6 +617,8 @@
 				0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */,
 				03EA57911B50FF4A006BDBAB /* YCBaokuanRowCell.h */,
 				03EA57921B50FF4A006BDBAB /* YCBaokuanRowCell.m */,
+				03E4CB361B74B67D00218C2F /* YCFunctionCollectionViewCell.h */,
+				03E4CB371B74B67D00218C2F /* YCFunctionCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -626,6 +634,8 @@
 				03EBD2E61B14680E004DD5E3 /* YCAftermarketEntity.m */,
 				0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */,
 				0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */,
+				03E4CB391B74BCA100218C2F /* YCFunctionEntity.h */,
+				03E4CB3A1B74BCA100218C2F /* YCFunctionEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1497,6 +1507,7 @@
 				03EE9F331B12FCF40051CC57 /* UIImageView+AFNetworking.m in Sources */,
 				03EE9F141B12FC260051CC57 /* AFHTTPSessionManager.m in Sources */,
 				03F3F7791B32ACC40033C1A5 /* UMPostTableViewCell.m in Sources */,
+				03E4CB3B1B74BCA100218C2F /* YCFunctionEntity.m in Sources */,
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */,
@@ -1507,6 +1518,7 @@
 				03EE9F161B12FC260051CC57 /* AFSecurityPolicy.m in Sources */,
 				038F5AA61B3BD73100BA03CE /* YCLimitDriveEditViewController.m in Sources */,
 				03EBD2E41B1465A9004DD5E3 /* YCAftermarketTableViewController.m in Sources */,
+				03E4CB381B74B67D00218C2F /* YCFunctionCollectionViewCell.m in Sources */,
 				030A75A21B0B4211008753C8 /* YCCarService.m in Sources */,
 				0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */,
 				03A236B21B3026C80009F47A /* YCToolListViewController.m in Sources */,
