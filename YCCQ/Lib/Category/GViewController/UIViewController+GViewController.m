@@ -174,8 +174,14 @@ NSUInteger DeviceSystemMajorVersion()
 
 - (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title
 {
+    [self pushViewControllerWithStoryBoardID:viewControllerID title:title HideBottonBar:NO];
+}
+
+- (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title HideBottonBar:(BOOL)b
+{
     UIViewController *vc = [self controllerWithStoryBoardID:viewControllerID];
     vc.navigationItem.title = title;
+    vc.hidesBottomBarWhenPushed = b;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

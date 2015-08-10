@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *bannerPageControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *baokuanCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *functionCollectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *functionPageControl;
 
 @property (strong, nonatomic) YCCarService *carService;
 @property (strong, nonatomic) YCBannerService *bannerService;

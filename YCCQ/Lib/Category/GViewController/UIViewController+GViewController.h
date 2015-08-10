@@ -45,6 +45,8 @@
 
 - (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title;
 
+- (void)pushViewControllerWithStoryBoardID:(NSString *)viewControllerID title:(NSString *)title HideBottonBar:(BOOL)b;
+
 NSUInteger DeviceSystemMajorVersion();
 
 @end

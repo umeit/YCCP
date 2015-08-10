@@ -28,13 +28,11 @@
 #import "YCBaokuanTableViewController.h"
 
 #define Banner_Row_Index    0
-#define Function_Row_Index  1
-#define Function_Row_New_Index 2
-#define Function_Row_New_V2_Index 3
-#define Baokuan_Row_Index   4
-#define CarType_Row_Index   5
-#define CarBrand_Row_Index  6
-#define CarPrice_Row_Index  7
+#define Function_Row_Index 1
+#define Baokuan_Row_Index   2
+#define CarType_Row_Index   3
+#define CarBrand_Row_Index  4
+#define CarPrice_Row_Index  5
 
 #define PageIndex @"Home"
 
@@ -188,7 +186,60 @@
 #pragma mark - Private
 
 - (YCFunctionEntity *)functionEntityWithIndexPath:(NSIndexPath *)indexPath {
-    return [[YCFunctionEntity alloc] initWithImageName:@"woyaomaiche" labelText:@"我要买车"];
+    YCFunctionEntity *functionEntity = nil;
+    switch (indexPath.row) {
+        case 0:  // 我要买车
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"woyaomaiche" labelText:@"我要买车"];
+            break;
+        case 1:  // 道路救援
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"jiuyuan" labelText:@"道路救援"];
+            break;
+        case 2:  // 用车急问
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"yongche" labelText:@"用车急问"];
+            break;
+        case 3:  // 卖车咨询
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"maiche1" labelText:@"卖车咨询"];
+            break;
+        case 4:  // 维修咨询
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"weixiu" labelText:@"维修咨询"];
+            break;
+        case 5:  // 车辆评估
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"pinggu" labelText:@"车辆评估"];
+            break;
+        case 6:  // 事故咨询
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"shigu" labelText:@"事故咨询"];
+            break;
+        case 7:  // 门店地址
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"jiuyuan" labelText:@"门店地址"];
+            break;
+        case 8:  // 代办车险
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"chexian" labelText:@"代办车险"];
+            break;
+        case 9:  // 预约咨询
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"yuyue" labelText:@"预约咨询"];
+            break;
+        case 10:  // 今日油价
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"youjia" labelText:@"今日油价"];
+            break;
+        case 11:  // 预约检测
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"jiance" labelText:@"预约检测"];
+            break;
+        case 12:  // 上门收车
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"shangmen" labelText:@"上门收车"];
+            break;
+        case 13:  // 售后咨询
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"shouhou" labelText:@"售后咨询"];
+            break;
+        case 14:  // 延保服务
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"yanbao" labelText:@"延保服务"];
+            break;
+        case 15:  // 全部工具
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"alltools" labelText:@"全部工具"];
+            break;
+        default:
+            break;
+    }
+    return functionEntity;
 }
 
 
@@ -338,7 +389,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger pageIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
-    self.bannerPageControl.currentPage = pageIndex;
+    if (scrollView == self.bannerScrollView) {
+        self.bannerPageControl.currentPage = pageIndex;
+    }
+    else if (scrollView == self.functionCollectionView) {
+        self.functionPageControl.currentPage = pageIndex;
+    }
 }
 
 
@@ -346,19 +402,13 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-//    if (collectionView == self.functionCollectionView) {
-//        return 2;
-//    }
-//    else if (collectionView == self.baokuanCollectionView) {
-//        return 1;
-//    }
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView == self.functionCollectionView) {
-        return 32;
+        return 16;
     }
     else if (collectionView == self.baokuanCollectionView) {
         return self.baokuans.count;
@@ -398,11 +448,68 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    YCBaoKuanEntity *baokuan = self.baokuans[indexPath.row];
-    if (baokuan) {
-        NSString *carURL = [NSString stringWithFormat:@"%@?t=app", [baokuan.linkURL stringByReplacingOccurrencesOfString:@"www"
-                                                                                                              withString:@"m"]];
-        [self toWebViewWithURL:carURL controllerTitle:@"车辆详情"];
+    if (collectionView == self.baokuanCollectionView) {
+        YCBaoKuanEntity *baokuan = self.baokuans[indexPath.row];
+        if (baokuan) {
+            NSString *carURL = [NSString stringWithFormat:@"%@?t=app", [baokuan.linkURL stringByReplacingOccurrencesOfString:@"www"
+                                                                                                                  withString:@"m"]];
+            [self toWebViewWithURL:carURL controllerTitle:@"车辆详情"];
+        }
+    }
+    else if (collectionView == self.functionCollectionView) {
+        switch (indexPath.row) {
+            case 0:  // 我要买车
+                [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
+                break;
+            case 1:  // 道路救援
+                [self call:@"400-835-6650"];
+                break;
+            case 2:  // 用车急问
+                [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
+                break;
+            case 3:  // 卖车咨询
+                [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
+                break;
+            case 4:  // 维修咨询
+                [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
+                break;
+            case 5:  // 车辆评估
+                [self toEvaluateCar];
+                break;
+            case 6:  // 事故咨询
+                [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
+                break;
+            case 7:  // 门店地址
+                
+                break;
+            case 8:  // 代办车险
+                [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险"];
+                break;
+            case 9:  // 预约咨询
+                [self call:@"13718233424"];
+                break;
+            case 10:  // 今日油价
+                [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
+                break;
+            case 11:  // 预约检测
+                [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app" controllerTitle:@"预约检测"];
+                break;
+            case 12:  // 上门收车
+                [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app" controllerTitle:@"上门收车"];
+                break;
+            case 13:  // 售后咨询
+                [self toConsultationViewControllerWithWorkgroup:@"aftersales" title:@"售后咨询"];
+                break;
+            case 14:  // 延保服务
+                [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
+                       controllerTitle:@"延保服务"];
+                break;
+            case 15:  // 全部工具
+                [self pushViewControllerWithStoryBoardID:@"YCToolListViewController" title:@"工具列表" HideBottonBar:YES];
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -426,7 +533,7 @@
     }
     else if (collectionView == self.functionCollectionView) {  // 功能按钮
         if (iPhone6) {
-            return CGSizeMake(78, 78);
+            return CGSizeMake(76, 70);
         }
         else if (iPhone6Plus || iPhone6Plus_Simulator) {
             return CGSizeMake(78, 78);
@@ -443,7 +550,10 @@
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(8, 8, 8, 8);
+//    if (collectionView == self.functionCollectionView) {
+//        return UIEdgeInsetsMake(10, 10, 10, 10);
+//    }
+    return UIEdgeInsetsMake(8, 8, 12, 8);
 }
 
 
@@ -451,6 +561,9 @@
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
+    if (collectionView == self.functionCollectionView) {
+        return 4.f;
+    }
     return 0.f;
 }
 
@@ -458,7 +571,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 10.f;
+    return 16.f;
 }
 
 
@@ -471,13 +584,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 250.f;
-        }
-        if (indexPath.row == Function_Row_New_Index) {
-            return 138.f;
-        }
-        if (indexPath.row == Function_Row_New_V2_Index) {
-            return 208.f;
+            return 164.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 234.f : 410.f;
@@ -497,12 +604,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 276.f;
-        }
-        if (indexPath.row == Function_Row_New_Index) {
-            return 138.f;
-        }
-        if (indexPath.row == Function_Row_New_V2_Index) {
             return 168.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
@@ -523,12 +624,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 214.f;
-        }
-        if (indexPath.row == Function_Row_New_Index) {
-            return 138.f;
-        }
-        if (indexPath.row == Function_Row_New_V2_Index) {
             return 138.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
