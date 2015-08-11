@@ -393,6 +393,7 @@
         self.bannerPageControl.currentPage = pageIndex;
     }
     else if (scrollView == self.functionCollectionView) {
+        NSInteger pageIndex = scrollView.contentOffset.x / (CGRectGetWidth(scrollView.frame) - 16);
         self.functionPageControl.currentPage = pageIndex;
     }
 }
@@ -539,7 +540,7 @@
             return CGSizeMake(78, 78);
         }
         else {
-            return CGSizeMake(78, 78);
+            return CGSizeMake(64, 63);
         }
     }
     
@@ -584,7 +585,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 164.f;
+            return 248.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 234.f : 410.f;
@@ -604,7 +605,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 170.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 168.f;
+            return 248.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 240.f : 416.f;
@@ -624,7 +625,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 138.f;
+            return 238.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 210 : 374.f;
@@ -654,12 +655,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [controllers setObject:carListViewController atIndexedSubscript:1];
     [self.navigationController setViewControllers:controllers];
 }
-
-//- (void)updateViewConstraints
-//{
-//    [super updateViewConstraints];
-//    self.functionScrolViewConstraintWidth.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
-//}
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
