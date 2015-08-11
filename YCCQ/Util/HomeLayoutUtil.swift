@@ -8,16 +8,16 @@
 
 import Foundation
 
-class HomeLayoutUtil {
+class HomeLayoutUtil : NSObject {
     
-    let Banner_Row_Index   = 0
-    let Function_Row_Index = 1
-    let Baokuan_Row_Index  = 2
-    let CarType_Row_Index  = 3
-    let CarBrand_Row_Index = 4
-    let CarPrice_Row_Index = 5
+    static let Banner_Row_Index   = 0
+    static let Function_Row_Index = 1
+    static let Baokuan_Row_Index  = 2
+    static let CarType_Row_Index  = 3
+    static let CarBrand_Row_Index = 4
+    static let CarPrice_Row_Index = 5
     
-    func homeTableRowHightWithIndexPath(indexPath: NSIndexPath, baokuanCount: Int) -> Float {
+    class func homeTableRowHightWithIndexPath(indexPath: NSIndexPath, baokuanCount: Int) -> Float {
         if iPhone6 {
             switch indexPath.row {
             case Banner_Row_Index:
@@ -33,9 +33,44 @@ class HomeLayoutUtil {
             case CarPrice_Row_Index:
                 return 142
             default:
-                print("")
+                return 0
             }
         }
-        return 0
+        else if iPhone6Plus {
+            switch indexPath.row {
+            case Banner_Row_Index:
+                return 170
+            case Function_Row_Index:
+                return 248
+            case Baokuan_Row_Index:
+                return baokuanCount < 4 ? 240 : 416
+            case CarType_Row_Index:
+                return 122
+            case CarBrand_Row_Index:
+                return 200
+            case CarPrice_Row_Index:
+                return 150
+            default:
+                return 0
+            }
+        }
+        else {
+            switch indexPath.row {
+            case Banner_Row_Index:
+                return 150
+            case Function_Row_Index:
+                return 228
+            case Baokuan_Row_Index:
+                return baokuanCount < 4 ? 210 : 374
+            case CarType_Row_Index:
+                return 122
+            case CarBrand_Row_Index:
+                return 200
+            case CarPrice_Row_Index:
+                return 142
+            default:
+                return 0
+            }
+        }
     }
 }

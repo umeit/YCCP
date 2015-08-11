@@ -130,8 +130,8 @@
 		035F60D71B5E35B300868728 /* ug_750-1334-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 035F60D61B5E35B200868728 /* ug_750-1334-2@2x.png */; };
 		0362E7791B3140600010EC48 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E7781B3140600010EC48 /* libz.dylib */; };
 		0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */; };
-		036BCB8A1B79A64F00AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */; };
-		036BCB8C1B79D43B00AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */; };
+		036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */; };
+		036BCB971B79EFB000AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB951B79EFB000AF84E6 /* SystemUtil.swift */; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
@@ -396,9 +396,9 @@
 		0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		0362E77C1B31407C0010EC48 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		0362E77D1B31407C0010EC48 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
-		036BCB881B79A64E00AF84E6 /* YCCQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCCQ-Bridging-Header.h"; sourceTree = "<group>"; };
-		036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLayoutUtil.swift; sourceTree = "<group>"; };
-		036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtil.swift; sourceTree = "<group>"; };
+		036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLayoutUtil.swift; sourceTree = "<group>"; };
+		036BCB951B79EFB000AF84E6 /* SystemUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtil.swift; sourceTree = "<group>"; };
+		036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCCQ-Bridging-Header.h.h"; sourceTree = "<group>"; };
 		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
@@ -1136,6 +1136,8 @@
 		03EE9F461B1339A70051CC57 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */,
+				036BCB951B79EFB000AF84E6 /* SystemUtil.swift */,
 				03EE9F471B1339A70051CC57 /* UtilDefine.h */,
 				03C64BB91B15D50D00848FCD /* YCNetUtil.h */,
 				03C64BBA1B15D50D00848FCD /* YCNetUtil.m */,
@@ -1143,9 +1145,7 @@
 				03DB7B281B1709170021E43E /* YCFilterKeyUtil.m */,
 				03EBA69B1B3A5DB100F2F3BF /* YCUserUtil.h */,
 				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
-				036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */,
-				036BCB881B79A64E00AF84E6 /* YCCQ-Bridging-Header.h */,
-				036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */,
+				036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1531,7 +1531,7 @@
 				0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */,
 				03A236B21B3026C80009F47A /* YCToolListViewController.m in Sources */,
 				03EE9F181B12FC260051CC57 /* AFURLRequestSerialization.m in Sources */,
-				036BCB8A1B79A64F00AF84E6 /* HomeLayoutUtil.swift in Sources */,
+				036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */,
 				03EE9F151B12FC260051CC57 /* AFNetworkReachabilityManager.m in Sources */,
 				03EE9F361B12FCF40051CC57 /* UIWebView+AFNetworking.m in Sources */,
 				0310343C1B623DC4005AE18A /* YCUserService.m in Sources */,
@@ -1543,7 +1543,7 @@
 				03EE9F191B12FC260051CC57 /* AFURLResponseSerialization.m in Sources */,
 				030A75971B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.m in Sources */,
 				03F3F7771B32ACC40033C1A5 /* UMChatToolBar.m in Sources */,
-				036BCB8C1B79D43B00AF84E6 /* SystemUtil.swift in Sources */,
+				036BCB971B79EFB000AF84E6 /* SystemUtil.swift in Sources */,
 				03D751A71B39328D00AAA71C /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1746,7 +1746,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
-				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1780,7 +1780,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2402d601-8cff-4c9b-b8fc-6c893cf1d8b6";
-				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 			};
 			name = Release;
 		};

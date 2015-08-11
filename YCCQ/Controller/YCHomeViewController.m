@@ -26,6 +26,7 @@
 #import "MobClick.h"
 #import "YCBrandTableViewController.h"
 #import "YCBaokuanTableViewController.h"
+#import "YCCQ-Swift.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index 1
@@ -578,8 +579,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 #pragma mark - Table View Delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [HomeLayoutUtil homeTableRowHightWithIndexPath:indexPath baokuanCount:self.baokuans.count];
+    
     if (iPhone6) {
         if (indexPath.row == Banner_Row_Index) {
             return 170.f;
