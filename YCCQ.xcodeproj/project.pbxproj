@@ -131,6 +131,7 @@
 		0362E7791B3140600010EC48 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E7781B3140600010EC48 /* libz.dylib */; };
 		0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */; };
 		036BCB8A1B79A64F00AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */; };
+		036BCB8C1B79D43B00AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
@@ -397,6 +398,7 @@
 		0362E77D1B31407C0010EC48 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		036BCB881B79A64E00AF84E6 /* YCCQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCCQ-Bridging-Header.h"; sourceTree = "<group>"; };
 		036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLayoutUtil.swift; sourceTree = "<group>"; };
+		036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtil.swift; sourceTree = "<group>"; };
 		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
@@ -1143,6 +1145,7 @@
 				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
 				036BCB891B79A64F00AF84E6 /* HomeLayoutUtil.swift */,
 				036BCB881B79A64E00AF84E6 /* YCCQ-Bridging-Header.h */,
+				036BCB8B1B79D43B00AF84E6 /* SystemUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1540,6 +1543,7 @@
 				03EE9F191B12FC260051CC57 /* AFURLResponseSerialization.m in Sources */,
 				030A75971B0B3E53008753C8 /* YCBaoKuanCollectionViewCell.m in Sources */,
 				03F3F7771B32ACC40033C1A5 /* UMChatToolBar.m in Sources */,
+				036BCB8C1B79D43B00AF84E6 /* SystemUtil.swift in Sources */,
 				03D751A71B39328D00AAA71C /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

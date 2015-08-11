@@ -246,17 +246,17 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="oH2-FG-1Uh" secondAttribute="bottom" constant="4" id="drX-jR-c9o">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
-                                                <constraint firstAttribute="trailingMargin" secondItem="WlB-hP-22U" secondAttribute="trailing" constant="10" id="f8x-b4-v9e">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                                <constraint firstAttribute="trailing" secondItem="WlB-hP-22U" secondAttribute="trailing" constant="10" id="f8x-b4-v9e">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
                                                 <constraint firstAttribute="bottom" secondItem="Toj-3E-lQk" secondAttribute="bottom" constant="8" id="jIl-8B-hCV">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="72"/>
                                                 </constraint>
                                                 <constraint firstItem="WlB-hP-22U" firstAttribute="leading" secondItem="oH2-FG-1Uh" secondAttribute="trailing" constant="20" id="k7V-x8-GdJ">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                                                 </constraint>
-                                                <constraint firstItem="oH2-FG-1Uh" firstAttribute="leading" secondItem="t8Z-i9-IWr" secondAttribute="leadingMargin" constant="10" id="lUl-qR-lEb">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                                <constraint firstItem="oH2-FG-1Uh" firstAttribute="leading" secondItem="t8Z-i9-IWr" secondAttribute="leading" constant="10" id="lUl-qR-lEb">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
                                                 <constraint firstAttribute="bottom" secondItem="P8O-fo-2Wg" secondAttribute="bottom" id="lfi-Rf-m7j">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="80"/>

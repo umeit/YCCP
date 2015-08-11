@@ -625,7 +625,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
             return 150.f;
         }
         if (indexPath.row == Function_Row_Index) {
-            return 238.f;
+            return 228.f;
         }
         if (indexPath.row == Baokuan_Row_Index) {
             return self.baokuans.count < 4 ? 210 : 374.f;
