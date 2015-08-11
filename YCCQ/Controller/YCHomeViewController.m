@@ -581,69 +581,69 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [HomeLayoutUtil homeTableRowHightWithIndexPath:indexPath baokuanCount:self.baokuans.count];
+    return [HomeLayoutUtil homeTableRowHightWithIndexPath:indexPath baokuanCount:self.baokuans.count];
     
-    if (iPhone6) {
-        if (indexPath.row == Banner_Row_Index) {
-            return 170.f;
-        }
-        if (indexPath.row == Function_Row_Index) {
-            return 248.f;
-        }
-        if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count < 4 ? 234.f : 410.f;
-        }
-        if (indexPath.row == CarType_Row_Index) {
-            return 122.f;
-        }
-        if (indexPath.row == CarBrand_Row_Index) {
-            return 200.f;
-        }
-        if (indexPath.row == CarPrice_Row_Index) {
-            return 142.f;
-        }
-    }
-    else if (iPhone6Plus || iPhone6Plus_Simulator) {
-        if (indexPath.row == Banner_Row_Index) {
-            return 170.f;
-        }
-        if (indexPath.row == Function_Row_Index) {
-            return 248.f;
-        }
-        if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count < 4 ? 240.f : 416.f;
-        }
-        if (indexPath.row == CarType_Row_Index) {
-            return 122.f;
-        }
-        if (indexPath.row == CarBrand_Row_Index) {
-            return 200.f;
-        }
-        if (indexPath.row == CarPrice_Row_Index) {
-            return 150.f;
-        }
-    }
-    else { // iPhone 4/5
-        if (indexPath.row == Banner_Row_Index) {
-            return 150.f;
-        }
-        if (indexPath.row == Function_Row_Index) {
-            return 228.f;
-        }
-        if (indexPath.row == Baokuan_Row_Index) {
-            return self.baokuans.count < 4 ? 210 : 374.f;
-        }
-        if (indexPath.row == CarType_Row_Index) {
-            return 122.f;
-        }
-        if (indexPath.row == CarBrand_Row_Index) {
-            return 200.f;
-        }
-        if (indexPath.row == CarPrice_Row_Index) {
-            return 142.f;
-        }
-    }
-    return 44.f;
+//    if (iPhone6) {
+//        if (indexPath.row == Banner_Row_Index) {
+//            return 170.f;
+//        }
+//        if (indexPath.row == Function_Row_Index) {
+//            return 248.f;
+//        }
+//        if (indexPath.row == Baokuan_Row_Index) {
+//            return self.baokuans.count < 4 ? 234.f : 410.f;
+//        }
+//        if (indexPath.row == CarType_Row_Index) {
+//            return 122.f;
+//        }
+//        if (indexPath.row == CarBrand_Row_Index) {
+//            return 200.f;
+//        }
+//        if (indexPath.row == CarPrice_Row_Index) {
+//            return 142.f;
+//        }
+//    }
+//    else if (iPhone6Plus || iPhone6Plus_Simulator) {
+//        if (indexPath.row == Banner_Row_Index) {
+//            return 170.f;
+//        }
+//        if (indexPath.row == Function_Row_Index) {
+//            return 248.f;
+//        }
+//        if (indexPath.row == Baokuan_Row_Index) {
+//            return self.baokuans.count < 4 ? 240.f : 416.f;
+//        }
+//        if (indexPath.row == CarType_Row_Index) {
+//            return 122.f;
+//        }
+//        if (indexPath.row == CarBrand_Row_Index) {
+//            return 200.f;
+//        }
+//        if (indexPath.row == CarPrice_Row_Index) {
+//            return 150.f;
+//        }
+//    }
+//    else { // iPhone 4/5
+//        if (indexPath.row == Banner_Row_Index) {
+//            return 150.f;
+//        }
+//        if (indexPath.row == Function_Row_Index) {
+//            return 228.f;
+//        }
+//        if (indexPath.row == Baokuan_Row_Index) {
+//            return self.baokuans.count < 4 ? 210 : 374.f;
+//        }
+//        if (indexPath.row == CarType_Row_Index) {
+//            return 122.f;
+//        }
+//        if (indexPath.row == CarBrand_Row_Index) {
+//            return 200.f;
+//        }
+//        if (indexPath.row == CarPrice_Row_Index) {
+//            return 142.f;
+//        }
+//    }
+//    return 44.f;
 }
 
 
