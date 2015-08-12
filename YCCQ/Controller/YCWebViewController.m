@@ -30,6 +30,21 @@
     
     self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webPageURL]]];
+    
+    
+//    self.webView.scrollView.contentInset = UIEdgeInsetsMake(66, 0, 0, 0);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.showBottomBar) {
+         self.bottomBarBackgroundView.hidden = NO;
+//        self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, self.bottomBarBackgroundView.frame.size.height, 0);
+    }
+    else {
+        self.bottomBarBackgroundView.hidden = YES;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

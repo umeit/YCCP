@@ -11,7 +11,9 @@
 @interface YCWebViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@property (weak, nonatomic) IBOutlet UIView *bottomBarBackgroundView;
 @property (strong, nonatomic) NSString *webPageURL;
+
+@property (nonatomic) BOOL showBottomBar;
 
 @end

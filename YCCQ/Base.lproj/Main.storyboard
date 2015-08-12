@@ -3077,13 +3077,80 @@
         <scene sceneID="AJq-6w-mbn">
             <objects>
                 <viewController storyboardIdentifier="YCWebViewController" hidesBottomBarWhenPushed="YES" id="fSe-hM-jyX" customClass="YCWebViewController" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="e3Q-uw-JeS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NiK-3Q-i5G"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rl7-zG-VTe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UIS-ep-vnf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuQ-ZM-wZB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-JY-1HJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="EMM-4N-bjZ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EMM-4N-bjZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="EMM-4N-bjZ"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </webView>
+                        <constraints>
+                            <constraint firstItem="Rl7-zG-VTe" firstAttribute="top" secondItem="dSc-JY-1HJ" secondAttribute="bottom" id="0m1-JN-SQ4"/>
+                            <constraint firstItem="KuQ-ZM-wZB" firstAttribute="top" secondItem="UIS-ep-vnf" secondAttribute="top" id="1kw-An-2RC"/>
+                            <constraint firstItem="Rl7-zG-VTe" firstAttribute="top" secondItem="KuQ-ZM-wZB" secondAttribute="bottom" id="YPJ-S8-1cy"/>
+                            <constraint firstAttribute="trailing" secondItem="KuQ-ZM-wZB" secondAttribute="trailing" id="jm5-Ix-ZmG"/>
+                            <constraint firstAttribute="trailing" secondItem="dSc-JY-1HJ" secondAttribute="trailing" id="t8j-K7-9q5"/>
+                            <constraint firstItem="KuQ-ZM-wZB" firstAttribute="leading" secondItem="UIS-ep-vnf" secondAttribute="leading" id="tll-if-BjY"/>
+                            <constraint firstItem="dSc-JY-1HJ" firstAttribute="leading" secondItem="UIS-ep-vnf" secondAttribute="leading" id="ycx-qL-V9k"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KuQ-ZM-wZB"/>
+                                <exclude reference="dSc-JY-1HJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1kw-An-2RC"/>
+                                <exclude reference="jm5-Ix-ZmG"/>
+                                <exclude reference="tll-if-BjY"/>
+                                <exclude reference="t8j-K7-9q5"/>
+                                <exclude reference="ycx-qL-V9k"/>
+                                <exclude reference="0m1-JN-SQ4"/>
+                                <exclude reference="YPJ-S8-1cy"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KuQ-ZM-wZB"/>
+                                <include reference="dSc-JY-1HJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1kw-An-2RC"/>
+                                <include reference="jm5-Ix-ZmG"/>
+                                <include reference="tll-if-BjY"/>
+                                <include reference="t8j-K7-9q5"/>
+                                <include reference="ycx-qL-V9k"/>
+                                <include reference="0m1-JN-SQ4"/>
+                                <include reference="YPJ-S8-1cy"/>
+                            </mask>
+                        </variation>
+                    </view>
                     <connections>
-                        <outlet property="webView" destination="e3Q-uw-JeS" id="Vp5-Mx-Egh"/>
+                        <outlet property="bottomBarBackgroundView" destination="dSc-JY-1HJ" id="4OX-Hc-BUB"/>
+                        <outlet property="webView" destination="KuQ-ZM-wZB" id="zZ8-4v-Z1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKG-1U-ddo" userLabel="First Responder" sceneMemberID="firstResponder"/>
