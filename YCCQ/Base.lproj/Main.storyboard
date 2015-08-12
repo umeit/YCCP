@@ -321,7 +321,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CarPriceCell" rowHeight="182" id="t3K-Tg-fty" userLabel="Hot Cell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CarPriceCell" rowHeight="206" id="t3K-Tg-fty" userLabel="Hot Cell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3K-Tg-fty" id="tIS-e2-NgG">
                                             <autoresizingMask key="autoresizingMask"/>

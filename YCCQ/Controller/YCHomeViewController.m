@@ -109,56 +109,6 @@
     [self.refreshControl endRefreshing];
 }
 
-//- (IBAction)functionButtonPress:(UIButton *)button {
-//    switch (button.tag) {
-//        case 31:  // 我要买车
-//            [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
-//            break;
-//        case 32:  // 用车急问
-//            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
-//            break;
-//        case 33:  // 维修咨询
-//            [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
-//            break;
-//        case 34:  // 事故咨询
-//            [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
-//            break;
-//        case 35:  // 道路救援
-//            [self call:@"18500581075"];
-//            break;
-//        case 36:  // 卖车咨询
-//            [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
-//            break;
-//        case 37:  // 车辆评估
-//            [self toEvaluateCar];
-//            break;
-//        case 38:  // 代办车险
-//            [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
-//                   controllerTitle:@"代办车险"];
-//            break;
-//        case 39:  // 今日油价
-//            [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
-//            break;
-//        case 40:  // 上门收车
-//            [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
-//                   controllerTitle:@"上门收车"];
-//            break;
-////        case 40:  // 预约检测
-////            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
-////                   controllerTitle:@"预约检测"];
-////            break;
-//        case 41:  // 延保服务
-//            [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
-//                   controllerTitle:@"延保服务"];
-//            break;
-//        case 42:  // 全部工具
-//            break;
-//        default:
-//            break;
-//    }
-//    
-//}
-
 /** 进入 banner 所指链接 */
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
@@ -494,7 +444,7 @@
                 [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
             case 7:  // 门店地址
-                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml" controllerTitle:@"店铺地址"];
+                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app" controllerTitle:@"店铺地址"];
                 break;
             case 8:  // 代办车险
                 [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险"];
