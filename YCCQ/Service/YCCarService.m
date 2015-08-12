@@ -107,10 +107,11 @@
     for (NSDictionary *baokuanDic in baokuanDicArray) {
         YCBaoKuanEntity *baokuan = [[YCBaoKuanEntity alloc] init];
         baokuan.imageURL = [YCNetUtil youcheImageURLWithPath:baokuanDic[@"firstPic"] w:300 h:200];
-        baokuan.carID = [baokuanDic[@"id"] integerValue];
-        baokuan.price = [baokuanDic[@"salePrice"] stringValue];
-        baokuan.series = baokuanDic[@"carName"];
-        baokuan.linkURL = [YCNetUtil youcheCarURLWithCarID:baokuan.carID];
+        baokuan.carID    = [baokuanDic[@"id"] integerValue];
+        baokuan.price    = [baokuanDic[@"salePrice"] stringValue];
+        baokuan.oldPrice = [baokuanDic[@"oldPrice"] stringValue];
+        baokuan.series   = baokuanDic[@"carName"];
+        baokuan.linkURL  = [YCNetUtil youcheCarURLWithCarID:baokuan.carID];
         [baokuans addObject:baokuan];
     }
     return baokuans;

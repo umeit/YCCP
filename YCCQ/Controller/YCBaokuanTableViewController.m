@@ -45,7 +45,7 @@
     [cell.carImageView setImageWithURL:baokuanEntity.imageURL];
     cell.carNameLabel.text = baokuanEntity.series;
     cell.carPriceLabel.text = baokuanEntity.price;
-    
+    cell.oldPrice.text = baokuanEntity.oldPrice;
     return cell;
 }
 
