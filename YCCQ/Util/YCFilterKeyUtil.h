@@ -10,8 +10,6 @@
 
 @interface YCFilterKeyUtil : NSObject
 
-//+ (NSString *)brandWithTag:(NSInteger)tag;
-
 + (NSString *)brandFilterKeyWithButtonTag:(NSInteger)tag;
 
 + (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag;
@@ -21,5 +19,7 @@
 + (NSString *)pIDWithBrand:(NSString *)brandName;
 
 + (NSString *)carPriceFilterKeyWithButtonTag:(NSInteger)tag;
+
++ (NSString *)hotCarFilterKeyWithButtonTah:(NSInteger)tag;
 
 @end

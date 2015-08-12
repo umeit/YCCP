@@ -85,13 +85,16 @@
 
 
 #pragma mark - Action
+- (IBAction)hotButtonPress:(UIButton *)button {
+    [self toCarListViewWithKey:[YCFilterKeyUtil hotCarFilterKeyWithButtonTah:button.tag]];
+}
 
 - (IBAction)storeButtonPress:(UIButton *)button {
     if (button.tag == 0) {
-        [self toWebViewWithURL:@"" controllerTitle:@"店铺地址"];
+        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address03" controllerTitle:@"店铺地址"];
     }
     else {
-        [self toWebViewWithURL:@"" controllerTitle:@"店铺地址"];
+        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address02" controllerTitle:@"店铺地址"];
     }
 }
 
@@ -219,7 +222,7 @@
             functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"shigu" labelText:@"事故咨询"];
             break;
         case 7:  // 门店地址
-            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"jiuyuan" labelText:@"门店地址"];
+            functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"mendian" labelText:@"门店地址"];
             break;
         case 8:  // 代办车险
             functionEntity = [[YCFunctionEntity alloc] initWithImageName:@"chexian" labelText:@"代办车险"];
@@ -491,7 +494,7 @@
                 [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
             case 7:  // 门店地址
-                
+                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml" controllerTitle:@"店铺地址"];
                 break;
             case 8:  // 代办车险
                 [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险"];

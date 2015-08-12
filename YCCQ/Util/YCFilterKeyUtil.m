@@ -16,26 +16,10 @@ static NSDictionary *carBrandsCnNameForHotBrand;
 static NSDictionary *carTypes;
 static NSDictionary *carPrice;
 static NSDictionary *carPID;
-
-// /** 根据在首页选择的品牌获取筛选参数 */
-//+ (NSString *)brandWithTag:(NSInteger)tag
-//{
-//    if (!carBrands) {
-//        carBrands = @{@"31": @"mercedes-benz",
-//                      @"32": @"bmw",
-//                      @"33": @"audi",
-//                      @"34": @"volkswagen",
-//                      @"35": @"hyundai",
-//                      @"36": @"ford",
-//                      @"37": @"buick",
-//                      @"38": @""};
-//    }
-//    return carBrands[[@(tag) stringValue]];
-//}
+static NSDictionary *hotCar;
 
 /** 根据快速选择品牌的按钮的 tag 获取品牌筛选筛选参数 */
-+ (NSString *)brandFilterKeyWithButtonTag:(NSInteger)tag
-{
++ (NSString *)brandFilterKeyWithButtonTag:(NSInteger)tag {
     if (!carBrandsForFilter) {
         carBrandsForFilter = @{@"31": @"mercedes-benz",
                                @"32": @"bmw",
@@ -49,8 +33,7 @@ static NSDictionary *carPID;
     return carBrandsForFilter[[@(tag) stringValue]];
 }
 
-+ (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag
-{
++ (NSString *)brandCnNameWithHotBrandButtonTag:(NSInteger)tag {
     if (!carBrandsCnNameForHotBrand) {
         carBrandsCnNameForHotBrand = @{@"31": @"奔驰",
                                        @"32": @"宝马",
@@ -64,8 +47,7 @@ static NSDictionary *carPID;
     return carBrandsCnNameForHotBrand[[@(tag) stringValue]];
 }
 
-+ (NSString *)pIDWithBrand:(NSString *)brandName
-{
++ (NSString *)pIDWithBrand:(NSString *)brandName {
     if (!carPID) {
         carPID = @{@"mercedes-benz": @"107",
                    @"bmw": @"108",
@@ -79,8 +61,7 @@ static NSDictionary *carPID;
     return carPID[brandName];
 }
 
-+ (NSString *)carTypeWithButtonTag:(NSInteger)tag
-{
++ (NSString *)carTypeWithButtonTag:(NSInteger)tag {
     if (!carTypes) {
         carTypes = @{@"31": @"suv",
                      @"32": @"mpv",
@@ -96,8 +77,7 @@ static NSDictionary *carPID;
     return carTypes[[@(tag) stringValue]];
 }
 
-+ (NSString *)carPriceFilterKeyWithButtonTag:(NSInteger)tag
-{
++ (NSString *)carPriceFilterKeyWithButtonTag:(NSInteger)tag {
     if (!carPrice) {
         carPrice = @{@"31": @"j1",
                      @"32": @"j2",
@@ -109,6 +89,15 @@ static NSDictionary *carPID;
                      @"38": @"j8"};
     }
     return carPrice[[@(tag) stringValue]];
+}
+
++ (NSString *)hotCarFilterKeyWithButtonTah:(NSInteger)tag {
+    if (!hotCar) {
+        hotCar = @{@"0":@"ershouche/t32",
+                   @"1":@"mini",
+                   @"2":@"suv"};
+    }
+    return hotCar[[@(tag) stringValue]];
 }
 
 @end

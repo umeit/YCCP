@@ -414,7 +414,7 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-eb-EVt">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-eb-EVt">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -433,6 +433,9 @@
                                                             <exclude reference="306-lF-BfP"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="hotButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="GFd-U5-41S"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsh-bw-21b">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -456,8 +459,11 @@
                                                             <exclude reference="DD1-4t-76k"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="hotButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="Ywx-y0-0oI"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-Sd-sr2">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-Sd-sr2">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -481,6 +487,9 @@
                                                             <exclude reference="sYh-Fl-yEl"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="hotButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="vKq-bG-5DW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>

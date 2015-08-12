@@ -82,7 +82,14 @@
 
 - (IBAction)priceButtonPress:(UIButton *)button
 {
+    // 动画
     [self arrowDefault:self.mileageArrowImageView];
+    
+    // 如果当前列表为「占号用车」，则排序时按初始列表处理
+    if ([self.carListURL.lastPathComponent isEqualToString:@"t32"]) {
+        self.carListURL = @"http://m.youche.com/ershouche/";
+    }
+    
     if ([self.orderButtonStatus[@"price"] boolValue]) {
         self.orderButtonStatus[@"price"] = @NO;
         [self arrowUp:self.priceArrowImageView];
@@ -98,7 +105,14 @@
 
 - (IBAction)mileageButtonPress:(id)sender
 {
+    // 动画
     [self arrowDefault:self.priceArrowImageView];
+    
+    // 如果当前列表为「占号用车」，则排序时按初始列表处理
+    if ([self.carListURL.lastPathComponent isEqualToString:@"t32"]) {
+        self.carListURL = @"http://m.youche.com/ershouche/";
+    }
+    
     if ([self.orderButtonStatus[@"mileage"] boolValue]) {
         self.orderButtonStatus[@"mileage"] = @NO;
         [self arrowUp:self.mileageArrowImageView];
@@ -239,7 +253,7 @@
 {
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(0);
     
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.35
                           delay:0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{

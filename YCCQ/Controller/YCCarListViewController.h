@@ -10,12 +10,8 @@
 #import "YCCarFilterViewController.h"
 
 @interface YCCarListViewController : UIViewController <UIWebViewDelegate, YCCarFilterDelegate>
-
 @property (weak, nonatomic) IBOutlet UIWebView *carListWebView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *mileageArrowImageView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *priceArrowImageView;
 @property (strong, nonatomic) NSString *carListURL;
-
 @end
