@@ -414,13 +414,13 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-eb-EVt">
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-eb-EVt">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="199" id="306-lF-BfP"/>
                                                     </constraints>
-                                                    <state key="normal" title="suv">
+                                                    <state key="normal" title="suv" image="hot_3">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="default">
@@ -437,14 +437,14 @@
                                                         <action selector="hotButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="GFd-U5-41S"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsh-bw-21b">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsh-bw-21b">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="55F-Zb-g2k"/>
                                                         <constraint firstAttribute="height" constant="68" id="DD1-4t-76k"/>
                                                     </constraints>
-                                                    <state key="normal" title="占号用车">
+                                                    <state key="normal" title="占号用车" image="hot_1">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="default">
@@ -463,7 +463,7 @@
                                                         <action selector="hotButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="Ywx-y0-0oI"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-Sd-sr2">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-Sd-sr2">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -472,7 +472,7 @@
                                                             <variation key="heightClass=regular-widthClass=compact" constant="66"/>
                                                         </constraint>
                                                     </constraints>
-                                                    <state key="normal" title="MINI">
+                                                    <state key="normal" title="MINI" image="hot_2">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <variation key="default">
@@ -6655,6 +6655,9 @@
         <image name="home_gengduo" width="52" height="52"/>
         <image name="home_xiandai" width="52" height="52"/>
         <image name="hongbao" width="34" height="34"/>
+        <image name="hot_1" width="200" height="80"/>
+        <image name="hot_2" width="200" height="80"/>
+        <image name="hot_3" width="200" height="160"/>
         <image name="hyundai.png" width="104" height="104"/>
         <image name="jiance" width="40" height="40"/>
         <image name="jiantou" width="5" height="8"/>
