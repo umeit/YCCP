@@ -27,7 +27,7 @@ class HomeLayoutUtil : NSObject {
             case Function_Row_Index:
                 return 248
             case Hot_Row_Index:
-                return 142
+                return 178
             case Baokuan_Row_Index:
                 return baokuanCount < 4 ? 234 : 410
             case CarType_Row_Index:
@@ -47,7 +47,7 @@ class HomeLayoutUtil : NSObject {
             case Function_Row_Index:
                 return 248
             case Hot_Row_Index:
-                return 150
+                return 178
             case Baokuan_Row_Index:
                 return baokuanCount < 4 ? 240 : 416
             case CarType_Row_Index:
@@ -67,7 +67,7 @@ class HomeLayoutUtil : NSObject {
             case Function_Row_Index:
                 return 238
             case Hot_Row_Index:
-                return 142
+                return 172
             case Baokuan_Row_Index:
                 return baokuanCount < 4 ? 210 : 374
             case CarType_Row_Index:

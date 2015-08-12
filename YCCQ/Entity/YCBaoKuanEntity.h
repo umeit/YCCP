@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) NSString *price;
 
+@property (strong, nonatomic) NSString *oldPrice;
+
 @property (strong, nonatomic) NSString *linkURL;
 
 @end

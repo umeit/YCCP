@@ -302,6 +302,7 @@
     [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
     cell.carPriceLabel.text = entity.price;
+    cell.oldPriceLabel.text = entity.oldPrice;
 }
 
 

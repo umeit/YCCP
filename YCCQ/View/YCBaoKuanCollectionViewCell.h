@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *carImageView;
 @property (weak, nonatomic) IBOutlet UILabel *carSeriesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *carPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
 @end
