@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 class HomeLayoutUtil : NSObject {
     
@@ -17,6 +18,32 @@ class HomeLayoutUtil : NSObject {
     static let CarType_Row_Index  = 4
     static let CarBrand_Row_Index = 5
     static let CarPrice_Row_Index = 6
+    
+    /* 降价车辆的 Collection Cell 尺寸 */
+    class func baokuanCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
+        if iPhone6 {
+            return CGSizeMake(170, 170)
+        }
+        else if iPhone6Plus {
+            return CGSizeMake(174, 180);
+        }
+        else {
+            return CGSizeMake(150, 150);
+        }
+    }
+    
+    /* 功能按钮的 Collection Cell 尺寸 */
+    class func functionCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
+        if iPhone6 {
+            return CGSizeMake(76, 70);
+        }
+        else if iPhone6Plus {
+            return CGSizeMake(78, 78);
+        }
+        else {
+            return CGSizeMake(64, 63);
+        }
+    }
     
     /* 主页每个 ROW 的高度 */
     class func homeTableRowHightWithIndexPath(indexPath: NSIndexPath, baokuanCount: Int) -> Float {

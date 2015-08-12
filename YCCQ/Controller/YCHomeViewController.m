@@ -85,68 +85,76 @@
 
 
 #pragma mark - Action
-- (IBAction)phoneButtonPress:(id)sender
-{
+
+- (IBAction)storeButtonPress:(UIButton *)button {
+    if (button.tag == 0) {
+        [self toWebViewWithURL:@"" controllerTitle:@"店铺地址"];
+    }
+    else {
+        [self toWebViewWithURL:@"" controllerTitle:@"店铺地址"];
+    }
+}
+
+- (IBAction)phoneButtonPress:(id)sender {
     [self call:MainPhoneNum];
 }
 
-- (void)refreshHome:(id)sender
-{
+- (void)refreshHome:(id)sender {
     [self setBanner];
     [self setBaokuan];
     
     [self.refreshControl endRefreshing];
 }
 
-- (IBAction)functionButtonPress:(UIButton *)button {
-    switch (button.tag) {
-        case 31:  // 我要买车
-            [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
-            break;
-        case 32:  // 用车急问
-            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
-            break;
-        case 33:  // 维修咨询
-            [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
-            break;
-        case 34:  // 事故咨询
-            [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
-            break;
-        case 35:  // 道路救援
-            [self call:@"18500581075"];
-            break;
-        case 36:  // 卖车咨询
-            [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
-            break;
-        case 37:  // 车辆评估
-            [self toEvaluateCar];
-            break;
-        case 38:  // 代办车险
-            [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
-                   controllerTitle:@"代办车险"];
-            break;
-        case 39:  // 今日油价
-            [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
-            break;
-        case 40:  // 上门收车
-            [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
-                   controllerTitle:@"上门收车"];
-            break;
-//        case 40:  // 预约检测
-//            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
-//                   controllerTitle:@"预约检测"];
+//- (IBAction)functionButtonPress:(UIButton *)button {
+//    switch (button.tag) {
+//        case 31:  // 我要买车
+//            [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
 //            break;
-        case 41:  // 延保服务
-            [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
-                   controllerTitle:@"延保服务"];
-            break;
-        case 42:  // 全部工具
-            break;
-        default:
-            break;
-    }
-    
-}
+//        case 32:  // 用车急问
+//            [self toConsultationViewControllerWithWorkgroup:@"usecar" title:@"用车急问"];
+//            break;
+//        case 33:  // 维修咨询
+//            [self toConsultationViewControllerWithWorkgroup:@"repair" title:@"维修咨询"];
+//            break;
+//        case 34:  // 事故咨询
+//            [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
+//            break;
+//        case 35:  // 道路救援
+//            [self call:@"18500581075"];
+//            break;
+//        case 36:  // 卖车咨询
+//            [self toConsultationViewControllerWithWorkgroup:@"sellcar" title:@"卖车咨询"];
+//            break;
+//        case 37:  // 车辆评估
+//            [self toEvaluateCar];
+//            break;
+//        case 38:  // 代办车险
+//            [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
+//                   controllerTitle:@"代办车险"];
+//            break;
+//        case 39:  // 今日油价
+//            [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
+//            break;
+//        case 40:  // 上门收车
+//            [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
+//                   controllerTitle:@"上门收车"];
+//            break;
+////        case 40:  // 预约检测
+////            [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
+////                   controllerTitle:@"预约检测"];
+////            break;
+//        case 41:  // 延保服务
+//            [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
+//                   controllerTitle:@"延保服务"];
+//            break;
+//        case 42:  // 全部工具
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//}
 
 /** 进入 banner 所指链接 */
 - (void)bannerDidTouch:(UIButton *)bannerButton {
@@ -524,28 +532,11 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView == self.baokuanCollectionView) {  // 爆款
-        if (iPhone6) {
-            return CGSizeMake(170, 170);
-        }
-        else if (iPhone6Plus || iPhone6Plus_Simulator) {
-            return CGSizeMake(174, 180);
-        }
-        else {
-            return CGSizeMake(150, 150);
-        }
+        return [HomeLayoutUtil baokuanCollectionCellSizeWithIndexPath:indexPath];
     }
     else if (collectionView == self.functionCollectionView) {  // 功能按钮
-        if (iPhone6) {
-            return CGSizeMake(76, 70);
-        }
-        else if (iPhone6Plus || iPhone6Plus_Simulator) {
-            return CGSizeMake(78, 78);
-        }
-        else {
-            return CGSizeMake(64, 63);
-        }
+        return [HomeLayoutUtil functionCollectionCellSizeWithIndexPath:indexPath];
     }
-    
     return CGSizeMake(0, 0);
 }
 
@@ -553,9 +544,6 @@
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section
 {
-//    if (collectionView == self.functionCollectionView) {
-//        return UIEdgeInsetsMake(10, 10, 10, 10);
-//    }
     return UIEdgeInsetsMake(8, 8, 12, 8);
 }
 
@@ -581,70 +569,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 #pragma mark - Table View Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return [HomeLayoutUtil homeTableRowHightWithIndexPath:indexPath baokuanCount:self.baokuans.count];
-    
-//    if (iPhone6) {
-//        if (indexPath.row == Banner_Row_Index) {
-//            return 170.f;
-//        }
-//        if (indexPath.row == Function_Row_Index) {
-//            return 248.f;
-//        }
-//        if (indexPath.row == Baokuan_Row_Index) {
-//            return self.baokuans.count < 4 ? 234.f : 410.f;
-//        }
-//        if (indexPath.row == CarType_Row_Index) {
-//            return 122.f;
-//        }
-//        if (indexPath.row == CarBrand_Row_Index) {
-//            return 200.f;
-//        }
-//        if (indexPath.row == CarPrice_Row_Index) {
-//            return 142.f;
-//        }
-//    }
-//    else if (iPhone6Plus || iPhone6Plus_Simulator) {
-//        if (indexPath.row == Banner_Row_Index) {
-//            return 170.f;
-//        }
-//        if (indexPath.row == Function_Row_Index) {
-//            return 248.f;
-//        }
-//        if (indexPath.row == Baokuan_Row_Index) {
-//            return self.baokuans.count < 4 ? 240.f : 416.f;
-//        }
-//        if (indexPath.row == CarType_Row_Index) {
-//            return 122.f;
-//        }
-//        if (indexPath.row == CarBrand_Row_Index) {
-//            return 200.f;
-//        }
-//        if (indexPath.row == CarPrice_Row_Index) {
-//            return 150.f;
-//        }
-//    }
-//    else { // iPhone 4/5
-//        if (indexPath.row == Banner_Row_Index) {
-//            return 150.f;
-//        }
-//        if (indexPath.row == Function_Row_Index) {
-//            return 228.f;
-//        }
-//        if (indexPath.row == Baokuan_Row_Index) {
-//            return self.baokuans.count < 4 ? 210 : 374.f;
-//        }
-//        if (indexPath.row == CarType_Row_Index) {
-//            return 122.f;
-//        }
-//        if (indexPath.row == CarBrand_Row_Index) {
-//            return 200.f;
-//        }
-//        if (indexPath.row == CarPrice_Row_Index) {
-//            return 142.f;
-//        }
-//    }
-//    return 44.f;
 }
 
 

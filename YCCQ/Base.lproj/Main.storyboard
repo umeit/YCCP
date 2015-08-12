@@ -230,11 +230,17 @@
                                                             <exclude reference="aVe-eo-eN2"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="storeButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="155-d3-yUl"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlB-hP-22U" userLabel="Store 2">
+                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlB-hP-22U" userLabel="Store 2">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" image="store_yizhuang"/>
+                                                    <connections>
+                                                        <action selector="storeButtonPress:" destination="5EO-Kz-vnM" eventType="touchUpInside" id="DeG-1A-yf0"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -411,9 +417,22 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-eb-EVt">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="199" id="306-lF-BfP"/>
+                                                    </constraints>
                                                     <state key="normal" title="suv">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="306-lF-BfP"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <exclude reference="306-lF-BfP"/>
+                                                        </mask>
+                                                    </variation>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsh-bw-21b">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -433,8 +452,8 @@
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="55F-Zb-g2k"/>
-                                                            <include reference="DD1-4t-76k"/>
+                                                            <exclude reference="55F-Zb-g2k"/>
+                                                            <exclude reference="DD1-4t-76k"/>
                                                         </mask>
                                                     </variation>
                                                 </button>
@@ -458,7 +477,7 @@
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="WVO-aa-KfE"/>
+                                                            <exclude reference="WVO-aa-KfE"/>
                                                             <exclude reference="sYh-Fl-yEl"/>
                                                         </mask>
                                                     </variation>
@@ -468,6 +487,7 @@
                                             <constraints>
                                                 <constraint firstItem="8ch-Sd-sr2" firstAttribute="leading" secondItem="tIS-e2-NgG" secondAttribute="leading" id="0l7-y5-WF2"/>
                                                 <constraint firstItem="0a7-eb-EVt" firstAttribute="top" secondItem="eX7-Tw-pVe" secondAttribute="bottom" constant="1" id="0wp-6W-TMW"/>
+                                                <constraint firstItem="fsh-bw-21b" firstAttribute="width" secondItem="8ch-Sd-sr2" secondAttribute="width" id="1J6-RK-J8G"/>
                                                 <constraint firstItem="eX7-Tw-pVe" firstAttribute="top" secondItem="tIS-e2-NgG" secondAttribute="top" constant="8" id="FrQ-XC-Eh5"/>
                                                 <constraint firstAttribute="bottom" secondItem="fsh-bw-21b" secondAttribute="bottom" id="HAf-r0-5Ob">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="67"/>
@@ -477,6 +497,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="8ch-Sd-sr2" secondAttribute="bottom" id="OmK-jI-W7X"/>
                                                 <constraint firstItem="eX7-Tw-pVe" firstAttribute="leading" secondItem="tIS-e2-NgG" secondAttribute="leading" id="RyF-L8-bNC"/>
                                                 <constraint firstAttribute="trailing" secondItem="0a7-eb-EVt" secondAttribute="trailing" id="Uhe-uR-q94"/>
+                                                <constraint firstItem="0a7-eb-EVt" firstAttribute="width" secondItem="fsh-bw-21b" secondAttribute="width" id="hLN-p8-Kfd"/>
                                                 <constraint firstItem="8ch-Sd-sr2" firstAttribute="top" secondItem="fsh-bw-21b" secondAttribute="bottom" id="ks2-RC-k9e">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                                 </constraint>
@@ -496,6 +517,7 @@
                                                     <exclude reference="FrQ-XC-Eh5"/>
                                                     <exclude reference="RyF-L8-bNC"/>
                                                     <exclude reference="s51-Mx-Ok0"/>
+                                                    <exclude reference="1J6-RK-J8G"/>
                                                     <exclude reference="HAf-r0-5Ob"/>
                                                     <exclude reference="JjA-qc-CFf"/>
                                                     <exclude reference="NFw-jk-3GX"/>
@@ -505,6 +527,7 @@
                                                     <exclude reference="ks2-RC-k9e"/>
                                                     <exclude reference="0wp-6W-TMW"/>
                                                     <exclude reference="Uhe-uR-q94"/>
+                                                    <exclude reference="hLN-p8-Kfd"/>
                                                     <exclude reference="yHI-sJ-XQ0"/>
                                                     <exclude reference="ytM-IZ-4fM"/>
                                                 </mask>
@@ -520,6 +543,7 @@
                                                     <include reference="FrQ-XC-Eh5"/>
                                                     <include reference="RyF-L8-bNC"/>
                                                     <include reference="s51-Mx-Ok0"/>
+                                                    <include reference="1J6-RK-J8G"/>
                                                     <exclude reference="HAf-r0-5Ob"/>
                                                     <include reference="JjA-qc-CFf"/>
                                                     <include reference="NFw-jk-3GX"/>
@@ -529,6 +553,7 @@
                                                     <include reference="ks2-RC-k9e"/>
                                                     <include reference="0wp-6W-TMW"/>
                                                     <include reference="Uhe-uR-q94"/>
+                                                    <include reference="hLN-p8-Kfd"/>
                                                     <include reference="yHI-sJ-XQ0"/>
                                                     <include reference="ytM-IZ-4fM"/>
                                                 </mask>
