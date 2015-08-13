@@ -13,6 +13,7 @@
 #import "UMFeedback.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSnsService.h"
 
 #define FirstLaunch @"FirstLaunch"
 
@@ -50,6 +51,7 @@
     
     // 设置微信分享
     [UMSocialWechatHandler setWXAppId:WeiXinAppID appSecret:WeiXinAppSecret url:@"http://www.youche.com"];
+    // 设置QQ 分享
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
     
     return YES;
@@ -75,7 +77,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url];
+}
 
 #pragma mark - APNs
 

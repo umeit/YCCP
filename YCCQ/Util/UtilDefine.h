@@ -37,8 +37,8 @@
 
 #define WeiXinAppSecret @"fd6553fe092c7881c4b063cb02a2d0ea"
 
-#define QQAppID   @""
+#define QQAppID   @"1104704187"
 
-#define QQAppKey  @""
+#define QQAppKey  @"hGFosnqSbCrmFDi4"
 
 #endif

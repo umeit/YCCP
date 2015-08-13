@@ -53,12 +53,12 @@
 
 /** 分享 */
 - (IBAction)shareButtonPress:(id)sender {
-    [UMSocialSnsService presentSnsController:self
-                                      appKey:UMAPPKey
-                                   shareText:@"test"
-                                  shareImage:[UIImage imageNamed:@""]
-                             shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
-                                    delegate:self];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:UMAPPKey
+                                      shareText:@"test"
+                                     shareImage:[UIImage imageNamed:@""]
+                                shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
+                                       delegate:self];
 }
 
 - (IBAction)orderButtonPress:(id)sender {
