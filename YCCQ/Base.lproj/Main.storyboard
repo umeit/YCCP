@@ -3088,7 +3088,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-J9-3IS" userLabel="Bottom Bar Background">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okh-pu-awg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okh-pu-awg" userLabel="Share Button">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -3109,6 +3109,9 @@
                                                 <include reference="ENf-QG-VNV"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="shareButtonPress:" destination="fSe-hM-jyX" eventType="touchUpInside" id="qy7-UX-UwL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LX-qv-pr9">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -3135,7 +3138,7 @@
                                             <action selector="orderButtonPress:" destination="fSe-hM-jyX" eventType="touchUpInside" id="Ov5-5d-u7r"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxA-lU-EIE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxA-lU-EIE" userLabel="Call Button">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.88627450980392153" green="0.25490196078431371" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal">

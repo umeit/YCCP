@@ -11,9 +11,8 @@
 #import "UtilDefine.h"
 #import "MobClick.h"
 #import "UMFeedback.h"
-
-#define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
-#define UMAPPKey      @"5581085367e58e8d64003ea0"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 
 #define FirstLaunch @"FirstLaunch"
 
@@ -41,12 +40,18 @@
     // 设置导航栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    // 显示引导页
     if ([self isFirestLaunch]) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setBool:YES forKey:@"FirstLaunch"];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"YCUserGuideViewController"];
     }
+    
+    // 设置微信分享
+    [UMSocialWechatHandler setWXAppId:WeiXinAppID appSecret:WeiXinAppSecret url:@"http://www.youche.com"];
+    [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
+    
     return YES;
 }
 

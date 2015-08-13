@@ -25,8 +25,20 @@
 
 #define iPad_Retina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1536, 2048), [[UIScreen mainScreen] currentMode].size) : NO)
 
-#define MainPhoneNum @"400-068-9966"
+#define MainPhoneNum       @"400-068-9966"
 
 #define UserCouponPhoneNum @"UserCouponPhoneNum"
+
+#define WeiKeFuAPPKey @"002285068eb76753921a60addd37bc34"
+
+#define UMAPPKey      @"5581085367e58e8d64003ea0"
+
+#define WeiXinAppID     @"wx472e59e0e19accd0"
+
+#define WeiXinAppSecret @"fd6553fe092c7881c4b063cb02a2d0ea"
+
+#define QQAppID   @""
+
+#define QQAppKey  @""
 
 #endif

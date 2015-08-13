@@ -10,8 +10,11 @@
 #import "UIViewController+GViewController.h"
 #import "YCUserUtil.h"
 #import "UtilDefine.h"
+#import "UMSocial.h"
 
-@interface YCWebViewController ()
+#define UMAPPKey @"5581085367e58e8d64003ea0"
+
+@interface YCWebViewController () <UMSocialUIDelegate>
 @property (strong, nonatomic) UIWebView *callWebView;
 @end
 
@@ -46,6 +49,16 @@
 
 - (void)phoneButtonPress:(id)sender {
     [self call:MainPhoneNum];
+}
+
+/** 分享 */
+- (IBAction)shareButtonPress:(id)sender {
+    [UMSocialSnsService presentSnsController:self
+                                      appKey:UMAPPKey
+                                   shareText:@"test"
+                                  shareImage:[UIImage imageNamed:@""]
+                             shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
+                                    delegate:self];
 }
 
 - (IBAction)orderButtonPress:(id)sender {
