@@ -17,7 +17,7 @@
 @property (nonatomic) NSMutableDictionary *orderButtonStatus;
 
 @property (strong, nonatomic) UIWebView *callWebView;
-
+@property (weak, nonatomic) UITableView *optionTableView;
 @end
 
 @implementation YCCarListViewController
@@ -41,6 +41,8 @@
     self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(28, 0, 0, 0);
     
     self.orderButtonStatus = [NSMutableDictionary dictionaryWithDictionary:@{@"price": @NO, @"mileage": @NO}];
+    
+    [self initOptionTable];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -206,6 +208,10 @@
 
 
 #pragma mark - Privatre
+
+- (void)initOptionTable {
+    UITableView *optionTableView = [[UITableView alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+}
 
 - (BOOL)isSubjectCarList {
     return [self.carListURL.lastPathComponent isEqualToString:@"t32"] || [self.carListURL.lastPathComponent isEqualToString:@"t37"];
