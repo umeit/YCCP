@@ -71,7 +71,7 @@
     [UMSocialData defaultData].extConfig.qzoneData.url = shareURL;
     [UMSocialData defaultData].extConfig.qqData.title = self.carName;
     [UMSocialData defaultData].extConfig.qzoneData.title = self.carName;
-    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
+    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeDefault;
 }
 
 - (IBAction)orderButtonPress:(id)sender {
