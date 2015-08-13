@@ -135,6 +135,7 @@
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
+		038F0B6C1B7CEDEE00A174F1 /* share_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 038F0B6B1B7CEDEE00A174F1 /* share_icon.png */; };
 		038F5AA61B3BD73100BA03CE /* YCLimitDriveEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F5AA51B3BD73100BA03CE /* YCLimitDriveEditViewController.m */; };
 		038F5AA91B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038F5AA81B3BF01B00BA03CE /* YCLimitDriveInfoViewController.m */; };
 		03952DD91B05CA120055D36B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DD81B05CA120055D36B /* main.m */; };
@@ -421,6 +422,7 @@
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
 		038A560B1B26D591002FA96D /* changshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changshi.png; sourceTree = "<group>"; };
 		038A56191B26D591002FA96D /* yaohao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yaohao.png; sourceTree = "<group>"; };
+		038F0B6B1B7CEDEE00A174F1 /* share_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_icon.png; sourceTree = "<group>"; };
 		038F5AA41B3BD73100BA03CE /* YCLimitDriveEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLimitDriveEditViewController.h; sourceTree = "<group>"; };
 		038F5AA51B3BD73100BA03CE /* YCLimitDriveEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLimitDriveEditViewController.m; sourceTree = "<group>"; };
 		038F5AA71B3BF01B00BA03CE /* YCLimitDriveInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLimitDriveInfoViewController.h; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 		030A758D1B0B270A008753C8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				038F0B6B1B7CEDEE00A174F1 /* share_icon.png */,
 				035F60AD1B5E30AE00868728 /* user_guide */,
 				03D503A61B27EC5A00E0A167 /* allbrand.json */,
 				03B655401B26F91100F28CAC /* shouhou_icons */,
@@ -1493,6 +1496,7 @@
 				031AD62F1B199C1C0076B32D /* carbrandlogo.json in Resources */,
 				035F60CC1B5E30AE00868728 /* ug_640-960-1@2x.png in Resources */,
 				031AD6901B199C320076B32D /* jinbei.png in Resources */,
+				038F0B6C1B7CEDEE00A174F1 /* share_icon.png in Resources */,
 				03F3F7691B32ACC40033C1A5 /* ToolViewInputText@2x.png in Resources */,
 				03F3F7651B32ACC40033C1A5 /* bubble_min@2x.png in Resources */,
 				035F60C41B5E30AE00868728 /* ug_1242-2208-3@3x.png in Resources */,

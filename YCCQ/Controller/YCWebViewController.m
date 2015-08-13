@@ -55,18 +55,23 @@
 - (IBAction)shareButtonPress:(id)sender {
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:UMAPPKey
-                                      shareText:@"test"
-                                     shareImage:[UIImage imageNamed:@""]
+                                      shareText:@"优车诚品，有保障的二手车"
+                                     shareImage:[UIImage imageNamed:@"share_icon"]
                                 shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
                                        delegate:self];
+    NSString *shareURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
     
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
-    
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURL;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURL;
     [UMSocialData defaultData].extConfig.wechatSessionData.title = self.carName;
     [UMSocialData defaultData].extConfig.wechatTimelineData.title = self.carName;
-    
     [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
+    
+    [UMSocialData defaultData].extConfig.qqData.url = shareURL;
+    [UMSocialData defaultData].extConfig.qzoneData.url = shareURL;
+    [UMSocialData defaultData].extConfig.qqData.title = self.carName;
+    [UMSocialData defaultData].extConfig.qzoneData.title = self.carName;
+    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage;
 }
 
 - (IBAction)orderButtonPress:(id)sender {
