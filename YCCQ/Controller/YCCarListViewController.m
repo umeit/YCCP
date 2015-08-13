@@ -165,7 +165,7 @@
              YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
             webVC.webPageURL = dicArg[@"args"][0];
             webVC.navigationItem.title = @"车辆详情";
-            webVC.showBottomBar = NO;
+            webVC.showBottomBar = YES;
             [self.navigationController pushViewController:webVC animated:YES];
         }
         // 弹出输入手机号码

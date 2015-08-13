@@ -91,10 +91,10 @@
 
 - (IBAction)storeButtonPress:(UIButton *)button {
     if (button.tag == 0) {
-        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address03" controllerTitle:@"店铺地址"];
+        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address03" controllerTitle:@"店铺地址" showBottomBar:NO];
     }
     else {
-        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address02" controllerTitle:@"店铺地址"];
+        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address02" controllerTitle:@"店铺地址" showBottomBar:NO];
     }
 }
 
@@ -113,7 +113,7 @@
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
     if (bannner) {
-        [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情"];
+        [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情" showBottomBar:NO];
     }
 }
 
@@ -263,7 +263,7 @@
     [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
     cell.carPriceLabel.text = entity.price;
-    cell.oldPriceLabel.text = entity.oldPrice;
+    cell.oldPriceLabel.text = [NSString stringWithFormat:@"优车原价 %@万", entity.oldPrice];
 }
 
 
@@ -339,11 +339,12 @@
     [self.navigationController pushViewController:carListViewController animated:YES];
 }
 
-- (void)toWebViewWithURL:(NSString *)url controllerTitle:(NSString *)title
+- (void)toWebViewWithURL:(NSString *)url controllerTitle:(NSString *)title showBottomBar:(BOOL)b
 {
     YCWebViewController *webViewController = (YCWebViewController *)[self controllerWithStoryBoardID:@"YCWebViewController"];
     webViewController.webPageURL = url;
     webViewController.navigationItem.title = title;
+    webViewController.showBottomBar = b;
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
@@ -417,7 +418,7 @@
         if (baokuan) {
             NSString *carURL = [NSString stringWithFormat:@"%@?t=app", [baokuan.linkURL stringByReplacingOccurrencesOfString:@"www"
                                                                                                                   withString:@"m"]];
-            [self toWebViewWithURL:carURL controllerTitle:@"车辆详情"];
+            [self toWebViewWithURL:carURL controllerTitle:@"车辆详情" showBottomBar:YES];
         }
     }
     else if (collectionView == self.functionCollectionView) {
@@ -444,10 +445,10 @@
                 [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
             case 7:  // 门店地址
-                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app" controllerTitle:@"店铺地址"];
+                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app" controllerTitle:@"店铺地址" showBottomBar:NO];
                 break;
             case 8:  // 代办车险
-                [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险"];
+                [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险" showBottomBar:NO];
                 break;
             case 9:  // 预约咨询
                 [self call:@"13718233424"];
@@ -456,17 +457,18 @@
                 [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
                 break;
             case 11:  // 预约检测
-                [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app" controllerTitle:@"预约检测"];
+                [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app" controllerTitle:@"预约检测" showBottomBar:NO];
                 break;
             case 12:  // 上门收车
-                [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app" controllerTitle:@"上门收车"];
+                [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app" controllerTitle:@"上门收车" showBottomBar:NO];
                 break;
             case 13:  // 售后咨询
                 [self toConsultationViewControllerWithWorkgroup:@"aftersales" title:@"售后咨询"];
                 break;
             case 14:  // 延保服务
                 [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
-                       controllerTitle:@"延保服务"];
+                       controllerTitle:@"延保服务"
+                         showBottomBar:NO];
                 break;
             case 15:  // 全部工具
                 [self pushViewControllerWithStoryBoardID:@"YCToolListViewController" title:@"工具列表" HideBottonBar:YES];

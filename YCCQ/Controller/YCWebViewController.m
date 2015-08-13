@@ -20,44 +20,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem
-    = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"dianhua"]
-                                       style:UIBarButtonItemStylePlain
-                                      target:self
-                                      action:@selector(phoneButtonPress:)];
+    [self setNavigationItems];
     
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style: UIBarButtonItemStylePlain target:nil action:nil];
-    
-    self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.webPageURL]]];
     
+    self.callWebView = [[UIWebView alloc] init];
+    [self.view addSubview:self.callWebView];
     
-//    self.webView.scrollView.contentInset = UIEdgeInsetsMake(66, 0, 0, 0);
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     if (self.showBottomBar) {
          self.bottomBarBackgroundView.hidden = NO;
-//        self.webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, self.bottomBarBackgroundView.frame.size.height, 0);
     }
     else {
         self.bottomBarBackgroundView.hidden = YES;
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.callWebView removeFromSuperview];
-    self.callWebView = nil;
-    
-    [super viewWillDisappear:animated];
-}
-
 #pragma mark - Action
 - (void)phoneButtonPress:(id)sender
 {
     [self call:MainPhoneNum];
+}
+- (IBAction)orderButtonPress:(id)sender {
+    
+}
+- (IBAction)phone888ButtonPress:(id)sender {
+    
 }
 
 
@@ -78,8 +71,9 @@
     [self hideLodingView];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType {
+    
     NSURL * url = [request URL];
     if ([[url scheme] isEqualToString:@"youcheapp"]) {
         
@@ -119,7 +113,10 @@
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 [userDefaults setObject:text forKey:@"UserPhoneNum"];
                 
-                [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@')", jsFunctionName, text?:@"", carID?:@""]];
+                [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@')",
+                                                                 jsFunctionName,
+                                                                 text?:@"",
+                                                                 carID?:@""]];
             }];
         }
         return NO;
@@ -129,12 +126,19 @@
 
 #pragma mark - Private
 
-- (void)call:(NSString *)tel
-{
-    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
-    self.callWebView = [[UIWebView alloc] init];
+- (void)setNavigationItems {
+    self.navigationItem.rightBarButtonItem
+    = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"dianhua"]
+                                       style:UIBarButtonItemStylePlain
+                                      target:self
+                                      action:@selector(phoneButtonPress:)];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style: UIBarButtonItemStylePlain target:nil action:nil];
+}
+
+- (void)call:(NSString *)tel {
+    NSString *str = [NSString stringWithFormat:@"tel:%@", tel];
     [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:self.callWebView];
 }
 
 @end
