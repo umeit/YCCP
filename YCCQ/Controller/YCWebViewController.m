@@ -59,11 +59,19 @@
                                      shareImage:[UIImage imageNamed:@""]
                                 shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
                                        delegate:self];
+    
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
+    
+    [UMSocialData defaultData].extConfig.wechatSessionData.title = self.carName;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title = self.carName;
+    
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeWeb;
 }
 
 - (IBAction)orderButtonPress:(id)sender {
     YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/yuyue?yuyueType=1&carID=%ld&t=app", self.carID];
+    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/yuyue?yuyueType=1&carID=%@&t=app", self.carID];
     webVC.navigationItem.title = @"车辆信息";
     [self.navigationController pushViewController:webVC animated:YES];
 }
@@ -139,8 +147,10 @@
             }];
         }
         else if ([dicArg[@"f"] isEqualToString:@"getCarName"]) {
-            self.carName = dicArg[@"args"][0];
-//            self.carID   = dicArg[@"args"][1];
+            NSString *argStr = dicArg[@"args"][0];
+            NSArray *argList = [argStr componentsSeparatedByString:@","];
+            self.carName = argList[0];
+            self.carID   = argList[1];
         }
         return NO;
     }
