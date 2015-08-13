@@ -85,8 +85,8 @@
     // 动画
     [self arrowDefault:self.mileageArrowImageView];
     
-    // 如果当前列表为「占号用车」，则排序时按初始列表处理
-    if ([self.carListURL.lastPathComponent isEqualToString:@"t32"]) {
+    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
+    if ([self isSubjectCarList]) {
         self.carListURL = @"http://m.youche.com/ershouche/";
     }
     
@@ -108,8 +108,8 @@
     // 动画
     [self arrowDefault:self.priceArrowImageView];
     
-    // 如果当前列表为「占号用车」，则排序时按初始列表处理
-    if ([self.carListURL.lastPathComponent isEqualToString:@"t32"]) {
+    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
+    if ([self isSubjectCarList]) {
         self.carListURL = @"http://m.youche.com/ershouche/";
     }
     
@@ -206,6 +206,10 @@
 
 
 #pragma mark - Privatre
+
+- (BOOL)isSubjectCarList {
+    return [self.carListURL.lastPathComponent isEqualToString:@"t32"] || [self.carListURL.lastPathComponent isEqualToString:@"t37"];
+}
 
 - (void)call:(NSString *)tel
 {

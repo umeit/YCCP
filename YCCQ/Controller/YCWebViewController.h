@@ -16,4 +16,7 @@
 
 @property (nonatomic) BOOL showBottomBar;
 
+@property (strong, nonatomic) NSString *carName;
+@property (nonatomic) NSInteger carID;
+
 @end

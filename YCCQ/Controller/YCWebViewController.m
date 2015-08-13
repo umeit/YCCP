@@ -41,16 +41,22 @@
     }
 }
 
+
 #pragma mark - Action
-- (void)phoneButtonPress:(id)sender
-{
+
+- (void)phoneButtonPress:(id)sender {
     [self call:MainPhoneNum];
 }
+
 - (IBAction)orderButtonPress:(id)sender {
-    
+    YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/yuyue?yuyueType=1&carID=%ld&t=app", self.carID];
+    webVC.navigationItem.title = @"车辆信息";
+    [self.navigationController pushViewController:webVC animated:YES];
 }
+
 - (IBAction)phone888ButtonPress:(id)sender {
-    
+    [self call:@"4000-990-888"];
 }
 
 
@@ -118,6 +124,10 @@
                                                                  text?:@"",
                                                                  carID?:@""]];
             }];
+        }
+        else if ([dicArg[@"f"] isEqualToString:@"getCarName"]) {
+            self.carName = dicArg[@"args"][0];
+//            self.carID   = dicArg[@"args"][1];
         }
         return NO;
     }

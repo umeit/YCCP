@@ -88,6 +88,9 @@
 - (IBAction)hotButtonPress:(UIButton *)button {
     [self toCarListViewWithKey:[YCFilterKeyUtil hotCarFilterKeyWithButtonTah:button.tag]];
 }
+- (IBAction)moreSaleCarList:(id)sender {
+    [self toCarListViewWithKey:@"ershouche/t37"];
+}
 
 - (IBAction)storeButtonPress:(UIButton *)button {
     if (button.tag == 0) {
