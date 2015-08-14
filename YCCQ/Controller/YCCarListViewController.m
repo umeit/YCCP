@@ -44,7 +44,21 @@
     
     self.orderButtonStatus = [NSMutableDictionary dictionaryWithDictionary:@{@"price": @NO, @"mileage": @NO}];
     
-    [self initOptionTable];
+    self.darkBackgroundView = [[UIView alloc] init];
+    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground:)];
+    [self.darkBackgroundView addGestureRecognizer:gesture];
+    self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    self.darkBackgroundView.opaque = NO;
+    
+    UITableView *optionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                                 0,
+                                                                                 self.view.frame.size.width,
+                                                                                 0)];
+    optionTableView.rowHeight  = 36;
+    optionTableView.dataSource = self;
+    optionTableView.delegate   = self;
+    optionTableView.backgroundColor = [UIColor whiteColor];
+    self.optionTableView = optionTableView;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,6 +82,11 @@
 
 
 #pragma mark - Action
+- (void)tapBackground:(id)sender {
+    [self hideOptionTable];
+    self.optionTableViewDidShow = NO;
+}
+
 - (IBAction)phoneButtonPress:(id)sender
 {
     [self call:MainPhoneNum];
@@ -78,70 +97,12 @@
     [self arrowDefault:self.mileageArrowImageView];
     [self arrowDefault:self.priceArrowImageView];
     
-//    [self.carListWebView loadRequest:
-//     [NSURLRequest requestWithURL:
-//      [NSURL URLWithString:
-//       [self.carListURL stringByAppendingString:@"?t=app"]]]];
-    
     if (self.optionTableViewDidShow) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.optionTableView.frame = CGRectMake(0, self.optionTableView.frame.origin.y, self.optionTableView.frame.size.width, 0);
-            self.darkBackgroundView.hidden = YES;
-        } completion:^(BOOL finished) {
-            [self.optionTableView removeFromSuperview];
-            self.darkBackgroundView.hidden = YES;
-        }];
-        
+        [self hideOptionTable];
         self.optionTableViewDidShow = NO;
     }
     else {
-        CGRect topBarFrame = self.topBarViewBackgroundView.frame;
-        CGRect scrollViewFrame = self.carListWebView.scrollView.frame;
-        //    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackGround:)];
-        //    [_backGroundView addGestureRecognizer:gesture];
-        self.darkBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(topBarFrame.origin.x,
-                                                                           topBarFrame.origin.y + topBarFrame.size.height,
-                                                                           scrollViewFrame.size.width,
-                                                                           scrollViewFrame.size.height)];
-        
-        self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-        self.darkBackgroundView.opaque = NO;
-        [self.view addSubview:self.darkBackgroundView];
-        
-        [UIView animateWithDuration:0.3
-                         animations:^{
-                             self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-                         }
-                         completion:^(BOOL finished) {
-                             self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-                         }];
-    
-        // 显示选项列表
-        UITableView *optionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                                                     0,
-                                                                                     scrollViewFrame.size.width,
-                                                                                     0)];
-        optionTableView.rowHeight  = 36;
-        optionTableView.dataSource = self;
-        optionTableView.delegate   = self;
-        optionTableView.backgroundColor = [UIColor whiteColor];
-        self.optionTableView = optionTableView;
-        
-        self.sortItemList = @[@"默认排序", @"按价格", @"按车龄", @"按里程"];
-        [self.darkBackgroundView addSubview:self.optionTableView];
-        CGFloat tableViewHeight = self.sortItemList.count * 36;
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             self.optionTableView.frame = CGRectMake(0,
-                                                                     0,
-                                                                     scrollViewFrame.size.width,
-                                                                     tableViewHeight);
-                         } completion:^(BOOL finished) {
-                             self.optionTableView.frame = CGRectMake(0,
-                                                                     0,
-                                                                     scrollViewFrame.size.width,
-                                                                     tableViewHeight);
-                         }];
+        [self showOptionTable];
         self.optionTableViewDidShow = YES;
     }
     
@@ -293,10 +254,56 @@
 
 #pragma mark - Privatre
 
-- (void)initOptionTable {
+- (void)configrueDarkBackgroundViewLayout {
+    CGRect topBarFrame = self.topBarViewBackgroundView.frame;
+    CGRect scrollViewFrame = self.carListWebView.scrollView.frame;
     
-//    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackGround:)];
-//    [_backGroundView addGestureRecognizer:gesture];
+    self.darkBackgroundView.frame = CGRectMake(topBarFrame.origin.x,
+                                               topBarFrame.origin.y + topBarFrame.size.height,
+                                               scrollViewFrame.size.width,
+                                               scrollViewFrame.size.height);
+}
+
+- (void)showOptionTable {
+    // 显示暗色背景
+    [self configrueDarkBackgroundViewLayout];
+    [self.view addSubview:self.darkBackgroundView];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+                     }
+                     completion:^(BOOL finished) {
+                         self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+                     }];
+    
+    // 显示选项列表
+    self.sortItemList = @[@"默认排序", @"按价格", @"按车龄", @"按里程"];
+    [self.darkBackgroundView addSubview:self.optionTableView];
+    CGFloat tableViewHeight = self.sortItemList.count * 36;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         self.optionTableView.frame = CGRectMake(0,
+                                                                 0,
+                                                                 self.view.frame.size.width,
+                                                                 tableViewHeight);
+                     } completion:^(BOOL finished) {
+                         self.optionTableView.frame = CGRectMake(0,
+                                                                 0,
+                                                                 self.view.frame.size.width,
+                                                                 tableViewHeight);
+                     }];
+}
+
+- (void)hideOptionTable {
+    [UIView animateWithDuration:0.2 animations:^{
+        CGRect frame = self.optionTableView.frame;
+        self.optionTableView.frame = CGRectMake(0, frame.origin.y, frame.size.width, 0);
+        self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        
+    } completion:^(BOOL finished) {
+        [self.optionTableView removeFromSuperview];
+        [self.darkBackgroundView removeFromSuperview];
+    }];
 }
 
 - (BOOL)isSubjectCarList {
@@ -369,6 +376,5 @@
         [vc performSelector:@selector(setDelegate:) withObject:self];
     }
 }
-
 
 @end
