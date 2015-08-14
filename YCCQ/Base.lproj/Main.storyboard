@@ -6213,7 +6213,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="oH7-h4-x9c"/>
                                         </constraints>
-                                        <state key="normal" title="默认">
+                                        <state key="normal" title="默认排序">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
@@ -6238,7 +6238,7 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="100"/>
                                             </constraint>
                                         </constraints>
-                                        <state key="normal" title="价格">
+                                        <state key="normal" title="品牌">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
@@ -6252,9 +6252,6 @@
                                                 <include reference="hYN-96-rGp"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="priceButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="ArI-N8-J7G"/>
-                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="gHP-RG-oen" userLabel="箭头">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -6520,6 +6517,7 @@
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
                         <outlet property="mileageArrowImageView" destination="x0J-o9-KdM" id="Hg9-R1-KiV"/>
                         <outlet property="priceArrowImageView" destination="gHP-RG-oen" id="wK2-8a-otD"/>
+                        <outlet property="sortButton" destination="8Dh-iS-6sA" id="gpH-4I-JOC"/>
                         <outlet property="topBarViewBackgroundView" destination="r0E-67-9en" id="C1c-Vk-OBw"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mileageArrowImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *priceArrowImageView;
 @property (weak, nonatomic) IBOutlet UIView *topBarViewBackgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *sortButton;
 @property (strong, nonatomic)  UIView *darkBackgroundView;
 @property (strong, nonatomic) NSString *carListURL;
 @end

@@ -15,11 +15,11 @@
 @interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableDictionary *orderButtonStatus;
-
 @property (strong, nonatomic) UIWebView *callWebView;
 @property (strong, nonatomic) UITableView *optionTableView;
 @property (strong, nonatomic) NSArray *sortItemList;
 @property (nonatomic) BOOL optionTableViewDidShow;
+@property (nonatomic) NSInteger currentIndex;
 @end
 
 @implementation YCCarListViewController
@@ -44,21 +44,15 @@
     
     self.orderButtonStatus = [NSMutableDictionary dictionaryWithDictionary:@{@"price": @NO, @"mileage": @NO}];
     
-    self.darkBackgroundView = [[UIView alloc] init];
-    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground:)];
-    [self.darkBackgroundView addGestureRecognizer:gesture];
-    self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-    self.darkBackgroundView.opaque = NO;
+    self.sortItemList = @[@"默认排序", @"按价格", @"按车龄", @"按里程"];
     
-    UITableView *optionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                                                 0,
-                                                                                 self.view.frame.size.width,
-                                                                                 0)];
-    optionTableView.rowHeight  = 36;
-    optionTableView.dataSource = self;
-    optionTableView.delegate   = self;
-    optionTableView.backgroundColor = [UIColor whiteColor];
-    self.optionTableView = optionTableView;
+    [self createDarkBackgroundView];
+    [self createOptionTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.sortButton setTitle:self.sortItemList[self.currentIndex] forState:UIControlStateNormal];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -226,8 +220,7 @@
 
 #pragma mark - Car Filter Delegate
 
-- (void)conditionDidFinish:(NSString *)urlFuffix
-{
+- (void)conditionDidFinish:(NSString *)urlFuffix {
     self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix];
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"?t=app"]]]];
 }
@@ -252,7 +245,79 @@
     return cell;
 }
 
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.currentIndex = indexPath.row;
+    [self.sortButton setTitle:self.sortItemList[self.currentIndex] forState:UIControlStateNormal];
+    
+    switch (indexPath.row) {
+        case 0:
+            [self.carListWebView loadRequest:
+             [NSURLRequest requestWithURL:
+              [NSURL URLWithString:
+               [self.carListURL stringByAppendingString:@"?t=app"]]]];
+            break;
+        case 1:
+            if ([self.orderButtonStatus[@"price"] boolValue]) {
+                self.orderButtonStatus[@"price"] = @NO;
+//                [self arrowUp:self.priceArrowImageView];
+                [self.carListWebView loadRequest:
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
+            } else {
+                self.orderButtonStatus[@"price"] = @YES;
+//                [self arrowDown:self.priceArrowImageView];
+                [self.carListWebView loadRequest:
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
+            }
+            break;
+            
+        case 2:
+            break;
+            
+        case 3:
+            if ([self.orderButtonStatus[@"mileage"] boolValue]) {
+                self.orderButtonStatus[@"mileage"] = @NO;
+//                [self arrowUp:self.mileageArrowImageView];
+                [self.carListWebView loadRequest:
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
+            } else {
+                self.orderButtonStatus[@"mileage"] = @YES;
+//                [self arrowDown:self.mileageArrowImageView];
+                [self.carListWebView loadRequest:
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
+            }
+            break;
+        default:
+            break;
+    }
+    
+    [self hideOptionTable];
+    self.optionTableViewDidShow = NO;
+}
+
 #pragma mark - Privatre
+
+- (void)createDarkBackgroundView {
+    self.darkBackgroundView = [[UIView alloc] init];
+//    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground:)];
+//    [self.darkBackgroundView addGestureRecognizer:gesture];
+    self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+    self.darkBackgroundView.opaque = NO;
+}
+
+- (void)createOptionTableView {
+    UITableView *optionTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                                 0,
+                                                                                 self.view.frame.size.width,
+                                                                                 0)];
+    optionTableView.rowHeight  = 36;
+    optionTableView.dataSource = self;
+    optionTableView.delegate   = self;
+    optionTableView.backgroundColor = [UIColor whiteColor];
+    self.optionTableView = optionTableView;
+}
 
 - (void)configrueDarkBackgroundViewLayout {
     CGRect topBarFrame = self.topBarViewBackgroundView.frame;
@@ -277,7 +342,6 @@
                      }];
     
     // 显示选项列表
-    self.sortItemList = @[@"默认排序", @"按价格", @"按车龄", @"按里程"];
     [self.darkBackgroundView addSubview:self.optionTableView];
     CGFloat tableViewHeight = self.sortItemList.count * 36;
     [UIView animateWithDuration:0.2
