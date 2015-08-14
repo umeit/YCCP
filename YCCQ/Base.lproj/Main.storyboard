@@ -6520,6 +6520,7 @@
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
                         <outlet property="mileageArrowImageView" destination="x0J-o9-KdM" id="Hg9-R1-KiV"/>
                         <outlet property="priceArrowImageView" destination="gHP-RG-oen" id="wK2-8a-otD"/>
+                        <outlet property="topBarViewBackgroundView" destination="r0E-67-9en" id="C1c-Vk-OBw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zh-CJ-hB1" userLabel="First Responder" sceneMemberID="firstResponder"/>

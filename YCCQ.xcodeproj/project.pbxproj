@@ -149,6 +149,7 @@
 		03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */; };
 		03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */; };
 		03C73DC81B185CA8008FCF0F /* YCBrandHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */; };
+		03CFDD251B7D9D3400D98618 /* CarListLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */; };
 		03D3B4451B33B45200761B7B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D3B4471B33B45200761B7B /* Localizable.strings */; };
 		03D503A71B27EC5A00E0A167 /* allbrand.json in Resources */ = {isa = PBXBuildFile; fileRef = 03D503A61B27EC5A00E0A167 /* allbrand.json */; };
 		03D503AA1B28315700E0A167 /* YCEvaluateCarFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D503A91B28315700E0A167 /* YCEvaluateCarFilterController.m */; };
@@ -448,6 +449,7 @@
 		03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandTableViewController.m; sourceTree = "<group>"; };
 		03C73DC61B185CA8008FCF0F /* YCBrandHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBrandHeadCell.h; sourceTree = "<group>"; };
 		03C73DC71B185CA8008FCF0F /* YCBrandHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBrandHeadCell.m; sourceTree = "<group>"; };
+		03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListLayoutUtil.swift; sourceTree = "<group>"; };
 		03D3B4481B33B66200761B7B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		03D503A61B27EC5A00E0A167 /* allbrand.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = allbrand.json; sourceTree = "<group>"; };
 		03D503A81B28315700E0A167 /* YCEvaluateCarFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCEvaluateCarFilterController.h; sourceTree = "<group>"; };
@@ -1285,6 +1287,7 @@
 				03EBA69B1B3A5DB100F2F3BF /* YCUserUtil.h */,
 				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
 				036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */,
+				03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1669,6 +1672,7 @@
 				03E4CB3B1B74BCA100218C2F /* YCFunctionEntity.m in Sources */,
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				03CFDD251B7D9D3400D98618 /* CarListLayoutUtil.swift in Sources */,
 				03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */,
 				03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
