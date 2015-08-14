@@ -11,8 +11,10 @@
 #import "UIViewController+GViewController.h"
 #import "YCUserUtil.h"
 #import "UtilDefine.h"
+#import "YCBrandTableViewController.h"
+#import "YCFilterTableViewController.h"
 
-@interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate, YCCarFilterConditionDelegate>
 
 @property (nonatomic) NSMutableDictionary *orderButtonStatus;
 @property (strong, nonatomic) UIWebView *callWebView;
@@ -76,6 +78,7 @@
 
 
 #pragma mark - Action
+
 - (void)tapBackground:(id)sender {
     [self hideOptionTable];
     self.optionTableViewDidShow = NO;
@@ -102,51 +105,67 @@
     
 }
 
-- (IBAction)priceButtonPress:(UIButton *)button
-{
-    // 动画
-    [self arrowDefault:self.mileageArrowImageView];
-    
-    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
-    if ([self isSubjectCarList]) {
-        self.carListURL = @"http://m.youche.com/ershouche/";
-    }
-    
-    if ([self.orderButtonStatus[@"price"] boolValue]) {
-        self.orderButtonStatus[@"price"] = @NO;
-        [self arrowUp:self.priceArrowImageView];
-        [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
-    } else {
-        self.orderButtonStatus[@"price"] = @YES;
-        [self arrowDown:self.priceArrowImageView];
-        [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
-    }
+- (IBAction)brandButtonPress:(id)sender {
+    YCBrandTableViewController *vc = [self controllerWithStoryBoardID:@"YCBrandTableViewController"];
+    vc.navigationItem.title = @"选择品牌";
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.useOnlineData = YES;
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)mileageButtonPress:(id)sender
-{
-    // 动画
-    [self arrowDefault:self.priceArrowImageView];
-    
-    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
-    if ([self isSubjectCarList]) {
-        self.carListURL = @"http://m.youche.com/ershouche/";
-    }
-    
-    if ([self.orderButtonStatus[@"mileage"] boolValue]) {
-        self.orderButtonStatus[@"mileage"] = @NO;
-        [self arrowUp:self.mileageArrowImageView];
-        [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
-    } else {
-        self.orderButtonStatus[@"mileage"] = @YES;
-        [self arrowDown:self.mileageArrowImageView];
-        [self.carListWebView loadRequest:
-        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
-    }
+- (IBAction)priceButtonPress:(id)sender {
+    YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+    vc.delegate = self;
+    vc.dataType = PriceType;
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
+//- (IBAction)priceButtonPress:(UIButton *)button
+//{
+//    // 动画
+//    [self arrowDefault:self.mileageArrowImageView];
+//    
+//    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
+//    if ([self isSubjectCarList]) {
+//        self.carListURL = @"http://m.youche.com/ershouche/";
+//    }
+//    
+//    if ([self.orderButtonStatus[@"price"] boolValue]) {
+//        self.orderButtonStatus[@"price"] = @NO;
+//        [self arrowUp:self.priceArrowImageView];
+//        [self.carListWebView loadRequest:
+//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
+//    } else {
+//        self.orderButtonStatus[@"price"] = @YES;
+//        [self arrowDown:self.priceArrowImageView];
+//        [self.carListWebView loadRequest:
+//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
+//    }
+//}
+
+//- (IBAction)mileageButtonPress:(id)sender
+//{
+//    // 动画
+//    [self arrowDefault:self.priceArrowImageView];
+//    
+//    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
+//    if ([self isSubjectCarList]) {
+//        self.carListURL = @"http://m.youche.com/ershouche/";
+//    }
+//    
+//    if ([self.orderButtonStatus[@"mileage"] boolValue]) {
+//        self.orderButtonStatus[@"mileage"] = @NO;
+//        [self arrowUp:self.mileageArrowImageView];
+//        [self.carListWebView loadRequest:
+//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
+//    } else {
+//        self.orderButtonStatus[@"mileage"] = @YES;
+//        [self arrowDown:self.mileageArrowImageView];
+//        [self.carListWebView loadRequest:
+//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
+//    }
+//}
 
 
 #pragma mark - UIWebViewDelegate
@@ -297,6 +316,23 @@
     self.optionTableViewDidShow = NO;
 }
 
+
+#pragma mark - YCCarFilterConditionDelegate
+
+- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType {
+    if (filterType == PriceType) {
+        self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/ershouche/%@", condition[@"CV"] ];
+    }
+    else {
+        self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", condition[@"CV"] ];
+    }
+    NSString *url = [self.carListURL stringByAppendingString:@"?t=app"];
+    [self.carListWebView loadRequest:
+     [NSURLRequest requestWithURL:
+      [NSURL URLWithString:url]]];
+}
+
+
 #pragma mark - Privatre
 
 - (void)createDarkBackgroundView {
@@ -374,21 +410,18 @@
     return [self.carListURL.lastPathComponent isEqualToString:@"t32"] || [self.carListURL.lastPathComponent isEqualToString:@"t37"];
 }
 
-- (void)call:(NSString *)tel
-{
+- (void)call:(NSString *)tel {
     NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@", tel];
     self.callWebView = [[UIWebView alloc] init];
     [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
     [self.view addSubview:self.callWebView];
 }
 
-- (NSString *)defaultURL
-{
+- (NSString *)defaultURL {
     return @"http://m.youche.com/ershouche/";
 }
 
-- (void)arrowUp:(UIImageView *)arrowImage
-{
+- (void)arrowUp:(UIImageView *)arrowImage {
     CGAffineTransform endAngle = CGAffineTransformMakeRotation((M_PI / -2));
     
     [UIView animateWithDuration:0.5

@@ -6252,6 +6252,9 @@
                                                 <include reference="hYN-96-rGp"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="brandButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="UmY-en-4hl"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="gHP-RG-oen" userLabel="箭头">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -6277,7 +6280,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="1CX-fd-PDP"/>
                                         </constraints>
-                                        <state key="normal" title="里程">
+                                        <state key="normal" title=" 价格">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
@@ -6292,7 +6295,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="mileageButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="HOK-ch-5dT"/>
+                                            <action selector="priceButtonPress:" destination="3aE-xA-77v" eventType="touchUpInside" id="2B5-Zt-83q"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="x0J-o9-KdM" userLabel="箭头">
