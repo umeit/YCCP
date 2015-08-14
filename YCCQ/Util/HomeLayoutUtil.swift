@@ -72,11 +72,11 @@ class HomeLayoutUtil : NSObject {
             case Banner_Row_Index:
                 return 170
             case Function_Row_Index:
-                return 248
+                return 268
             case Hot_Row_Index:
-                return 178
+                return 206
             case Baokuan_Row_Index:
-                return baokuanCount < 4 ? 240 : 416
+                return baokuanCount < 4 ? 248 : 436
             case CarType_Row_Index:
                 return 122
             case CarBrand_Row_Index:
