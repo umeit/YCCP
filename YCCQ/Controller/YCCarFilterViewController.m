@@ -320,7 +320,7 @@
     // 价格
     if (self.filterCondition.priceValue.length) {
         [url appendString:self.filterCondition.priceValue];
-        [url appendString:@"/"];
+//        [url appendString:@"/"];
     }
     // 颜色
     if (self.filterCondition.colorValue.length) {
@@ -337,7 +337,7 @@
     // 变速箱
     if (self.filterCondition.gearboxValue.length) {
         [url appendString:self.filterCondition.gearboxValue];
-        [url appendString:@"/"];
+//        [url appendString:@"/"];
     }
     // 车龄
     if (self.filterCondition.yearValue.length) {
