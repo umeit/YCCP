@@ -36,6 +36,7 @@
     self.filterCondition.mileageName = @"不限";
     self.filterCondition.gearboxName = @"不限";
     self.filterCondition.colorName   = @"不限";
+    self.filterCondition.storeName   = @"不限";
     
     [self updateCellViews];
 }
@@ -163,6 +164,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case storeType:
+        {
+            YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
+            vc.delegate = self;
+            vc.dataType = storeType;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
         default:
             break;
     }
@@ -243,6 +251,12 @@
         {
             self.filterCondition.mileageName = condition[@"CN"];
             self.filterCondition.mileageValue = condition[@"CV"];
+        }
+            break;
+        case storeType:
+        {
+            self.filterCondition.storeName = condition[@"CN"];
+            self.filterCondition.storeValue = condition[@"CV"];
         }
             break;
         default:
@@ -329,6 +343,10 @@
     if (self.filterCondition.yearValue.length) {
         [url appendString:self.filterCondition.yearValue];
     }
+    // 门店
+    if (self.filterCondition.storeValue.length) {
+        [url appendString:self.filterCondition.storeValue];
+    }
     return url;
 }
 
@@ -349,6 +367,7 @@
     }
     [array addObject:@{@"name": @"价格",  @"value": self.filterCondition.priceName, @"type": @(PriceType)}];
     [array addObject:@{@"name": @"类型",  @"value": self.filterCondition.carTypeName, @"type": @(CarTypeType)}];
+    [array addObject:@{@"name": @"门店",  @"value": self.filterCondition.storeName, @"type": @(storeType)}];
     [array addObject:@{@"name": @"车龄",  @"value": self.filterCondition.yearName, @"type": @(yearType)}];
     [array addObject:@{@"name": @"里程",  @"value": self.filterCondition.mileageName, @"type": @(mileageType)}];
     [array addObject:@{@"name": @"变速箱", @"value": self.filterCondition.gearboxName, @"type": @(gearboxType)}];

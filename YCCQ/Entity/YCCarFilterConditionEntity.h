@@ -50,6 +50,8 @@
 
 @property (strong, nonatomic) NSString *ccValue;
 
+@property (strong, nonatomic) NSString *storeName;
 
+@property (strong, nonatomic) NSString *storeValue;
 
 @end

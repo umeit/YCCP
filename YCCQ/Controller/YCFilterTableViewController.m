@@ -50,6 +50,9 @@
         case mileageType:
             self.dataList = [self mileageTyppList];
             break;
+        case storeType:
+            self.dataList = [self storeTypeList];
+            break;
         default:
             break;
     }
@@ -202,6 +205,12 @@
              @{@"name": @"5年以内", @"value":@"a7"},
              @{@"name": @"5年以上", @"value":@"a8"},
              @{@"name": @"准新车", @"value":@"a9"}];
+}
+
+- (NSArray *)storeTypeList {
+    return @[@{@"name": @"不限",    @"value":@""},
+             @{@"name": @"亦庄店", @"value":@"i2"},
+             @{@"name": @"来广营店",   @"value":@"i3"}];
 }
 
 - (NSArray *)yearNumTypeList

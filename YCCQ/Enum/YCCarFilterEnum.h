@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, CarFilterType) {
     yearType,
     yearNumType,
     monthType,
-    ccType
+    ccType,
+    storeType
 };
 
