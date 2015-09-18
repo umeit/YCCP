@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YCCarFilterConditionEntity : NSObject
+@interface YCCarFilterConditionEntity : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *brandName;
 

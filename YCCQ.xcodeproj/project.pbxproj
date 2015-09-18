@@ -90,6 +90,7 @@
 		03242C4B1B0C5842006E8B82 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4A1B0C5842006E8B82 /* AVFoundation.framework */; };
 		03242C4D1B0C584A006E8B82 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */; };
 		03242C4F1B0C585C006E8B82 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03242C4E1B0C585C006E8B82 /* libiconv.dylib */; };
+		033491E31BAC260A0051C1A8 /* YCFilterCellDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 033491E21BAC260A0051C1A8 /* YCFilterCellDataEntity.m */; };
 		0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */; };
 		0342D7CA1B679291004BA466 /* YCYouCheHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EBD2E01B142705004DD5E3 /* YCYouCheHTTPClient.m */; };
 		035F60C21B5E30AE00868728 /* ug_1242-2208-1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 035F60AE1B5E30AE00868728 /* ug_1242-2208-1@3x.png */; };
@@ -347,6 +348,8 @@
 		03242C4A1B0C5842006E8B82 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03242C4C1B0C584A006E8B82 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03242C4E1B0C585C006E8B82 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		033491E11BAC260A0051C1A8 /* YCFilterCellDataEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterCellDataEntity.h; sourceTree = "<group>"; };
+		033491E21BAC260A0051C1A8 /* YCFilterCellDataEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFilterCellDataEntity.m; sourceTree = "<group>"; };
 		0339D8781B293C0F00EC2EF5 /* YCFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFieldTableViewCell.h; sourceTree = "<group>"; };
 		0339D8791B293C0F00EC2EF5 /* YCFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFieldTableViewCell.m; sourceTree = "<group>"; };
 		0342D78E1B6760CD004BA466 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -669,6 +672,8 @@
 				0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */,
 				03E4CB391B74BCA100218C2F /* YCFunctionEntity.h */,
 				03E4CB3A1B74BCA100218C2F /* YCFunctionEntity.m */,
+				033491E11BAC260A0051C1A8 /* YCFilterCellDataEntity.h */,
+				033491E21BAC260A0051C1A8 /* YCFilterCellDataEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1559,6 +1564,7 @@
 				030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */,
 				03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */,
 				03EE9F311B12FCF40051CC57 /* UIAlertView+AFNetworking.m in Sources */,
+				033491E31BAC260A0051C1A8 /* YCFilterCellDataEntity.m in Sources */,
 				03EE9F131B12FC260051CC57 /* AFHTTPRequestOperationManager.m in Sources */,
 				03EA57931B50FF4A006BDBAB /* YCBaokuanRowCell.m in Sources */,
 				03EBD2E71B14680E004DD5E3 /* YCAftermarketEntity.m in Sources */,

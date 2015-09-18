@@ -25,18 +25,7 @@
     
     [self setOKButton];
     
-    self.filterCondition = [[YCCarFilterConditionEntity alloc] init];
-    self.filterCondition.brandName   = @"不限";
-    self.filterCondition.seriesName  = @"不限";
-    self.filterCondition.modelName   = @"不限";
-    self.filterCondition.priceName   = @"不限";
-    self.filterCondition.carTypeName = @"不限";
-    self.filterCondition.yearName    = @"不限";
-    self.filterCondition.ccName      = @"不限";
-    self.filterCondition.mileageName = @"不限";
-    self.filterCondition.gearboxName = @"不限";
-    self.filterCondition.colorName   = @"不限";
-    self.filterCondition.storeName   = @"不限";
+    self.filterCondition = [self currentFilterCondition];
     
     [self updateCellViews];
 }
@@ -269,6 +258,34 @@
 
 #pragma mark - Private
 
+- (YCCarFilterConditionEntity *)currentFilterCondition
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [userDefaults objectForKey:@"YCCarFilterConditionEntity"];
+
+    if (!data) {
+        YCCarFilterConditionEntity *filterCondition = [[YCCarFilterConditionEntity alloc] init];
+        filterCondition.brandName   = @"不限";
+        filterCondition.seriesName  = @"不限";
+        filterCondition.modelName   = @"不限";
+        filterCondition.priceName   = @"不限";
+        filterCondition.carTypeName = @"不限";
+        filterCondition.yearName    = @"不限";
+        filterCondition.ccName      = @"不限";
+        filterCondition.mileageName = @"不限";
+        filterCondition.gearboxName = @"不限";
+        filterCondition.colorName   = @"不限";
+        filterCondition.storeName   = @"不限";
+        
+        data = [NSKeyedArchiver archivedDataWithRootObject:filterCondition];
+        [userDefaults setObject:data forKey:@"YCCarFilterConditionEntity"];
+        return filterCondition;
+    }
+    else {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+}
+
 - (void)setOKButton
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -285,6 +302,7 @@
 }
 
 // 通过 FilterCondition 实体，生成查询 URL 后缀
+// TODO: 移动到 YCCarListViewController 中
 - (NSString *)urlFuffix
 {
     NSMutableString *url = [NSMutableString string];
