@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(conditionDidFinish) name:@"FilterConditionFinish" object:nil];
+    
     self.carListWebView.delegate = self;
     
     if (!self.carListURL) {
@@ -239,7 +241,8 @@
 
 #pragma mark - Car Filter Delegate
 
-- (void)conditionDidFinish:(NSString *)urlFuffix {
+- (void)conditionDidFinish
+{
     self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix];
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"?t=app"]]]];
 }

@@ -12,7 +12,7 @@
 #import "YCFilterTableViewController.h"
 #import "YCCarFilterEnum.h"
 #import "YCFilterCellDataEntity.h"
-#import "YCFilterService.h"
+//#import "YCFilterService.h"
 #import "YCFilterConditionStore.h"
 
 @interface YCCarFilterViewController ()
@@ -36,7 +36,7 @@
 #pragma mark - Action
 
 - (void)okButtonPress:(UIButton *)button {
-    [self.delegate conditionDidFinish:[self urlFuffix]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionFinish" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -171,7 +171,7 @@
 - (NSString *)urlFuffix
 {
     NSMutableString *url = [NSMutableString string];
-    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterService currentFilterCondition];
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
     
     // 选择类型
     if (currentFilterCondition.carTypeValue.length) {

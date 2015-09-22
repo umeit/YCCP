@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class YCCarFilterConditionEntity;
+//@class YCCarFilterConditionEntity;
 
 @interface YCFilterService : NSObject
 
-+ (YCCarFilterConditionEntity *)currentFilterCondition;
-
-+ (void)saveCondition:(YCCarFilterConditionEntity *)condition;
+//+ (YCCarFilterConditionEntity *)currentFilterCondition;
+//
+//+ (void)saveCondition:(YCCarFilterConditionEntity *)condition;
 
 @end
