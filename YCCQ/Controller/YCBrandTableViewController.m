@@ -11,8 +11,8 @@
 #import "YCCarService.h"
 #import "UIViewController+GViewController.h"
 #import "UtilDefine.h"
-#import "YCFilterService.h"
 #import "YCCarFilterConditionEntity.h"
+#import "YCFilterConditionStore.h"
 
 @interface YCBrandTableViewController ()
 @property (strong, nonatomic) NSArray *brands;
@@ -27,7 +27,7 @@
     
     [self showLodingView];
     
-    NSString *pID = [YCFilterService currentFilterCondition].pID;
+    NSString *pID = [YCFilterConditionStore sharedInstance].filterCondition.pID;
     
     switch (self.dataType) {
         case BrandType:   // 显示品牌
@@ -100,23 +100,21 @@
     NSString *brandVlue = [YCFilterKeyUtil brandFilterKeyWithButtonTag:button.tag];
     NSString *pid = [YCFilterKeyUtil pIDWithBrand:brandVlue];
     
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
+    conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
+    conditionEntity.brandValue = brandVlue;
+    conditionEntity.pID = pid;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+    
     if (self.continuousMode) {
         YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-//        vc.delegate = self;
         vc.dataType = SeriesType;
         vc.useOnlineData = NO;
         vc.continuousMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
-        return;
     }
     else {
-        YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
-        conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
-        conditionEntity.brandValue = brandVlue;
-        conditionEntity.pID = pid;
-        
-        [YCFilterService saveCondition:conditionEntity];
-        
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -224,6 +222,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
     switch (self.dataType) {
         case BrandType: {
             // 品牌列表的第一行是热门品牌的容器，点击无效
@@ -232,12 +231,11 @@
             }
             
             NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
-            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
             conditionEntity.brandName = dic[@"title"];
             conditionEntity.brandValue = dic[@"enname"];
             conditionEntity.pID = dic[@"id"];
             
-            [YCFilterService saveCondition:conditionEntity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
             // 一直选到车款
             if (self.continuousMode) {
@@ -253,13 +251,11 @@
         case SeriesType:
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
-            
-            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
             conditionEntity.seriesName = dic[@"title"];
             conditionEntity.seriesValue = dic[@"enname"];
             conditionEntity.pID = dic[@"id"];
             
-            [YCFilterService saveCondition:conditionEntity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
@@ -274,13 +270,11 @@
         case ModelType:
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
-            
-            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
             conditionEntity.modelName = dic[@"title"];
             conditionEntity.modelValue = dic[@"enname"];
             conditionEntity.pID = dic[@"id"];
             
-            [YCFilterService saveCondition:conditionEntity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
             if (self.continuousMode) {
                 NSInteger controllerCount = self.navigationController.viewControllers.count;

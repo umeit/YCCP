@@ -118,6 +118,7 @@
 		036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */; };
 		036BCB971B79EFB000AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB951B79EFB000AF84E6 /* SystemUtil.swift */; };
 		036CAB211BB13967003310C4 /* YCFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB201BB13967003310C4 /* YCFilterService.m */; settings = {ASSET_TAGS = (); }; };
+		036CAB251BB1580E003310C4 /* YCFilterConditionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB241BB1580E003310C4 /* YCFilterConditionStore.m */; settings = {ASSET_TAGS = (); }; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
@@ -399,6 +400,8 @@
 		036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCCQ-Bridging-Header.h.h"; sourceTree = "<group>"; };
 		036CAB1F1BB13967003310C4 /* YCFilterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterService.h; sourceTree = "<group>"; };
 		036CAB201BB13967003310C4 /* YCFilterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFilterService.m; sourceTree = "<group>"; };
+		036CAB231BB1580E003310C4 /* YCFilterConditionStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YCFilterConditionStore.h; path = YCCQ/Store/YCFilterConditionStore.h; sourceTree = SOURCE_ROOT; };
+		036CAB241BB1580E003310C4 /* YCFilterConditionStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YCFilterConditionStore.m; path = YCCQ/Store/YCFilterConditionStore.m; sourceTree = SOURCE_ROOT; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
 		038A560B1B26D591002FA96D /* changshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changshi.png; sourceTree = "<group>"; };
@@ -905,6 +908,16 @@
 			path = UMAnalytics_Sdk_3.5.8;
 			sourceTree = "<group>";
 		};
+		036CAB221BB157D3003310C4 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				036CAB231BB1580E003310C4 /* YCFilterConditionStore.h */,
+				036CAB241BB1580E003310C4 /* YCFilterConditionStore.m */,
+			);
+			name = Store;
+			path = store;
+			sourceTree = "<group>";
+		};
 		0376B67A1B186CCE005B5FFC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +957,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				036CAB221BB157D3003310C4 /* Store */,
 				03109AAA1B1F0ACB00356FB3 /* Enum */,
 				0376B67A1B186CCE005B5FFC /* Protocol */,
 				03EBD2DE1B142064004DD5E3 /* Logic */,
@@ -1553,6 +1567,7 @@
 				0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */,
 				03EE9F1A1B12FC260051CC57 /* AFURLSessionManager.m in Sources */,
 				03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */,
+				036CAB251BB1580E003310C4 /* YCFilterConditionStore.m in Sources */,
 				03EE9F171B12FC260051CC57 /* AFURLConnectionOperation.m in Sources */,
 				036CAB211BB13967003310C4 /* YCFilterService.m in Sources */,
 				03EA57961B50FFEF006BDBAB /* YCBaokuanTableViewController.m in Sources */,

@@ -13,6 +13,7 @@
 #import "YCCarFilterEnum.h"
 #import "YCFilterCellDataEntity.h"
 #import "YCFilterService.h"
+#import "YCFilterConditionStore.h"
 
 @interface YCCarFilterViewController ()
 @property (strong, nonatomic) NSMutableArray *cellContentList;
@@ -27,11 +28,10 @@
     
     [self setOKButton];
     
-    self.filterCondition = [YCFilterService currentFilterCondition];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCellViews) name:@"FilterConditionUpdate" object:nil];
     
     [self updateCellViews];
 }
-
 
 #pragma mark - Action
 
@@ -71,7 +71,6 @@
         case BrandType:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-//            vc.delegate = self;
             vc.dataType = BrandType;
             vc.useOnlineData = YES;
             [self.navigationController pushViewController:vc animated:YES];
@@ -80,7 +79,6 @@
         case SeriesType:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-//            vc.delegate = self;
             vc.dataType = SeriesType;
             vc.useOnlineData = YES;
             [self.navigationController pushViewController:vc animated:YES];
@@ -89,7 +87,6 @@
         case ModelType:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-//            vc.delegate = self;
             vc.dataType = ModelType;
             vc.useOnlineData = YES;
             [self.navigationController pushViewController:vc animated:YES];
@@ -98,7 +95,6 @@
         case PriceType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = PriceType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -106,7 +102,6 @@
         case CarTypeType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = CarTypeType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -114,7 +109,6 @@
         case ccType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = ccType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -122,7 +116,6 @@
         case gearboxType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = gearboxType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -130,7 +123,6 @@
         case mileageType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = mileageType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -138,7 +130,6 @@
         case yearType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = yearType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -146,7 +137,6 @@
         case colorType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = colorType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -154,103 +144,12 @@
         case storeType:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = storeType;
             [self.navigationController pushViewController:vc animated:YES];
         }
         default:
             break;
     }
-}
-
-
-#pragma mark - Car Filter Delegate
-
-- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
-{
-    switch (filterType) {
-        case BrandType:
-        {
-            self.filterCondition.brandName = condition[@"CN"];
-            self.filterCondition.brandValue = condition[@"CV"];
-            self.brandID = [condition[@"PID"] integerValue];
-            
-            self.filterCondition.seriesName = @"不限";
-            self.filterCondition.seriesValue = nil;
-            self.filterCondition.modelName = @"不限";
-            self.filterCondition.modelValue = nil;
-        }
-            break;
-        case SeriesType:
-        {
-            self.filterCondition.seriesName = condition[@"CN"];
-            self.filterCondition.seriesValue = condition[@"CV"];
-            self.seriesID = [condition[@"PID"] integerValue];
-            
-            self.filterCondition.modelName = @"不限";
-            self.filterCondition.modelValue = nil;
-        }
-            break;
-        case ModelType:
-        {
-            self.filterCondition.modelName = condition[@"CN"];
-            self.filterCondition.modelValue = condition[@"CV"];
-        }
-            break;
-            
-        case PriceType:
-        {
-            self.filterCondition.priceName = condition[@"CN"];
-            self.filterCondition.priceValue = condition[@"CV"];
-        }
-            break;
-        case CarTypeType:
-        {
-            self.filterCondition.carTypeName = condition[@"CN"];
-            self.filterCondition.carTypeValue = condition[@"CV"];
-        }
-            break;
-        case yearType:
-        {
-            self.filterCondition.yearName = condition[@"CN"];
-            self.filterCondition.yearValue = condition[@"CV"];
-        }
-            break;
-        case colorType:
-        {
-            self.filterCondition.colorName = condition[@"CN"];
-            self.filterCondition.colorValue = condition[@"CV"];
-        }
-            break;
-        case ccType:
-        {
-            self.filterCondition.ccName = condition[@"CN"];
-            self.filterCondition.ccValue = condition[@"CV"];
-        }
-            break;
-        case gearboxType:
-        {
-            self.filterCondition.gearboxName = condition[@"CN"];
-            self.filterCondition.gearboxValue = condition[@"CV"];
-        }
-            break;
-        case mileageType:
-        {
-            self.filterCondition.mileageName = condition[@"CN"];
-            self.filterCondition.mileageValue = condition[@"CV"];
-        }
-            break;
-        case storeType:
-        {
-            self.filterCondition.storeName = condition[@"CN"];
-            self.filterCondition.storeValue = condition[@"CV"];
-        }
-            break;
-        default:
-            break;
-    }
-    
-    [self updateCellViews];
 }
 
 
@@ -272,25 +171,26 @@
 - (NSString *)urlFuffix
 {
     NSMutableString *url = [NSMutableString string];
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterService currentFilterCondition];
     
     // 选择类型
-    if (self.filterCondition.carTypeValue.length) {
-        [url appendString:self.filterCondition.carTypeValue];
+    if (currentFilterCondition.carTypeValue.length) {
+        [url appendString:currentFilterCondition.carTypeValue];
         // 品牌
-        if (self.filterCondition.brandValue.length) {
-            [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
+        if (currentFilterCondition.brandValue.length) {
+            [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
         }
     }
     // 没选类型
     // 品牌
-    else if (self.filterCondition.brandValue.length) {
-        [url appendString:[self.filterCondition.brandValue isEqualToString:@"all"] ? @"" :self.filterCondition.brandValue];
+    else if (currentFilterCondition.brandValue.length) {
+        [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
         // 车系
-        if (self.filterCondition.seriesValue.length) {
-            [url appendString:[self.filterCondition.seriesValue isEqualToString:@"all"] ? @"" :self.filterCondition.seriesValue];
+        if (currentFilterCondition.seriesValue.length) {
+            [url appendString:[currentFilterCondition.seriesValue isEqualToString:@"all"] ? @"" :currentFilterCondition.seriesValue];
             // 车型
-            if (self.filterCondition.modelValue.length) {
-                [url appendString:[self.filterCondition.modelValue isEqualToString:@"all"] ? @"" :self.filterCondition.modelValue];
+            if (currentFilterCondition.modelValue.length) {
+                [url appendString:[currentFilterCondition.modelValue isEqualToString:@"all"] ? @"" :currentFilterCondition.modelValue];
             }
         }
     }
@@ -302,34 +202,32 @@
     [url appendString:@"/"];
     
     // 价格
-    if (self.filterCondition.priceValue.length) {
-        [url appendString:self.filterCondition.priceValue];
-//        [url appendString:@"/"];
+    if (currentFilterCondition.priceValue.length) {
+        [url appendString:currentFilterCondition.priceValue];
     }
     // 颜色
-    if (self.filterCondition.colorValue.length) {
-        [url appendString:self.filterCondition.colorValue];
+    if (currentFilterCondition.colorValue.length) {
+        [url appendString:currentFilterCondition.colorValue];
     }
     // 公里
-    if (self.filterCondition.mileageValue.length) {
-        [url appendString:self.filterCondition.mileageValue];
+    if (currentFilterCondition.mileageValue.length) {
+        [url appendString:currentFilterCondition.mileageValue];
     }
     // 排量
-    if (self.filterCondition.ccValue.length) {
-        [url appendString:self.filterCondition.ccValue];
+    if (currentFilterCondition.ccValue.length) {
+        [url appendString:currentFilterCondition.ccValue];
     }
     // 变速箱
-    if (self.filterCondition.gearboxValue.length) {
-        [url appendString:self.filterCondition.gearboxValue];
-//        [url appendString:@"/"];
+    if (currentFilterCondition.gearboxValue.length) {
+        [url appendString:currentFilterCondition.gearboxValue];
     }
     // 车龄
-    if (self.filterCondition.yearValue.length) {
-        [url appendString:self.filterCondition.yearValue];
+    if (currentFilterCondition.yearValue.length) {
+        [url appendString:currentFilterCondition.yearValue];
     }
     // 门店
-    if (self.filterCondition.storeValue.length) {
-        [url appendString:self.filterCondition.storeValue];
+    if (currentFilterCondition.storeValue.length) {
+        [url appendString:currentFilterCondition.storeValue];
     }
     return url;
 }
@@ -337,23 +235,25 @@
 /** 更新列表数据源 */
 - (void)updateCellViews
 {
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
+    
     self.cellContentList = [NSMutableArray array];
     
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"品牌" detail:self.filterCondition.brandName filteType:BrandType]];
-    if (self.filterCondition.brandValue.length) {
-        [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车系" detail:self.filterCondition.seriesName filteType:SeriesType]];
-        if (self.filterCondition.seriesValue.length) {
-            [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车型" detail:self.filterCondition.modelName filteType:ModelType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"品牌" detail:currentFilterCondition.brandName filteType:BrandType]];
+    if (currentFilterCondition.brandValue.length) {
+        [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车系" detail:currentFilterCondition.seriesName filteType:SeriesType]];
+        if (currentFilterCondition.seriesValue.length) {
+            [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车型" detail:currentFilterCondition.modelName filteType:ModelType]];
         }
     }
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"价格" detail:self.filterCondition.priceName filteType:PriceType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"类型" detail:self.filterCondition.carTypeName filteType:CarTypeType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"门店" detail:self.filterCondition.storeName filteType:storeType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车龄" detail:self.filterCondition.yearName filteType:yearType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"里程" detail:self.filterCondition.mileageName filteType:mileageType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"变速箱" detail:self.filterCondition.gearboxName filteType:gearboxType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"排量" detail:self.filterCondition.ccName filteType:ccType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"颜色" detail:self.filterCondition.colorName filteType:colorType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"价格" detail:currentFilterCondition.priceName filteType:PriceType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"类型" detail:currentFilterCondition.carTypeName filteType:CarTypeType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"门店" detail:currentFilterCondition.storeName filteType:storeType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车龄" detail:currentFilterCondition.yearName filteType:yearType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"里程" detail:currentFilterCondition.mileageName filteType:mileageType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"变速箱" detail:currentFilterCondition.gearboxName filteType:gearboxType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"排量" detail:currentFilterCondition.ccName filteType:ccType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"颜色" detail:currentFilterCondition.colorName filteType:colorType]];
     
     [self.tableView reloadData];
 }

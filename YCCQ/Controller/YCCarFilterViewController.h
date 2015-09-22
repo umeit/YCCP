@@ -14,7 +14,7 @@
 @end
 
 @interface YCCarFilterViewController : UITableViewController
-@property (strong, nonatomic) YCCarFilterConditionEntity *filterCondition;
+//@property (strong, nonatomic) YCCarFilterConditionEntity *filterCondition;
 
 @property (weak, nonatomic) id<YCCarFilterDelegate> delegate;
 

@@ -29,6 +29,7 @@
         filterCondition.gearboxName = @"不限";
         filterCondition.colorName   = @"不限";
         filterCondition.storeName   = @"不限";
+        filterCondition.pID = @"";
         
         data = [NSKeyedArchiver archivedDataWithRootObject:filterCondition];
         [userDefaults setObject:data forKey:@"YCCarFilterConditionEntity"];
