@@ -49,10 +49,10 @@
     block(json);
 }
 
-- (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
+- (void)seriesesFromOnSellWithPID:(NSString *)pid block:(BaokuanBlock)block
 {
     [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"
-                              parameters:@{@"depth": @2, @"pid": @(pid)}
+                              parameters:@{@"depth": @2, @"pid": pid}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      block(responseObject);
                                  }
@@ -61,10 +61,10 @@
                                  }];
 }
 
-- (void)allSeriesesWithPID:(NSInteger)pid block:(OnSellBrandBlock)block
+- (void)allSeriesesWithPID:(NSString *)pid block:(OnSellBrandBlock)block
 {
     [[YCYouCheHTTPClient httpClient] GET:@"select/allcarmodel"
-                              parameters:@{@"depth": @2, @"pid": @(pid)}
+                              parameters:@{@"depth": @2, @"pid": pid}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      NSMutableArray *responseArray = [NSMutableArray arrayWithArray:responseObject];
                                      [responseArray removeObjectAtIndex:0];  // 删除‘不限’
@@ -75,10 +75,10 @@
                                  }];
 }
 
-- (void)modelsFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block
+- (void)modelsFromOnSellWithPID:(NSString *)pid block:(BaokuanBlock)block
 {
     [[YCYouCheHTTPClient httpClient] GET:@"select/showcarmodel"
-                              parameters:@{@"depth": @3, @"pid": @(pid)}
+                              parameters:@{@"depth": @3, @"pid": pid}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      block(responseObject);
                                  }
@@ -87,10 +87,10 @@
                                  }];
 }
 
-- (void)allModelsWithPID:(NSInteger)pid block:(BaokuanBlock)block
+- (void)allModelsWithPID:(NSString *)pid block:(BaokuanBlock)block
 {
     [[YCYouCheHTTPClient httpClient] GET:@"select/allcarmodel"
-                              parameters:@{@"depth": @3, @"pid": @(pid)}
+                              parameters:@{@"depth": @3, @"pid": pid}
                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                      NSMutableArray *responseArray = [NSMutableArray arrayWithArray:responseObject];
                                      [responseArray removeObjectAtIndex:0];  // 删除‘不限’

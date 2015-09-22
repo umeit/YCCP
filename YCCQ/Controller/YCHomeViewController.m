@@ -38,8 +38,7 @@
 #define PageIndex @"Home"
 
 @interface YCHomeViewController () <UIScrollViewDelegate, UICollectionViewDataSource,
-                                    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
-                                    YCCarFilterConditionDelegate>
+                                    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) NSArray *banners;
 @property (strong, nonatomic) NSArray *baokuans;

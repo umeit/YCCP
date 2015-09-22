@@ -96,7 +96,7 @@
         case 0:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-            vc.delegate = self;
+//            vc.delegate = self;
             vc.dataType = BrandType;
             vc.useOnlineData = NO;
             vc.continuousMode = YES;
@@ -107,7 +107,7 @@
         case 1:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-            vc.delegate = self;
+//            vc.delegate = self;
             vc.dataType = yearNumType;
             [self.navigationController pushViewController:vc animated:YES];
         }

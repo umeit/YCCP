@@ -23,17 +23,17 @@ typedef void (^OnSellBrandBlock) (NSArray *brands);
 - (void)brandsFromOnSell:(OnSellBrandBlock)block;
 
 /** 根据品牌 ID 获取在售车系（包含‘不限’）*/
-- (void)seriesesFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block;
+- (void)seriesesFromOnSellWithPID:(NSString *)pid block:(BaokuanBlock)block;
 
 /** 根据品牌 ID 获取在售车型（包含‘不限’）*/
-- (void)modelsFromOnSellWithPID:(NSInteger)pid block:(BaokuanBlock)block;
+- (void)modelsFromOnSellWithPID:(NSString *)pid block:(BaokuanBlock)block;
 
 /** 获取所有品牌（不包含‘不限’）*/
 - (void)allBrands:(OnSellBrandBlock)block;
 
 /** 获取所有车系（不包含‘不限’）*/
-- (void)allSeriesesWithPID:(NSInteger)pid block:(OnSellBrandBlock)block;
+- (void)allSeriesesWithPID:(NSString *)pid block:(OnSellBrandBlock)block;
 
 /** 获取所有车型（不包含‘不限’）*/
-- (void)allModelsWithPID:(NSInteger)pid block:(BaokuanBlock)block;
+- (void)allModelsWithPID:(NSString *)pid block:(BaokuanBlock)block;
 @end

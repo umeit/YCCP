@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YCCarFilterDelegate.h"
 #import "YCCarFilterEnum.h"
 
 @class YCCarService;
 
-@interface YCBrandTableViewController : UITableViewController<YCCarFilterConditionDelegate>
-
-@property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
+@interface YCBrandTableViewController : UITableViewController
 
 @property (nonatomic) BOOL useOnlineData;
 
@@ -22,7 +19,7 @@
 
 @property (nonatomic) CarFilterType dataType;
 
-@property (nonatomic) NSInteger pid;
+//@property (nonatomic) NSInteger pid;
 
 @property (strong, nonatomic) YCCarService *carService;
 

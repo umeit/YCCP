@@ -10,8 +10,9 @@
 #import "YCFilterKeyUtil.h"
 #import "YCCarService.h"
 #import "UIViewController+GViewController.h"
-#import "YCCarFilterDelegate.h"
 #import "UtilDefine.h"
+#import "YCFilterService.h"
+#import "YCCarFilterConditionEntity.h"
 
 @interface YCBrandTableViewController ()
 @property (strong, nonatomic) NSArray *brands;
@@ -25,6 +26,8 @@
     self.carService = [[YCCarService alloc] init];
     
     [self showLodingView];
+    
+    NSString *pID = [YCFilterService currentFilterCondition].pID;
     
     switch (self.dataType) {
         case BrandType:   // 显示品牌
@@ -49,14 +52,14 @@
         case SeriesType:    // 显示车系
         {
             if (self.useOnlineData) {
-                [self.carService seriesesFromOnSellWithPID:self.pid block:^(NSArray *serieses) {
+                [self.carService seriesesFromOnSellWithPID:pID block:^(NSArray *serieses) {
                     [self hideLodingView];
                     self.brands = serieses;
                     [self.tableView reloadData];
                 }];
             }
             else {
-                [self.carService allSeriesesWithPID:self.pid block:^(NSArray *serieses) {
+                [self.carService allSeriesesWithPID:pID block:^(NSArray *serieses) {
                     [self hideLodingView];
                     self.brands = serieses;
                     [self.tableView reloadData];
@@ -68,14 +71,14 @@
         case ModelType:    // 显示车型
         {
             if (self.useOnlineData) {
-                [self.carService modelsFromOnSellWithPID:self.pid block:^(NSArray *models) {
+                [self.carService modelsFromOnSellWithPID:pID block:^(NSArray *models) {
                     [self hideLodingView];
                     self.brands = models;
                     [self.tableView reloadData];
                 }];
             }
             else {
-                [self.carService allModelsWithPID:self.pid block:^(NSArray *models) {
+                [self.carService allModelsWithPID:pID block:^(NSArray *models) {
                     [self hideLodingView];
                     self.brands = models;
                     [self.tableView reloadData];
@@ -99,19 +102,21 @@
     
     if (self.continuousMode) {
         YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-        vc.delegate = self;
+//        vc.delegate = self;
         vc.dataType = SeriesType;
         vc.useOnlineData = NO;
         vc.continuousMode = YES;
-        vc.pid = [pid integerValue];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     else {
-        [self.delegate selecteConditionFinish:@{@"CN": [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag],
-                                                @"CV": brandVlue,
-                                                @"PID": pid}
-                                   filterType:BrandType];
+        YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
+        conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
+        conditionEntity.brandValue = brandVlue;
+        conditionEntity.pID = pid;
+        
+        [YCFilterService saveCondition:conditionEntity];
+        
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -227,23 +232,21 @@
             }
             
             NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
+            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
+            conditionEntity.brandName = dic[@"title"];
+            conditionEntity.brandValue = dic[@"enname"];
+            conditionEntity.pID = dic[@"id"];
+            
+            [YCFilterService saveCondition:conditionEntity];
             
             // 一直选到车款
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-                vc.delegate = self;
                 vc.dataType = SeriesType;
                 vc.useOnlineData = NO;
                 vc.continuousMode = YES;
-                vc.pid = [dic[@"id"] integerValue];
                 [self.navigationController pushViewController:vc animated:YES];
                 return;
-            }
-            else {
-                [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                        @"CV" : dic[@"enname"],
-                                                        @"PID": dic[@"id"]}
-                                           filterType:BrandType];
             }
         }
             break;
@@ -251,21 +254,20 @@
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
             
+            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
+            conditionEntity.seriesName = dic[@"title"];
+            conditionEntity.seriesValue = dic[@"enname"];
+            conditionEntity.pID = dic[@"id"];
+            
+            [YCFilterService saveCondition:conditionEntity];
+            
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-                vc.delegate = self;
                 vc.dataType = ModelType;
                 vc.useOnlineData = NO;
                 vc.continuousMode = YES;
-                vc.pid = [dic[@"id"] integerValue];
                 [self.navigationController pushViewController:vc animated:YES];
                 return;
-            }
-            else {
-                [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                        @"CV" : dic[@"enname"],
-                                                        @"PID": dic[@"id"]}
-                                           filterType:SeriesType];
             }
         }
             break;
@@ -273,10 +275,12 @@
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
             
-            [self.delegate selecteConditionFinish:@{@"CN" : dic[@"title"],
-                                                    @"CV" : dic[@"enname"],
-                                                    @"PID": dic[@"id"]}
-                                       filterType:ModelType];
+            YCCarFilterConditionEntity *conditionEntity = [YCFilterService currentFilterCondition];
+            conditionEntity.modelName = dic[@"title"];
+            conditionEntity.modelValue = dic[@"enname"];
+            conditionEntity.pID = dic[@"id"];
+            
+            [YCFilterService saveCondition:conditionEntity];
             
             if (self.continuousMode) {
                 NSInteger controllerCount = self.navigationController.viewControllers.count;
@@ -289,14 +293,6 @@
             break;
     }
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-#pragma mark - YCCarFilterConditionDelegate
-
-- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
-{
-    [self.delegate selecteConditionFinish:condition filterType:filterType];
 }
 
 @end

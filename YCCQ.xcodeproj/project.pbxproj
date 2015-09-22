@@ -117,6 +117,7 @@
 		0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */; };
 		036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */; };
 		036BCB971B79EFB000AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB951B79EFB000AF84E6 /* SystemUtil.swift */; };
+		036CAB211BB13967003310C4 /* YCFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB201BB13967003310C4 /* YCFilterService.m */; settings = {ASSET_TAGS = (); }; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
@@ -396,7 +397,8 @@
 		036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeLayoutUtil.swift; sourceTree = "<group>"; };
 		036BCB951B79EFB000AF84E6 /* SystemUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtil.swift; sourceTree = "<group>"; };
 		036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YCCQ-Bridging-Header.h.h"; sourceTree = "<group>"; };
-		0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterDelegate.h; sourceTree = "<group>"; };
+		036CAB1F1BB13967003310C4 /* YCFilterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterService.h; sourceTree = "<group>"; };
+		036CAB201BB13967003310C4 /* YCFilterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFilterService.m; sourceTree = "<group>"; };
 		0376B67C1B187883005B5FFC /* YCCarFilterConditionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarFilterConditionEntity.h; sourceTree = "<group>"; };
 		0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarFilterConditionEntity.m; sourceTree = "<group>"; };
 		038A560B1B26D591002FA96D /* changshi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changshi.png; sourceTree = "<group>"; };
@@ -689,6 +691,8 @@
 				03D751AA1B393B7700AAA71C /* YCDriveService.m */,
 				0310343A1B623DC4005AE18A /* YCUserService.h */,
 				0310343B1B623DC4005AE18A /* YCUserService.m */,
+				036CAB1F1BB13967003310C4 /* YCFilterService.h */,
+				036CAB201BB13967003310C4 /* YCFilterService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -904,7 +908,6 @@
 		0376B67A1B186CCE005B5FFC /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				0376B67B1B186CE6005B5FFC /* YCCarFilterDelegate.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1367,6 +1370,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = YC;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Baisika;
 				TargetAttributes = {
@@ -1550,6 +1554,7 @@
 				03EE9F1A1B12FC260051CC57 /* AFURLSessionManager.m in Sources */,
 				03EE9F421B130F550051CC57 /* UIViewController+GViewController.m in Sources */,
 				03EE9F171B12FC260051CC57 /* AFURLConnectionOperation.m in Sources */,
+				036CAB211BB13967003310C4 /* YCFilterService.m in Sources */,
 				03EA57961B50FFEF006BDBAB /* YCBaokuanTableViewController.m in Sources */,
 				03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */,
 				03EE9F351B12FCF40051CC57 /* UIRefreshControl+AFNetworking.m in Sources */,

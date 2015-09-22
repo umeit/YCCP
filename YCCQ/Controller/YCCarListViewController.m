@@ -14,7 +14,7 @@
 #import "YCBrandTableViewController.h"
 #import "YCFilterTableViewController.h"
 
-@interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate, YCCarFilterConditionDelegate>
+@interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableDictionary *orderButtonStatus;
 @property (strong, nonatomic) UIWebView *callWebView;
@@ -110,13 +110,13 @@
     vc.navigationItem.title = @"选择品牌";
     vc.hidesBottomBarWhenPushed = YES;
     vc.useOnlineData = YES;
-    vc.delegate = self;
+//    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)priceButtonPress:(id)sender {
     YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-    vc.delegate = self;
+//    vc.delegate = self;
     vc.dataType = PriceType;
     [self.navigationController pushViewController:vc animated:YES];
 }

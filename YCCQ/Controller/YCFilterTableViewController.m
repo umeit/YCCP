@@ -90,16 +90,16 @@
         // 导航到选择月份视图
         YCFilterTableViewController *vc = [self controllerWithStoryBoardID:@"YCFilterTableViewController"];
         vc.dataType = monthType;
-        vc.delegate = self;
+//        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     
     
     NSDictionary *dic = self.dataList[indexPath.row];
-    [self.delegate selecteConditionFinish:@{@"CN" : dic[@"name"],
-                                            @"CV" : dic[@"value"]}
-                               filterType:self.dataType];
+//    [self.delegate selecteConditionFinish:@{@"CN" : dic[@"name"],
+//                                            @"CV" : dic[@"value"]}
+//                               filterType:self.dataType];
 
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -114,7 +114,7 @@
         NSString *monthCN = condition[@"CN"];
         NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
                               @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
-        [self.delegate selecteConditionFinish:dic filterType:yearNumType];
+//        [self.delegate selecteConditionFinish:dic filterType:yearNumType];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

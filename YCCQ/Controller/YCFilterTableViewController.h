@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YCCarFilterDelegate.h"
 #import "YCCarFilterEnum.h"
 
-@interface YCFilterTableViewController : UITableViewController <YCCarFilterConditionDelegate>
+@interface YCFilterTableViewController : UITableViewController
 
-@property (weak, nonatomic) id<YCCarFilterConditionDelegate> delegate;
 
 @property (nonatomic) CarFilterType dataType;
 

@@ -17,4 +17,6 @@
 
 @property (nonatomic) CarFilterType filteType;
 
+- (instancetype)initWithTitile:(NSString *)title detail:(NSString *)detail filteType:(CarFilterType)filteType;
+
 @end

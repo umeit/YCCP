@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YCCarFilterDelegate.h"
 #import "YCCarFilterConditionEntity.h"
 
 @protocol YCCarFilterDelegate <NSObject>
 - (void)conditionDidFinish:(NSString *)urlFuffix;
 @end
 
-@interface YCCarFilterViewController : UITableViewController <YCCarFilterConditionDelegate>
-
+@interface YCCarFilterViewController : UITableViewController
 @property (strong, nonatomic) YCCarFilterConditionEntity *filterCondition;
 
 @property (weak, nonatomic) id<YCCarFilterDelegate> delegate;

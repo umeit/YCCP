@@ -54,4 +54,6 @@
 
 @property (strong, nonatomic) NSString *storeValue;
 
+@property (strong, nonatomic) NSString *pID;
+
 @end
