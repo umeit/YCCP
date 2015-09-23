@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) NSString *modelValue;
 
+@property (strong, nonatomic) NSString *modelID;
+
 @property (strong, nonatomic) NSString *priceName;
 
 @property (strong, nonatomic) NSString *priceValue;

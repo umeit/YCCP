@@ -21,6 +21,7 @@
         _seriesID = [aDecoder decodeObjectForKey:@"_seriesID"];
         _modelName = [aDecoder decodeObjectForKey:@"_modelName"];
         _modelValue = [aDecoder decodeObjectForKey:@"_modelValue"];
+        _modelID = [aDecoder decodeObjectForKey:@"_modelID"];
         _priceName = [aDecoder decodeObjectForKey:@"_priceName"];
         _priceValue = [aDecoder decodeObjectForKey:@"_priceValue"];
         _carTypeName = [aDecoder decodeObjectForKey:@"_carTypeName"];
@@ -55,6 +56,7 @@
     [aCoder encodeObject:_seriesID forKey:@"_seriesID"];
     [aCoder encodeObject:_modelName forKey:@"_modelName"];
     [aCoder encodeObject:_modelValue forKey:@"_modelValue"];
+    [aCoder encodeObject:_modelID forKey:@"_modelID"];
     [aCoder encodeObject:_priceName forKey:@"_priceName"];
     [aCoder encodeObject:_priceValue forKey:@"_priceValue"];
     [aCoder encodeObject:_carTypeName forKey:@"_carTypeName"];

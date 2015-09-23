@@ -270,7 +270,7 @@
     NSMutableArray *arr = [NSMutableArray array];
     
     for (NSInteger i = 0; i < 20; i ++) {
-        [arr addObject:@{@"name": [@(year-i) stringValue], @"value":@""}];
+        [arr addObject:@{@"name": [@(year-i) stringValue], @"value":[@(year-i) stringValue]}];
     }
     
     return arr;
@@ -280,7 +280,7 @@
 {
     NSMutableArray *arr = [NSMutableArray array];
     for (NSInteger i = 1; i < 13; i ++) {
-        [arr addObject:@{@"name": [@(i)stringValue], @"value":@""}];
+        [arr addObject:@{@"name": [@(i)stringValue], @"value":[@(i)stringValue]}];
     }
     return arr;
 }

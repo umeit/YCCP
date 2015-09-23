@@ -293,6 +293,7 @@
             
             conditionEntity.modelName = dic[@"title"];
             conditionEntity.modelValue = dic[@"enname"];
+            conditionEntity.modelID = dic[@"id"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             

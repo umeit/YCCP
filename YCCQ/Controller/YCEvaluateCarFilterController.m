@@ -43,9 +43,9 @@
     
     if ([self isCompleteCondition:filterCondition]) {
         YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-        NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.modelValue];
+        NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.monthValue];
         
-        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", @"", dateCondition, filterCondition.brandValue, filterCondition.seriesValue, filterCondition.modelValue];
+        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", self.dataList[2][@"value"], dateCondition, filterCondition.brandID, filterCondition.seriesID, filterCondition.modelID];
         webVC.navigationItem.title = @"估价结果";
         [self.navigationController pushViewController:webVC animated:YES];
     }
@@ -145,9 +145,8 @@
 
 - (BOOL)isCompleteCondition:(YCCarFilterConditionEntity *)condition
 {
-    if (condition.brandValue.length && condition.seriesValue.length
-        && condition.modelValue.length && condition.yearNumValue.length
-        && condition.modelValue) {
+    if (condition.brandValue.length && condition.seriesValue.length && condition.modelValue.length
+        && condition.yearNumValue.length && condition.monthValue.length) {
         return YES;
     }
     return NO;
