@@ -28,7 +28,9 @@
     
     [self showLodingView];
     
-    YCCarFilterConditionEntity *condition = [YCFilterConditionStore sharedInstance].carListFilterCondition;
+    YCCarFilterConditionEntity *condition = (self.conditionType == CarListFilterConditionType) ?
+    [YCFilterConditionStore sharedInstance].carListFilterCondition
+    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
     
     switch (self.dataType) {
         case BrandType:   // 显示品牌
@@ -254,6 +256,7 @@
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
                 vc.dataType = SeriesType;
+                vc.conditionType = self.conditionType;
                 vc.useOnlineData = NO;
                 vc.continuousMode = YES;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -276,6 +279,7 @@
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
                 vc.dataType = ModelType;
+                vc.conditionType = self.conditionType;
                 vc.useOnlineData = NO;
                 vc.continuousMode = YES;
                 [self.navigationController pushViewController:vc animated:YES];

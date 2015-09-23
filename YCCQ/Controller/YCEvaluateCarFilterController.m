@@ -41,29 +41,14 @@
 {
     YCCarFilterConditionEntity *filterCondition = [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
     
-    [self isCompleteCondition:filterCondition];
-    
-//    NSString *brand = self.dataList[0][@"value"];
-//    if (!brand.length) {
-//        return;
-//    }
-//    NSString *date = self.dataList[1][@"value"];
-//    if (!date.length) {
-//        return;
-//    }
-//    NSString *mileage = self.dataList[2][@"value"];
-//    if (!mileage.length) {
-//        return;
-//    }
-    
-    YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-//    NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
-//                          @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
-    NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.modelValue];
-    
-    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", @"", dateCondition, filterCondition.brandValue, filterCondition.seriesValue, filterCondition.modelValue];
-    webVC.navigationItem.title = @"估价结果";
-    [self.navigationController pushViewController:webVC animated:YES];
+    if ([self isCompleteCondition:filterCondition]) {
+        YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+        NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.modelValue];
+        
+        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", @"", dateCondition, filterCondition.brandValue, filterCondition.seriesValue, filterCondition.modelValue];
+        webVC.navigationItem.title = @"估价结果";
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 
 #pragma mark - Table view data source
@@ -148,9 +133,10 @@
 {
     YCCarFilterConditionEntity *filterCondition = [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
     
-    self.dataList[0][@"detail"] = [NSString stringWithFormat:@"%@%@%@", filterCondition.brandName, filterCondition.seriesName, filterCondition.modelName];
-    self.dataList[1][@"detail"] = [NSString stringWithFormat:@"%@-%@", filterCondition.yearNumName, filterCondition.modelName];
-    
+    self.dataList[0][@"detail"] = [NSString stringWithFormat:@"%@ %@", filterCondition.seriesName, filterCondition.modelName];
+    if (filterCondition.yearNumName.length && filterCondition.monthName.length) {
+        self.dataList[1][@"detail"] = [NSString stringWithFormat:@"%@-%@", filterCondition.yearNumName, filterCondition.monthName];
+    }
     [self.tableView reloadData];
 }
 
