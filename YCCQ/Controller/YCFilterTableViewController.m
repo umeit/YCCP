@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) NSArray *dataList;
 
-@property (nonatomic) NSDictionary *selectedItem;
+//@property (nonatomic) NSDictionary *selectedItem;
 
 @end
 
@@ -134,13 +134,18 @@
             break;
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+    
     // 当前是选择年份
     if (self.dataType == yearNumType) {
         // 导航到选择月份视图
         YCFilterTableViewController *vc = [self controllerWithStoryBoardID:@"YCFilterTableViewController"];
         vc.dataType = monthType;
         [self.navigationController pushViewController:vc animated:YES];
-        return;
+    }
+    else if (self.dataType == monthType) {
+        NSInteger controllerCount = self.navigationController.viewControllers.count;
+        [self.navigationController popToViewController:self.navigationController.viewControllers[controllerCount - 3] animated:YES];
     }
     else {
         [self.navigationController popViewControllerAnimated:YES];
