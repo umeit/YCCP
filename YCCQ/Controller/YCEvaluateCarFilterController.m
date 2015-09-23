@@ -12,6 +12,8 @@
 #import "UIViewController+GViewController.h"
 #import "YCFieldTableViewCell.h"
 #import "YCWebViewController.h"
+#import "YCFilterConditionStore.h"
+#import "YCCarFilterConditionEntity.h"
 
 @interface YCEvaluateCarFilterController ()
 
@@ -29,27 +31,37 @@
     self.dataList = @[[NSMutableDictionary dictionaryWithDictionary:@{@"title":@"品牌", @"detail": @"选择"}],
                       [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"上牌时间", @"detail": @"选择"}],
                       [NSMutableDictionary dictionaryWithDictionary:@{@"title":@"里程（万）", @"detail": @""}]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCellViews) name:@"FilterConditionUpdate" object:nil];
 }
 
 #pragma mark - Action
 
 - (void)okButtonPress:(UIButton *)button
 {
-    NSString *brand = self.dataList[0][@"value"];
-    if (!brand.length) {
-        return;
-    }
-    NSString *date = self.dataList[1][@"value"];
-    if (!date.length) {
-        return;
-    }
-    NSString *mileage = self.dataList[2][@"value"];
-    if (!mileage.length) {
-        return;
-    }
+    YCCarFilterConditionEntity *filterCondition = [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    
+    [self isCompleteCondition:filterCondition];
+    
+//    NSString *brand = self.dataList[0][@"value"];
+//    if (!brand.length) {
+//        return;
+//    }
+//    NSString *date = self.dataList[1][@"value"];
+//    if (!date.length) {
+//        return;
+//    }
+//    NSString *mileage = self.dataList[2][@"value"];
+//    if (!mileage.length) {
+//        return;
+//    }
     
     YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", mileage, date, [brand substringToIndex:3], [brand substringToIndex:9], brand];
+//    NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
+//                          @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
+    NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.modelValue];
+    
+    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", @"", dateCondition, filterCondition.brandValue, filterCondition.seriesValue, filterCondition.modelValue];
     webVC.navigationItem.title = @"估价结果";
     [self.navigationController pushViewController:webVC animated:YES];
 }
@@ -96,7 +108,6 @@
         case 0:
         {
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
-//            vc.delegate = self;
             vc.dataType = BrandType;
             vc.useOnlineData = NO;
             vc.continuousMode = YES;
@@ -107,7 +118,6 @@
         case 1:
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//            vc.delegate = self;
             vc.dataType = yearNumType;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -132,30 +142,28 @@
 
 #pragma mark - YCCarFilterConditionDelegate
 
--(void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+- (void)updateCellViews
 {
-    switch (filterType) {
-        case ModelType:
-        {
-            self.dataList[0][@"detail"] = condition[@"CN"];
-            self.dataList[0][@"value"] = condition[@"CV"];
-        }
-            break;
-        case yearNumType:
-        {
-            self.dataList[1][@"detail"] = condition[@"CN"];
-            self.dataList[1][@"value"] = condition[@"CV"];
-        }
-            break;
-        default:
-            break;
-    }
+    YCCarFilterConditionEntity *filterCondition = [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    
+    self.dataList[0][@"detail"] = [NSString stringWithFormat:@"%@%@%@", filterCondition.brandName, filterCondition.seriesName, filterCondition.modelName];
+    self.dataList[1][@"detail"] = [NSString stringWithFormat:@"%@-%@", filterCondition.yearNumName, filterCondition.modelName];
     
     [self.tableView reloadData];
 }
 
 
 #pragma mark - Private
+
+- (BOOL)isCompleteCondition:(YCCarFilterConditionEntity *)condition
+{
+    if (condition.brandValue.length && condition.seriesValue.length
+        && condition.modelValue.length && condition.yearNumValue.length
+        && condition.modelValue) {
+        return YES;
+    }
+    return NO;
+}
 
 - (void)setOKButton
 {

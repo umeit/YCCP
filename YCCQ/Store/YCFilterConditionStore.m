@@ -25,20 +25,22 @@ static YCFilterConditionStore *_filterConditionStore;
 - (instancetype)init
 {
     if (self = [super init]) {
-        _filterCondition = [[YCCarFilterConditionEntity alloc] init];
-        _filterCondition.brandName   = @"不限";
-        _filterCondition.brandID     = @"";
-        _filterCondition.seriesName  = @"不限";
-        _filterCondition.seriesID    = @"";
-        _filterCondition.modelName   = @"不限";
-        _filterCondition.priceName   = @"不限";
-        _filterCondition.carTypeName = @"不限";
-        _filterCondition.yearName    = @"不限";
-        _filterCondition.ccName      = @"不限";
-        _filterCondition.mileageName = @"不限";
-        _filterCondition.gearboxName = @"不限";
-        _filterCondition.colorName   = @"不限";
-        _filterCondition.storeName   = @"不限";
+        _carListFilterCondition = [[YCCarFilterConditionEntity alloc] init];
+        _carListFilterCondition.brandName   = @"不限";
+        _carListFilterCondition.brandID     = @"";
+        _carListFilterCondition.seriesName  = @"不限";
+        _carListFilterCondition.seriesID    = @"";
+        _carListFilterCondition.modelName   = @"不限";
+        _carListFilterCondition.priceName   = @"不限";
+        _carListFilterCondition.carTypeName = @"不限";
+        _carListFilterCondition.yearName    = @"不限";
+        _carListFilterCondition.ccName      = @"不限";
+        _carListFilterCondition.mileageName = @"不限";
+        _carListFilterCondition.gearboxName = @"不限";
+        _carListFilterCondition.colorName   = @"不限";
+        _carListFilterCondition.storeName   = @"不限";
+        
+        _carEvaluateFilterCondition = [[YCCarFilterConditionEntity alloc] init];
     }
     return self;
 }

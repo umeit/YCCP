@@ -195,7 +195,7 @@
 - (void)conditionDidFinish
 {
     NSString *url = [NSString stringWithFormat:@"http://m.youche.com/%@",
-                     [self urlWithCondition:[YCFilterConditionStore sharedInstance].filterCondition]];
+                     [self urlWithCondition:[YCFilterConditionStore sharedInstance].carListFilterCondition]];
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?t=app"]]]];
 }
 
@@ -305,7 +305,7 @@
 - (NSString *)urlWithCondition:(YCCarFilterConditionEntity *)condition
 {
     NSMutableString *url = [NSMutableString string];
-    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     
     // 选择类型
     if (currentFilterCondition.carTypeValue.length) {

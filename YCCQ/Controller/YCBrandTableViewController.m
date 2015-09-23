@@ -27,7 +27,7 @@
     
     [self showLodingView];
     
-    YCCarFilterConditionEntity *condition = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *condition = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     
     switch (self.dataType) {
         case BrandType:   // 显示品牌
@@ -100,7 +100,7 @@
     NSString *brandVlue = [YCFilterKeyUtil brandFilterKeyWithButtonTag:button.tag];
     NSString *pid = [YCFilterKeyUtil pIDWithBrand:brandVlue];
     
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
     conditionEntity.brandValue = brandVlue;
     conditionEntity.brandID = pid;
@@ -222,7 +222,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     switch (self.dataType) {
         case BrandType: {
             // 品牌列表的第一行是热门品牌的容器，点击无效

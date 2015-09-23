@@ -86,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = self.dataList[indexPath.row];
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     
     switch (self.dataType) {
         case PriceType:

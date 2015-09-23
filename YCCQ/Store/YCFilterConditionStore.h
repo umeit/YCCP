@@ -12,7 +12,9 @@
 
 @interface YCFilterConditionStore : NSObject
 
-@property (nonatomic, strong) YCCarFilterConditionEntity *filterCondition;
+@property (nonatomic, strong) YCCarFilterConditionEntity *carListFilterCondition;
+
+@property (nonatomic, strong) YCCarFilterConditionEntity *carEvaluateFilterCondition;
 
 + (instancetype)sharedInstance;
 

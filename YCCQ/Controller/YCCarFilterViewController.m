@@ -169,7 +169,7 @@
 /** 更新列表数据源 */
 - (void)updateCellViews
 {
-    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     
     self.cellContentList = [NSMutableArray array];
     
