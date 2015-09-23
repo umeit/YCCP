@@ -27,7 +27,7 @@
     
     [self showLodingView];
     
-    NSString *pID = [YCFilterConditionStore sharedInstance].filterCondition.pID;
+    YCCarFilterConditionEntity *condition = [YCFilterConditionStore sharedInstance].filterCondition;
     
     switch (self.dataType) {
         case BrandType:   // 显示品牌
@@ -52,14 +52,14 @@
         case SeriesType:    // 显示车系
         {
             if (self.useOnlineData) {
-                [self.carService seriesesFromOnSellWithPID:pID block:^(NSArray *serieses) {
+                [self.carService seriesesFromOnSellWithPID:condition.brandID block:^(NSArray *serieses) {
                     [self hideLodingView];
                     self.brands = serieses;
                     [self.tableView reloadData];
                 }];
             }
             else {
-                [self.carService allSeriesesWithPID:pID block:^(NSArray *serieses) {
+                [self.carService allSeriesesWithPID:condition.brandID block:^(NSArray *serieses) {
                     [self hideLodingView];
                     self.brands = serieses;
                     [self.tableView reloadData];
@@ -71,14 +71,14 @@
         case ModelType:    // 显示车型
         {
             if (self.useOnlineData) {
-                [self.carService modelsFromOnSellWithPID:pID block:^(NSArray *models) {
+                [self.carService modelsFromOnSellWithPID:condition.seriesID block:^(NSArray *models) {
                     [self hideLodingView];
                     self.brands = models;
                     [self.tableView reloadData];
                 }];
             }
             else {
-                [self.carService allModelsWithPID:pID block:^(NSArray *models) {
+                [self.carService allModelsWithPID:condition.seriesID block:^(NSArray *models) {
                     [self hideLodingView];
                     self.brands = models;
                     [self.tableView reloadData];
@@ -103,7 +103,7 @@
     YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
     conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
     conditionEntity.brandValue = brandVlue;
-    conditionEntity.pID = pid;
+    conditionEntity.brandID = pid;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
     
@@ -231,9 +231,15 @@
             }
             
             NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
+            
             conditionEntity.brandName = dic[@"title"];
             conditionEntity.brandValue = dic[@"enname"];
-            conditionEntity.pID = dic[@"id"];
+            conditionEntity.brandID = dic[@"id"];
+            conditionEntity.seriesName = @"不限";
+            conditionEntity.seriesValue = @"";
+            conditionEntity.seriesID = @"";
+            conditionEntity.modelName = @"不限";
+            conditionEntity.modelValue = @"";
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
@@ -251,9 +257,12 @@
         case SeriesType:
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            
             conditionEntity.seriesName = dic[@"title"];
             conditionEntity.seriesValue = dic[@"enname"];
-            conditionEntity.pID = dic[@"id"];
+            conditionEntity.seriesID = dic[@"id"];
+            conditionEntity.modelName = @"不限";
+            conditionEntity.modelValue = @"";
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
@@ -270,9 +279,9 @@
         case ModelType:
         {
             NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            
             conditionEntity.modelName = dic[@"title"];
             conditionEntity.modelValue = dic[@"enname"];
-            conditionEntity.pID = dic[@"id"];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             

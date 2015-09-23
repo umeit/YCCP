@@ -27,7 +27,9 @@ static YCFilterConditionStore *_filterConditionStore;
     if (self = [super init]) {
         _filterCondition = [[YCCarFilterConditionEntity alloc] init];
         _filterCondition.brandName   = @"不限";
+        _filterCondition.brandID     = @"";
         _filterCondition.seriesName  = @"不限";
+        _filterCondition.seriesID    = @"";
         _filterCondition.modelName   = @"不限";
         _filterCondition.priceName   = @"不限";
         _filterCondition.carTypeName = @"不限";
@@ -37,7 +39,6 @@ static YCFilterConditionStore *_filterConditionStore;
         _filterCondition.gearboxName = @"不限";
         _filterCondition.colorName   = @"不限";
         _filterCondition.storeName   = @"不限";
-        _filterCondition.pID = @"";
     }
     return self;
 }

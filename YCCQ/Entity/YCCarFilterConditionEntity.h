@@ -14,9 +14,13 @@
 
 @property (strong, nonatomic) NSString *brandValue;
 
+@property (strong, nonatomic) NSString *brandID;
+
 @property (strong, nonatomic) NSString *seriesName;
 
 @property (strong, nonatomic) NSString *seriesValue;
+
+@property (strong, nonatomic) NSString *seriesID;
 
 @property (strong, nonatomic) NSString *modelName;
 
@@ -54,6 +58,6 @@
 
 @property (strong, nonatomic) NSString *storeValue;
 
-@property (strong, nonatomic) NSString *pID;
+//@property (strong, nonatomic) NSString *pID;
 
 @end

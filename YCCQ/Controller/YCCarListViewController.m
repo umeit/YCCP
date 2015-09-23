@@ -194,7 +194,8 @@
 
 - (void)conditionDidFinish
 {
-    NSString *url = [self urlWithCondition:[YCFilterConditionStore sharedInstance].filterCondition];
+    NSString *url = [NSString stringWithFormat:@"http://m.youche.com/%@",
+                     [self urlWithCondition:[YCFilterConditionStore sharedInstance].filterCondition]];
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?t=app"]]]];
 }
 

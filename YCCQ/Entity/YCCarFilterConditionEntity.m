@@ -15,8 +15,10 @@
     if (self = [super init]) {
         _brandName = [aDecoder decodeObjectForKey:@"_brandName"];
         _brandValue = [aDecoder decodeObjectForKey:@"_brandValue"];
+        _brandID = [aDecoder decodeObjectForKey:@"_brandID"];
         _seriesName = [aDecoder decodeObjectForKey:@"_seriesName"];
         _seriesValue = [aDecoder decodeObjectForKey:@"_seriesValue"];
+        _seriesID = [aDecoder decodeObjectForKey:@"_seriesID"];
         _modelName = [aDecoder decodeObjectForKey:@"_modelName"];
         _modelValue = [aDecoder decodeObjectForKey:@"_modelValue"];
         _priceName = [aDecoder decodeObjectForKey:@"_priceName"];
@@ -35,7 +37,6 @@
         _ccName = [aDecoder decodeObjectForKey:@"_ccName"];
         _storeName = [aDecoder decodeObjectForKey:@"_storeName"];
         _storeValue = [aDecoder decodeObjectForKey:@"_storeValue"];
-        _pID = [aDecoder decodeObjectForKey:@"_pID"];
     }
     return self;
 }
@@ -44,8 +45,10 @@
 {
     [aCoder encodeObject:_brandName forKey:@"_brandName"];
     [aCoder encodeObject:_brandValue forKey:@"_brandValue"];
+    [aCoder encodeObject:_brandID forKey:@"_brandID"];
     [aCoder encodeObject:_seriesName forKey:@"_seriesName"];
     [aCoder encodeObject:_seriesValue forKey:@"_seriesValue"];
+    [aCoder encodeObject:_seriesID forKey:@"_seriesID"];
     [aCoder encodeObject:_modelName forKey:@"_modelName"];
     [aCoder encodeObject:_modelValue forKey:@"_modelValue"];
     [aCoder encodeObject:_priceName forKey:@"_priceName"];
@@ -64,7 +67,6 @@
     [aCoder encodeObject:_ccValue forKey:@"_ccValue"];
     [aCoder encodeObject:_storeName forKey:@"_storeName"];
     [aCoder encodeObject:_storeValue forKey:@"_storeValue"];
-    [aCoder encodeObject:_pID forKey:@"_pID"];
 }
 
 @end
