@@ -33,6 +33,10 @@
         _colorValue = [aDecoder decodeObjectForKey:@"_colorValue"];
         _yearName = [aDecoder decodeObjectForKey:@"_yearName"];
         _yearValue = [aDecoder decodeObjectForKey:@"_yearValue"];
+        _yearNumName = [aDecoder decodeObjectForKey:@"_yearNumName"];
+        _yearNumValue = [aDecoder decodeObjectForKey:@"_yearNumValue"];
+        _monthName = [aDecoder decodeObjectForKey:@"_monthName"];
+        _monthValue = [aDecoder decodeObjectForKey:@"_monthValue"];
         _ccName = [aDecoder decodeObjectForKey:@"_ccName"];
         _ccName = [aDecoder decodeObjectForKey:@"_ccName"];
         _storeName = [aDecoder decodeObjectForKey:@"_storeName"];
@@ -63,6 +67,10 @@
     [aCoder encodeObject:_colorValue forKey:@"_colorValue"];
     [aCoder encodeObject:_yearName forKey:@"_yearName"];
     [aCoder encodeObject:_yearValue forKey:@"_yearValue"];
+    [aCoder encodeObject:_yearNumName forKey:@"_yearNumName"];
+    [aCoder encodeObject:_yearNumValue forKey:@"_yearNumValue"];
+    [aCoder encodeObject:_monthName forKey:@"_monthName"];
+    [aCoder encodeObject:_monthValue forKey:@"_monthValue"];
     [aCoder encodeObject:_ccName forKey:@"_ccName"];
     [aCoder encodeObject:_ccValue forKey:@"_ccValue"];
     [aCoder encodeObject:_storeName forKey:@"_storeName"];

@@ -50,6 +50,14 @@
 
 @property (strong, nonatomic) NSString *yearValue;
 
+@property (strong, nonatomic) NSString *yearNumName;
+
+@property (strong, nonatomic) NSString *yearNumValue;
+
+@property (strong, nonatomic) NSString *monthName;
+
+@property (strong, nonatomic) NSString *monthValue;
+
 @property (strong, nonatomic) NSString *ccName;
 
 @property (strong, nonatomic) NSString *ccValue;
@@ -57,7 +65,5 @@
 @property (strong, nonatomic) NSString *storeName;
 
 @property (strong, nonatomic) NSString *storeValue;
-
-//@property (strong, nonatomic) NSString *pID;
 
 @end

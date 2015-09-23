@@ -8,6 +8,8 @@
 
 #import "YCFilterTableViewController.h"
 #import "UIViewController+GViewController.h"
+#import "YCFilterConditionStore.h"
+#import "YCCarFilterConditionEntity.h"
 
 @interface YCFilterTableViewController ()
 
@@ -83,41 +85,80 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *dic = self.dataList[indexPath.row];
+    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].filterCondition;
+    
+    switch (self.dataType) {
+        case PriceType:
+            conditionEntity.priceName = dic[@"name"];
+            conditionEntity.priceValue = dic[@"value"];
+            break;
+        case CarTypeType:
+            conditionEntity.carTypeName = dic[@"name"];
+            conditionEntity.carTypeValue = dic[@"value"];
+            
+            break;
+        case gearboxType:
+            conditionEntity.gearboxName = dic[@"name"];
+            conditionEntity.gearboxValue = dic[@"value"];
+            break;
+        case ccType:
+            conditionEntity.ccName = dic[@"name"];
+            conditionEntity.ccValue = dic[@"value"];
+            break;
+        case colorType:
+            conditionEntity.colorName = dic[@"name"];
+            conditionEntity.colorValue = dic[@"value"];
+            break;
+        case yearType:
+            conditionEntity.yearName = dic[@"name"];
+            conditionEntity.yearValue = dic[@"value"];
+            break;
+        case yearNumType:
+            conditionEntity.yearNumName = dic[@"name"];
+            conditionEntity.yearNumValue = dic[@"value"];
+            break;
+        case monthType:
+            conditionEntity.monthName = dic[@"name"];
+            conditionEntity.monthValue = dic[@"value"];
+            break;
+        case mileageType:
+            conditionEntity.mileageName = dic[@"name"];
+            conditionEntity.mileageValue = dic[@"value"];
+            break;
+        case storeType:
+            conditionEntity.storeName = dic[@"name"];
+            conditionEntity.storeValue = dic[@"value"];
+            break;
+        default:
+            break;
+    }
+    
     // 当前是选择年份
     if (self.dataType == yearNumType) {
-        self.selectedItem = self.dataList[indexPath.row];
-        
         // 导航到选择月份视图
         YCFilterTableViewController *vc = [self controllerWithStoryBoardID:@"YCFilterTableViewController"];
         vc.dataType = monthType;
-//        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    
-    
-    NSDictionary *dic = self.dataList[indexPath.row];
-//    [self.delegate selecteConditionFinish:@{@"CN" : dic[@"name"],
-//                                            @"CV" : dic[@"value"]}
-//                               filterType:self.dataType];
-
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-
-#pragma mark - YCCarFilterConditionDelegate
-
-- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
-{
-    if (filterType == monthType) {
-        NSString *yearCN = self.selectedItem[@"name"];
-        NSString *monthCN = condition[@"CN"];
-        NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
-                              @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
-//        [self.delegate selecteConditionFinish:dic filterType:yearNumType];
+    else {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+//
+//- (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
+//{
+//    if (filterType == monthType) {
+//        NSString *yearCN = self.selectedItem[@"name"];
+//        NSString *monthCN = condition[@"CN"];
+//        NSDictionary *dic = @{@"CN": [NSString stringWithFormat:@"%@-%@", yearCN, monthCN],
+//                              @"CV": [NSString stringWithFormat:@"%@-%@-01", yearCN, monthCN]};
+////        [self.delegate selecteConditionFinish:dic filterType:yearNumType];
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }
+//}
 
 
 #pragma mark - Private

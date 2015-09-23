@@ -11,7 +11,6 @@
 
 @interface YCFilterTableViewController : UITableViewController
 
-
 @property (nonatomic) CarFilterType dataType;
 
 @end
