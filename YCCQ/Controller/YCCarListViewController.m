@@ -13,6 +13,8 @@
 #import "UtilDefine.h"
 #import "YCBrandTableViewController.h"
 #import "YCFilterTableViewController.h"
+#import "YCFilterConditionStore.h"
+#import "YCCarFilterConditionEntity.h"
 
 @interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -112,62 +114,14 @@
     vc.navigationItem.title = @"选择品牌";
     vc.hidesBottomBarWhenPushed = YES;
     vc.useOnlineData = YES;
-//    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)priceButtonPress:(id)sender {
     YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
-//    vc.delegate = self;
     vc.dataType = PriceType;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-//- (IBAction)priceButtonPress:(UIButton *)button
-//{
-//    // 动画
-//    [self arrowDefault:self.mileageArrowImageView];
-//    
-//    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
-//    if ([self isSubjectCarList]) {
-//        self.carListURL = @"http://m.youche.com/ershouche/";
-//    }
-//    
-//    if ([self.orderButtonStatus[@"price"] boolValue]) {
-//        self.orderButtonStatus[@"price"] = @NO;
-//        [self arrowUp:self.priceArrowImageView];
-//        [self.carListWebView loadRequest:
-//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
-//    } else {
-//        self.orderButtonStatus[@"price"] = @YES;
-//        [self arrowDown:self.priceArrowImageView];
-//        [self.carListWebView loadRequest:
-//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
-//    }
-//}
-
-//- (IBAction)mileageButtonPress:(id)sender
-//{
-//    // 动画
-//    [self arrowDefault:self.priceArrowImageView];
-//    
-//    // 如果当前列表为「专题车辆」，则排序时按初始列表处理
-//    if ([self isSubjectCarList]) {
-//        self.carListURL = @"http://m.youche.com/ershouche/";
-//    }
-//    
-//    if ([self.orderButtonStatus[@"mileage"] boolValue]) {
-//        self.orderButtonStatus[@"mileage"] = @NO;
-//        [self arrowUp:self.mileageArrowImageView];
-//        [self.carListWebView loadRequest:
-//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
-//    } else {
-//        self.orderButtonStatus[@"mileage"] = @YES;
-//        [self arrowDown:self.mileageArrowImageView];
-//        [self.carListWebView loadRequest:
-//        [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
-//    }
-//}
 
 
 #pragma mark - UIWebViewDelegate
@@ -238,13 +192,10 @@
     return YES;
 }
 
-
-#pragma mark - Car Filter Delegate
-
 - (void)conditionDidFinish
 {
-    self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@", urlFuffix];
-    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"?t=app"]]]];
+    NSString *url = [self urlWithCondition:[YCFilterConditionStore sharedInstance].filterCondition];
+    [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?t=app"]]]];
 }
 
 
@@ -349,6 +300,70 @@
 
 
 #pragma mark - Privatre
+
+- (NSString *)urlWithCondition:(YCCarFilterConditionEntity *)condition
+{
+    NSMutableString *url = [NSMutableString string];
+    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
+    
+    // 选择类型
+    if (currentFilterCondition.carTypeValue.length) {
+        [url appendString:currentFilterCondition.carTypeValue];
+        // 品牌
+        if (currentFilterCondition.brandValue.length) {
+            [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
+        }
+    }
+    // 没选类型
+    // 品牌
+    else if (currentFilterCondition.brandValue.length) {
+        [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
+        // 车系
+        if (currentFilterCondition.seriesValue.length) {
+            [url appendString:[currentFilterCondition.seriesValue isEqualToString:@"all"] ? @"" :currentFilterCondition.seriesValue];
+            // 车型
+            if (currentFilterCondition.modelValue.length) {
+                [url appendString:[currentFilterCondition.modelValue isEqualToString:@"all"] ? @"" :currentFilterCondition.modelValue];
+            }
+        }
+    }
+    // 没选类型，没选品牌
+    else {
+        [url appendString:@"ershouche"];
+    }
+    
+    [url appendString:@"/"];
+    
+    // 价格
+    if (currentFilterCondition.priceValue.length) {
+        [url appendString:currentFilterCondition.priceValue];
+    }
+    // 颜色
+    if (currentFilterCondition.colorValue.length) {
+        [url appendString:currentFilterCondition.colorValue];
+    }
+    // 公里
+    if (currentFilterCondition.mileageValue.length) {
+        [url appendString:currentFilterCondition.mileageValue];
+    }
+    // 排量
+    if (currentFilterCondition.ccValue.length) {
+        [url appendString:currentFilterCondition.ccValue];
+    }
+    // 变速箱
+    if (currentFilterCondition.gearboxValue.length) {
+        [url appendString:currentFilterCondition.gearboxValue];
+    }
+    // 车龄
+    if (currentFilterCondition.yearValue.length) {
+        [url appendString:currentFilterCondition.yearValue];
+    }
+    // 门店
+    if (currentFilterCondition.storeValue.length) {
+        [url appendString:currentFilterCondition.storeValue];
+    }
+    return url;
+}
 
 - (void)createDarkBackgroundView {
     self.darkBackgroundView = [[UIView alloc] init];

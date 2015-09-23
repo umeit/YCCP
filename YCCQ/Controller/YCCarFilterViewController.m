@@ -12,7 +12,7 @@
 #import "YCFilterTableViewController.h"
 #import "YCCarFilterEnum.h"
 #import "YCFilterCellDataEntity.h"
-//#import "YCFilterService.h"
+#import "YCCarFilterConditionEntity.h"
 #import "YCFilterConditionStore.h"
 
 @interface YCCarFilterViewController ()
@@ -164,72 +164,6 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.tableView setTableFooterView:button];
     [button addTarget:self action:@selector(okButtonPress:) forControlEvents:UIControlEventTouchUpInside];
-}
-
-// 通过 FilterCondition 实体，生成查询 URL 后缀
-// TODO: 移动到 YCCarListViewController 中
-- (NSString *)urlFuffix
-{
-    NSMutableString *url = [NSMutableString string];
-    YCCarFilterConditionEntity *currentFilterCondition = [YCFilterConditionStore sharedInstance].filterCondition;
-    
-    // 选择类型
-    if (currentFilterCondition.carTypeValue.length) {
-        [url appendString:currentFilterCondition.carTypeValue];
-        // 品牌
-        if (currentFilterCondition.brandValue.length) {
-            [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
-        }
-    }
-    // 没选类型
-    // 品牌
-    else if (currentFilterCondition.brandValue.length) {
-        [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
-        // 车系
-        if (currentFilterCondition.seriesValue.length) {
-            [url appendString:[currentFilterCondition.seriesValue isEqualToString:@"all"] ? @"" :currentFilterCondition.seriesValue];
-            // 车型
-            if (currentFilterCondition.modelValue.length) {
-                [url appendString:[currentFilterCondition.modelValue isEqualToString:@"all"] ? @"" :currentFilterCondition.modelValue];
-            }
-        }
-    }
-    // 没选类型，没选品牌
-    else {
-        [url appendString:@"ershouche"];
-    }
-    
-    [url appendString:@"/"];
-    
-    // 价格
-    if (currentFilterCondition.priceValue.length) {
-        [url appendString:currentFilterCondition.priceValue];
-    }
-    // 颜色
-    if (currentFilterCondition.colorValue.length) {
-        [url appendString:currentFilterCondition.colorValue];
-    }
-    // 公里
-    if (currentFilterCondition.mileageValue.length) {
-        [url appendString:currentFilterCondition.mileageValue];
-    }
-    // 排量
-    if (currentFilterCondition.ccValue.length) {
-        [url appendString:currentFilterCondition.ccValue];
-    }
-    // 变速箱
-    if (currentFilterCondition.gearboxValue.length) {
-        [url appendString:currentFilterCondition.gearboxValue];
-    }
-    // 车龄
-    if (currentFilterCondition.yearValue.length) {
-        [url appendString:currentFilterCondition.yearValue];
-    }
-    // 门店
-    if (currentFilterCondition.storeValue.length) {
-        [url appendString:currentFilterCondition.storeValue];
-    }
-    return url;
 }
 
 /** 更新列表数据源 */
