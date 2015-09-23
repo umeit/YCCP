@@ -13,9 +13,10 @@
 #import "UtilDefine.h"
 #import "YCCarFilterConditionEntity.h"
 #import "YCFilterConditionStore.h"
+#import "YCFilterConditionTypeEnum.h"
 
 @interface YCBrandTableViewController ()
-@property (strong, nonatomic) NSArray *brands;
+@property (strong, nonatomic) NSArray *dataList;
 @end
 
 @implementation YCBrandTableViewController
@@ -35,52 +36,52 @@
             if (self.useOnlineData) {
                 [self.carService brandsFromOnSell:^(NSArray *brands) {
                     [self hideLodingView];
-                    self.brands = brands;
+                    self.dataList = brands;
                     [self.tableView reloadData];
                 }];
             }
             else {
                 [self.carService allBrands:^(NSArray *brands) {
                     [self hideLodingView];
-                    self.brands = brands;
+                    self.dataList = brands;
                     [self.tableView reloadData];
                 }];
             }
         }
         break;
             
-        case SeriesType:    // 显示车系
+        case SeriesType:   // 显示车系
         {
             if (self.useOnlineData) {
                 [self.carService seriesesFromOnSellWithPID:condition.brandID block:^(NSArray *serieses) {
                     [self hideLodingView];
-                    self.brands = serieses;
+                    self.dataList = serieses;
                     [self.tableView reloadData];
                 }];
             }
             else {
                 [self.carService allSeriesesWithPID:condition.brandID block:^(NSArray *serieses) {
                     [self hideLodingView];
-                    self.brands = serieses;
+                    self.dataList = serieses;
                     [self.tableView reloadData];
                 }];
             }
         }
         break;
             
-        case ModelType:    // 显示车型
+        case ModelType:   // 显示车型
         {
             if (self.useOnlineData) {
                 [self.carService modelsFromOnSellWithPID:condition.seriesID block:^(NSArray *models) {
                     [self hideLodingView];
-                    self.brands = models;
+                    self.dataList = models;
                     [self.tableView reloadData];
                 }];
             }
             else {
                 [self.carService allModelsWithPID:condition.seriesID block:^(NSArray *models) {
                     [self hideLodingView];
-                    self.brands = models;
+                    self.dataList = models;
                     [self.tableView reloadData];
                 }];
             }
@@ -100,7 +101,10 @@
     NSString *brandVlue = [YCFilterKeyUtil brandFilterKeyWithButtonTag:button.tag];
     NSString *pid = [YCFilterKeyUtil pIDWithBrand:brandVlue];
     
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
+    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
+    [YCFilterConditionStore sharedInstance].carListFilterCondition
+    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    
     conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
     conditionEntity.brandValue = brandVlue;
     conditionEntity.brandID = pid;
@@ -123,10 +127,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.dataType == BrandType) {
-        return self.brands.count + 1;
+        return self.dataList.count + 1;
     }
     else {
-        return self.brands.count;
+        return self.dataList.count;
     }
 }
 
@@ -135,12 +139,12 @@
         if (section == 0) {
             return 1;
         }
-        NSDictionary *brandInfo = self.brands[section - 1];
+        NSDictionary *brandInfo = self.dataList[section - 1];
         NSArray *brands = [brandInfo objectForKey:@"key2"];
         return brands.count;
     }
     else {
-        NSDictionary *brandInfo = self.brands[section];
+        NSDictionary *brandInfo = self.dataList[section];
         NSArray *brands = [brandInfo objectForKey:@"key2"];
         return brands.count;
     }
@@ -151,7 +155,7 @@
     if (self.dataType == BrandType) {
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:@"热"];
-        for (NSDictionary *brandInfo in self.brands) {
+        for (NSDictionary *brandInfo in self.dataList) {
             NSString *indexString = [brandInfo objectForKey:@"key1"];
             if ([indexString isEqualToString:@"0"]) {
                 indexString = @"";
@@ -171,12 +175,12 @@
             return [tableView dequeueReusableCellWithIdentifier:@"BrandCommonCell" forIndexPath:indexPath];
         }
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
-        cell.textLabel.text = self.brands[indexPath.section - 1][@"key2"][indexPath.row][@"title"];
+        cell.textLabel.text = self.dataList[indexPath.section - 1][@"key2"][indexPath.row][@"title"];
         return cell;
     }
     else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrandCell" forIndexPath:indexPath];
-        cell.textLabel.text = self.brands[indexPath.section][@"key2"][indexPath.row][@"title"];
+        cell.textLabel.text = self.dataList[indexPath.section][@"key2"][indexPath.row][@"title"];
         return cell;
     }
 }
@@ -187,14 +191,14 @@
         if (section == 0) {
             return @"热门品牌";
         }
-        NSString *title = self.brands[section - 1][@"key1"];
+        NSString *title = self.dataList[section - 1][@"key1"];
         if ([title isEqualToString:@"0"]) {
             return @"";
         }
         return title;
     }
     else {
-        return self.brands[section][@"key1"];
+        return self.dataList[section][@"key1"];
     }
 }
 
@@ -222,7 +226,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
+    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
+    [YCFilterConditionStore sharedInstance].carListFilterCondition
+    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    
     switch (self.dataType) {
         case BrandType: {
             // 品牌列表的第一行是热门品牌的容器，点击无效
@@ -230,7 +237,7 @@
                 return;
             }
             
-            NSDictionary *dic = self.brands[indexPath.section - 1][@"key2"][indexPath.row];
+            NSDictionary *dic = self.dataList[indexPath.section - 1][@"key2"][indexPath.row];
             
             conditionEntity.brandName = dic[@"title"];
             conditionEntity.brandValue = dic[@"enname"];
@@ -256,7 +263,7 @@
             break;
         case SeriesType:
         {
-            NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
             
             conditionEntity.seriesName = dic[@"title"];
             conditionEntity.seriesValue = dic[@"enname"];
@@ -278,7 +285,7 @@
             break;
         case ModelType:
         {
-            NSDictionary *dic = self.brands[indexPath.section][@"key2"][indexPath.row];
+            NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
             
             conditionEntity.modelName = dic[@"title"];
             conditionEntity.modelValue = dic[@"enname"];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YCCarFilterEnum.h"
+#import "YCFilterConditionTypeEnum.h"
 
 @class YCCarService;
 
@@ -19,7 +20,7 @@
 
 @property (nonatomic) CarFilterType dataType;
 
-//@property (nonatomic) NSInteger pid;
+@property (nonatomic) FilterConditionTypeEnum conditionType;
 
 @property (strong, nonatomic) YCCarService *carService;
 

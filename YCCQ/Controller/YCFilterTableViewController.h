@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "YCCarFilterEnum.h"
+#import "YCFilterConditionTypeEnum.h"
 
 @interface YCFilterTableViewController : UITableViewController
 
 @property (nonatomic) CarFilterType dataType;
+
+@property (nonatomic) FilterConditionTypeEnum conditionType;
 
 @end

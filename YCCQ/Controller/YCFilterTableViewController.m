@@ -15,8 +15,6 @@
 
 @property (strong, nonatomic) NSArray *dataList;
 
-//@property (nonatomic) NSDictionary *selectedItem;
-
 @end
 
 @implementation YCFilterTableViewController
@@ -86,7 +84,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = self.dataList[indexPath.row];
-    YCCarFilterConditionEntity *conditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
+    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
+    [YCFilterConditionStore sharedInstance].carListFilterCondition
+    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
     
     switch (self.dataType) {
         case PriceType:
@@ -141,6 +141,7 @@
         // 导航到选择月份视图
         YCFilterTableViewController *vc = [self controllerWithStoryBoardID:@"YCFilterTableViewController"];
         vc.dataType = monthType;
+        vc.conditionType = self.conditionType;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.dataType == monthType) {

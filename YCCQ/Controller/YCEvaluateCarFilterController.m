@@ -111,6 +111,7 @@
             vc.dataType = BrandType;
             vc.useOnlineData = NO;
             vc.continuousMode = YES;
+            vc.conditionType = CarEvaluateFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -119,6 +120,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = yearNumType;
+            vc.conditionType = CarEvaluateFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;

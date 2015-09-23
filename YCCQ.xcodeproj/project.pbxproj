@@ -455,6 +455,7 @@
 		03E4CB371B74B67D00218C2F /* YCFunctionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFunctionCollectionViewCell.m; sourceTree = "<group>"; };
 		03E4CB391B74BCA100218C2F /* YCFunctionEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFunctionEntity.h; sourceTree = "<group>"; };
 		03E4CB3A1B74BCA100218C2F /* YCFunctionEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFunctionEntity.m; sourceTree = "<group>"; };
+		03E5F9911BB2A3E200FC50C2 /* YCFilterConditionTypeEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFilterConditionTypeEnum.h; sourceTree = "<group>"; };
 		03EA0D251B7C8C3800F9674B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		03EA0D271B7C8C3800F9674B /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		03EA0D281B7C8C3800F9674B /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -704,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				03109AAE1B1F0CAC00356FB3 /* YCCarFilterEnum.h */,
+				03E5F9911BB2A3E200FC50C2 /* YCFilterConditionTypeEnum.h */,
 			);
 			path = Enum;
 			sourceTree = "<group>";

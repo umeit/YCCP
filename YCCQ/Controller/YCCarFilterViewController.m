@@ -61,6 +61,7 @@
     return cell;
 }
 
+
 #pragma mark - Table View Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,6 +74,7 @@
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
             vc.dataType = BrandType;
             vc.useOnlineData = YES;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -81,6 +83,7 @@
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
             vc.dataType = SeriesType;
             vc.useOnlineData = YES;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -89,6 +92,7 @@
             YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
             vc.dataType = ModelType;
             vc.useOnlineData = YES;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -96,6 +100,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = PriceType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -103,6 +108,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = CarTypeType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -110,6 +116,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = ccType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -117,6 +124,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = gearboxType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -124,6 +132,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = mileageType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -131,6 +140,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = yearType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -138,6 +148,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = colorType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -145,6 +156,7 @@
         {
             YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
             vc.dataType = storeType;
+            vc.conditionType = CarListFilterConditionType;
             [self.navigationController pushViewController:vc animated:YES];
         }
         default:
