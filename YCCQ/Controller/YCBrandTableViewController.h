@@ -22,6 +22,8 @@
 
 @property (nonatomic) FilterConditionTypeEnum conditionType;
 
+//@property (nonatomic) BOOL clearAllOtherConditionWhenBrandDidSelect;
+
 @property (strong, nonatomic) YCCarService *carService;
 
 @end

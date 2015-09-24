@@ -114,6 +114,7 @@
     vc.navigationItem.title = @"选择品牌";
     vc.hidesBottomBarWhenPushed = YES;
     vc.useOnlineData = YES;
+    vc.conditionType = CarListSimpleFileterConditionType;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

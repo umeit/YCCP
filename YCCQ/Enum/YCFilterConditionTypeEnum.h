@@ -8,6 +8,7 @@
 
 typedef NS_ENUM(NSInteger, FilterConditionTypeEnum) {
     CarListFilterConditionType,
-    CarEvaluateFilterConditionType
+    CarEvaluateFilterConditionType,
+    CarListSimpleFileterConditionType
 };
 

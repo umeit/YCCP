@@ -18,4 +18,14 @@
 
 + (instancetype)sharedInstance;
 
+- (void)clearCarListFilterCondition;
+
+- (void)clearCarEvaluateFilterCondition;
+
+- (void)carListConditionBrandName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
+- (void)carListConditionSeriesName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
+- (void)carListConditionModelName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
 @end

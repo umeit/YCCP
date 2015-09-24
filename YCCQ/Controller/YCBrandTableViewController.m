@@ -241,14 +241,20 @@
             
             NSDictionary *dic = self.dataList[indexPath.section - 1][@"key2"][indexPath.row];
             
-            conditionEntity.brandName = dic[@"title"];
-            conditionEntity.brandValue = dic[@"enname"];
-            conditionEntity.brandID = dic[@"id"];
-            conditionEntity.seriesName = @"不限";
-            conditionEntity.seriesValue = @"";
-            conditionEntity.seriesID = @"";
-            conditionEntity.modelName = @"不限";
-            conditionEntity.modelValue = @"";
+            switch (self.conditionType) {
+                case CarListFilterConditionType:
+                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                case CarListSimpleFileterConditionType:
+                    [[YCFilterConditionStore sharedInstance] clearCarListFilterCondition];
+                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                case CarEvaluateFilterConditionType:
+                    
+                    break;
+                default:
+                    break;
+            }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
@@ -271,7 +277,7 @@
             conditionEntity.seriesName = dic[@"title"];
             conditionEntity.seriesValue = dic[@"enname"];
             conditionEntity.seriesID = dic[@"id"];
-            conditionEntity.modelName = @"不限";
+            conditionEntity.modelName = @"";
             conditionEntity.modelValue = @"";
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];

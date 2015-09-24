@@ -26,23 +26,83 @@ static YCFilterConditionStore *_filterConditionStore;
 {
     if (self = [super init]) {
         _carListFilterCondition = [[YCCarFilterConditionEntity alloc] init];
-        _carListFilterCondition.brandName   = @"不限";
-        _carListFilterCondition.brandID     = @"";
-        _carListFilterCondition.seriesName  = @"不限";
-        _carListFilterCondition.seriesID    = @"";
-        _carListFilterCondition.modelName   = @"不限";
-        _carListFilterCondition.priceName   = @"不限";
-        _carListFilterCondition.carTypeName = @"不限";
-        _carListFilterCondition.yearName    = @"不限";
-        _carListFilterCondition.ccName      = @"不限";
-        _carListFilterCondition.mileageName = @"不限";
-        _carListFilterCondition.gearboxName = @"不限";
-        _carListFilterCondition.colorName   = @"不限";
-        _carListFilterCondition.storeName   = @"不限";
-        
         _carEvaluateFilterCondition = [[YCCarFilterConditionEntity alloc] init];
     }
     return self;
+}
+
+- (void)clearCarEvaluateFilterCondition
+{
+    self.carEvaluateFilterCondition = [[YCCarFilterConditionEntity alloc] init];
+}
+
+- (void)clearCarListFilterCondition
+{
+    self.carListFilterCondition.brandName = nil;
+    self.carListFilterCondition.brandValue = nil;
+    self.carListFilterCondition.brandID = nil;
+    
+    self.carListFilterCondition.seriesName = nil;
+    self.carListFilterCondition.seriesValue = nil;
+    self.carListFilterCondition.seriesID = nil;
+    
+    self.carListFilterCondition.modelName = nil;
+    self.carListFilterCondition.modelValue = nil;
+    self.carListFilterCondition.modelID = nil;
+    
+    self.carListFilterCondition.priceName = nil;
+    self.carListFilterCondition.priceValue = nil;
+    
+    self.carListFilterCondition.carTypeName = nil;
+    self.carListFilterCondition.carTypeValue = nil;
+    
+    self.carListFilterCondition.mileageName = nil;
+    self.carListFilterCondition.mileageValue = nil;
+    
+    self.carListFilterCondition.gearboxName = nil;
+    self.carListFilterCondition.gearboxValue = nil;
+    
+    self.carListFilterCondition.colorName = nil;
+    self.carListFilterCondition.colorValue = nil;
+    
+    self.carListFilterCondition.yearName = nil;
+    self.carListFilterCondition.yearValue = nil;
+    
+    self.carListFilterCondition.ccName = nil;
+    self.carListFilterCondition.ccValue = nil;
+    
+    self.carListFilterCondition.storeName = nil;
+    self.carListFilterCondition.storeValue = nil;
+}
+
+- (void)carListConditionBrandName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carListFilterCondition.brandName = name;
+    self.carListFilterCondition.brandValue = value;
+    self.carListFilterCondition.brandID = iD;
+    self.carListFilterCondition.seriesName = nil;
+    self.carListFilterCondition.seriesValue = nil;
+    self.carListFilterCondition.seriesID = nil;
+    self.carListFilterCondition.modelName = nil;
+    self.carListFilterCondition.modelValue = nil;
+    self.carListFilterCondition.modelID = nil;
+}
+
+- (void)carListConditionSeriesName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carListFilterCondition.seriesName = name;
+    self.carListFilterCondition.seriesValue = value;
+    self.carListFilterCondition.seriesID = iD;
+    self.carListFilterCondition.modelName = nil;
+    self.carListFilterCondition.modelValue = nil;
+    self.carListFilterCondition.modelID = nil;
+}
+
+- (void)carListConditionModelName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carListFilterCondition.modelName = name;
+    self.carListFilterCondition.modelValue = value;
+    self.carListFilterCondition.modelID = iD;
 }
 
 @end
