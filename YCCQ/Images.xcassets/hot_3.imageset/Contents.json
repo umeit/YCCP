@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "suvx2.jpeg"
+      "filename" : "suvx2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "热门推荐－suv.jpg"
+      "filename" : "热门推荐－suv.png",
+      "scale" : "3x"
     }
   ],
   "info" : {
