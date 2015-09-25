@@ -100,30 +100,47 @@
 /** 点击品牌快捷入口 */
 - (IBAction)brandButtonPress:(UIButton *)button
 {
+    NSString *brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
     NSString *brandVlue = [YCFilterKeyUtil brandFilterKeyWithButtonTag:button.tag];
     NSString *pid = [YCFilterKeyUtil pIDWithBrand:brandVlue];
     
-    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
-    [YCFilterConditionStore sharedInstance].carListFilterCondition
-    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    switch (self.conditionType) {
+        case CarListFilterConditionType:
+            [[YCFilterConditionStore sharedInstance] carListConditionBrandName:brandName value:brandVlue ID:pid];
+            break;
+        case CarListSimpleFileterConditionType:
+            [[YCFilterConditionStore sharedInstance] clearCarListFilterCondition];
+            [[YCFilterConditionStore sharedInstance] carListConditionBrandName:brandName value:brandVlue ID:pid];
+            break;
+        case CarEvaluateFilterConditionType:
+            [[YCFilterConditionStore sharedInstance] carEvaConditionBranName:brandName value:brandVlue ID:pid];
+            break;
+        default:
+            break;
+    }
     
-    conditionEntity.brandName = [YCFilterKeyUtil brandCnNameWithHotBrandButtonTag:button.tag];
-    conditionEntity.brandValue = brandVlue;
-    conditionEntity.brandID = pid;
+    if (self.conditionType == CarListSimpleFileterConditionType) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionFinish" object:nil];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+    }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
-    
+    // 一直选到车款
     if (self.continuousMode) {
         YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
         vc.dataType = SeriesType;
-        vc.useOnlineData = NO;
+        vc.conditionType = self.conditionType;
+        vc.useOnlineData = self.useOnlineData;
         vc.continuousMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        return;
     }
     else {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
 
 #pragma mark - Table view data source
 
@@ -228,10 +245,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
-    [YCFilterConditionStore sharedInstance].carListFilterCondition
-    : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
-    
     switch (self.dataType) {
         case BrandType: {
             // 品牌列表的第一行是热门品牌的容器，点击无效
@@ -250,20 +263,25 @@
                     [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
                     break;
                 case CarEvaluateFilterConditionType:
-                    
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionBranName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
                     break;
                 default:
                     break;
             }
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+            if (self.conditionType == CarListSimpleFileterConditionType) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionFinish" object:nil];
+            }
+            else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+            }
             
             // 一直选到车款
             if (self.continuousMode) {
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
                 vc.dataType = SeriesType;
                 vc.conditionType = self.conditionType;
-                vc.useOnlineData = NO;
+                vc.useOnlineData = self.useOnlineData;
                 vc.continuousMode = YES;
                 [self.navigationController pushViewController:vc animated:YES];
                 return;
@@ -274,11 +292,16 @@
         {
             NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
             
-            conditionEntity.seriesName = dic[@"title"];
-            conditionEntity.seriesValue = dic[@"enname"];
-            conditionEntity.seriesID = dic[@"id"];
-            conditionEntity.modelName = @"";
-            conditionEntity.modelValue = @"";
+            switch (self.conditionType) {
+                case CarListFilterConditionType:
+                    [[YCFilterConditionStore sharedInstance] carListConditionSeriesName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                case CarEvaluateFilterConditionType:
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionSeriesName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                default:
+                    break;
+            }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             
@@ -286,7 +309,7 @@
                 YCBrandTableViewController *vc = (YCBrandTableViewController *)[self controllerWithStoryBoardID:@"YCBrandTableViewController"];
                 vc.dataType = ModelType;
                 vc.conditionType = self.conditionType;
-                vc.useOnlineData = NO;
+                vc.useOnlineData = self.useOnlineData;
                 vc.continuousMode = YES;
                 [self.navigationController pushViewController:vc animated:YES];
                 return;
@@ -297,9 +320,16 @@
         {
             NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
             
-            conditionEntity.modelName = dic[@"title"];
-            conditionEntity.modelValue = dic[@"enname"];
-            conditionEntity.modelID = dic[@"id"];
+            switch (self.conditionType) {
+                case CarListFilterConditionType:
+                    [[YCFilterConditionStore sharedInstance] carListConditionModelName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                case CarEvaluateFilterConditionType:
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionModelName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    break;
+                default:
+                    break;
+            }
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
             

@@ -105,4 +105,34 @@ static YCFilterConditionStore *_filterConditionStore;
     self.carListFilterCondition.modelID = iD;
 }
 
+- (void)carEvaConditionBranName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carEvaluateFilterCondition.brandName = name;
+    self.carEvaluateFilterCondition.brandValue = value;
+    self.carEvaluateFilterCondition.brandID = iD;
+    self.carEvaluateFilterCondition.seriesName = nil;
+    self.carEvaluateFilterCondition.seriesValue = nil;
+    self.carEvaluateFilterCondition.seriesID = nil;
+    self.carEvaluateFilterCondition.modelName = nil;
+    self.carEvaluateFilterCondition.modelValue = nil;
+    self.carEvaluateFilterCondition.modelID = nil;
+}
+
+- (void)carEvaConditionSeriesName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carEvaluateFilterCondition.seriesName = name;
+    self.carEvaluateFilterCondition.seriesValue = value;
+    self.carEvaluateFilterCondition.seriesID = iD;
+    self.carEvaluateFilterCondition.modelName = nil;
+    self.carEvaluateFilterCondition.modelValue = nil;
+    self.carEvaluateFilterCondition.modelID = nil;
+}
+
+- (void)carEvaConditionModelName:(NSString *)name value:(NSString *)value ID:(NSString *)iD
+{
+    self.carEvaluateFilterCondition.modelName = name;
+    self.carEvaluateFilterCondition.modelValue = value;
+    self.carEvaluateFilterCondition.modelID = iD;
+}
+
 @end

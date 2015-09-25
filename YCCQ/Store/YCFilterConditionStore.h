@@ -28,4 +28,10 @@
 
 - (void)carListConditionModelName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
 
+- (void)carEvaConditionBranName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
+- (void)carEvaConditionSeriesName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
+- (void)carEvaConditionModelName:(NSString *)name value:(NSString *)value ID:(NSString *)iD;
+
 @end

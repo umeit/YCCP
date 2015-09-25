@@ -17,8 +17,6 @@
 
 @interface YCCarFilterViewController ()
 @property (strong, nonatomic) NSMutableArray *cellContentList;
-@property (nonatomic) NSInteger brandID;
-@property (nonatomic) NSInteger seriesID;
 @end
 
 @implementation YCCarFilterViewController
@@ -185,21 +183,22 @@
     
     self.cellContentList = [NSMutableArray array];
     
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"品牌" detail:currentFilterCondition.brandName filteType:BrandType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"品牌" detail:currentFilterCondition.brandName?:@"不限" filteType:BrandType]];
     if (currentFilterCondition.brandValue.length) {
-        [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车系" detail:currentFilterCondition.seriesName filteType:SeriesType]];
+        [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车系" detail:currentFilterCondition.seriesName?:@"不限" filteType:SeriesType]];
         if (currentFilterCondition.seriesValue.length) {
-            [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车型" detail:currentFilterCondition.modelName filteType:ModelType]];
+            [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车型" detail:currentFilterCondition.modelName?:@"不限" filteType:ModelType]];
         }
     }
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"价格" detail:currentFilterCondition.priceName filteType:PriceType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"类型" detail:currentFilterCondition.carTypeName filteType:CarTypeType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"门店" detail:currentFilterCondition.storeName filteType:storeType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车龄" detail:currentFilterCondition.yearName filteType:yearType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"里程" detail:currentFilterCondition.mileageName filteType:mileageType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"变速箱" detail:currentFilterCondition.gearboxName filteType:gearboxType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"排量" detail:currentFilterCondition.ccName filteType:ccType]];
-    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"颜色" detail:currentFilterCondition.colorName filteType:colorType]];
+
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"价格" detail:currentFilterCondition.priceName?:@"不限" filteType:PriceType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"类型" detail:currentFilterCondition.carTypeName?:@"不限" filteType:CarTypeType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"门店" detail:currentFilterCondition.storeName?:@"不限" filteType:storeType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"车龄" detail:currentFilterCondition.yearName?:@"不限" filteType:yearType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"里程" detail:currentFilterCondition.mileageName?:@"不限" filteType:mileageType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"变速箱" detail:currentFilterCondition.gearboxName?:@"不限" filteType:gearboxType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"排量" detail:currentFilterCondition.ccName?:@"不限" filteType:ccType]];
+    [self.cellContentList addObject:[[YCFilterCellDataEntity alloc] initWithTitile:@"颜色" detail:currentFilterCondition.colorName?:@"不限" filteType:colorType]];
     
     [self.tableView reloadData];
 }
