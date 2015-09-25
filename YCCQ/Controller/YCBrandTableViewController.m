@@ -37,16 +37,12 @@
         {
             if (self.useOnlineData) {
                 [self.carService brandsFromOnSell:^(NSArray *brands) {
-                    [self hideLodingView];
-                    self.dataList = brands;
-                    [self.tableView reloadData];
+                    [self updateTable:brands];
                 }];
             }
             else {
                 [self.carService allBrands:^(NSArray *brands) {
-                    [self hideLodingView];
-                    self.dataList = brands;
-                    [self.tableView reloadData];
+                    [self updateTable:brands];
                 }];
             }
         }
@@ -56,16 +52,12 @@
         {
             if (self.useOnlineData) {
                 [self.carService seriesesFromOnSellWithPID:condition.brandID block:^(NSArray *serieses) {
-                    [self hideLodingView];
-                    self.dataList = serieses;
-                    [self.tableView reloadData];
+                    [self updateTable:serieses];
                 }];
             }
             else {
                 [self.carService allSeriesesWithPID:condition.brandID block:^(NSArray *serieses) {
-                    [self hideLodingView];
-                    self.dataList = serieses;
-                    [self.tableView reloadData];
+                    [self updateTable:serieses];
                 }];
             }
         }
@@ -75,16 +67,12 @@
         {
             if (self.useOnlineData) {
                 [self.carService modelsFromOnSellWithPID:condition.seriesID block:^(NSArray *models) {
-                    [self hideLodingView];
-                    self.dataList = models;
-                    [self.tableView reloadData];
+                    [self updateTable:models];
                 }];
             }
             else {
                 [self.carService allModelsWithPID:condition.seriesID block:^(NSArray *models) {
-                    [self hideLodingView];
-                    self.dataList = models;
-                    [self.tableView reloadData];
+                    [self updateTable:models];
                 }];
             }
         }
@@ -344,6 +332,16 @@
             break;
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - Private
+
+- (void)updateTable:(NSArray *)dataList
+{
+    [self hideLodingView];
+    self.dataList = dataList;
+    [self.tableView reloadData];
 }
 
 @end

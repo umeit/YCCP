@@ -84,9 +84,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dic = self.dataList[indexPath.row];
-    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType) ?
+    
+    YCCarFilterConditionEntity *conditionEntity = (self.conditionType == CarListFilterConditionType || self.conditionType == CarListSimpleFileterConditionType) ?
     [YCFilterConditionStore sharedInstance].carListFilterCondition
     : [YCFilterConditionStore sharedInstance].carEvaluateFilterCondition;
+    
+    if (self.conditionType == CarListSimpleFileterConditionType) {
+        [[YCFilterConditionStore sharedInstance] clearCarListFilterCondition];
+    }
     
     switch (self.dataType) {
         case PriceType:
@@ -134,7 +139,12 @@
             break;
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+    if (self.conditionType == CarListSimpleFileterConditionType) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionFinish" object:nil];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"FilterConditionUpdate" object:nil];
+    }
     
     // 当前是选择年份
     if (self.dataType == yearNumType) {

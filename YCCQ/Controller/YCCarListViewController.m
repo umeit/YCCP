@@ -121,6 +121,7 @@
 - (IBAction)priceButtonPress:(id)sender {
     YCFilterTableViewController *vc = (YCFilterTableViewController *)[self controllerWithStoryBoardID:@"YCFilterTableViewController"];
     vc.dataType = PriceType;
+    vc.conditionType = CarListSimpleFileterConditionType;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
