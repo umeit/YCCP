@@ -114,7 +114,7 @@
 /** 进入 banner 所指链接 */
 - (void)bannerDidTouch:(UIButton *)bannerButton {
     YCBannerEntity *bannner = self.banners[bannerButton.tag];
-    if (bannner && bannner.linkURL) {
+    if (bannner && bannner.linkURL.length) {
         [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情" showBottomBar:NO];
     }
 }
