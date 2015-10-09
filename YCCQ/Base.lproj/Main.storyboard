@@ -113,15 +113,18 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                         <animations/>
                                                                         <constraints>
+                                                                            <constraint firstAttribute="width" constant="50" id="B3R-Ks-eUL"/>
                                                                             <constraint firstAttribute="height" constant="50" id="hfq-JB-FB5"/>
                                                                         </constraints>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
+                                                                                <exclude reference="B3R-Ks-eUL"/>
                                                                                 <exclude reference="hfq-JB-FB5"/>
                                                                             </mask>
                                                                         </variation>
                                                                         <variation key="heightClass=regular-widthClass=compact">
                                                                             <mask key="constraints">
+                                                                                <include reference="B3R-Ks-eUL"/>
                                                                                 <include reference="hfq-JB-FB5"/>
                                                                             </mask>
                                                                         </variation>
@@ -129,9 +132,22 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要买车" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGO-n7-rJT">
                                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                         <animations/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="50" id="h04-FG-FJ8"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="h04-FG-FJ8"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="h04-FG-FJ8"/>
+                                                                            </mask>
+                                                                        </variation>
                                                                     </label>
                                                                 </subviews>
                                                                 <animations/>
@@ -143,15 +159,9 @@
                                                                 <constraint firstItem="JGO-n7-rJT" firstAttribute="top" secondItem="xRS-QW-egZ" secondAttribute="bottom" constant="-1" id="4D4-f1-EWh">
                                                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                                                 </constraint>
-                                                                <constraint firstItem="xRS-QW-egZ" firstAttribute="leading" secondItem="btf-id-kYs" secondAttribute="leadingMargin" constant="6" id="9uu-Z4-eAU"/>
-                                                                <constraint firstItem="JGO-n7-rJT" firstAttribute="leading" secondItem="btf-id-kYs" secondAttribute="leading" constant="15" id="NqE-dk-bsu"/>
                                                                 <constraint firstItem="xRS-QW-egZ" firstAttribute="centerX" secondItem="JGO-n7-rJT" secondAttribute="centerX" id="OqL-az-VuP"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="xRS-QW-egZ" secondAttribute="trailing" constant="6" id="PRk-iV-waC"/>
-                                                                <constraint firstAttribute="trailing" secondItem="JGO-n7-rJT" secondAttribute="trailing" constant="15" id="cEh-Tv-ozQ"/>
                                                                 <constraint firstItem="xRS-QW-egZ" firstAttribute="top" secondItem="btf-id-kYs" secondAttribute="top" id="gqv-OX-t4q"/>
-                                                                <constraint firstAttribute="bottom" secondItem="JGO-n7-rJT" secondAttribute="bottom" constant="8" id="u8E-Qc-oeX">
-                                                                    <variation key="heightClass=regular-widthClass=compact" constant="13"/>
-                                                                </constraint>
+                                                                <constraint firstItem="xRS-QW-egZ" firstAttribute="centerX" secondItem="btf-id-kYs" secondAttribute="centerX" id="hzl-al-5Aj"/>
                                                             </constraints>
                                                             <variation key="default">
                                                                 <mask key="subviews">
@@ -159,14 +169,10 @@
                                                                     <exclude reference="JGO-n7-rJT"/>
                                                                 </mask>
                                                                 <mask key="constraints">
-                                                                    <exclude reference="4D4-f1-EWh"/>
-                                                                    <exclude reference="NqE-dk-bsu"/>
-                                                                    <exclude reference="cEh-Tv-ozQ"/>
-                                                                    <exclude reference="u8E-Qc-oeX"/>
-                                                                    <exclude reference="9uu-Z4-eAU"/>
                                                                     <exclude reference="OqL-az-VuP"/>
-                                                                    <exclude reference="PRk-iV-waC"/>
                                                                     <exclude reference="gqv-OX-t4q"/>
+                                                                    <exclude reference="hzl-al-5Aj"/>
+                                                                    <exclude reference="4D4-f1-EWh"/>
                                                                 </mask>
                                                             </variation>
                                                             <variation key="heightClass=regular-widthClass=compact">
@@ -175,14 +181,10 @@
                                                                     <include reference="JGO-n7-rJT"/>
                                                                 </mask>
                                                                 <mask key="constraints">
-                                                                    <include reference="4D4-f1-EWh"/>
-                                                                    <exclude reference="NqE-dk-bsu"/>
-                                                                    <exclude reference="cEh-Tv-ozQ"/>
-                                                                    <exclude reference="u8E-Qc-oeX"/>
-                                                                    <include reference="9uu-Z4-eAU"/>
                                                                     <include reference="OqL-az-VuP"/>
-                                                                    <include reference="PRk-iV-waC"/>
                                                                     <include reference="gqv-OX-t4q"/>
+                                                                    <include reference="hzl-al-5Aj"/>
+                                                                    <include reference="4D4-f1-EWh"/>
                                                                 </mask>
                                                             </variation>
                                                             <connections>
@@ -6972,41 +6974,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="jgF-av-ZGb">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="7oW-gU-xsP" imageView="g6f-da-vBD" style="IBUITableViewCellStyleDefault" id="c2H-QU-28f">
-                                        <rect key="frame" x="0.0" y="207" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c2H-QU-28f" id="Let-Kw-3Tc">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="领取 1000 元购车劵" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7oW-gU-xsP">
-                                                    <rect key="frame" x="64" y="0.0" width="501" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
-                                                </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="hongbao" id="g6f-da-vBD">
-                                                    <rect key="frame" x="15" y="4" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <animations/>
-                                                </imageView>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="x4b-7c-UoT" kind="push" id="OfR-m3-lqG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="UBa-9d-H3n">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="RjZ-yw-C0u" imageView="Tht-oI-ZZT" style="IBUITableViewCellStyleDefault" id="3SP-ip-m2F">
@@ -7303,7 +7270,6 @@
         <image name="home_fute" width="52" height="52"/>
         <image name="home_gengduo" width="52" height="52"/>
         <image name="home_xiandai" width="52" height="52"/>
-        <image name="hongbao" width="34" height="34"/>
         <image name="hot_1" width="200" height="80"/>
         <image name="hot_2" width="200" height="80"/>
         <image name="hot_3" width="200" height="160"/>

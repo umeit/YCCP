@@ -29,7 +29,7 @@
 #import "YCCQ-Swift.h"
 
 #define Banner_Row_Index    0
-#define Function_Row_Index 1
+#define Function_Row_Index  1
 #define Baokuan_Row_Index   2
 #define CarType_Row_Index   3
 #define CarBrand_Row_Index  4
@@ -74,7 +74,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:PageIndex];
-    [self.view setNeedsUpdateConstraints];
+//    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

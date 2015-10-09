@@ -46,9 +46,6 @@
       [NSURL URLWithString:
        [self.carListURL stringByAppendingString:@"?t=app"]]]];
     
-//    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(28, 0, 0, 0);
-//    self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(100, 0, 0, 0);
-    
     self.orderButtonStatus = [NSMutableDictionary dictionaryWithDictionary:@{@"price": @NO, @"mileage": @NO}];
     
     self.sortItemList = @[@"默认排序", @"按价格", @"按车龄", @"按里程"];
@@ -61,18 +58,6 @@
     [super viewWillAppear:animated];
     [self.sortButton setTitle:self.sortItemList[self.currentIndex] forState:UIControlStateNormal];
 }
-
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//    if (!self.navigationController) {
-//        CGRect frame = self.carListWebView.frame;
-//        self.carListWebView.frame = CGRectMake(0,
-//                                               frame.origin.y + 22,
-//                                               frame.size.width,
-//                                               frame.size.height - 22);
-//    }
-//}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
