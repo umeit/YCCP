@@ -35,7 +35,7 @@ class HomeLayoutUtil : NSObject {
     /* 功能按钮的 Collection Cell 尺寸 */
     class func functionCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
         if iPhone6 {
-            return CGSizeMake(76, 70);
+            return CGSizeMake(77, 70);
         }
         else if iPhone6Plus {
             return CGSizeMake(78, 78);

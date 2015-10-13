@@ -67,14 +67,21 @@
     [self setBanner];
     [self setBaokuan];
     
-    self.functionCollectionView.contentSize = CGSizeMake(CGRectGetWidth(self.functionCollectionView.frame) * 3,
-                                                         CGRectGetHeight(self.functionCollectionView.frame));
+//    self.functionCollectionView.contentSize = CGSizeMake(CGRectGetWidth(self.functionCollectionView.frame) * 3,
+//                                                         CGRectGetHeight(self.functionCollectionView.frame));
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:PageIndex];
 //    [self.view setNeedsUpdateConstraints];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (IS_OS_9_OR_LATER) {
+        [self.functionCollectionView reloadData];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -265,7 +272,7 @@
     [cell.carImageView setImageWithURL:entity.imageURL];
     cell.carSeriesLabel.text = entity.series;
     cell.carPriceLabel.text = entity.price;
-    cell.oldPriceLabel.text = [NSString stringWithFormat:@"优车原价 %@万", entity.oldPrice];
+    cell.oldPriceLabel.text = [NSString stringWithFormat:@"优车原价%@万", entity.oldPrice];
 }
 
 
@@ -354,6 +361,10 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (IS_OS_9_OR_LATER) {
+        [self.functionCollectionView reloadData];
+    }
+
     NSInteger pageIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
     if (scrollView == self.bannerScrollView) {
         self.bannerPageControl.currentPage = pageIndex;
@@ -542,9 +553,9 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     [self.navigationController setViewControllers:controllers];
 }
 
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    self.functionScrolViewConstraintWidth.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
-}
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//    self.functionScrolViewConstraintWidth.constant = CGRectGetWidth([UIScreen mainScreen].bounds) * 2;
+//}
 
 @end
