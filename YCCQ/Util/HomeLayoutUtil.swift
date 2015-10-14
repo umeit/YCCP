@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreGraphics
+import UIKit
 
 class HomeLayoutUtil : NSObject {
     
@@ -21,10 +22,10 @@ class HomeLayoutUtil : NSObject {
     
     /* 降价车辆的 Collection Cell 尺寸 */
     class func baokuanCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
-        if iPhone6 {
+        if iPhone6Standard {
             return CGSizeMake(170, 170)
         }
-        else if iPhone6Plus {
+        else if iPhone6PlusStandard {
             return CGSizeMake(174, 180);
         }
         else {
@@ -34,11 +35,11 @@ class HomeLayoutUtil : NSObject {
     
     /* 功能按钮的 Collection Cell 尺寸 */
     class func functionCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
-        if iPhone6 {
+        if iPhone6Standard {
             return CGSizeMake(77, 70);
         }
-        else if iPhone6Plus {
-            return CGSizeMake(78, 78);
+        else if iPhone6PlusStandard {
+            return CGSizeMake(87, 82);
         }
         else {
             return CGSizeMake(64, 63);
@@ -47,7 +48,7 @@ class HomeLayoutUtil : NSObject {
     
     /* 主页每个 ROW 的高度 */
     class func homeTableRowHightWithIndexPath(indexPath: NSIndexPath, baokuanCount: Int) -> Float {
-        if iPhone6 {
+        if iPhone6Standard {
             switch indexPath.row {
             case Banner_Row_Index:
                 return 170
@@ -67,7 +68,7 @@ class HomeLayoutUtil : NSObject {
                 return 0
             }
         }
-        else if iPhone6Plus {
+        else if iPhone6PlusStandard {
             switch indexPath.row {
             case Banner_Row_Index:
                 return 170

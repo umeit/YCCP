@@ -94,7 +94,7 @@
 
 - (void)registerAPNs
 {
-    if (IS_OS_8_OR_LATER) {
+    if (IS_OS_8 || IS_OS_9_OR_LATER) {
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         UIUserNotificationSettings *settings =
         [UIUserNotificationSettings settingsForTypes:

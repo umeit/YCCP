@@ -8,11 +8,12 @@
 
 import UIKit
 
-//let iPhone6 = ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+let iPhone5 = CGSizeEqualToSize(CGSizeMake(640, 1136), UIScreen.mainScreen().currentMode!.size)
 
-//#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) : NO)
+let iPhone6Standard = CGSizeEqualToSize(CGSizeMake(750, 1334), UIScreen.mainScreen().currentMode!.size)
 
+let iPhone6Zoom = CGSizeEqualToSize(CGSizeMake(640, 1136), UIScreen.mainScreen().currentMode!.size)
 
-let iPhone6 = CGSizeEqualToSize(CGSizeMake(750, 1334), UIScreen.mainScreen().currentMode!.size)
+let iPhone6PlusStandard = CGSizeEqualToSize(CGSizeMake(1242, 2208), UIScreen.mainScreen().currentMode!.size)
 
-let iPhone6Plus =  CGSizeEqualToSize(CGSizeMake(1125, 2001), UIScreen.mainScreen().currentMode!.size)
+let iPhone6PlusZoom = CGSizeEqualToSize(CGSizeMake(1125, 2001), UIScreen.mainScreen().currentMode!.size)

@@ -361,15 +361,14 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (IS_OS_9_OR_LATER) {
-        [self.functionCollectionView reloadData];
-    }
-
     NSInteger pageIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
     if (scrollView == self.bannerScrollView) {
         self.bannerPageControl.currentPage = pageIndex;
     }
     else if (scrollView == self.functionCollectionView) {
+        if (IS_OS_9_OR_LATER) {
+            [self.functionCollectionView reloadData];
+        }
         NSInteger pageIndex = scrollView.contentOffset.x / (CGRectGetWidth(scrollView.frame) - 16);
         self.functionPageControl.currentPage = pageIndex;
     }

@@ -143,11 +143,11 @@
                                                                     <exclude reference="JGO-n7-rJT"/>
                                                                 </mask>
                                                                 <mask key="constraints">
+                                                                    <exclude reference="4D4-f1-EWh"/>
                                                                     <exclude reference="OqL-az-VuP"/>
                                                                     <exclude reference="gqv-OX-t4q"/>
                                                                     <exclude reference="jC8-VI-L8D"/>
                                                                     <exclude reference="tqK-d2-tUg"/>
-                                                                    <exclude reference="4D4-f1-EWh"/>
                                                                 </mask>
                                                             </variation>
                                                             <variation key="heightClass=regular-widthClass=compact">
@@ -156,11 +156,11 @@
                                                                     <include reference="JGO-n7-rJT"/>
                                                                 </mask>
                                                                 <mask key="constraints">
+                                                                    <include reference="4D4-f1-EWh"/>
                                                                     <include reference="OqL-az-VuP"/>
                                                                     <include reference="gqv-OX-t4q"/>
                                                                     <include reference="jC8-VI-L8D"/>
                                                                     <include reference="tqK-d2-tUg"/>
-                                                                    <include reference="4D4-f1-EWh"/>
                                                                 </mask>
                                                             </variation>
                                                             <connections>

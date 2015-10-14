@@ -37,13 +37,13 @@
         imageNmae3 = @"ug_640-1136-3";
         imageNmae4 = @"ug_640-1136-4";
         imageNmae5 = @"ug_640-1136-5";
-    } else if (iPhone6) {
+    } else if (iPhone6_Standard || iPhone6_Zoom) {
         imageNmae1 = @"ug_750-1334-1";
         imageNmae2 = @"ug_750-1334-2";
         imageNmae3 = @"ug_750-1334-3";
         imageNmae4 = @"ug_750-1334-4";
         imageNmae5 = @"ug_750-1334-5";
-    } else if (iPhone6Plus || iPhone6Plus_Simulator) {
+    } else if (iPhone6Plus_Standard || iPhone6Plus_Zoom) {
         imageNmae1 = @"ug_1242-2208-1";
         imageNmae2 = @"ug_1242-2208-2";
         imageNmae3 = @"ug_1242-2208-3";

@@ -218,10 +218,10 @@
         if (iPhone4 || iPhone5) {
             return 104;
         }
-        if (iPhone6) {
+        if (iPhone6_Standard || iPhone6_Zoom) {
             return 124;
         }
-        if (iPhone6Plus || iPhone6Plus_Simulator) {
+        if (iPhone6Plus_Standard || iPhone6Plus_Zoom) {
             return 138;
         }
         if (iPad_Retina) {
