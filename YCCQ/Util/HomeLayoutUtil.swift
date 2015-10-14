@@ -20,19 +20,6 @@ class HomeLayoutUtil : NSObject {
     static let CarBrand_Row_Index = 5
     static let CarPrice_Row_Index = 6
     
-    /* 降价车辆的 Collection Cell 尺寸 */
-    class func baokuanCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
-        if iPhone6Standard {
-            return CGSizeMake(170, 170)
-        }
-        else if iPhone6PlusStandard {
-            return CGSizeMake(174, 180);
-        }
-        else {
-            return CGSizeMake(150, 150);
-        }
-    }
-    
     /* 功能按钮的 Collection Cell 尺寸 */
     class func functionCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
         if iPhone6Standard {
@@ -43,6 +30,19 @@ class HomeLayoutUtil : NSObject {
         }
         else {
             return CGSizeMake(64, 63);
+        }
+    }
+    
+    /* 降价车辆的 Collection Cell 尺寸 */
+    class func baokuanCollectionCellSizeWithIndexPath(indexPath: NSIndexPath) -> CGSize {
+        if iPhone6Standard {
+            return CGSizeMake(170, 170)
+        }
+        else if iPhone6PlusStandard {
+            return CGSizeMake(190, 180);
+        }
+        else {
+            return CGSizeMake(150, 150);
         }
     }
     

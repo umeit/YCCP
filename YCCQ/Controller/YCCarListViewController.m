@@ -52,11 +52,17 @@
     
     [self createDarkBackgroundView];
     [self createOptionTableView];
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.sortButton setTitle:self.sortItemList[self.currentIndex] forState:UIControlStateNormal];
+    
+    if (!self.hidesBottomBarWhenPushed) {
+        self.carListWebView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0);
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
