@@ -20,6 +20,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="amA-HN-m0l">
                                 <rect key="frame" x="60" y="0.0" width="200" height="150"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="FNG-TX-boL"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERv-yI-T8L" userLabel="Label ground">
                                 <rect key="frame" x="60" y="122" width="200" height="28"/>

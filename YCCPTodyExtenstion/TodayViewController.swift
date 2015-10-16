@@ -49,14 +49,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     // MARK: - Privatre
     private func showBaokuanCarInfoWithCurrentIndex() {
         if self.baokuanCarInfoList?.count > 0, let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
-            let imageURLStr = "http://file.youche.com/_200_180" + baokuanCarInfo.pic!
-            let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!)
-            let image = UIImage(data: data!)
-            self.carImageView.image = image
-            self.carNameLabel.text = baokuanCarInfo.carName
+            
+            let imageURLStr = "http://file.youche.com/_300_300" + baokuanCarInfo.pic!
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+                if let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!), let image = UIImage(data: data) {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.carImageView.image = image
+                        self.carNameLabel.text = baokuanCarInfo.carName
+                    })
+                }
+            })
         }
     }
-    
     
     
     // MARK: - Action
