@@ -34,7 +34,6 @@ class CarInfoService {
                     baokuanInfoList.append(baokuan)
                 }
             }
-            print(baokuanInfoList)
             backcall(baokuanInfoList)
         }
     }

@@ -35,7 +35,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.didReceiveMemoryWarning()
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
@@ -51,7 +51,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
             let imageURLStr = "http://file.youche.com/_100_100" + baokuanCarInfo.pic!
             let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!)
-            var image = UIImage(data: data!)
+            let image = UIImage(data: data!)
             self.carImageView.image = image
             self.carNameLabel.text = baokuanCarInfo.carName
         }
