@@ -12,6 +12,7 @@
 		030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759A1B0B3F88008753C8 /* YCBaoKuanEntity.m */; };
 		030A759F1B0B41ED008753C8 /* YCBannerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759E1B0B41ED008753C8 /* YCBannerService.m */; };
 		030A75A21B0B4211008753C8 /* YCCarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A75A11B0B4211008753C8 /* YCCarService.m */; };
+		030D2B3B1BD0C6B900DA59F4 /* TodayExtenstion.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030D2B3A1BD0C6B900DA59F4 /* TodayExtenstion.xcassets */; settings = {ASSET_TAGS = (); }; };
 		031034391B6236AD005AE18A /* YCCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031034381B6236AD005AE18A /* YCCouponViewController.m */; };
 		0310343C1B623DC4005AE18A /* YCUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0310343B1B623DC4005AE18A /* YCUserService.m */; };
 		03109AA91B1EF9F200356FB3 /* YCFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03109AA81B1EF9F200356FB3 /* YCFilterTableViewController.m */; };
@@ -297,6 +298,7 @@
 		030A759E1B0B41ED008753C8 /* YCBannerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBannerService.m; sourceTree = "<group>"; };
 		030A75A01B0B4211008753C8 /* YCCarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCarService.h; sourceTree = "<group>"; };
 		030A75A11B0B4211008753C8 /* YCCarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCarService.m; sourceTree = "<group>"; };
+		030D2B3A1BD0C6B900DA59F4 /* TodayExtenstion.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TodayExtenstion.xcassets; sourceTree = "<group>"; };
 		031034371B6236AD005AE18A /* YCCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCCouponViewController.h; sourceTree = "<group>"; };
 		031034381B6236AD005AE18A /* YCCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCCouponViewController.m; sourceTree = "<group>"; };
 		0310343A1B623DC4005AE18A /* YCUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCUserService.h; sourceTree = "<group>"; };
@@ -1016,6 +1018,7 @@
 				03B835DC1BCFB20000EDB6B8 /* TodayViewController.swift */,
 				03B835DD1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements */,
 				03B835CA1BCFB1FF00EDB6B8 /* YCCPTodyExtenstion-Bridging-Header.h */,
+				030D2B3A1BD0C6B900DA59F4 /* TodayExtenstion.xcassets */,
 			);
 			path = YCCPTodyExtenstion;
 			sourceTree = "<group>";
@@ -1630,6 +1633,7 @@
 			files = (
 				03B835E01BCFB20000EDB6B8 /* Info.plist in Resources */,
 				03B835EB1BCFB20000EDB6B8 /* MainInterface.storyboard in Resources */,
+				030D2B3B1BD0C6B900DA59F4 /* TodayExtenstion.xcassets in Resources */,
 				03B835ED1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

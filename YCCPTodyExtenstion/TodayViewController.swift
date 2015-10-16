@@ -48,8 +48,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     // MARK: - Privatre
     private func showBaokuanCarInfoWithCurrentIndex() {
-        if let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
-            let imageURLStr = "http://file.youche.com/_100_100" + baokuanCarInfo.pic!
+        if self.baokuanCarInfoList?.count > 0, let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
+            let imageURLStr = "http://file.youche.com/_200_180" + baokuanCarInfo.pic!
             let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!)
             let image = UIImage(data: data!)
             self.carImageView.image = image
@@ -61,7 +61,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: - Action
     @IBAction func nextButtonPress(sender: AnyObject) {
-        if let carInfoListCount = self.baokuanCarInfoList?.count {
+        if let carInfoListCount = self.baokuanCarInfoList?.count where carInfoListCount > 0{
             if currentIndex + 1 < carInfoListCount {
                 self.currentIndex++
             }
@@ -73,7 +73,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     @IBAction func prevButtonPress(sender: AnyObject) {
-        if let carInfoListCount = self.baokuanCarInfoList?.count {
+        if let carInfoListCount = self.baokuanCarInfoList?.count where carInfoListCount > 0 {
             if self.currentIndex - 1 >= 0 {
                 self.currentIndex--
             }

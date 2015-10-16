@@ -13,7 +13,6 @@ class CarInfoService {
     class func baoKuanCarList(backcall:([BaoKuanCarInfo]) -> Void) {
         request(Method.GET, "http://www.youche.com/json/app/baokuan")
         .responseJSON { response in
-            print(response)
             var baokuanInfoList = [BaoKuanCarInfo]()
             if let baokuanList: [[String: AnyObject]] = response.result.value?.objectForKey("baokuandata") as? [[String: AnyObject]] {
                 for baokuanJSON in baokuanList {
@@ -26,6 +25,9 @@ class CarInfoService {
                         baokuan.pic = pic
                     }
                     if let id = baokuanJSON["id"] as? Int {
+                        
+                        
+                        
                         baokuan.id = id
                     }
                     if let price = baokuanJSON["salePrice"] as? Float {
