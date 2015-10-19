@@ -25,9 +25,6 @@ class CarInfoService {
                         baokuan.pic = pic
                     }
                     if let id = baokuanJSON["id"] as? Int {
-                        
-                        
-                        
                         baokuan.id = id
                     }
                     if let price = baokuanJSON["salePrice"] as? Float {

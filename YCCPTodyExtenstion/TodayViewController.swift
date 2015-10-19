@@ -11,6 +11,8 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var carImageView: UIImageView!
     @IBOutlet weak var carNameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     var currentIndex: Int = 0
     var baokuanCarInfoList: [BaoKuanCarInfo]?
     
@@ -31,17 +33,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSLog("")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-
         completionHandler(NCUpdateResult.NewData)
     }
     
@@ -50,13 +51,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     private func showBaokuanCarInfoWithCurrentIndex() {
         if self.baokuanCarInfoList?.count > 0, let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
             
-            let imageURLStr = "http://file.youche.com/_300_300" + baokuanCarInfo.pic!
+            let imageURLStr = "http://file.youche.com/_400_400" + baokuanCarInfo.pic!
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 if let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!), let image = UIImage(data: data) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.carImageView.image = image
                         self.carNameLabel.text = baokuanCarInfo.carName
+                        self.priceLabel.text = "现价 " + baokuanCarInfo.price + " 万"
                     })
                 }
             })
