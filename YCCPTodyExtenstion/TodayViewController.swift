@@ -58,7 +58,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.carImageView.image = image
                         self.carNameLabel.text = baokuanCarInfo.carName
-                        self.priceLabel.text = "现价 " + baokuanCarInfo.price + " 万"
+                        self.priceLabel.text = " 现价 " + baokuanCarInfo.price + " 万 "
                     })
                 }
             })

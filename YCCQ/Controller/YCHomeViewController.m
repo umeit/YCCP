@@ -27,6 +27,8 @@
 #import "YCBrandTableViewController.h"
 #import "YCBaokuanTableViewController.h"
 #import "YCCQ-Swift.h"
+#import "YCFilterConditionStore.h"
+#import "YCCarFilterConditionEntity.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
@@ -134,8 +136,9 @@
         vc.navigationItem.title = @"选择品牌";
         vc.hidesBottomBarWhenPushed = YES;
         vc.useOnlineData = YES;
-        [vc performSelector:@selector(setDelegate:) withObject:self];
+        vc.conditionType = CarListSimpleFileterConditionType;
         [self.navigationController pushViewController:vc animated:YES];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedBrandFinish) name:@"FilterConditionFinish" object:nil];
     } else {
         [self toCarListViewWithKey:[YCFilterKeyUtil brandFilterKeyWithButtonTag:sender.tag]];
     }
@@ -357,6 +360,18 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
+- (void)selectedBrandFinish
+{
+    YCCarFilterConditionEntity *carFilterConditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
+    NSString *key = [carFilterConditionEntity.brandValue isEqualToString:@"all"] ? @"" :carFilterConditionEntity.brandValue;
+    YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
+    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", key];
+    carListViewController.hidesBottomBarWhenPushed = YES;
+    
+    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+    [viewControllers insertObject:carListViewController atIndex:viewControllers.count-1];
+    [self.navigationController setViewControllers:viewControllers];
+}
 
 #pragma mark - UIScrollViewDelegate
 
