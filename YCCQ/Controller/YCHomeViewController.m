@@ -81,9 +81,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (IS_OS_9_OR_LATER) {
-        [self.functionCollectionView reloadData];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -15,6 +15,9 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSnsService.h"
 
+#import "YCWebViewController.h"
+#import "NSString+YCSubString.h"
+
 #define FirstLaunch @"FirstLaunch"
 
 @interface AppDelegate ()
@@ -131,6 +134,20 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     return ![userDefaults boolForKey:FirstLaunch];
+}
+
+#pragma mark - 今天跳转
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    if ([url.absoluteString hasPrefix:@"app://"]) {
+        NSString *carID = [url.absoluteString YCSubStringFromString:@"(" toString:@")"];
+        YCWebViewController *webVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YCWebViewController"];
+        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml?t=app", carID];
+        webVC.navigationItem.title = @"车辆详情";
+        webVC.showBottomBar = YES;
+        UITabBarController *tab = (UITabBarController *)self.window.rootViewController;
+        [tab.viewControllers.firstObject pushViewController:webVC animated:YES];
+    }
+    return YES;
 }
 
 @end

@@ -12,7 +12,7 @@
 		030A759B1B0B3F88008753C8 /* YCBaoKuanEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759A1B0B3F88008753C8 /* YCBaoKuanEntity.m */; };
 		030A759F1B0B41ED008753C8 /* YCBannerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A759E1B0B41ED008753C8 /* YCBannerService.m */; };
 		030A75A21B0B4211008753C8 /* YCCarService.m in Sources */ = {isa = PBXBuildFile; fileRef = 030A75A11B0B4211008753C8 /* YCCarService.m */; };
-		030D2B3B1BD0C6B900DA59F4 /* TodayExtenstion.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030D2B3A1BD0C6B900DA59F4 /* TodayExtenstion.xcassets */; settings = {ASSET_TAGS = (); }; };
+		030D2B3B1BD0C6B900DA59F4 /* TodayExtenstion.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030D2B3A1BD0C6B900DA59F4 /* TodayExtenstion.xcassets */; };
 		031034391B6236AD005AE18A /* YCCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031034381B6236AD005AE18A /* YCCouponViewController.m */; };
 		0310343C1B623DC4005AE18A /* YCUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0310343B1B623DC4005AE18A /* YCUserService.m */; };
 		03109AA91B1EF9F200356FB3 /* YCFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03109AA81B1EF9F200356FB3 /* YCFilterTableViewController.m */; };
@@ -118,8 +118,8 @@
 		0362E77E1B31407C0010EC48 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0362E77B1B31407C0010EC48 /* libMobClickLibrary.a */; };
 		036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB941B79EFB000AF84E6 /* HomeLayoutUtil.swift */; };
 		036BCB971B79EFB000AF84E6 /* SystemUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036BCB951B79EFB000AF84E6 /* SystemUtil.swift */; };
-		036CAB211BB13967003310C4 /* YCFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB201BB13967003310C4 /* YCFilterService.m */; settings = {ASSET_TAGS = (); }; };
-		036CAB251BB1580E003310C4 /* YCFilterConditionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB241BB1580E003310C4 /* YCFilterConditionStore.m */; settings = {ASSET_TAGS = (); }; };
+		036CAB211BB13967003310C4 /* YCFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB201BB13967003310C4 /* YCFilterService.m */; };
+		036CAB251BB1580E003310C4 /* YCFilterConditionStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CAB241BB1580E003310C4 /* YCFilterConditionStore.m */; };
 		0376B67E1B187883005B5FFC /* YCCarFilterConditionEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0376B67D1B187883005B5FFC /* YCCarFilterConditionEntity.m */; };
 		038A561D1B26D591002FA96D /* changshi.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A560B1B26D591002FA96D /* changshi.png */; };
 		038A562B1B26D591002FA96D /* yaohao.png in Resources */ = {isa = PBXBuildFile; fileRef = 038A56191B26D591002FA96D /* yaohao.png */; };
@@ -133,28 +133,28 @@
 		03952DF61B05CA130055D36B /* YCCQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03952DF51B05CA130055D36B /* YCCQTests.m */; };
 		03A236B21B3026C80009F47A /* YCToolListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A236B11B3026C80009F47A /* YCToolListViewController.m */; };
 		03B6554F1B26F91100F28CAC /* shouhoubanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B655471B26F91100F28CAC /* shouhoubanner.png */; };
-		03B835BC1BCFB14A00EDB6B8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342D78E1B6760CD004BA466 /* NotificationCenter.framework */; settings = {ASSET_TAGS = (); }; };
+		03B835BC1BCFB14A00EDB6B8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0342D78E1B6760CD004BA466 /* NotificationCenter.framework */; };
 		03B835C61BCFB14A00EDB6B8 /* YCCPTodyExtenstion.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03B835BB1BCFB14A00EDB6B8 /* YCCPTodyExtenstion.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		03B835DE1BCFB20000EDB6B8 /* BaoKuanCarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835CB1BCFB20000EDB6B8 /* BaoKuanCarInfo.swift */; settings = {ASSET_TAGS = (); }; };
-		03B835DF1BCFB20000EDB6B8 /* CarInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835CC1BCFB20000EDB6B8 /* CarInfoService.swift */; settings = {ASSET_TAGS = (); }; };
-		03B835E01BCFB20000EDB6B8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B835CD1BCFB20000EDB6B8 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
-		03B835EB1BCFB20000EDB6B8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B835DB1BCFB20000EDB6B8 /* MainInterface.storyboard */; settings = {ASSET_TAGS = (); }; };
-		03B835EC1BCFB20000EDB6B8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835DC1BCFB20000EDB6B8 /* TodayViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		03B835ED1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 03B835DD1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements */; settings = {ASSET_TAGS = (); }; };
-		03B835FE1BCFC17F00EDB6B8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F01BCFC17F00EDB6B8 /* Alamofire.swift */; settings = {ASSET_TAGS = (); }; };
-		03B835FF1BCFC17F00EDB6B8 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F11BCFC17F00EDB6B8 /* Download.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836001BCFC17F00EDB6B8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F21BCFC17F00EDB6B8 /* Error.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836011BCFC17F00EDB6B8 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F31BCFC17F00EDB6B8 /* Manager.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836021BCFC17F00EDB6B8 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F41BCFC17F00EDB6B8 /* MultipartFormData.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836031BCFC17F00EDB6B8 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F51BCFC17F00EDB6B8 /* ParameterEncoding.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836041BCFC17F00EDB6B8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F61BCFC17F00EDB6B8 /* Request.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836051BCFC17F00EDB6B8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F71BCFC17F00EDB6B8 /* Response.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836061BCFC17F00EDB6B8 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F81BCFC17F00EDB6B8 /* ResponseSerialization.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836071BCFC17F00EDB6B8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F91BCFC17F00EDB6B8 /* Result.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836081BCFC17F00EDB6B8 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FA1BCFC17F00EDB6B8 /* ServerTrustPolicy.swift */; settings = {ASSET_TAGS = (); }; };
-		03B836091BCFC17F00EDB6B8 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FB1BCFC17F00EDB6B8 /* Stream.swift */; settings = {ASSET_TAGS = (); }; };
-		03B8360A1BCFC17F00EDB6B8 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FC1BCFC17F00EDB6B8 /* Upload.swift */; settings = {ASSET_TAGS = (); }; };
-		03B8360B1BCFC17F00EDB6B8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FD1BCFC17F00EDB6B8 /* Validation.swift */; settings = {ASSET_TAGS = (); }; };
+		03B835DE1BCFB20000EDB6B8 /* BaoKuanCarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835CB1BCFB20000EDB6B8 /* BaoKuanCarInfo.swift */; };
+		03B835DF1BCFB20000EDB6B8 /* CarInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835CC1BCFB20000EDB6B8 /* CarInfoService.swift */; };
+		03B835E01BCFB20000EDB6B8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03B835CD1BCFB20000EDB6B8 /* Info.plist */; };
+		03B835EB1BCFB20000EDB6B8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03B835DB1BCFB20000EDB6B8 /* MainInterface.storyboard */; };
+		03B835EC1BCFB20000EDB6B8 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835DC1BCFB20000EDB6B8 /* TodayViewController.swift */; };
+		03B835ED1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 03B835DD1BCFB20000EDB6B8 /* YCCPTodyExtenstion.entitlements */; };
+		03B835FE1BCFC17F00EDB6B8 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F01BCFC17F00EDB6B8 /* Alamofire.swift */; };
+		03B835FF1BCFC17F00EDB6B8 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F11BCFC17F00EDB6B8 /* Download.swift */; };
+		03B836001BCFC17F00EDB6B8 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F21BCFC17F00EDB6B8 /* Error.swift */; };
+		03B836011BCFC17F00EDB6B8 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F31BCFC17F00EDB6B8 /* Manager.swift */; };
+		03B836021BCFC17F00EDB6B8 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F41BCFC17F00EDB6B8 /* MultipartFormData.swift */; };
+		03B836031BCFC17F00EDB6B8 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F51BCFC17F00EDB6B8 /* ParameterEncoding.swift */; };
+		03B836041BCFC17F00EDB6B8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F61BCFC17F00EDB6B8 /* Request.swift */; };
+		03B836051BCFC17F00EDB6B8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F71BCFC17F00EDB6B8 /* Response.swift */; };
+		03B836061BCFC17F00EDB6B8 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F81BCFC17F00EDB6B8 /* ResponseSerialization.swift */; };
+		03B836071BCFC17F00EDB6B8 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835F91BCFC17F00EDB6B8 /* Result.swift */; };
+		03B836081BCFC17F00EDB6B8 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FA1BCFC17F00EDB6B8 /* ServerTrustPolicy.swift */; };
+		03B836091BCFC17F00EDB6B8 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FB1BCFC17F00EDB6B8 /* Stream.swift */; };
+		03B8360A1BCFC17F00EDB6B8 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FC1BCFC17F00EDB6B8 /* Upload.swift */; };
+		03B8360B1BCFC17F00EDB6B8 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B835FD1BCFC17F00EDB6B8 /* Validation.swift */; };
 		03C64BBB1B15D50D00848FCD /* YCNetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C64BBA1B15D50D00848FCD /* YCNetUtil.m */; };
 		03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC11B184999008FCF0F /* YCCarFilterViewController.m */; };
 		03C73DC51B1857D0008FCF0F /* YCBrandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C73DC41B1857D0008FCF0F /* YCBrandTableViewController.m */; };
@@ -245,6 +245,7 @@
 		03F3F77A1B32ACC40033C1A5 /* UMRadialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F75F1B32ACC40033C1A5 /* UMRadialView.m */; };
 		03F3F77B1B32ACC40033C1A5 /* UMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7611B32ACC40033C1A5 /* UMTextView.m */; };
 		03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */; };
+		86D6FE381C06AC8300392540 /* NSString+YCSubString.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FE371C06AC8300392540 /* NSString+YCSubString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -632,6 +633,8 @@
 		03F3F7621B32ACC40033C1A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 		03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMyViewController.h; sourceTree = "<group>"; };
 		03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMyViewController.m; sourceTree = "<group>"; };
+		86D6FE361C06AC8300392540 /* NSString+YCSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCSubString.h"; sourceTree = "<group>"; };
+		86D6FE371C06AC8300392540 /* NSString+YCSubString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCSubString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1325,6 +1328,8 @@
 				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
 				036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */,
 				03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */,
+				86D6FE361C06AC8300392540 /* NSString+YCSubString.h */,
+				86D6FE371C06AC8300392540 /* NSString+YCSubString.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1457,7 +1462,7 @@
 				TargetAttributes = {
 					03952DD21B05CA120055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = KT5DBD569C;
+						DevelopmentTeam = 33PU7VUFFJ;
 					};
 					03952DEE1B05CA130055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1465,7 +1470,7 @@
 					};
 					03B835BA1BCFB14A00EDB6B8 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = KT5DBD569C;
+						DevelopmentTeam = 33PU7VUFFJ;
 					};
 				};
 			};
@@ -1692,6 +1697,7 @@
 				03EE9F301B12FCF40051CC57 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03CFDD251B7D9D3400D98618 /* CarListLayoutUtil.swift in Sources */,
+				86D6FE381C06AC8300392540 /* NSString+YCSubString.m in Sources */,
 				03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */,
 				03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
@@ -2027,6 +2033,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.YCCPTodyExtenstion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2044,6 +2051,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.YCCPTodyExtenstion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 			};

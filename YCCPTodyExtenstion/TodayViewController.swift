@@ -20,6 +20,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.carImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageTapClick:"))
+        
         CarInfoService.baoKuanCarList({(list: [BaoKuanCarInfo]) in
             self.baokuanCarInfoList = list
             
@@ -52,7 +54,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if self.baokuanCarInfoList?.count > 0, let baokuanCarInfo = self.baokuanCarInfoList?[self.currentIndex] {
             
             let imageURLStr = "http://file.youche.com/_400_400" + baokuanCarInfo.pic!
-            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 if let data = NSData(contentsOfURL: NSURL(string: imageURLStr)!), let image = UIImage(data: data) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -89,5 +90,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             }
             self.showBaokuanCarInfoWithCurrentIndex()
         }
+    }
+    
+    func imageTapClick(sender: UITapGestureRecognizer) {
+        let baokuanCarID = String(stringInterpolationSegment: self.baokuanCarInfoList?[self.currentIndex].id)
+        self.extensionContext?.openURL(NSURL(string: "app://" + baokuanCarID)!, completionHandler:nil)
     }
 }
