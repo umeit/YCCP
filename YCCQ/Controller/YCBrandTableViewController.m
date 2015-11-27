@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.tableFooterView = [UIView new];
     self.carService = [[YCCarService alloc] init];
     
     [self showLodingView];

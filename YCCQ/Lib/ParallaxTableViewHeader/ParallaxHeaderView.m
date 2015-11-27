@@ -167,7 +167,7 @@ static CGFloat kLabelPaddingDist = 8.0f;
 - (UIView *)navBarView {
     if (!_navBarView) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 64)];
-        view.backgroundColor = [UIColor colorWithRed:244/255.0 green:46/255.0 blue:68/255.0 alpha:1];
+        view.backgroundColor = [UIColor colorWithRed:0.937 green:0.125 blue:0.231 alpha:0.98];
         view.hidden = YES;
         UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
         [window addSubview:view];
@@ -194,7 +194,9 @@ static CGFloat kLabelPaddingDist = 8.0f;
 
 - (void)callTel {
     NSString *callString = [NSString stringWithFormat:@"tel:%@", MainPhoneNum];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callString]];
+    UIWebView *web = [[UIWebView alloc] init];
+    [self addSubview:web];
+    [web loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:callString]]];
 }
 
 @end

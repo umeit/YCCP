@@ -10,10 +10,11 @@
 
 @class YCCarService;
 @class YCBannerService;
+@class QCAdsView;
 
 @interface YCHomeViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UIView *bannerView;
+@property (weak, nonatomic) IBOutlet QCAdsView *bannerView;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *baokuanCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *functionCollectionView;

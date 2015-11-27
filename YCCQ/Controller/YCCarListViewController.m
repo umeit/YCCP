@@ -75,11 +75,6 @@
 
 #pragma mark - Action
 
-- (void)tapBackground:(id)sender {
-    [self hideOptionTable];
-    self.optionTableViewDidShow = NO;
-}
-
 - (IBAction)phoneButtonPress:(id)sender
 {
     [self call:MainPhoneNum];
@@ -362,8 +357,6 @@
 
 - (void)createDarkBackgroundView {
     self.darkBackgroundView = [[UIView alloc] init];
-//    UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBackground:)];
-//    [self.darkBackgroundView addGestureRecognizer:gesture];
     self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
     self.darkBackgroundView.opaque = NO;
 }
@@ -388,6 +381,7 @@
                                                topBarFrame.origin.y + topBarFrame.size.height,
                                                scrollViewFrame.size.width,
                                                scrollViewFrame.size.height);
+    
 }
 
 - (void)showOptionTable {

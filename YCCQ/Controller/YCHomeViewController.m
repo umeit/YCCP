@@ -223,12 +223,13 @@
             [bannersPath addObject:banner.imageURL.absoluteString];
         }];
         
-        QCAdsView *bannerView = [QCAdsView adsViewWithWebImages:bannersPath];
-        [self.bannerView addSubview:bannerView];
-        [bannerView setImageTouchBlock:^(QCAdsView *adsView, NSInteger index) {
-            YCBannerEntity *bannner = self.banners[index];
-            if (bannner && [bannner.linkURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
-                [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情" showBottomBar:NO];
+        self.bannerView.adsImages = bannersPath;
+        [self.bannerView layoutIfNeeded];
+        __weak typeof(self) weakSelf = self;
+        [weakSelf.bannerView setImageTouchBlock:^(QCAdsView *adsView, NSInteger index) {
+            YCBannerEntity *banner = weakSelf.banners[index];
+            if (banner && [banner.linkURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
+                [weakSelf toWebViewWithURL:banner.linkURL controllerTitle:@"详情" showBottomBar:NO];
             }
         }];
         

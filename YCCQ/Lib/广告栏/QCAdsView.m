@@ -28,59 +28,8 @@
 @implementation QCAdsView
 
 #pragma mark - 初始化方法
-#pragma mark 需要再次设置图片数组
-+ (instancetype)adsView {
-    return [[self alloc] initWithFrame:VIEWFRAME];
-}
-#pragma mark 不需要再次设置图片数组
-- (instancetype)initWithImages:(NSArray *)adsImages {
-    if (self = [super initWithFrame:VIEWFRAME]) {
-        self.adsImages = adsImages;
-    }
-    return self;
-}
-+ (instancetype)adsViewWithImages:(NSArray *)adsImages {
-    return [[self alloc] initWithImages:adsImages];
-}
-#pragma mark 图片为网络图片
-- (instancetype)initWithWebImages:(NSArray *)webImages {
-    if (self = [super initWithFrame:VIEWFRAME]) {
-        self.isWeb = YES;
-        self.adsImages = webImages;
-    }
-    return self;
-}
-+ (instancetype)adsViewWithWebImages:(NSArray *)webImages {
-    return [[self alloc] initWithWebImages:webImages];
-}
-
-#pragma mark - 设置控件frame
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    self.frame = newSuperview.bounds;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    self.adsScroll.frame = self.bounds;
-    
-    CGFloat adsPageX = 0;
-    CGFloat adsPageY = CGRectGetHeight(self.bounds) - 20;
-    CGFloat adsPageW = CGRectGetWidth(self.bounds);
-    CGFloat adsPageH = 20;
-    self.adsPage.frame = CGRectMake(adsPageX, adsPageY, adsPageW, adsPageH);
-    
-    // imageView宽高
-    CGFloat imageViewW = CGRectGetWidth(self.adsScroll.frame);
-    CGFloat imageViewH = CGRectGetHeight(self.adsScroll.frame);
-    NSInteger i = 0;
-    for (UIImageView *imageView in self.adsScroll.subviews) {
-        if (imageView.alpha) {
-            imageView.frame = CGRectMake(imageViewW * i++, 0, imageViewW, imageViewH);
-        }
-        self.adsScroll.contentSize = CGSizeMake(CGRectGetMaxX(imageView.frame), 0);
-    }
-    self.adsScroll.contentOffset = CGPointMake(CGRectGetWidth(self.adsScroll.frame), 0);
+- (void)awakeFromNib {
+    self.isWeb = YES;
 }
 
 #pragma mark - 重写 setter 方法
@@ -96,6 +45,9 @@
     self.adsScroll.pagingEnabled = YES;
     self.adsScroll.delegate =self;
     
+    // imageView宽高
+    CGFloat imageViewW = CGRectGetWidth(self.adsScroll.frame);
+    CGFloat imageViewH = CGRectGetHeight(self.adsScroll.frame);
     for (int i = 0; i < adsImages.count + 2; i++) {
         // 获得图片名
         NSString *imageName;
@@ -119,7 +71,12 @@
         [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTap:)]];
         [self.adsScroll addSubview:imageView];
         
+        imageView.frame = CGRectMake(imageViewW * i, 0, imageViewW, imageViewH);
+        self.adsScroll.contentSize = CGSizeMake(CGRectGetMaxX(imageView.frame), 0);
+        
     }
+    self.adsScroll.contentOffset = CGPointMake(CGRectGetWidth(self.adsScroll.frame), 0);
+    
     
     // 设置UIPageControl属性
     self.adsPage.numberOfPages = adsImages.count;
@@ -154,7 +111,7 @@
 #pragma mark - 懒加载创建控件
 - (UIScrollView *)adsScroll {
     if (!_adsScroll) {
-        UIScrollView *adsScroll = [[UIScrollView alloc] init];
+        UIScrollView *adsScroll = [[UIScrollView alloc] initWithFrame:self.bounds];
         [self addSubview:adsScroll];
         _adsScroll = adsScroll;
     }
@@ -162,7 +119,11 @@
 }
 - (UIPageControl *)adsPage {
     if (!_adsPage) {
-        UIPageControl *adsPage = [[UIPageControl alloc] init];
+        CGFloat adsPageX = 0;
+        CGFloat adsPageY = CGRectGetHeight(self.bounds) - 20;
+        CGFloat adsPageW = CGRectGetWidth(self.bounds);
+        CGFloat adsPageH = 20;
+        UIPageControl *adsPage = [[UIPageControl alloc] initWithFrame:CGRectMake(adsPageX, adsPageY, adsPageW, adsPageH)];
         [self addSubview:adsPage];
         _adsPage = adsPage;
     }
@@ -173,7 +134,6 @@
 /** 广告栏滚动协议方法 */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self turnPage:scrollView];
-    _timer.fireDate = [NSDate distantPast];
 }
 /** 滑动动画结束 */
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
@@ -206,7 +166,7 @@
 }
 // 手动拖动时暂停计时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    _timer.fireDate = [NSDate distantFuture];
+    _timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
 }
 
 #pragma mark - 点击图片回调

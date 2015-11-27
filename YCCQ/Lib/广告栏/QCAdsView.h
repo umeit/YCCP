@@ -50,23 +50,4 @@
 
 
 
-/**
- *  初始化方法，需要自己设置图片数组
- */
-+ (instancetype)adsView;
-
-
-- (instancetype)initWithImages:(NSArray *)adsImages;
-+ (instancetype)adsViewWithImages:(NSArray *)adsImages;
-
-
-/**
- *  图片为网络图片时使用该方法
- *
- *  @param webImages 网络图片地址 数组
- */
-- (instancetype)initWithWebImages:(NSArray *)webImages;
-+ (instancetype)adsViewWithWebImages:(NSArray *)webImages;
-
-
 @end
