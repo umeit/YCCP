@@ -147,7 +147,6 @@
 /** 每*秒滚动广告栏 */
 - (void)rollAdvertise {
     [self.adsScroll setContentOffset:CGPointMake(self.adsScroll.contentOffset.x + CGRectGetWidth(self.adsScroll.frame), 0) animated:YES];
-    NSLog(@"213");
 }
 /** 翻页方法 */
 - (void)turnPage:(UIScrollView *)scrollView {
