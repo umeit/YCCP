@@ -93,7 +93,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func imageTapClick(sender: UITapGestureRecognizer) {
-        let baokuanCarID = String(stringInterpolationSegment: self.baokuanCarInfoList?[self.currentIndex].id)
+        let baokuanCarID = String(self.baokuanCarInfoList?[self.currentIndex].id)
         self.extensionContext?.openURL(NSURL(string: "app://" + baokuanCarID)!, completionHandler:nil)
     }
 }

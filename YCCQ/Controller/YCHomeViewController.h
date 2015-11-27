@@ -12,8 +12,9 @@
 @class YCBannerService;
 
 @interface YCHomeViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UIScrollView *bannerScrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *bannerPageControl;
+
+@property (weak, nonatomic) IBOutlet UIView *bannerView;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *baokuanCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *functionCollectionView;
 @property (weak, nonatomic) IBOutlet UIPageControl *functionPageControl;

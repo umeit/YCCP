@@ -29,6 +29,7 @@
 #import "YCCQ-Swift.h"
 #import "YCFilterConditionStore.h"
 #import "YCCarFilterConditionEntity.h"
+#import "QCAdsView.h"
 
 #define Banner_Row_Index    0
 #define Function_Row_Index  1
@@ -77,6 +78,7 @@
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:PageIndex];
 //    [self.view setNeedsUpdateConstraints];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -115,14 +117,6 @@
     [self setBaokuan];
     
     [self.refreshControl endRefreshing];
-}
-
-/** 进入 banner 所指链接 */
-- (void)bannerDidTouch:(UIButton *)bannerButton {
-    YCBannerEntity *bannner = self.banners[bannerButton.tag];
-    if (bannner && [bannner.linkURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
-        [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情" showBottomBar:NO];
-    }
 }
 
 /** 选择品牌 */
@@ -223,27 +217,19 @@
 - (void)setBanner
 {
     [self.bannerService bannersWithBlock:^(NSArray * banners) {
-        // 往 ScrollView 中添加图片
+        
+        NSMutableArray *bannersPath = [NSMutableArray array];
         [banners enumerateObjectsUsingBlock:^(YCBannerEntity *banner, NSUInteger idx, BOOL *stop) {
-            UIButton *button = [[UIButton alloc] initWithFrame:
-                                CGRectMake(CGRectGetWidth(self.bannerScrollView.frame) * idx,
-                                           0,
-                                           CGRectGetWidth(self.bannerScrollView.frame),
-                                           CGRectGetHeight(self.bannerScrollView.frame))];
-            button.contentMode = UIViewContentModeScaleAspectFill;
-            [button setBackgroundImageForState:UIControlStateNormal withURL:banner.imageURL];
-            [button addTarget:self
-                       action:@selector(bannerDidTouch:)
-             forControlEvents:UIControlEventTouchUpInside];
-            button.tag = idx;
-            [self.bannerScrollView addSubview:button];
-            
-            // 图片的数量
-            NSInteger imagesCount = [banners count];
-            self.bannerPageControl.numberOfPages = imagesCount;
-            // ScrollView 的大小
-            self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bannerScrollView.frame) * imagesCount,
-                                                           CGRectGetHeight(self.bannerScrollView.frame));
+            [bannersPath addObject:banner.imageURL.absoluteString];
+        }];
+        
+        QCAdsView *bannerView = [QCAdsView adsViewWithWebImages:bannersPath];
+        [self.bannerView addSubview:bannerView];
+        [bannerView setImageTouchBlock:^(QCAdsView *adsView, NSInteger index) {
+            YCBannerEntity *bannner = self.banners[index];
+            if (bannner && [bannner.linkURL stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length) {
+                [self toWebViewWithURL:bannner.linkURL controllerTitle:@"详情" showBottomBar:NO];
+            }
         }];
         
         self.banners = banners;
@@ -373,11 +359,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger pageIndex = scrollView.contentOffset.x / CGRectGetWidth(scrollView.frame);
-    if (scrollView == self.bannerScrollView) {
-        self.bannerPageControl.currentPage = pageIndex;
-    }
-    else if (scrollView == self.functionCollectionView) {
+    if (scrollView == self.functionCollectionView) {
         if (IS_OS_9_OR_LATER) {
             [self.functionCollectionView reloadData];
         }

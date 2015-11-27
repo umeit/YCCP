@@ -140,6 +140,7 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     if ([url.absoluteString hasPrefix:@"app://"]) {
         NSString *carID = [url.absoluteString YCSubStringFromString:@"(" toString:@")"];
+//        NSString *carID = [url.absoluteString substringFromIndex:6];
         YCWebViewController *webVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YCWebViewController"];
         webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml?t=app", carID];
         webVC.navigationItem.title = @"车辆详情";
