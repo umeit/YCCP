@@ -48,6 +48,7 @@
  */
 @property (nonatomic, copy) void(^imageTouchBlock)(QCAdsView *adsView, NSInteger index);
 
-
+- (void)startRoll;
+- (void)stopRoll;
 
 @end

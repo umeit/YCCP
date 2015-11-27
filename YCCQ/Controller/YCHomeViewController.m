@@ -78,7 +78,7 @@
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:PageIndex];
 //    [self.view setNeedsUpdateConstraints];
-    
+    [self.bannerView startRoll];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,6 +88,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:PageIndex];
+    [self.bannerView stopRoll];
 }
 
 
@@ -224,7 +225,6 @@
         }];
         
         self.bannerView.adsImages = bannersPath;
-        [self.bannerView layoutIfNeeded];
         __weak typeof(self) weakSelf = self;
         [weakSelf.bannerView setImageTouchBlock:^(QCAdsView *adsView, NSInteger index) {
             YCBannerEntity *banner = weakSelf.banners[index];

@@ -147,6 +147,7 @@
 /** 每*秒滚动广告栏 */
 - (void)rollAdvertise {
     [self.adsScroll setContentOffset:CGPointMake(self.adsScroll.contentOffset.x + CGRectGetWidth(self.adsScroll.frame), 0) animated:YES];
+    NSLog(@"213");
 }
 /** 翻页方法 */
 - (void)turnPage:(UIScrollView *)scrollView {
@@ -167,6 +168,16 @@
 // 手动拖动时暂停计时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
+}
+
+- (void)startRoll {
+    if (self.adsImages.count) {
+        [self createTimer:2];
+    }
+}
+- (void)stopRoll {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 #pragma mark - 点击图片回调
