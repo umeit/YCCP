@@ -16,7 +16,11 @@
 #import "YCFilterConditionStore.h"
 #import "YCCarFilterConditionEntity.h"
 
+#define optionTableViewY CGRectGetMaxY(self.barView.frame)
+
 @interface YCCarListViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *barView;
 
 @property (nonatomic) NSMutableDictionary *orderButtonStatus;
 @property (strong, nonatomic) UIWebView *callWebView;
@@ -32,7 +36,6 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(conditionDidFinish) name:@"FilterConditionFinish" object:nil];
-    
     self.carListWebView.delegate = self;
     
     if (!self.carListURL) {
@@ -359,6 +362,12 @@
     self.darkBackgroundView = [[UIView alloc] init];
     self.darkBackgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
     self.darkBackgroundView.opaque = NO;
+    [self.darkBackgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(drakBackTap:)]];
+}
+
+- (void)drakBackTap:(UITapGestureRecognizer *)tap {
+    [self hideOptionTable];
+    self.optionTableViewDidShow = NO;
 }
 
 - (void)createOptionTableView {
@@ -397,17 +406,17 @@
                      }];
     
     // 显示选项列表
-    [self.darkBackgroundView addSubview:self.optionTableView];
+    [self.view addSubview:self.optionTableView];
     CGFloat tableViewHeight = self.sortItemList.count * 36;
     [UIView animateWithDuration:0.2
                      animations:^{
                          self.optionTableView.frame = CGRectMake(0,
-                                                                 0,
+                                                                 optionTableViewY,
                                                                  self.view.frame.size.width,
                                                                  tableViewHeight);
                      } completion:^(BOOL finished) {
                          self.optionTableView.frame = CGRectMake(0,
-                                                                 0,
+                                                                 optionTableViewY,
                                                                  self.view.frame.size.width,
                                                                  tableViewHeight);
                      }];

@@ -6873,6 +6873,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barView" destination="r0E-67-9en" id="hyB-h8-Hqv"/>
                         <outlet property="carListWebView" destination="MJz-ca-AKf" id="o4f-vI-6gl"/>
                         <outlet property="mileageArrowImageView" destination="x0J-o9-KdM" id="Hg9-R1-KiV"/>
                         <outlet property="priceArrowImageView" destination="gHP-RG-oen" id="wK2-8a-otD"/>
