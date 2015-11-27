@@ -11,6 +11,7 @@
 
 #import "ParallaxHeaderView.h"
 #import "UIImage+ImageEffects.h"
+#import "UtilDefine.h"
 
 @interface ParallaxHeaderView ()
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
@@ -58,6 +59,11 @@ static CGFloat kLabelPaddingDist = 8.0f;
 {
     CGRect frame = self.imageScrollView.frame;
     
+    if (offset.y > minShowNavBarViewHeight) {
+        self.navBarView.hidden = NO;
+    } else {
+        self.navBarView.hidden = YES;
+    }
     if (offset.y > 0)
     {
         frame.origin.y = MAX(offset.y *kParallaxDeltaFactor, 0);
@@ -155,6 +161,40 @@ static CGFloat kLabelPaddingDist = 8.0f;
     UIGraphicsEndImageContext();
     
     return image;
+}
+
+#pragma mark -懒加载
+- (UIView *)navBarView {
+    if (!_navBarView) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 64)];
+        view.backgroundColor = [UIColor colorWithRed:244/255.0 green:46/255.0 blue:68/255.0 alpha:1];
+        view.hidden = YES;
+        UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+        [window addSubview:view];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(view.frame), 44)];
+        label.textColor = [UIColor whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = @"优车诚品";
+        [view addSubview:label];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(CGRectGetWidth(view.frame) - 40, 0, 30, 30);
+        CGPoint center = button.center;
+        center.y = CGRectGetHeight(view.frame) * 0.5 + 10;
+        button.center = center;
+        [button setImage:[UIImage imageNamed:@"dianhua"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(callTel) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+        
+        _navBarView = view;
+    }
+    return _navBarView;
+}
+
+- (void)callTel {
+    NSString *callString = [NSString stringWithFormat:@"tel:%@", MainPhoneNum];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callString]];
 }
 
 @end

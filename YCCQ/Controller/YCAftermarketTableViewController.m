@@ -41,6 +41,21 @@
     [self.callWebView removeFromSuperview];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.tableView.contentOffset.y > minShowNavBarViewHeight) {
+        [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:NO];
+    } else {
+        [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:YES];
+    }
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
