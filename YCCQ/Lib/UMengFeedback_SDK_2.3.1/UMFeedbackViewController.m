@@ -17,6 +17,11 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+#import <AssetsLibrary/ALAsset.h>
+#import <AssetsLibrary/ALAssetsLibrary.h>
+#import <AssetsLibrary/ALAssetsGroup.h>
+#import <AssetsLibrary/ALAssetRepresentation.h>
+
 //#import "MessagesBubbleImageFactory.h"
 //#import "UIColor+JSQMessages.h"
 //#import <AFNetworking.h>
@@ -634,10 +639,21 @@ const CGFloat kMessagesInputToolbarHeightDefault = 44.0f;
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary
         || picker.sourceType == UIImagePickerControllerSourceTypeSavedPhotosAlbum)
     {
-        UIImage *image = info[UIImagePickerControllerOriginalImage];
-        
-        [_feedback post:@{UMFeedbackMediaTypeImage: image}];
-        
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
+                 resultBlock:^(ALAsset *asset)
+         {
+             ALAssetRepresentation *representation = [asset defaultRepresentation];
+             CGImageRef imgRef = [representation fullResolutionImage];
+             UIImage *image = [UIImage imageWithCGImage:imgRef
+                                                  scale:representation.scale
+                                            orientation:(UIImageOrientation)representation.orientation];
+             
+             [_feedback post:@{UMFeedbackMediaTypeImage: image}];
+             
+         }failureBlock:^(NSError *error){
+             NSLog(@"couldn't get asset: %@", error);
+         }];
         [picker dismissModalViewControllerAnimated:YES];
     }
     
