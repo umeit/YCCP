@@ -650,6 +650,7 @@
 		03F3F7621B32ACC40033C1A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 		03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMyViewController.h; sourceTree = "<group>"; };
 		03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMyViewController.m; sourceTree = "<group>"; };
+		86784E6F1C0EF0D100D65A14 /* YCCQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YCCQ.entitlements; sourceTree = "<group>"; };
 		86AA07EA1C07FF4E00E1D408 /* QCAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAdsView.h; sourceTree = "<group>"; };
 		86AA07EB1C07FF4E00E1D408 /* QCAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAdsView.m; sourceTree = "<group>"; };
 		86AA08881C08019900E1D408 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -1009,6 +1010,7 @@
 		03952DD51B05CA120055D36B /* YCCQ */ = {
 			isa = PBXGroup;
 			children = (
+				86784E6F1C0EF0D100D65A14 /* YCCQ.entitlements */,
 				036CAB221BB157D3003310C4 /* Store */,
 				03109AAA1B1F0ACB00356FB3 /* Enum */,
 				0376B67A1B186CCE005B5FFC /* Protocol */,
@@ -1566,6 +1568,11 @@
 					03952DD21B05CA120055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = KT5DBD569C;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					03952DEE1B05CA130055D36B = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1574,6 +1581,11 @@
 					03B835BA1BCFB14A00EDB6B8 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = KT5DBD569C;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -2023,6 +2035,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -2054,7 +2067,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5a1e9b98-e508-4c7f-9ce2-fd29af3be3b8";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2066,6 +2079,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -2097,7 +2111,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5a1e9b98-e508-4c7f-9ce2-fd29af3be3b8";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 			};
 			name = Release;
@@ -2144,6 +2158,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = YCCPTodyExtenstion/YCCPTodyExtenstion.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2151,9 +2166,9 @@
 				INFOPLIST_FILE = YCCPTodyExtenstion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.YCCPTodyExtenstion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "361a631f-4137-4ca5-835f-e3266b815b4f";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2164,14 +2179,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = YCCPTodyExtenstion/YCCPTodyExtenstion.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
 				INFOPLIST_FILE = YCCPTodyExtenstion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.YCCPTodyExtenstion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "361a631f-4137-4ca5-835f-e3266b815b4f";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 			};
