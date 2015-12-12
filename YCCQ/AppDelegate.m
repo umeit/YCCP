@@ -57,7 +57,13 @@
     // 设置QQ 分享
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
     
+    application.applicationIconBadgeNumber = 0;
+    
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -70,10 +76,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -101,9 +103,10 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
         UIUserNotificationSettings *settings =
         [UIUserNotificationSettings settingsForTypes:
-         (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)
+         (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound)
                                           categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
         
     } else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
@@ -114,9 +117,21 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     [[AppKeFuLib sharedInstance] uploadDeviceToken:deviceToken];
+    
+    NSString *deviceTokenString = [[[[deviceToken description] stringByReplacingOccurrencesOfString:@"<"withString:@""] stringByReplacingOccurrencesOfString:@">" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:deviceTokenString forKey:@"device"];
+    [userDefaults synchronize];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
+}
+
+// iOS7 以后用这个处理后台任务接收到得远程通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
 }
@@ -125,7 +140,6 @@
 {
     NSLog(@"注册推送失败，原因：%@",error);
 }
-
 
 #pragma mark - Private
 
@@ -140,7 +154,6 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     if ([url.absoluteString hasPrefix:@"app://"]) {
         NSString *carID = [url.absoluteString YCSubStringFromString:@"(" toString:@")"];
-//        NSString *carID = [url.absoluteString substringFromIndex:6];
         YCWebViewController *webVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YCWebViewController"];
         webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml?t=app", carID];
         webVC.navigationItem.title = @"车辆详情";

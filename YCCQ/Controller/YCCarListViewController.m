@@ -170,6 +170,8 @@
                  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                  [userDefaults setObject:text forKey:@"UserPhoneNum"];
                  
+                 NSString *device = [userDefaults objectForKey:@"device"];
+                 
                  [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@')", jsFunctionName, text?:@"", carID?:@""]];
              }];
         }

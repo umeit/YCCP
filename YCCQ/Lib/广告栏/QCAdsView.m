@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 QC. All rights reserved.
 //
 
-#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
-#define VIEWFRAME CGRectMake(0, 0, SCREENWIDTH, 165)
-
 #import "QCAdsView.h"
 #import "UIImageView+WebCache.h"
 
@@ -141,6 +138,9 @@
 }
 /** 创建计时器 */
 - (void)createTimer:(NSTimeInterval)duration {
+    [self.timer invalidate];
+    self.timer = nil;
+    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(rollAdvertise) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }

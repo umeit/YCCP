@@ -9,13 +9,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define minShowNavBarViewHeight 80
-
 @interface ParallaxHeaderView : UIView
 @property (nonatomic) IBOutlet UILabel *headerTitleLabel;
 @property (nonatomic) UIImage *headerImage;
-
-@property (nonatomic, weak) UIView *navBarView;
 
 + (id)parallaxHeaderViewWithImage:(UIImage *)image forSize:(CGSize)headerSize;
 + (id)parallaxHeaderViewWithSubView:(UIView *)subView;

@@ -10,6 +10,9 @@
 #import "YCAftermarketEntity.h"
 #import "YCAfterMarketCell.h"
 #import "ParallaxHeaderView.h"
+#import "UtilDefine.h"
+
+#define minShowNavBarViewHeight 80
 
 @interface YCAftermarketTableViewController ()
 
@@ -41,21 +44,6 @@
     [self.callWebView removeFromSuperview];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (self.tableView.contentOffset.y > minShowNavBarViewHeight) {
-        [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:NO];
-    } else {
-        [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:YES];
-    }
-
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[(ParallaxHeaderView *)self.tableView.tableHeaderView navBarView] setHidden:YES];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -80,7 +68,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     YCAftermarketEntity *aftermarket = self.aftermarkets[indexPath.row];
     NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@",aftermarket.tel];
     self.callWebView = [[UIWebView alloc] init];
@@ -94,6 +81,11 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == self.tableView) {
+        if (scrollView.contentOffset.y > minShowNavBarViewHeight) {
+            self.navigationController.navigationBarHidden = NO;
+        } else {
+            self.navigationController.navigationBarHidden = YES;
+        }
         [(ParallaxHeaderView *)self.tableView.tableHeaderView
          layoutHeaderViewForScrollViewOffset:scrollView.contentOffset];
     }
@@ -203,6 +195,13 @@
                           aftermarket13, aftermarket14, aftermarket15, aftermarket16,
                           aftermarket17, aftermarket18, aftermarket19, aftermarket20,
                           aftermarket21, aftermarket22, aftermarket23];
+}
+
+- (IBAction)callTel {
+    NSString *callString = [NSString stringWithFormat:@"tel:%@", MainPhoneNum];
+    UIWebView *web = [[UIWebView alloc] init];
+    [self.view addSubview:web];
+    [web loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:callString]]];
 }
 
 @end
