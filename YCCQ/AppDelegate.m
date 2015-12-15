@@ -17,6 +17,7 @@
 
 #import "YCWebViewController.h"
 #import "NSString+YCSubString.h"
+#import "UITabBar+badge.h"
 
 #define FirstLaunch @"FirstLaunch"
 
@@ -57,17 +58,14 @@
     // 设置QQ 分享
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
     
-    application.applicationIconBadgeNumber = 0;
+    [self showOrHideMyControllerBadge:launchOptions];
     
+    application.applicationIconBadgeNumber = 0;
     return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    application.applicationIconBadgeNumber = 0;
-}
-
 - (void)applicationWillResignActive:(UIApplication *)application {
-
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -128,12 +126,14 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
+    [self showOrHideMyControllerBadge:userInfo];
 }
 
 // iOS7 以后用这个处理后台任务接收到得远程通知
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
+    [self showOrHideMyControllerBadge:userInfo];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -142,12 +142,18 @@
 }
 
 #pragma mark - Private
-
 - (BOOL)isFirestLaunch
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
     return ![userDefaults boolForKey:FirstLaunch];
+}
+
+- (void)showOrHideMyControllerBadge:(NSDictionary *)launchOptions {
+    if (launchOptions[@"aps"]) {
+        UITabBarController *tab = (UITabBarController *)self.window.rootViewController;
+        [tab.tabBar showBadgeOnItemIndex:MyControllerIndex];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ShowDepreciateCarNotification object:nil];
+    }
 }
 
 #pragma mark - 今天跳转

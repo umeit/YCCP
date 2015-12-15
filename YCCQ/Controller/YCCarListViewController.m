@@ -96,7 +96,6 @@
         [self showOptionTable];
         self.optionTableViewDidShow = YES;
     }
-    
 }
 
 - (IBAction)brandButtonPress:(id)sender {
@@ -170,16 +169,14 @@
                  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                  [userDefaults setObject:text forKey:@"UserPhoneNum"];
                  
-                 NSString *device = [userDefaults objectForKey:@"device"];
-                 
-                 [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@')", jsFunctionName, text?:@"", carID?:@""]];
+                 [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@','%@','%@')", jsFunctionName, text?:@"", carID?:@"", [userDefaults objectForKey:@"device"]?:@""]];
              }];
         }
         // 页面获取手机号
         else if ([dicArg[@"f"] isEqualToString:@"getPhoneNum"]) {
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             NSString *userPhoneNum = [userDefaults stringForKey:@"UserPhoneNum"];
-            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@')", jsFunctionName, userPhoneNum?:@""]];
+            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@('%@', '%@')", jsFunctionName, userPhoneNum?:@"", [userDefaults objectForKey:@"device"]?:@""]];
         }
         return NO;
     }

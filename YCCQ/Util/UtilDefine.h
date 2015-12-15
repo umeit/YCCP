@@ -47,4 +47,8 @@
 
 #define QQAppKey           @"hGFosnqSbCrmFDi4"
 
+#define ShowDepreciateCarNotification @"ShowDepreciateCarNotification"
+
+#define MyControllerIndex  4
+
 #endif

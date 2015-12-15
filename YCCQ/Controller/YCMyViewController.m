@@ -11,14 +11,23 @@
 #import "YCWebViewController.h"
 #import "UIViewController+GViewController.h"
 #import "UtilDefine.h"
+#import "UITabBar+badge.h"
 
 @interface YCMyViewController ()
 
 @property (strong, nonatomic) UIWebView *callWebView;
+@property (weak, nonatomic) IBOutlet UILabel *depreciateCarL;
 
 @end
 
 @implementation YCMyViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ShowDepreciateCar) name:ShowDepreciateCarNotification object:nil];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +41,10 @@
     self.callWebView = nil;
     
     [super viewWillDisappear:animated];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Action
@@ -51,6 +64,7 @@
             case 0:
                 [self toWebViewWithURL:@"http://m.youche.com/collect/show?t=app"
                        controllerTitle:@"我的收藏"];
+                [self hideBadge];
                 break;
             case 1:
             {
@@ -94,5 +108,18 @@
     webViewController.webPageURL = url;
     webViewController.navigationItem.title = title;
     [self.navigationController pushViewController:webViewController animated:YES];
+}
+
+- (void)hideBadge {
+    self.depreciateCarL.hidden = YES;
+    UIApplication *application = [UIApplication sharedApplication];
+//    application.applicationIconBadgeNumber = 0;
+    UITabBarController *tab = (UITabBarController *)application.keyWindow.rootViewController;
+    [tab.tabBar hideBadgeOnItemIndex:MyControllerIndex];
+}
+
+- (void)ShowDepreciateCar {
+    [self view];
+    self.depreciateCarL.hidden = NO;
 }
 @end

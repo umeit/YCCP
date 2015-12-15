@@ -245,6 +245,7 @@
 		03F3F77A1B32ACC40033C1A5 /* UMRadialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F75F1B32ACC40033C1A5 /* UMRadialView.m */; };
 		03F3F77B1B32ACC40033C1A5 /* UMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7611B32ACC40033C1A5 /* UMTextView.m */; };
 		03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */; };
+		8659920D1C1E9C9C0035FE72 /* UITabBar+badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */; };
 		86AA07EC1C07FF4E00E1D408 /* QCAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA07EB1C07FF4E00E1D408 /* QCAdsView.m */; };
 		86AA08A91C08019900E1D408 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA08891C08019900E1D408 /* MKAnnotationView+WebCache.m */; };
 		86AA08AA1C08019900E1D408 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA088B1C08019900E1D408 /* NSData+ImageContentType.m */; };
@@ -650,6 +651,8 @@
 		03F3F7621B32ACC40033C1A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMFeedbackLocalizable.strings"; sourceTree = "<group>"; };
 		03F3F77C1B32AE290033C1A5 /* YCMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMyViewController.h; sourceTree = "<group>"; };
 		03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMyViewController.m; sourceTree = "<group>"; };
+		8659920B1C1E9C9C0035FE72 /* UITabBar+badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+badge.h"; sourceTree = "<group>"; };
+		8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+badge.m"; sourceTree = "<group>"; };
 		86784E6F1C0EF0D100D65A14 /* YCCQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YCCQ.entitlements; sourceTree = "<group>"; };
 		86AA07EA1C07FF4E00E1D408 /* QCAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAdsView.h; sourceTree = "<group>"; };
 		86AA07EB1C07FF4E00E1D408 /* QCAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAdsView.m; sourceTree = "<group>"; };
@@ -1386,6 +1389,8 @@
 				03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */,
 				86D6FE361C06AC8300392540 /* NSString+YCSubString.h */,
 				86D6FE371C06AC8300392540 /* NSString+YCSubString.m */,
+				8659920B1C1E9C9C0035FE72 /* UITabBar+badge.h */,
+				8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1837,6 +1842,7 @@
 				0339D87A1B293C0F00EC2EF5 /* YCFieldTableViewCell.m in Sources */,
 				03A236B21B3026C80009F47A /* YCToolListViewController.m in Sources */,
 				03EE9F181B12FC260051CC57 /* AFURLRequestSerialization.m in Sources */,
+				8659920D1C1E9C9C0035FE72 /* UITabBar+badge.m in Sources */,
 				86AA08AF1C08019900E1D408 /* SDWebImageDownloaderOperation.m in Sources */,
 				036BCB961B79EFB000AF84E6 /* HomeLayoutUtil.swift in Sources */,
 				03EE9F151B12FC260051CC57 /* AFNetworkReachabilityManager.m in Sources */,
@@ -2037,50 +2043,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xing chen (GY2D8J28TS)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SDKROOT}/usr/include/libxml2",
-				);
-				INFOPLIST_FILE = YCCQ/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YCCQ/Lib/AppKeFuLib",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMAnalytics_Sdk_3.5.8",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMengFeedback_SDK_2.3.1",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMengFeedback_SDK_2.3.1/UMOpus",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_4.2.3",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/Wechat",
-				);
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-lstdc++",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b2a51d3-69d5-4275-8825-8d214c64a438";
-				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		03952DFB1B05CA130055D36B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
@@ -2111,7 +2073,51 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b2a51d3-69d5-4275-8825-8d214c64a438";
+				PROVISIONING_PROFILE = "512e4c67-7255-4d87-9471-508906dac589";
+				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		03952DFB1B05CA130055D36B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = YCCQ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YCCQ/Lib/AppKeFuLib",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMAnalytics_Sdk_3.5.8",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMengFeedback_SDK_2.3.1",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMengFeedback_SDK_2.3.1/UMOpus",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_4.2.3",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/YCCQ/Lib/UMSocial_Sdk_Extra_Frameworks/Wechat",
+				);
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lstdc++",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "512e4c67-7255-4d87-9471-508906dac589";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 			};
 			name = Release;
@@ -2168,7 +2174,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3bc3231a-e9ba-4682-aaca-5e10e741f11f";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2187,7 +2193,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3bc3231a-e9ba-4682-aaca-5e10e741f11f";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 			};
