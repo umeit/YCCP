@@ -12,6 +12,7 @@
 #import "UIViewController+GViewController.h"
 #import "UtilDefine.h"
 #import "UITabBar+badge.h"
+#import "YCPushService.h"
 
 @interface YCMyViewController ()
 
@@ -111,11 +112,18 @@
 }
 
 - (void)hideBadge {
-    self.depreciateCarL.hidden = YES;
-    UIApplication *application = [UIApplication sharedApplication];
-//    application.applicationIconBadgeNumber = 0;
-    UITabBarController *tab = (UITabBarController *)application.keyWindow.rootViewController;
-    [tab.tabBar hideBadgeOnItemIndex:MyControllerIndex];
+    if (!self.depreciateCarL.hidden) {
+        self.depreciateCarL.hidden = YES;
+        UIApplication *application = [UIApplication sharedApplication];
+        application.applicationIconBadgeNumber = 0;
+        UITabBarController *tab = (UITabBarController *)application.keyWindow.rootViewController;
+        [tab.tabBar hideBadgeOnItemIndex:MyControllerIndex];
+        [YCPushService lookPushWithBlock:^(BOOL success, NSString *msg) {
+            if (success) {
+                NSLog(@"成功");
+            }
+        }];
+    }
 }
 
 - (void)ShowDepreciateCar {

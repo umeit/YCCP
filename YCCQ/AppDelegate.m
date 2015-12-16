@@ -59,13 +59,7 @@
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
     
     [self showOrHideMyControllerBadge:launchOptions];
-    
-    application.applicationIconBadgeNumber = 0;
     return YES;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -73,6 +67,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    [self showOrHideMyControllerBadge:nil];
     [[AppKeFuLib sharedInstance] loginWithAppkey:WeiKeFuAPPKey];
 }
 
@@ -149,7 +144,7 @@
 }
 
 - (void)showOrHideMyControllerBadge:(NSDictionary *)launchOptions {
-    if (launchOptions[@"aps"]) {
+    if ([UIApplication sharedApplication].applicationIconBadgeNumber || launchOptions) {
         UITabBarController *tab = (UITabBarController *)self.window.rootViewController;
         [tab.tabBar showBadgeOnItemIndex:MyControllerIndex];
         [[NSNotificationCenter defaultCenter] postNotificationName:ShowDepreciateCarNotification object:nil];

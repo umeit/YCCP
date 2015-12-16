@@ -246,6 +246,7 @@
 		03F3F77B1B32ACC40033C1A5 /* UMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F7611B32ACC40033C1A5 /* UMTextView.m */; };
 		03F3F77E1B32AE290033C1A5 /* YCMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F3F77D1B32AE290033C1A5 /* YCMyViewController.m */; };
 		8659920D1C1E9C9C0035FE72 /* UITabBar+badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */; };
+		86A1F82A1C211115002A9479 /* YCPushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A1F8291C211115002A9479 /* YCPushService.m */; };
 		86AA07EC1C07FF4E00E1D408 /* QCAdsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA07EB1C07FF4E00E1D408 /* QCAdsView.m */; };
 		86AA08A91C08019900E1D408 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA08891C08019900E1D408 /* MKAnnotationView+WebCache.m */; };
 		86AA08AA1C08019900E1D408 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA088B1C08019900E1D408 /* NSData+ImageContentType.m */; };
@@ -654,6 +655,8 @@
 		8659920B1C1E9C9C0035FE72 /* UITabBar+badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+badge.h"; sourceTree = "<group>"; };
 		8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+badge.m"; sourceTree = "<group>"; };
 		86784E6F1C0EF0D100D65A14 /* YCCQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YCCQ.entitlements; sourceTree = "<group>"; };
+		86A1F8281C211115002A9479 /* YCPushService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPushService.h; sourceTree = "<group>"; };
+		86A1F8291C211115002A9479 /* YCPushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPushService.m; sourceTree = "<group>"; };
 		86AA07EA1C07FF4E00E1D408 /* QCAdsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAdsView.h; sourceTree = "<group>"; };
 		86AA07EB1C07FF4E00E1D408 /* QCAdsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAdsView.m; sourceTree = "<group>"; };
 		86AA08881C08019900E1D408 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -803,6 +806,8 @@
 				0310343B1B623DC4005AE18A /* YCUserService.m */,
 				036CAB1F1BB13967003310C4 /* YCFilterService.h */,
 				036CAB201BB13967003310C4 /* YCFilterService.m */,
+				86A1F8281C211115002A9479 /* YCPushService.h */,
+				86A1F8291C211115002A9479 /* YCPushService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1785,6 +1790,7 @@
 				03DB7B261B1706060021E43E /* YCCarListViewController.m in Sources */,
 				03EE9F321B12FCF40051CC57 /* UIButton+AFNetworking.m in Sources */,
 				03D751AF1B39592200AAA71C /* YCOilPriceViewController.m in Sources */,
+				86A1F82A1C211115002A9479 /* YCPushService.m in Sources */,
 				03F3F7741B32ACC40033C1A5 /* UMFeedbackViewController.m in Sources */,
 				031034391B6236AD005AE18A /* YCCouponViewController.m in Sources */,
 				86AA08AA1C08019900E1D408 /* NSData+ImageContentType.m in Sources */,
@@ -2073,7 +2079,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "512e4c67-7255-4d87-9471-508906dac589";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2086,8 +2092,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2117,7 +2123,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "512e4c67-7255-4d87-9471-508906dac589";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 			};
 			name = Release;
@@ -2174,7 +2180,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3bc3231a-e9ba-4682-aaca-5e10e741f11f";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2193,7 +2199,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.youche.youcheapp.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3bc3231a-e9ba-4682-aaca-5e10e741f11f";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCPTodyExtenstion/YCCPTodyExtenstion-Bridging-Header.h";
 			};
