@@ -102,10 +102,10 @@
 
 - (IBAction)storeButtonPress:(UIButton *)button {
     if (button.tag == 0) {
-        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address03" controllerTitle:@"店铺地址" showBottomBar:NO];
+        [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address03"] controllerTitle:@"店铺地址" showBottomBar:NO];
     }
     else {
-        [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app#address02" controllerTitle:@"店铺地址" showBottomBar:NO];
+        [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address02"] controllerTitle:@"店铺地址" showBottomBar:NO];
     }
 }
 
@@ -318,13 +318,13 @@
 /** 显示车辆列表，根据选择的筛选条件 */
 - (void)toCarListViewWithKey:(NSString *)key
 {
-    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"http://m.youche.com/%@/", key]];
+    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"%@%@/", BaseURL, key]];
 }
 
 /** 显示车辆列表，根据选择的价格筛选条件 */
 - (void)toCarListViewWithPriceKey:(NSString *)priceKey
 {
-    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"http://m.youche.com/ershouche/%@", priceKey]];
+    [self toCarListViewWithCarListURL:[NSString stringWithFormat:@"%@ershouche/%@", BaseURL, priceKey]];
 }
 
 - (void)toCarListViewWithCarListURL:(NSString *)url
@@ -349,7 +349,7 @@
     YCCarFilterConditionEntity *carFilterConditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
     NSString *key = [carFilterConditionEntity.brandValue isEqualToString:@"all"] ? @"" :carFilterConditionEntity.brandValue;
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
-    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", key];
+    carListViewController.carListURL = [NSString stringWithFormat:@"%@%@/", BaseURL, key];
     carListViewController.hidesBottomBarWhenPushed = YES;
     
     NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
@@ -431,7 +431,7 @@
     else if (collectionView == self.functionCollectionView) {
         switch (indexPath.row) {
             case 0:  // 我要买车
-                [self toCarListViewWithCarListURL:@"http://m.youche.com/ershouche/"];
+                [self toCarListViewWithCarListURL:[BaseURL stringByAppendingString:@"ershouche/"]];
                 break;
             case 1:  // 道路救援
                 [self call:@"400-835-6650"];
@@ -452,10 +452,10 @@
                 [self toConsultationViewControllerWithWorkgroup:@"accident" title:@"事故咨询"];
                 break;
             case 7:  // 门店地址
-                [self toWebViewWithURL:@"http://m.youche.com/about/address.shtml?t=app" controllerTitle:@"店铺地址" showBottomBar:NO];
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app"] controllerTitle:@"店铺地址" showBottomBar:NO];
                 break;
             case 8:  // 代办车险
-                [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app" controllerTitle:@"代办车险" showBottomBar:NO];
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/insurance?t=app"] controllerTitle:@"代办车险" showBottomBar:NO];
                 break;
             case 9:  // 预约咨询
                 [self call:@"13718233424"];
@@ -464,16 +464,16 @@
                 [self pushViewControllerWithStoryBoardID:@"YCOilPriceViewController" title:@"今日油价"];
                 break;
             case 11:  // 预约检测
-                [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app" controllerTitle:@"预约检测" showBottomBar:NO];
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/evaluate?t=app"] controllerTitle:@"预约检测" showBottomBar:NO];
                 break;
             case 12:  // 上门收车
-                [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app" controllerTitle:@"上门收车" showBottomBar:NO];
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/salecar?t=app"] controllerTitle:@"上门收车" showBottomBar:NO];
                 break;
             case 13:  // 售后咨询
                 [self toConsultationViewControllerWithWorkgroup:@"aftersales" title:@"售后咨询"];
                 break;
             case 14:  // 延保服务
-                [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/warranty.shtml?t=app"]
                        controllerTitle:@"延保服务"
                          showBottomBar:NO];
                 break;
@@ -540,7 +540,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
 - (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType
 {
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
-    carListViewController.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", condition[@"CV"]];
+    carListViewController.carListURL = [NSString stringWithFormat:@"%@%@/", BaseURL, condition[@"CV"]];
     carListViewController.hidesBottomBarWhenPushed = YES;
     NSMutableArray *controllers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
     [controllers setObject:carListViewController atIndexedSubscript:1];

@@ -14,6 +14,7 @@
 #import "YCWebViewController.h"
 #import "YCFilterConditionStore.h"
 #import "YCCarFilterConditionEntity.h"
+#import "UtilDefine.h"
 
 @interface YCEvaluateCarFilterController ()
 
@@ -45,7 +46,7 @@
         YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
         NSString *dateCondition = [NSString stringWithFormat:@"%@-%@-01", filterCondition.yearNumValue, filterCondition.monthValue];
         
-        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", self.dataList[2][@"value"], dateCondition, filterCondition.brandID, filterCondition.seriesID, filterCondition.modelID];
+        webVC.webPageURL = [NSString stringWithFormat:@"%@service/evaluateresult/?distance=%@&regDate=%@&brandID=%@&seriesID=%@&modelID=%@&callback=evalCallback&t=app", BaseURL, self.dataList[2][@"value"], dateCondition, filterCondition.brandID, filterCondition.seriesID, filterCondition.modelID];
         webVC.navigationItem.title = @"估价结果";
         [self.navigationController pushViewController:webVC animated:YES];
     }

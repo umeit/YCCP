@@ -9,18 +9,23 @@
 #import "YCPushService.h"
 #import "AFHTTPRequestOperationManager.h"
 
-#ifdef DEBUG
-#define LookPushURL @"http://172.16.0.10:7223/m/pusher/lookPush?device=%@"
-#else
-#define LookPushURL @"http://appapi.youche.com/m/pusher/lookPush?device=%@"
-#endif
+//#ifdef DEBUG
+//#define LookPushURL @"http://172.17.149.194:8888/m/push/markread?device=%@"
+//#else
+#define LookPushURL @"http://appapi.youche.com/m/push/markread?device=%@"
+//#endif
 
 @implementation YCPushService
 
 + (void)lookPushWithBlock:(lookPushBlock)block
 {
-    [[AFHTTPRequestOperationManager manager] GET:[NSString stringWithFormat:LookPushURL, [[NSUserDefaults standardUserDefaults] objectForKey:@"device"]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//#ifdef DEBUG
+//    [manager.requestSerializer setValue:@"appapi.youche.com" forHTTPHeaderField:@"Host"];
+//#endif
+    [manager GET:[NSString stringWithFormat:LookPushURL, [[NSUserDefaults standardUserDefaults] objectForKey:@"device"]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (block) {
+            NSLog(@"%@", responseObject);
             NSString *status = responseObject[@"v"][@"status"];
             if ([status isEqualToString:@"success"]) {
                 block(YES, @"");
@@ -32,8 +37,8 @@
         if (block) {
             block(NO, @"网络不给力啊");
         }
+        NSLog(@"%@", error);
     }];
-     
 }
 
 @end

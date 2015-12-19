@@ -51,4 +51,12 @@
 
 #define MyControllerIndex  4
 
+
+//#ifdef DEBUG
+//#define BaseURL @"http://172.17.149.194:8888/"
+//#else
+#define BaseURL @"http://m.youche.com/"
+//#endif
+
+
 #endif

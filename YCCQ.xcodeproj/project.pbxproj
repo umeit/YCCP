@@ -264,7 +264,7 @@
 		86AA08B61C08019900E1D408 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA08A41C08019900E1D408 /* UIImageView+HighlightedWebCache.m */; };
 		86AA08B71C08019900E1D408 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA08A61C08019900E1D408 /* UIImageView+WebCache.m */; };
 		86AA08B81C08019900E1D408 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AA08A81C08019900E1D408 /* UIView+WebCacheOperation.m */; };
-		86D6FE381C06AC8300392540 /* NSString+YCSubString.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FE371C06AC8300392540 /* NSString+YCSubString.m */; };
+		86D6FE381C06AC8300392540 /* NSString+YCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D6FE371C06AC8300392540 /* NSString+YCString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -692,8 +692,8 @@
 		86AA08A61C08019900E1D408 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		86AA08A71C08019900E1D408 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		86AA08A81C08019900E1D408 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		86D6FE361C06AC8300392540 /* NSString+YCSubString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCSubString.h"; sourceTree = "<group>"; };
-		86D6FE371C06AC8300392540 /* NSString+YCSubString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCSubString.m"; sourceTree = "<group>"; };
+		86D6FE361C06AC8300392540 /* NSString+YCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCString.h"; sourceTree = "<group>"; };
+		86D6FE371C06AC8300392540 /* NSString+YCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1392,8 +1392,8 @@
 				03EBA69C1B3A5DB100F2F3BF /* YCUserUtil.m */,
 				036BCB9A1B79F00400AF84E6 /* YCCQ-Bridging-Header.h.h */,
 				03CFDD241B7D9D3400D98618 /* CarListLayoutUtil.swift */,
-				86D6FE361C06AC8300392540 /* NSString+YCSubString.h */,
-				86D6FE371C06AC8300392540 /* NSString+YCSubString.m */,
+				86D6FE361C06AC8300392540 /* NSString+YCString.h */,
+				86D6FE371C06AC8300392540 /* NSString+YCString.m */,
 				8659920B1C1E9C9C0035FE72 /* UITabBar+badge.h */,
 				8659920C1C1E9C9C0035FE72 /* UITabBar+badge.m */,
 			);
@@ -1832,7 +1832,7 @@
 				86AA08B71C08019900E1D408 /* UIImageView+WebCache.m in Sources */,
 				03EE9F2F1B12FCF40051CC57 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				03CFDD251B7D9D3400D98618 /* CarListLayoutUtil.swift in Sources */,
-				86D6FE381C06AC8300392540 /* NSString+YCSubString.m in Sources */,
+				86D6FE381C06AC8300392540 /* NSString+YCString.m in Sources */,
 				03EBA69D1B3A5DB100F2F3BF /* YCUserUtil.m in Sources */,
 				03C73DC21B184999008FCF0F /* YCCarFilterViewController.m in Sources */,
 				03952DDC1B05CA120055D36B /* AppDelegate.m in Sources */,
@@ -2048,8 +2048,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: xing chen (GY2D8J28TS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xing chen (GY2D8J28TS)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2079,7 +2079,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "94a6f0e9-4e5d-4e99-bb2e-56c1d23422ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2093,7 +2093,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YCCQ/YCCQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BeijingYouche Network Technology Co. Ltd. (KT5DBD569C)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2123,7 +2123,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "94a6f0e9-4e5d-4e99-bb2e-56c1d23422ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "YCCQ/Util/YCCQ-Bridging-Header.h.h";
 			};
 			name = Release;

@@ -6,14 +6,22 @@
 //  Copyright © 2015年 Baisika. All rights reserved.
 //
 
-#import "NSString+YCSubString.h"
+#import "NSString+YCString.h"
 
-@implementation NSString (YCSubString)
+@implementation NSString (YCString)
 
 - (NSString *)YCSubStringFromString:(NSString *)from toString:(NSString *)to {
     NSRange fromRange = [self rangeOfString:from];
     NSRange toRange = [self rangeOfString:to];
     return [self substringWithRange:NSMakeRange(fromRange.location + 1, toRange.location - fromRange.location - 1)];
+}
+
+- (NSString *)YCDeleteLastPathOfT {
+    NSString *carListURL;
+    if (![self hasSuffix:@"ershouche/"]) {
+        carListURL = [self stringByDeletingLastPathComponent];
+    }
+    return carListURL;
 }
 
 @end

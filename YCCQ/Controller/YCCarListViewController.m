@@ -15,6 +15,7 @@
 #import "YCFilterTableViewController.h"
 #import "YCFilterConditionStore.h"
 #import "YCCarFilterConditionEntity.h"
+#import "NSString+YCString.h"
 
 #define optionTableViewY CGRectGetMaxY(self.barView.frame)
 
@@ -185,7 +186,7 @@
 
 - (void)conditionDidFinish
 {
-    NSString *url = [NSString stringWithFormat:@"http://m.youche.com/%@",
+    NSString *url = [NSString stringWithFormat:@"%@%@", BaseURL,
                      [self urlWithCondition:[YCFilterConditionStore sharedInstance].carListFilterCondition]];
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?t=app"]]]];
 }
@@ -229,12 +230,12 @@
                 self.orderButtonStatus[@"price"] = @NO;
 //                [self arrowUp:self.priceArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o2?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o2?t=app"]]]];
             } else {
                 self.orderButtonStatus[@"price"] = @YES;
 //                [self arrowDown:self.priceArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o1?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o1?t=app"]]]];
             }
             break;
             
@@ -243,12 +244,12 @@
                 self.orderButtonStatus[@"age"] = @NO;
                 //                [self arrowUp:self.mileageArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o4?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o4?t=app"]]]];
             } else {
                 self.orderButtonStatus[@"age"] = @YES;
                 //                [self arrowDown:self.mileageArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o3?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o3?t=app"]]]];
             }
 
             break;
@@ -258,12 +259,12 @@
                 self.orderButtonStatus[@"mileage"] = @NO;
 //                [self arrowUp:self.mileageArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o6?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o6?t=app"]]]];
             } else {
                 self.orderButtonStatus[@"mileage"] = @YES;
 //                [self arrowDown:self.mileageArrowImageView];
                 [self.carListWebView loadRequest:
-                 [NSURLRequest requestWithURL:[NSURL URLWithString:[self.carListURL stringByAppendingString:@"o5?t=app"]]]];
+                 [NSURLRequest requestWithURL:[NSURL URLWithString:[[self.carListURL YCDeleteLastPathOfT] stringByAppendingString:@"/o5?t=app"]]]];
             }
             break;
         default:
@@ -279,10 +280,10 @@
 
 - (void)selecteConditionFinish:(NSDictionary *)condition filterType:(CarFilterType)filterType {
     if (filterType == PriceType) {
-        self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/ershouche/%@", condition[@"CV"] ];
+        self.carListURL = [NSString stringWithFormat:@"%@ershouche/%@", BaseURL, condition[@"CV"] ];
     }
     else {
-        self.carListURL = [NSString stringWithFormat:@"http://m.youche.com/%@/", condition[@"CV"] ];
+        self.carListURL = [NSString stringWithFormat:@"%@%@/", BaseURL, condition[@"CV"] ];
     }
     NSString *url = [self.carListURL stringByAppendingString:@"?t=app"];
     [self.carListWebView loadRequest:
@@ -445,7 +446,7 @@
 }
 
 - (NSString *)defaultURL {
-    return @"http://m.youche.com/ershouche/";
+    return [BaseURL stringByAppendingString:@"ershouche/"];
 }
 
 - (void)arrowUp:(UIImageView *)arrowImage {

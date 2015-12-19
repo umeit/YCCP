@@ -59,7 +59,7 @@
                                      shareImage:[UIImage imageNamed:@"share_icon"]
                                 shareToSnsNames:@[UMShareToQQ, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
                                        delegate:self];
-    NSString *shareURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml", self.carID];
+    NSString *shareURL = [NSString stringWithFormat:@"%@detail/%@.shtml", BaseURL, self.carID];
     
     [UMSocialData defaultData].extConfig.wechatSessionData.url = shareURL;
     [UMSocialData defaultData].extConfig.wechatTimelineData.url = shareURL;
@@ -76,7 +76,7 @@
 
 - (IBAction)orderButtonPress:(id)sender {
     YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
-    webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/yuyue?yuyueType=1&carID=%@&t=app", self.carID];
+    webVC.webPageURL = [NSString stringWithFormat:@"%@yuyue?yuyueType=1&carID=%@&t=app", BaseURL, self.carID];
     webVC.navigationItem.title = @"车辆信息";
     [self.navigationController pushViewController:webVC animated:YES];
 }

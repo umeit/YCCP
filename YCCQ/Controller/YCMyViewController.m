@@ -63,7 +63,7 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:
-                [self toWebViewWithURL:@"http://m.youche.com/collect/show?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"collect/show?t=app"]
                        controllerTitle:@"我的收藏"];
                 [self hideBadge];
                 break;
@@ -82,7 +82,7 @@
     else if (indexPath.section == 1) {
         switch (indexPath.row) {
             case 0:
-                [self toWebViewWithURL:@"http://m.youche.com/about/aboutme.shtml?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/aboutme.shtml?t=app"]
                        controllerTitle:@"关于优车"];
                 break;
                 

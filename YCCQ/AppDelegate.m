@@ -16,7 +16,7 @@
 #import "UMSocialSnsService.h"
 
 #import "YCWebViewController.h"
-#import "NSString+YCSubString.h"
+#import "NSString+YCString.h"
 #import "UITabBar+badge.h"
 
 #define FirstLaunch @"FirstLaunch"
@@ -59,6 +59,7 @@
     [UMSocialQQHandler setQQWithAppId:QQAppID appKey:QQAppKey url:@"http://www.youche.com"];
     
     [self showOrHideMyControllerBadge:launchOptions];
+    
     return YES;
 }
 
@@ -85,7 +86,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return  [UMSocialSnsService handleOpenURL:url];
+    return [UMSocialSnsService handleOpenURL:url];
 }
 
 #pragma mark - APNs
@@ -121,6 +122,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
+    application.applicationIconBadgeNumber += 1;
     [self showOrHideMyControllerBadge:userInfo];
 }
 
@@ -128,6 +130,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSLog(@"收到推送消息。这里主要起到通知的作用，用户进入应用后，服务器会再次推送即时通讯消息");
+    application.applicationIconBadgeNumber += 1;
     [self showOrHideMyControllerBadge:userInfo];
 }
 
@@ -156,7 +159,7 @@
     if ([url.absoluteString hasPrefix:@"app://"]) {
         NSString *carID = [url.absoluteString YCSubStringFromString:@"(" toString:@")"];
         YCWebViewController *webVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"YCWebViewController"];
-        webVC.webPageURL = [NSString stringWithFormat:@"http://m.youche.com/detail/%@.shtml?t=app", carID];
+        webVC.webPageURL = [NSString stringWithFormat:@"%@detail/%@.shtml?t=app", BaseURL, carID];
         webVC.navigationItem.title = @"车辆详情";
         webVC.showBottomBar = YES;
         UITabBarController *tab = (UITabBarController *)self.window.rootViewController;

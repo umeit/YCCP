@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (YCSubString)
+@interface NSString (YCString)
 
 - (NSString *)YCSubStringFromString:(NSString *)from toString:(NSString *)to;
+
+- (NSString *)YCDeleteLastPathOfT;
 
 @end

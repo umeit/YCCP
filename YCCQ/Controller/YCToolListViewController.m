@@ -88,7 +88,7 @@
                 [self toEvaluateCar];
                 break;
             case 1:
-                [self toWebViewWithURL:@"http://m.youche.com/service/insurance?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/insurance?t=app"]
                        controllerTitle:@"代办车险"];
                 break;
             case 2:
@@ -103,15 +103,15 @@
     else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0:
-                [self toWebViewWithURL:@"http://m.youche.com/service/salecar?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/salecar?t=app"]
                        controllerTitle:@"上门收车"];
                 break;
             case 1:
-                [self toWebViewWithURL:@"http://m.youche.com/service/evaluate?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/evaluate?t=app"]
                        controllerTitle:@"预约检测"];
                 break;
             case 2:
-                [self toWebViewWithURL:@"http://m.youche.com/service/warranty.shtml?t=app"
+                [self toWebViewWithURL:[BaseURL stringByAppendingString:@"service/warranty.shtml?t=app"]
                        controllerTitle:@"延保服务"];
                 break;
             default:
