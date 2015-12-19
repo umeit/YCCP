@@ -267,7 +267,8 @@
 - (NSArray *)storeTypeList {
     return @[@{@"name": @"不限",    @"value":@""},
              @{@"name": @"亦庄店", @"value":@"i2"},
-             @{@"name": @"来广营店",   @"value":@"i3"}];
+             @{@"name": @"来广营店",   @"value":@"i3"},
+             @{@"name": @"天津店",   @"value":@"i4"}];
 }
 
 - (NSArray *)yearNumTypeList

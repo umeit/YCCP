@@ -241,17 +241,17 @@
             }
             
             NSDictionary *dic = self.dataList[indexPath.section - 1][@"key2"][indexPath.row];
-            
+            NSString *enname = [dic[@"enname"] isEqualToString:@"all"]?@"":dic[@"enname"];
             switch (self.conditionType) {
                 case CarListFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 case CarListSimpleFileterConditionType:
                     [[YCFilterConditionStore sharedInstance] clearCarListFilterCondition];
-                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carListConditionBrandName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 case CarEvaluateFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carEvaConditionBranName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionBranName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 default:
                     break;
@@ -279,13 +279,13 @@
         case SeriesType:
         {
             NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
-            
+            NSString *enname = [dic[@"enname"] isEqualToString:@"all"]?@"":dic[@"enname"];
             switch (self.conditionType) {
                 case CarListFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carListConditionSeriesName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carListConditionSeriesName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 case CarEvaluateFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carEvaConditionSeriesName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionSeriesName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 default:
                     break;
@@ -307,13 +307,13 @@
         case ModelType:
         {
             NSDictionary *dic = self.dataList[indexPath.section][@"key2"][indexPath.row];
-            
+            NSString *enname = [dic[@"enname"] isEqualToString:@"all"]?@"":dic[@"enname"];
             switch (self.conditionType) {
                 case CarListFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carListConditionModelName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carListConditionModelName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 case CarEvaluateFilterConditionType:
-                    [[YCFilterConditionStore sharedInstance] carEvaConditionModelName:dic[@"title"] value:dic[@"enname"] ID:dic[@"id"]];
+                    [[YCFilterConditionStore sharedInstance] carEvaConditionModelName:dic[@"title"] value:enname ID:dic[@"id"]];
                     break;
                 default:
                     break;

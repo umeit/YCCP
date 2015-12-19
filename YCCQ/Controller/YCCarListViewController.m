@@ -188,6 +188,7 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", BaseURL,
                      [self urlWithCondition:[YCFilterConditionStore sharedInstance].carListFilterCondition]];
+    NSLog(@"%@", url);
     [self.carListWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[url stringByAppendingString:@"?t=app"]]]];
 }
 
@@ -304,19 +305,19 @@
         [url appendString:currentFilterCondition.carTypeValue];
         // 品牌
         if (currentFilterCondition.brandValue.length) {
-            [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
+            [url appendString:currentFilterCondition.brandValue];
         }
     }
     // 没选类型
     // 品牌
     else if (currentFilterCondition.brandValue.length) {
-        [url appendString:[currentFilterCondition.brandValue isEqualToString:@"all"] ? @"" :currentFilterCondition.brandValue];
+        [url appendString:currentFilterCondition.brandValue];
         // 车系
         if (currentFilterCondition.seriesValue.length) {
-            [url appendString:[currentFilterCondition.seriesValue isEqualToString:@"all"] ? @"" :currentFilterCondition.seriesValue];
+            [url appendString:currentFilterCondition.seriesValue];
             // 车型
             if (currentFilterCondition.modelValue.length) {
-                [url appendString:[currentFilterCondition.modelValue isEqualToString:@"all"] ? @"" :currentFilterCondition.modelValue];
+                [url appendString:currentFilterCondition.modelValue];
             }
         }
     }
@@ -353,6 +354,9 @@
     }
     // 门店
     if (currentFilterCondition.storeValue.length) {
+        if ([currentFilterCondition.storeValue isEqualToString:@"i4"]) {
+            [url insertString:@"tj/" atIndex:0];
+        }
         [url appendString:currentFilterCondition.storeValue];
     }
     return url;

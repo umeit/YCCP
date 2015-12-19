@@ -347,7 +347,7 @@
 - (void)selectedBrandFinish
 {
     YCCarFilterConditionEntity *carFilterConditionEntity = [YCFilterConditionStore sharedInstance].carListFilterCondition;
-    NSString *key = [carFilterConditionEntity.brandValue isEqualToString:@"all"] ? @"" :carFilterConditionEntity.brandValue;
+    NSString *key = carFilterConditionEntity.brandValue;
     YCCarListViewController *carListViewController = (YCCarListViewController *)[self controllerWithStoryBoardID:@"YCCarListViewController"];
     carListViewController.carListURL = [NSString stringWithFormat:@"%@%@/", BaseURL, key];
     carListViewController.hidesBottomBarWhenPushed = YES;
