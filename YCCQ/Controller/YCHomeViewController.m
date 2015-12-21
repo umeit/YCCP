@@ -104,8 +104,11 @@
     if (button.tag == 0) {
         [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address03"] controllerTitle:@"店铺地址" showBottomBar:NO];
     }
-    else {
+    else if (button.tag == 1){
         [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address02"] controllerTitle:@"店铺地址" showBottomBar:NO];
+    }
+    else if (button.tag == 2){
+        [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address04"] controllerTitle:@"店铺地址" showBottomBar:NO];
     }
 }
 
@@ -260,6 +263,10 @@
     cell.carSeriesLabel.text = entity.series;
     cell.carPriceLabel.text = entity.price;
     cell.oldPriceLabel.text = [NSString stringWithFormat:@"优车原价%@万", entity.oldPrice];
+    if (iPhone5 || iPhone4) {
+        cell.carPriceLabel.font = [UIFont systemFontOfSize:16];
+        cell.oldPriceLabel.font = [UIFont systemFontOfSize:10];
+    }
 }
 
 
@@ -506,7 +513,15 @@
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(8, 8, 12, 8);
+    if (collectionView == self.functionCollectionView) {
+        if (iPhone5 || iPhone4) {
+            return UIEdgeInsetsMake(8, 0, 12, 14);
+        }
+        else {
+            return UIEdgeInsetsMake(8, 8, 12, 8);
+        }
+    }
+    return UIEdgeInsetsMake(8, 14, 12, 14);
 }
 
 

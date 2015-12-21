@@ -82,7 +82,7 @@
     self.adsPage.enabled = NO;
     
     // 创建计时器
-    [self createTimer:3];
+    [self createTimer:4];
 }
 #pragma mark 页码背景颜色 setter 方法
 - (void)setPageColor:(UIColor *)pageColor {
@@ -166,12 +166,12 @@
 }
 // 手动拖动时暂停计时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    _timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
+    _timer.fireDate = [NSDate dateWithTimeIntervalSinceNow:4];
 }
 
 - (void)startRoll {
     if (self.adsImages.count) {
-        [self createTimer:3];
+        [self createTimer:4];
     }
 }
 - (void)stopRoll {

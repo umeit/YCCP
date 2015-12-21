@@ -42,7 +42,7 @@ class HomeLayoutUtil : NSObject {
             return CGSizeMake(190, 180);
         }
         else {
-            return CGSizeMake(150, 150);
+            return CGSizeMake(140, 140);
         }
     }
     
@@ -53,7 +53,7 @@ class HomeLayoutUtil : NSObject {
             case Banner_Row_Index:
                 return 170
             case Function_Row_Index:
-                return 248
+                return 304
             case Hot_Row_Index:
                 return 206
             case Baokuan_Row_Index:
@@ -73,7 +73,7 @@ class HomeLayoutUtil : NSObject {
             case Banner_Row_Index:
                 return 170
             case Function_Row_Index:
-                return 268
+                return 344
             case Hot_Row_Index:
                 return 206
             case Baokuan_Row_Index:
@@ -93,7 +93,7 @@ class HomeLayoutUtil : NSObject {
             case Banner_Row_Index:
                 return 150
             case Function_Row_Index:
-                return 238
+                return 278
             case Hot_Row_Index:
                 return 172
             case Baokuan_Row_Index:
