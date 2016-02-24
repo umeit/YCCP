@@ -17,11 +17,10 @@
 }
 
 - (NSString *)YCDeleteLastPathOfT {
-    NSString *carListURL;
     if (![self hasSuffix:@"ershouche/"]) {
-        carListURL = [self stringByDeletingLastPathComponent];
+        return [self stringByDeletingLastPathComponent];
     }
-    return carListURL;
+    return self;
 }
 
 @end

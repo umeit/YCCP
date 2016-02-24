@@ -21,9 +21,9 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "qd4.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "qd4.png",
       "scale" : "2x"
     },
     {

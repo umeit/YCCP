@@ -16,6 +16,7 @@
 
 @interface YCWebViewController () <UMSocialUIDelegate>
 @property (strong, nonatomic) UIWebView *callWebView;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 @end
 
 @implementation YCWebViewController
@@ -37,10 +38,15 @@
     [super viewWillAppear:animated];
     
     if (self.showBottomBar) {
-         self.bottomBarBackgroundView.hidden = NO;
+        self.tabBarController.tabBar.hidden = YES;
+        self.bottomBarBackgroundView.hidden = NO;
     }
     else {
         self.bottomBarBackgroundView.hidden = YES;
+    }
+    
+    if ([self.navigationItem.title isEqualToString:@"保存模板"]) {
+        self.downloadButton.hidden = NO;
     }
 }
 
@@ -85,6 +91,9 @@
     [self call:@"4000-990-888"];
 }
 
+- (IBAction)downloadButtonPress {
+    UIImageWriteToSavedPhotosAlbum([self captureScrollView:self.webView.scrollView], self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+}
 
 #pragma mark - Web view delegate
 
@@ -105,7 +114,6 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType {
-    
     NSURL * url = [request URL];
     if ([[url scheme] isEqualToString:@"youcheapp"]) {
         
@@ -122,6 +130,20 @@
             YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
             webVC.webPageURL = dicArg[@"args"][0];
             webVC.navigationItem.title = @"车辆信息";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        // 跳转分享模板页
+        else if ([dicArg[@"f"] isEqualToString:@"toTemplates"]) {
+            YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            webVC.webPageURL = dicArg[@"args"][0];
+            webVC.navigationItem.title = @"选择模板";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+        // 跳转模板图片页
+        else if ([dicArg[@"f"] isEqualToString:@"toFinalTemplate"]) {
+            YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            webVC.webPageURL = dicArg[@"args"][0];
+            webVC.navigationItem.title = @"保存模板";
             [self.navigationController pushViewController:webVC animated:YES];
         }
         // 页面请求手机号，与显示用户收藏的车辆
@@ -177,6 +199,40 @@
 - (void)call:(NSString *)tel {
     NSString *str = [NSString stringWithFormat:@"tel:%@", tel];
     [self.callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+}
+// 生成webView截图
+- (UIImage *)captureScrollView:(UIScrollView *)scrollView {
+    UIImage* image = nil;
+    UIGraphicsBeginImageContext(scrollView.contentSize);
+    {
+        CGPoint savedContentOffset = scrollView.contentOffset;
+        CGRect savedFrame = scrollView.frame;
+        scrollView.contentOffset = CGPointZero;
+        scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+        
+        [scrollView.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        scrollView.contentOffset = savedContentOffset;
+        scrollView.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
+    
+    if (image != nil) {
+        return image;
+    }
+    return nil;
+}
+// 保存图片到相册指定回调方法
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *msg = nil ;
+    if(error != NULL){
+        msg = @"保存图片失败" ;
+    }else{
+        msg = @"保存图片成功" ;
+    }
+    [self showCustomTextAlert:msg];
 }
 
 @end
