@@ -8,7 +8,7 @@
 
 import UIKit
 
-let iPhone5 = CGSizeEqualToSize(CGSizeMake(640, 11361), UIScreen.mainScreen().currentMode!.size)
+let iPhone5 = CGSizeEqualToSize(CGSizeMake(640, 1136), UIScreen.mainScreen().currentMode!.size)
 
 let iPhone6Standard = CGSizeEqualToSize(CGSizeMake(750, 1334), UIScreen.mainScreen().currentMode!.size)
 
