@@ -110,6 +110,9 @@
     else if (button.tag == 2){
         [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address04"] controllerTitle:@"店铺地址" showBottomBar:NO];
     }
+    else if (button.tag == 3){
+        [self toWebViewWithURL:[BaseURL stringByAppendingString:@"about/address.shtml?t=app#address05"] controllerTitle:@"店铺地址" showBottomBar:NO];
+    }
 }
 
 - (IBAction)phoneButtonPress:(id)sender {

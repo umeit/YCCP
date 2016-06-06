@@ -36,6 +36,20 @@
     if (_adsImages == adsImages) return;
     
     _adsImages = adsImages;
+    if (adsImages.count == 1) {
+        NSString *imageName = [adsImages lastObject];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        if (self.isWeb) {
+            [imageView sd_setImageWithURL:[NSURL URLWithString:imageName]];
+        }
+        else {
+            imageView.image = [UIImage imageNamed:imageName];
+        }
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTap:)]];
+        [self addSubview:imageView];
+        return;
+    }
     
     // 添加到scrollView中
     self.adsScroll.showsHorizontalScrollIndicator = NO;

@@ -268,7 +268,8 @@
     return @[@{@"name": @"不限",    @"value":@""},
              @{@"name": @"亦庄店", @"value":@"i2"},
              @{@"name": @"来广营店",   @"value":@"i3"},
-             @{@"name": @"天津店",   @"value":@"i4"}];
+             @{@"name": @"天津店",   @"value":@"i4"},
+             @{@"name": @"包头店",   @"value":@"i5"}];
 }
 
 - (NSArray *)yearNumTypeList
@@ -277,7 +278,7 @@
     NSInteger unitFlags = NSYearCalendarUnit;
     NSDateComponents *comps = [calendar components:unitFlags fromDate:[NSDate date]];
     NSInteger year = comps.year;
-    
+
     NSMutableArray *arr = [NSMutableArray array];
     
     for (NSInteger i = 0; i < 20; i ++) {
