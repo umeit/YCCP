@@ -151,7 +151,8 @@
         NSString *jsFunctionName = dicArg[@"calls"];
         // 前往详情页
         if ([dicArg[@"f"] isEqualToString:@"toDetail"]) {
-             YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            YCWebViewController *webVC = [self controllerWithStoryBoardID:@"YCWebViewController"];
+            NSLog(@"%@", dicArg[@"args"][0]);
             webVC.webPageURL = dicArg[@"args"][0];
             webVC.navigationItem.title = @"车辆详情";
             webVC.showBottomBar = YES;
